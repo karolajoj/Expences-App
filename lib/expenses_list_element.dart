@@ -4,8 +4,8 @@ class ExpensesListElement {
   final dynamic kategoria;
   final dynamic produkt;
   final dynamic ilosc;
-  final dynamic cenaZaSztuke;
-  final dynamic iloscWMiara;
+  final dynamic cena;
+  final dynamic miara;
   final dynamic iloscWOpakowaniu;
   final dynamic kosztDostawy;
 
@@ -15,16 +15,9 @@ class ExpensesListElement {
     required this.kategoria,
     required this.produkt,
     required this.ilosc,
-    required this.cenaZaSztuke,
-    required this.iloscWMiara,
+    required this.cena,
+    required this.miara,
     required this.iloscWOpakowaniu,
     required this.kosztDostawy,
   });
-
-  @override
-  String toString() {
-    return 'Data: $data, Sklep: $sklep, Kategoria: $kategoria, Produkt: $produkt, '
-        'Ilość: $ilosc, Cena za sztukę: $cenaZaSztuke, Ilość w (ml,g,mm,cm): $iloscWMiara, '
-        'Ilość w opakowaniu: $iloscWOpakowaniu, Koszt dostawy: $kosztDostawy';
-  }
 }

@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:csv/csv.dart';
@@ -76,12 +77,26 @@ class _CSVReaderState extends State<CSVReader> {
             : ListView.builder(
                 itemCount: csvData.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final row = csvData[index];
-
+                  final row = csvData[index]; 
+                        
                   final String pricePerUnit = row[5].replaceAll(' zł', '').replaceAll(',', '.'); // Usunięcie " zł" i zamiana przecinka na kropkę
                   final double pricePerUnitFloat = double.tryParse(pricePerUnit) ?? 0.0; // Konwersja na float, obsługa przypadku gdy wartość nie jest liczbą
                   final double deliveryCostFloat = double.tryParse(row[8].replaceAll(' zł', '').replaceAll(',', '.')) ?? 0.0; // Obsługa pustego stringa, ustawienie na zero
                   final totalCost = row[4] * pricePerUnitFloat + deliveryCostFloat; // Obliczenie kosztu całkowitego
+
+                  // // Rozbicie daty na części
+                  // List<String> parts = row[0].split('.');
+
+                  // // Przekształcenie części na liczby
+                  // int day = int.parse(parts[0]);
+                  // int month = int.parse(parts[1]);
+                  // int year = int.parse(parts[2]);
+
+                  // // Liczba dni od daty bazowej (01.01.1900) do danej daty
+                  // // DateTime baseDate = DateTime(1900, 1, 1);
+                  // DateTime currentDate = DateTime(year, month, day);
+                  // int daysDifference = currentDate.difference(baseDate).inDays;
+
 
                   return ExpansionTile(
                     title: Row(
@@ -100,6 +115,7 @@ class _CSVReaderState extends State<CSVReader> {
                       ],
                     ),
                     trailing: const SizedBox.shrink(), // Usunięcie ikony rozwijania
+                    collapsedBackgroundColor: row[0] != csvData[index+1][0] ? Colors.grey[200] : Colors.white, // Zmiana koloru tła co drugiego wiersza
                     children: [
                       ListTile(
                         title: Text('Produkt: ${row[3]}'),
