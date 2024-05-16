@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'CSV Reader',
+      title: 'Lista wydatków',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,12 +29,14 @@ class CSVReader extends StatefulWidget {
   const CSVReader({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _CSVReaderState createState() => _CSVReaderState();
 }
 
 class _CSVReaderState extends State<CSVReader> {
   List<List<dynamic>> csvData = [];
   final Logger _logger = Logger();
+  final totalCost = null;
 
   Future<void> loadCSV() async {
     setState(() {
@@ -49,13 +51,15 @@ class _CSVReaderState extends State<CSVReader> {
     if (result != null) {
       try {
         final input = File(result.files.single.path!).openRead();
-        final fields = await input.transform(utf8.decoder).transform(CsvToListConverter(fieldDelimiter: ";")).toList();
+        final fields = await input.transform(utf8.decoder).transform(const CsvToListConverter(fieldDelimiter: ";")).toList();
 
         setState(() {
           csvData = fields;
+          csvData.removeAt(0);
         });
+
       } catch (e) {
-        _logger.e('Błąd podczas przetwarzania pliku CSV: $e');
+        _logger.e('Błąd podczas przetwarzania pliku CSV: $e'); // Przetestować
       }
     }
   }
@@ -66,28 +70,56 @@ class _CSVReaderState extends State<CSVReader> {
       appBar: AppBar(
         title: const Text('CSV Reader'),
       ),
-      body: Center(
+       body: Center(
         child: csvData.isEmpty
             ? const Text('Brak danych CSV')
             : ListView.builder(
                 itemCount: csvData.length,
                 itemBuilder: (BuildContext context, int index) {
-                  List<dynamic> row = csvData[index];
-                  return ListTile(
-                    title: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                  final row = csvData[index];
+
+                  final String pricePerUnit = row[5].replaceAll(' zł', '').replaceAll(',', '.'); // Usunięcie " zł" i zamiana przecinka na kropkę
+                  final double pricePerUnitFloat = double.tryParse(pricePerUnit) ?? 0.0; // Konwersja na float, obsługa przypadku gdy wartość nie jest liczbą
+                  final double deliveryCostFloat = double.tryParse(row[8].replaceAll(' zł', '').replaceAll(',', '.')) ?? 0.0; // Obsługa pustego stringa, ustawienie na zero
+                  final totalCost = row[4] * pricePerUnitFloat + deliveryCostFloat; // Obliczenie kosztu całkowitego
+
+                  return ExpansionTile(
+                    title: Row(
                       children: [
-                        Text('Data: ${row[0]}'),
-                        Text('Sklep: ${row[1]}'),
-                        Text('Kategoria: ${row[2]}'),
-                        Text('Produkt: ${row[3]}'),
-                        Text('Ilość: ${row[4]}'),
-                        Text('Cena za sztukę: ${row[5]}'),
-                        Text('Ilość w miarę: ${row[6]}'),
-                        Text('Ilość w opakowaniu: ${row[7]}'),
-                        Text('Koszt dostawy: ${row[8]}'),
+                        SizedBox(
+                          width: 100, // Stała szerokość dla pierwszej kolumny
+                          child: Text('${row[0]}'),
+                        ),
+                        Expanded(
+                          child: Text('${row[3]}'), // Automatyczna szerokość dla środkowej kolumny
+                        ),
+                        SizedBox(
+                          width: 70, // Stała szerokość dla ostatniej kolumny
+                          child: Text('${totalCost.toStringAsFixed(2)} zł'),
+                        ),
                       ],
                     ),
+                    trailing: const SizedBox.shrink(), // Usunięcie ikony rozwijania
+                    children: [
+                      ListTile(
+                        title: Text('Produkt: ${row[3]}'),
+                      ),
+                      ListTile(
+                        title: Text('Ilość: ${row[4]}'),
+                      ),
+                      ListTile(
+                        title: Text('Cena za sztukę: ${row[5]}'),
+                      ),
+                      ListTile(
+                        title: Text('Ilość w miarę: ${row[6]}'),
+                      ),
+                      ListTile(
+                        title: Text('Ilość w opakowaniu: ${row[7]}'),
+                      ),
+                      ListTile(
+                        title: Text('Koszt dostawy: ${row[8]}'),
+                      ),
+                    ],
                   );
                 },
               ),
