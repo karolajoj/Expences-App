@@ -1,18 +1,18 @@
-import 'dart:convert';
-import 'dart:ffi';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:csv/csv.dart';
 import 'package:file_picker/file_picker.dart';
 import 'dart:async';
-import 'package:logger/logger.dart';
+import 'dart:convert';
+import 'dart:io';
+import 'package:intl/intl.dart';
+import 'expenses_list_element.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -27,40 +27,70 @@ class MyApp extends StatelessWidget {
 }
 
 class CSVReader extends StatefulWidget {
-  const CSVReader({super.key});
+  const CSVReader({Key? key}) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
   _CSVReaderState createState() => _CSVReaderState();
 }
 
 class _CSVReaderState extends State<CSVReader> {
-  List<List<dynamic>> csvData = [];
-  final Logger _logger = Logger();
-  final totalCost = null;
+  List<ExpensesListElementModel> csvData = [];
+  int sum = 0;
 
   Future<void> loadCSV() async {
     setState(() {
       csvData = [];
     });
 
-    FilePickerResult? result = await FilePicker.platform.pickFiles(
-      type: FileType.custom,
-      allowedExtensions: ['csv']
-    );
+    FilePickerResult? result = await FilePicker.platform
+        .pickFiles(type: FileType.custom, allowedExtensions: ['csv']);
 
     if (result != null) {
       try {
         final input = File(result.files.single.path!).openRead();
-        final fields = await input.transform(utf8.decoder).transform(const CsvToListConverter(fieldDelimiter: ";")).toList();
+        final fields = await input
+            .transform(utf8.decoder)
+            .transform(const CsvToListConverter(fieldDelimiter: ";"))
+            .toList();
 
-        setState(() {
-          csvData = fields;
-          csvData.removeAt(0);
+         setState(() {
+          fields.removeAt(0); // Usuń nagłówek
+          csvData = fields
+              .map((row) => ExpensesListElementModel(
+                      data: DateFormat('dd.MM.yyyy').parse(row[0]),
+                      sklep: row[1],
+                      kategoria: row[2],
+                      produkt: row[3],
+                      ilosc: row[4] ?? 0,
+                      cena: row[5] == ""? 0.0: double.tryParse(row[5].replaceAll(' zł', '').replaceAll(',', '.').replaceAll(' ', '')) ??0.0,
+                      miara: row[6] == "" ? null : row[6],
+                      iloscWOpakowaniu:row[7] == "" ? null : row[7] ?? 0,
+                      kosztDostawy: row[8] == "" ? null: double.tryParse(row[8].replaceAll(' zł', '').replaceAll(',', '.').replaceAll(' ', '')) ??0.0,
+                      totalCost: 0.0, // Zaktualizuj, gdy obliczysz koszt całkowity
+                      pricePerKg: 0.0, // Zaktualizuj, gdy obliczysz cenę za kg
+                      pricePerPiece: 0.0, // Zaktualizuj, gdy obliczysz cenę za sztukę
+                    ))
+              .toList();
         });
-
       } catch (e) {
-        _logger.e('Błąd podczas przetwarzania pliku CSV: $e'); // Przetestować
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Błąd"),
+              content:
+                  Text("Wystąpił błąd podczas przetwarzania pliku CSV: $e"),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text("OK"),
+                ),
+              ],
+            );
+          },
+        );
       }
     }
   }
@@ -71,69 +101,90 @@ class _CSVReaderState extends State<CSVReader> {
       appBar: AppBar(
         title: const Text('CSV Reader'),
       ),
-       body: Center(
+      body: Center(
         child: csvData.isEmpty
             ? const Text('Brak danych CSV')
             : ListView.builder(
                 itemCount: csvData.length,
                 itemBuilder: (BuildContext context, int index) {
-                  final row = csvData[index]; 
-                        
-                  final String pricePerUnit = row[5].replaceAll(' zł', '').replaceAll(',', '.'); // Usunięcie " zł" i zamiana przecinka na kropkę
-                  final double pricePerUnitFloat = double.tryParse(pricePerUnit) ?? 0.0; // Konwersja na float, obsługa przypadku gdy wartość nie jest liczbą
-                  final double deliveryCostFloat = double.tryParse(row[8].replaceAll(' zł', '').replaceAll(',', '.')) ?? 0.0; // Obsługa pustego stringa, ustawienie na zero
-                  final totalCost = row[4] * pricePerUnitFloat + deliveryCostFloat; // Obliczenie kosztu całkowitego
+                  final row = csvData[index];
 
-                  // // Rozbicie daty na części
-                  // List<String> parts = row[0].split('.');
+                  // Tu możesz korzystać z danych z obiektu ExpensesListElementModel zamiast bezpośrednio z listy csvData
 
-                  // // Przekształcenie części na liczby
-                  // int day = int.parse(parts[0]);
-                  // int month = int.parse(parts[1]);
-                  // int year = int.parse(parts[2]);
+                  String currentDay = row.data.toString();
+                  String? prevDay =
+                      index > 0 ? csvData[index - 1].data.toString() : null;
 
-                  // // Liczba dni od daty bazowej (01.01.1900) do danej daty
-                  // // DateTime baseDate = DateTime(1900, 1, 1);
-                  // DateTime currentDate = DateTime(year, month, day);
-                  // int daysDifference = currentDate.difference(baseDate).inDays;
+                  // Sprawdź, czy aktualny dzień jest taki sam jak poprzedni element
+                  int isDifferentDay = currentDay != prevDay ? 1 : 0;
 
+                  sum = sum + isDifferentDay;
+
+                  Color? rowColor =
+                      sum % 2 == 0 ? Colors.grey[300] : Colors.blue[100];
 
                   return ExpansionTile(
                     title: Row(
                       children: [
                         SizedBox(
                           width: 100, // Stała szerokość dla pierwszej kolumny
-                          child: Text('${row[0]}'),
+                          child: Text('${row.data}'),
                         ),
                         Expanded(
-                          child: Text('${row[3]}'), // Automatyczna szerokość dla środkowej kolumny
+                          child: Text(
+                              '${row.produkt}'), // Automatyczna szerokość dla środkowej kolumny
                         ),
                         SizedBox(
-                          width: 70, // Stała szerokość dla ostatniej kolumny
-                          child: Text('${totalCost.toStringAsFixed(2)} zł'),
+                          width: 80, // Stała szerokość dla ostatniej kolumny
+                          child: Text('${row.totalCost.toStringAsFixed(2)} zł'),
                         ),
                       ],
                     ),
-                    trailing: const SizedBox.shrink(), // Usunięcie ikony rozwijania
-                    collapsedBackgroundColor: row[0] != csvData[index+1][0] ? Colors.grey[200] : Colors.white, // Zmiana koloru tła co drugiego wiersza
+                    trailing:
+                        const SizedBox.shrink(), // Usunięcie ikony rozwijania
+                    collapsedBackgroundColor: rowColor,
                     children: [
-                      ListTile(
-                        title: Text('Produkt: ${row[3]}'),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Container(
+                              color: Colors.red, // Kolor tła czerwony
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Sklep: ${row.sklep}'),
+                                  Text('Kategoria: ${row.kategoria}'),
+                                  Text('Dostawa: ${row.kosztDostawy} zł'),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            child: Container(
+                              color: Colors.red, // Kolor tła czerwony
+                              padding: EdgeInsets.all(8.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text('Ilość: ${row.ilosc}'),
+                                  Text('Miara: ${row.miara}'),
+                                  Text('W opakowaniu: ${row.iloscWOpakowaniu}'),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       ListTile(
-                        title: Text('Ilość: ${row[4]}'),
+                        title: Text('Ilość w miarę: ${row.miara}'),
                       ),
                       ListTile(
-                        title: Text('Cena za sztukę: ${row[5]}'),
+                        title:
+                            Text('Ilość w opakowaniu: ${row.iloscWOpakowaniu}'),
                       ),
                       ListTile(
-                        title: Text('Ilość w miarę: ${row[6]}'),
-                      ),
-                      ListTile(
-                        title: Text('Ilość w opakowaniu: ${row[7]}'),
-                      ),
-                      ListTile(
-                        title: Text('Koszt dostawy: ${row[8]}'),
+                        title: Text('Koszt dostawy: ${row.kosztDostawy} zł'),
                       ),
                     ],
                   );

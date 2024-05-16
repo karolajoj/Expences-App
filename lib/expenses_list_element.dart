@@ -1,15 +1,18 @@
-class ExpensesListElement {
-  final dynamic data;
-  final dynamic sklep;
-  final dynamic kategoria;
-  final dynamic produkt;
-  final dynamic ilosc;
-  final dynamic cena;
-  final dynamic miara;
-  final dynamic iloscWOpakowaniu;
-  final dynamic kosztDostawy;
+class ExpensesListElementModel {
+  final DateTime data;
+  final String sklep;
+  final String kategoria;
+  final String produkt;
+  final int ilosc;
+  final double cena;
+  final int? miara;
+  final int? iloscWOpakowaniu;
+  final double? kosztDostawy;
+  final double totalCost;
+  final double? pricePerKg;
+  final double? pricePerPiece;
 
-  ExpensesListElement({
+  ExpensesListElementModel({
     required this.data,
     required this.sklep,
     required this.kategoria,
@@ -19,5 +22,8 @@ class ExpensesListElement {
     required this.miara,
     required this.iloscWOpakowaniu,
     required this.kosztDostawy,
+    required this.totalCost,
+    required this.pricePerKg,
+    required this.pricePerPiece,
   });
 }
