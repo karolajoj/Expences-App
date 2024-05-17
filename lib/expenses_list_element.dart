@@ -6,6 +6,7 @@ class ExpensesListElementModel {
   final int ilosc;
   final double cena;
   final int? miara;
+  final String? miaraUnit;
   final int? iloscWOpakowaniu;
   final double? kosztDostawy;
   final double totalCost;
@@ -23,6 +24,7 @@ class ExpensesListElementModel {
     required this.ilosc,
     required this.cena,
     required this.miara,
+    this.miaraUnit,
     required this.iloscWOpakowaniu,
     required this.kosztDostawy,
     required this.zwrot,
