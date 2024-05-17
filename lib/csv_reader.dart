@@ -46,9 +46,9 @@ class _CSVReaderState extends State<CSVReader> {
                         // Check if the color for the current date is already in the map
                         if (!dateColorMap.containsKey(currentDay)) {
                           // If not, add the color to the map, alternating colors
-                          Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[300]
+                          Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
                               ? Colors.blue[100]!
-                              : Colors.grey[300]!;
+                              : Colors.grey[350]!;
                           dateColorMap[currentDay] = newColor;
                           dateShadeMap[currentDay] = true; // Start with true for lighter shade
                         }

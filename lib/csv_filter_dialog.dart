@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
 class CSVFilterDialog extends StatefulWidget {
   final Function(DateTime?, DateTime?, String?, String?, String?) onFiltersApplied;
@@ -18,6 +18,26 @@ class _CSVFilterDialogState extends State<CSVFilterDialog> {
   String? shopFilter;
   String? categoryFilter;
 
+  void _setDateRange(DateTime? start, DateTime? end) {
+    setState(() {
+      startDate = start;
+      endDate = end;
+    });
+  }
+
+  void _showDateRangePicker() {
+    DatePicker.showDatePicker(
+      context,
+      showTitleActions: true,
+      onChanged: (date) {},
+      onConfirm: (date) {
+        _setDateRange(date, date);
+      },
+      currentTime: startDate ?? DateTime.now(),
+      locale: LocaleType.en,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -26,23 +46,65 @@ class _CSVFilterDialogState extends State<CSVFilterDialog> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextFormField(
-              decoration: const InputDecoration(
-                  labelText: 'Data początkowa (DD.MM.YYYY)'),
-              onChanged: (value) {
-                setState(() {
-                  startDate = DateFormat('dd.MM.yyyy').parse(value);
-                });
+            ElevatedButton(
+              onPressed: () {
+                DateTime now = DateTime.now();
+                _setDateRange(DateTime(now.year, now.month, 1), DateTime(now.year, now.month + 1, 0));
               },
+              child: const Text('Obecny miesiąc'),
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                  labelText: 'Data końcowa (DD.MM.YYYY)'),
-              onChanged: (value) {
-                setState(() {
-                  endDate = DateFormat('dd.MM.yyyy').parse(value);
-                });
+            ElevatedButton(
+              onPressed: () {
+                DateTime now = DateTime.now();
+                DateTime startOfWeek = now.subtract(Duration(days: now.weekday - 1));
+                _setDateRange(startOfWeek, startOfWeek.add(const Duration(days: 6)));
               },
+              child: const Text('Obecny tydzień'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                DateTime today = DateTime.now();
+                _setDateRange(today, today);
+              },
+              child: const Text('Dzisiaj'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                DateTime now = DateTime.now();
+                _setDateRange(now.subtract(const Duration(days: 7)), now);
+              },
+              child: const Text('7 dni wstecz'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                DateTime now = DateTime.now();
+                _setDateRange(now.subtract(const Duration(days: 30)), now);
+              },
+              child: const Text('30 dni wstecz'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                DateTime now = DateTime.now();
+                _setDateRange(DateTime(now.year, 1, 1), DateTime(now.year + 1, 1, 0));
+              },
+              child: const Text('Obecny rok'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                DateTime now = DateTime.now();
+                _setDateRange(DateTime(now.year - 1, 1, 1), DateTime(now.year, 1, 0));
+              },
+              child: const Text('Rok wstecz'),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                _setDateRange(null, null); // No date range
+              },
+              child: const Text('Całość'),
+            ),
+            ElevatedButton(
+              onPressed: _showDateRangePicker,
+              child: const Text('Wybierz zakres dat na kalendarzu'),
             ),
             TextFormField(
               decoration: const InputDecoration(labelText: 'Produkt'),

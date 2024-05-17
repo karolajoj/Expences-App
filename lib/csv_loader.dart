@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:ffi';
 import 'dart:io';
 import 'package:csv/csv.dart';
 import 'package:file_picker/file_picker.dart';
@@ -34,25 +35,13 @@ class CSVLoader {
             kategoria: row[2],
             produkt: row[3],
             ilosc: row[4] ?? 0,
-            cena: row[5] == ""
-                ? 0.0
-                : double.tryParse(row[5]
-                        .replaceAll(' zł', '')
-                        .replaceAll(',', '.')
-                        .replaceAll(' ', '')) ??
-                    0.0,
+            cena: row[5] == "" ? 0.0 : double.tryParse(row[5].replaceAll(' zł', '').replaceAll(',', '.').replaceAll(' ', '')) ?? 0.0,
             miara: row[6] == "" ? null : row[6],
             iloscWOpakowaniu: row[7] == "" ? null : row[7] ?? 0,
-            kosztDostawy: row[8] == ""
-                ? null
-                : double.tryParse(row[8]
-                        .replaceAll(' zł', '')
-                        .replaceAll(',', '.')
-                        .replaceAll(' ', '')) ??
-                    0.0,
-            totalCost: 0.0, // Update when total cost is calculated
-            pricePerKg: 0.0, // Update when price per kg is calculated
-            pricePerPiece: 0.0, // Update when price per piece is calculated
+            zwrot: row[8] == "Tak" ? true : false,
+            kosztDostawy: row[9] == "" ? null : double.tryParse(row[9].replaceAll(' zł', '').replaceAll(',', '.').replaceAll(' ', '')) ?? 0.0,
+            link: row[10],
+            komentarz: row[11],
           );
         }).toList();
 
