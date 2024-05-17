@@ -66,7 +66,6 @@ class _CSVReaderState extends State<CSVReader> {
                         // Toggle the shade for the next row of the same date
                         dateShadeMap[currentDay] = !isLighterShade;
 
-
                         return Container(
                           color: rowColor,
                           child: ExpansionTile(
@@ -98,9 +97,9 @@ class _CSVReaderState extends State<CSVReader> {
                             children: [
                               Row(
                                 children: [
-                                  SizedBox(
-                                      width: 50,
-                                      child: Container(color: Colors.red)),
+                                  // SizedBox(
+                                  //     width: 50,
+                                  //     child: Container(color: Colors.red)),
                                   if (row.sklep.isNotEmpty) ...[
                                     Expanded(
                                       child: Container(
@@ -110,72 +109,110 @@ class _CSVReaderState extends State<CSVReader> {
                                           crossAxisAlignment:
                                               CrossAxisAlignment.start,
                                           children: [
-                                            Text('Sklep: ${row.sklep}'),
+                                            Builder(
+                                              builder: (BuildContext context) {
+                                                var isPortrait =
+                                                    MediaQuery.of(context)
+                                                            .orientation ==
+                                                        Orientation.portrait;
+                                                return Text(isPortrait
+                                                    ? row.sklep
+                                                    : 'Sklep: ${row.sklep}');
+                                              },
+                                            ),
                                             if (row.kategoria.isNotEmpty)
-                                              Text('Kategoria: ${row.kategoria}'),
-                                            if (row.kosztDostawy != null && row.kosztDostawy! > 0)
-                                              Text('Dostawa: ${row.kosztDostawy?.toStringAsFixed(2)} zł'),
+                                              Builder(
+                                                builder:
+                                                    (BuildContext context) {
+                                                  var isPortrait =
+                                                      MediaQuery.of(context)
+                                                              .orientation ==
+                                                          Orientation.portrait;
+                                                  return Text(isPortrait
+                                                      ? row.kategoria
+                                                      : 'Kategoria: ${row.kategoria}');
+                                                },
+                                              ),
+                                            if (row.kosztDostawy != null &&
+                                                row.kosztDostawy! > 0)
+                                              Builder(
+                                                builder:
+                                                    (BuildContext context) {
+                                                  var isPortrait =
+                                                      MediaQuery.of(context)
+                                                              .orientation ==
+                                                          Orientation.portrait;
+                                                  return Text(isPortrait
+                                                      ? '${row.kosztDostawy?.toStringAsFixed(2)} zł'
+                                                      : 'Dostawa: ${row.kosztDostawy?.toStringAsFixed(2)} zł');
+                                                },
+                                              ),
                                           ],
                                         ),
                                       ),
                                     ),
                                   ],
-                                  Expanded(child: Container()),
+                                  // Expanded(child: Container()),
                                   ...[
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text('Ilość: ${row.ilosc}'),
-                                        if (row.miara != null)
-                                          Text('Miara: ${row.miara} ml/g'),
-                                        if (row.iloscWOpakowaniu != null)
-                                          Text('W opakowaniu: ${row.iloscWOpakowaniu}'),
-                                      ],
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text('Ilość: ${row.ilosc}'),
+                                          if (row.miara != null)
+                                            Text('Miara: ${row.miara} ml/g'),
+                                          if (row.iloscWOpakowaniu != null)
+                                            Text(
+                                                'W opakowaniu: ${row.iloscWOpakowaniu}'),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                ],
-                                  Expanded(child: Container()),
+                                  ],
+                                  // Expanded(child: Container()),
                                   Expanded(
                                     child: Column(
                                       crossAxisAlignment:
                                           CrossAxisAlignment.start,
                                       children: [
-                                        Text('Cena: ${row.cena.toStringAsFixed(2)} zł'),
+                                        Text(
+                                            'Cena: ${row.cena.toStringAsFixed(2)} zł'),
                                         if (row.pricePerKg != null)
-                                          Text('Cena za kg: ${row.pricePerKg?.toStringAsFixed(2)} zł/kg'),
+                                          Text(
+                                              'Cena za kg: ${row.pricePerKg?.toStringAsFixed(2)} zł/kg'),
                                         if (row.pricePerPiece != null)
-                                          Text('Cena za sztukę: ${row.pricePerPiece?.toStringAsFixed(2)} zł'),
+                                          Text(
+                                              'Cena za sztukę: ${row.pricePerPiece?.toStringAsFixed(2)} zł'),
                                       ],
                                     ),
                                   ),
                                   SizedBox(
-                                      width: 50,
+                                      // width: 50,
+                                      width: 10,
                                       child: Container(color: Colors.red)),
                                 ],
                               ),
                               if (row.link.isNotEmpty)
                                 ListTile(
                                   title: Text('Link: ${row.link}'),
-                                  contentPadding: const EdgeInsets.only(left: 70),
+                                  contentPadding:
+                                      const EdgeInsets.only(left: 20),
                                   onTap: () async {
                                     final Uri url = Uri.parse(row.link);
 
-                                    if (await canLaunchUrl(url)) {
-                                      await launchUrl(url);
-                                    } else {
-                                      throw 'Could not launch $url';
+                                    if (!await launchUrl(url)) {
+                                      throw Exception('Could not launch $url');
                                     }
                                   },
                                 ),
-                                if (row.komentarz.isNotEmpty && row.komentarz.trim().isNotEmpty)
+                              if (row.komentarz.isNotEmpty &&
+                                  row.komentarz.trim().isNotEmpty)
                                 ListTile(
                                   title: Text('Komentarz: ${row.komentarz}'),
                                   contentPadding:
-                                    const EdgeInsets.only(left: 70),
+                                      const EdgeInsets.only(left: 20),
                                 ),
-                                const SizedBox(height:15), // Padding at the end
+                              const SizedBox(height: 15), // Padding at the end
                             ],
                           ),
                         );
