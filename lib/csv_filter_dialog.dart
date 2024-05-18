@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
 class CSVFilterDialog extends StatefulWidget {
-  final Function(DateTime?, DateTime?, String?, String?, String?) onFiltersApplied;
+  final Function(DateTime?, DateTime?, String?, String?, String?)
+      onFiltersApplied;
 
   const CSVFilterDialog(this.onFiltersApplied, {super.key});
 
@@ -48,15 +49,18 @@ class CSVFilterDialogState extends State<CSVFilterDialog> {
             ElevatedButton(
               onPressed: () {
                 DateTime now = DateTime.now();
-                _setDateRange(DateTime(now.year, now.month, 1), DateTime(now.year, now.month + 1, 0));
+                _setDateRange(DateTime(now.year, now.month, 1),
+                    DateTime(now.year, now.month + 1, 0));
               },
               child: const Text('Obecny miesiąc'),
             ),
             ElevatedButton(
               onPressed: () {
                 DateTime now = DateTime.now();
-                DateTime startOfWeek = now.subtract(Duration(days: now.weekday - 1));
-                _setDateRange(startOfWeek, startOfWeek.add(const Duration(days: 6)));
+                DateTime startOfWeek =
+                    now.subtract(Duration(days: now.weekday - 1));
+                _setDateRange(
+                    startOfWeek, startOfWeek.add(const Duration(days: 6)));
               },
               child: const Text('Obecny tydzień'),
             ),
@@ -84,14 +88,16 @@ class CSVFilterDialogState extends State<CSVFilterDialog> {
             ElevatedButton(
               onPressed: () {
                 DateTime now = DateTime.now();
-                _setDateRange(DateTime(now.year, 1, 1), DateTime(now.year + 1, 1, 0));
+                _setDateRange(
+                    DateTime(now.year, 1, 1), DateTime(now.year + 1, 1, 0));
               },
               child: const Text('Obecny rok'),
             ),
             ElevatedButton(
               onPressed: () {
                 DateTime now = DateTime.now();
-                _setDateRange(DateTime(now.year - 1, 1, 1), DateTime(now.year, 1, 0));
+                _setDateRange(
+                    DateTime(now.year - 1, 1, 1), DateTime(now.year, 1, 0));
               },
               child: const Text('Rok wstecz'),
             ),

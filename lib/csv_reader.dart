@@ -17,6 +17,8 @@ class CSVReaderState extends State<CSVReader> {
   List<ExpensesListElementModel> filteredData = [];
   Map<String, Color> dateColorMap = {};
   Map<String, bool> dateShadeMap = {};
+  Map<int, Color> rowColorMap = {};
+
   Map<int, bool> expansionStateMap = {};
 
   AppBar _buildAppBar(BuildContext context) {
@@ -33,8 +35,7 @@ class CSVReaderState extends State<CSVReader> {
 
   Widget _buildBody() {
     return Center(
-      child: csvData.isEmpty
-          ? const Text('Brak danych CSV')
+      child: csvData.isEmpty ? const Text('Brak danych CSV')
           : Column(
               children: [
                 Expanded(
@@ -51,37 +52,35 @@ class CSVReaderState extends State<CSVReader> {
     );
   }
 
-  Widget _buildListTile(ExpensesListElementModel row, BuildContext context, int index) {
-    String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
+  Widget _buildListTile(
+  ExpensesListElementModel row, BuildContext context, int index) {
+  String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
 
-    if (!dateColorMap.containsKey(currentDay)) {
-      Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
-          ? Colors.blue[100]!
-          : Colors.grey[350]!;
-      dateColorMap[currentDay] = newColor;
-      dateShadeMap[currentDay] = true;
-    }
+  // Get the color from the map
+  bool isLighterShade = dateShadeMap[currentDay]!;
+  Color rowColor = isLighterShade
+      ? dateColorMap[currentDay]!
+      : dateColorMap[currentDay]!.withOpacity(0.6);
 
-    bool isLighterShade = dateShadeMap[currentDay]!;
-    Color rowColor = isLighterShade ? dateColorMap[currentDay]! : dateColorMap[currentDay]!.withOpacity(0.6);
-    dateShadeMap[currentDay] = !isLighterShade;
+  // Update the shade for the next row of the same day
+  dateShadeMap[currentDay] = !isLighterShade;
 
-    return Container(
-      color: rowColor,
-      child: ExpansionTile(
-        key: PageStorageKey(index),
-        initiallyExpanded: expansionStateMap[index] ?? false,
-        onExpansionChanged: (expanded) {
-          setState(() {
-            expansionStateMap[index] = expanded;
-          });
-        },
-        trailing: _buildTrailingText(row),
-        title: _buildTitle(currentDay, row),
-        children: _buildExpansionChildren(row, context),
-      ),
-    );
-  }
+  return Container(
+    color: rowColor,
+    child: ExpansionTile(
+      key: PageStorageKey(index),
+      initiallyExpanded: expansionStateMap[index] ?? false,
+      onExpansionChanged: (expanded) {
+        setState(() {
+          expansionStateMap[index] = expanded;
+        });
+      },
+      trailing: _buildTrailingText(row),
+      title: _buildTitle(currentDay, row),
+      children: _buildExpansionChildren(row, context),
+    ),
+  );
+}
 
   Widget _buildTrailingText(ExpensesListElementModel row) {
     return Text(
@@ -93,24 +92,15 @@ class CSVReaderState extends State<CSVReader> {
   Widget _buildTitle(String currentDay, ExpensesListElementModel row) {
     return Row(
       children: [
-        SizedBox(
-          width: 100,
-          child: Text(currentDay),
-        ),
-        Container(
-          width: 1,
-          height: 24,
-          color: Colors.grey,
-          margin: const EdgeInsets.symmetric(horizontal: 8),
-        ),
-        Expanded(
-          child: Text(row.produkt, overflow: TextOverflow.ellipsis),
-        ),
+        SizedBox(width: 100, child: Text(currentDay)),
+        Container(width: 1, height: 24, color: Colors.grey, margin: const EdgeInsets.symmetric(horizontal: 8)),
+        Expanded(child: Text(row.produkt, overflow: TextOverflow.ellipsis)),
       ],
     );
   }
 
-  List<Widget> _buildExpansionChildren(ExpensesListElementModel row, BuildContext context) {
+  List<Widget> _buildExpansionChildren(
+    ExpensesListElementModel row, BuildContext context) {
     return [
       Row(
         children: [
@@ -147,14 +137,18 @@ class CSVReaderState extends State<CSVReader> {
               Builder(
                 builder: (BuildContext context) {
                   var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
-                  return Text(isPortrait ? row.kategoria : 'Kategoria: ${row.kategoria}');
+                  return Text(isPortrait
+                      ? row.kategoria
+                      : 'Kategoria: ${row.kategoria}');
                 },
               ),
             if (row.kosztDostawy != null && row.kosztDostawy! > 0)
               Builder(
                 builder: (BuildContext context) {
                   var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
-                  return Text(isPortrait ? '${row.kosztDostawy?.toStringAsFixed(2)} zł' : 'Dostawa: ${row.kosztDostawy?.toStringAsFixed(2)} zł');
+                  return Text(isPortrait
+                      ? '${row.kosztDostawy?.toStringAsFixed(2)} zł'
+                      : 'Dostawa: ${row.kosztDostawy?.toStringAsFixed(2)} zł');
                 },
               ),
           ],
@@ -195,11 +189,10 @@ class CSVReaderState extends State<CSVReader> {
         builder: (BuildContext context) {
           var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
           var maxLength = isPortrait ? 51 : 97;
-          var displayedLink = row.link.length > maxLength ? '${row.link.substring(0, maxLength)}...' : row.link;
-          return Text(
-            'Link: $displayedLink',
-            overflow: TextOverflow.ellipsis,
-          );
+          var displayedLink = row.link.length > maxLength
+              ? '${row.link.substring(0, maxLength)}...'
+              : row.link;
+          return Text('Link: $displayedLink', overflow: TextOverflow.ellipsis);
         },
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 20),
@@ -228,19 +221,46 @@ class CSVReaderState extends State<CSVReader> {
     );
   }
 
+void _loadCSV(BuildContext context) {
+  CSVLoader((data) {
+    setState(() {
+      csvData = data;
+      filteredData = data;
+      dateColorMap.clear();
+      dateShadeMap.clear();
+      rowColorMap.clear();
+      expansionStateMap.clear();
 
-  void _loadCSV(BuildContext context) {
-    CSVLoader((data) {
-      setState(() {
-        csvData = data;
-        filteredData = data;
-        dateColorMap.clear();
-        dateShadeMap.clear();
-        expansionStateMap.clear();
-        _applyDefaultFilters();
-      });
-    }).loadCSV(context);
-  }
+      // Initialize dateColorMap and dateShadeMap
+      for (var row in csvData) {
+        String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
+        if (!dateColorMap.containsKey(currentDay)) {
+          Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
+              ? Colors.blue[100]!
+              : Colors.grey[350]!;
+          dateColorMap[currentDay] = newColor;
+          dateShadeMap[currentDay] = true;
+        }
+      }
+      
+      // Assign colors to rows
+      for (int i = 0; i < csvData.length; i++) {
+        final row = csvData[i];
+        String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
+        
+        bool isLighterShade = dateShadeMap[currentDay]!;
+        Color rowColor = isLighterShade
+            ? dateColorMap[currentDay]!
+            : dateColorMap[currentDay]!.withOpacity(0.6);
+        
+        rowColorMap[i] = rowColor;
+        dateShadeMap[currentDay] = !isLighterShade;
+      }
+
+      _applyDefaultFilters();
+    });
+  }).loadCSV(context);
+}
 
   void _applyDefaultFilters() {
     DateTime startDate = DateTime.now().subtract(const Duration(days: 7));
@@ -252,10 +272,8 @@ class CSVReaderState extends State<CSVReader> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return CSVFilterDialog(
-            (startDate, endDate, productFilter, shopFilter, categoryFilter) {
-          _applyFilters(
-              startDate, endDate, productFilter, shopFilter, categoryFilter);
+        return CSVFilterDialog((startDate, endDate, productFilter, shopFilter, categoryFilter) {
+          _applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter);
         });
       },
     );
@@ -272,31 +290,22 @@ class CSVReaderState extends State<CSVReader> {
           bool matchesCategoryFilter = true;
 
           if (startDate != null && endDate != null) {
-            withinDateRange = element.data.isAfter(startDate) &&
-                element.data.isBefore(endDate);
+            withinDateRange = element.data.isAfter(startDate) && element.data.isBefore(endDate);
           }
 
           if (productFilter != null) {
-            matchesProductFilter = element.produkt
-                .toLowerCase()
-                .contains(productFilter.toLowerCase());
+            matchesProductFilter = element.produkt.toLowerCase().contains(productFilter.toLowerCase());
           }
 
           if (shopFilter != null) {
-            matchesShopFilter =
-                element.sklep.toLowerCase().contains(shopFilter.toLowerCase());
+            matchesShopFilter = element.sklep.toLowerCase().contains(shopFilter.toLowerCase());
           }
 
           if (categoryFilter != null) {
-            matchesCategoryFilter = element.kategoria
-                .toLowerCase()
-                .contains(categoryFilter.toLowerCase());
+            matchesCategoryFilter = element.kategoria.toLowerCase().contains(categoryFilter.toLowerCase());
           }
 
-          return withinDateRange &&
-              matchesProductFilter &&
-              matchesShopFilter &&
-              matchesCategoryFilter;
+          return withinDateRange && matchesProductFilter && matchesShopFilter && matchesCategoryFilter;
         }).toList();
 
         expansionStateMap.clear();
