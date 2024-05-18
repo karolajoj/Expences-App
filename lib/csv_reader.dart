@@ -56,14 +56,9 @@ class CSVReaderState extends State<CSVReader> {
   ExpensesListElementModel row, BuildContext context, int index) {
   String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
 
-  // Get the color from the map
-  bool isLighterShade = dateShadeMap[currentDay]!;
-  Color rowColor = isLighterShade
-      ? dateColorMap[currentDay]!
-      : dateColorMap[currentDay]!.withOpacity(0.6);
-
-  // Update the shade for the next row of the same day
-  dateShadeMap[currentDay] = !isLighterShade;
+  Color rowColor = index.isEven
+    ? dateColorMap[currentDay]!
+    : dateColorMap[currentDay]!.withOpacity(0.6);
 
   return Container(
     color: rowColor,
@@ -243,20 +238,6 @@ void _loadCSV(BuildContext context) {
         }
       }
       
-      // Assign colors to rows
-      for (int i = 0; i < csvData.length; i++) {
-        final row = csvData[i];
-        String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
-        
-        bool isLighterShade = dateShadeMap[currentDay]!;
-        Color rowColor = isLighterShade
-            ? dateColorMap[currentDay]!
-            : dateColorMap[currentDay]!.withOpacity(0.6);
-        
-        rowColorMap[i] = rowColor;
-        dateShadeMap[currentDay] = !isLighterShade;
-      }
-
       _applyDefaultFilters();
     });
   }).loadCSV(context);
