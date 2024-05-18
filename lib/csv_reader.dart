@@ -15,12 +15,31 @@ class CSVReader extends StatefulWidget {
 class CSVReaderState extends State<CSVReader> {
   List<ExpensesListElementModel> csvData = [];
   List<ExpensesListElementModel> filteredData = [];
+  List<Key> expansionTileKeys = []; // List of keys for ExpansionTiles to keep track of their state and rebuild them after filtering
   Map<String, Color> dateColorMap = {};
-  Map<String, bool> dateShadeMap = {};
   Map<int, Color> rowColorMap = {};
 
-  Map<int, bool> expansionStateMap = {};
+  @override
+  void initState() {
+    super.initState();
+    // Inicjujemy klucze ExpansionTile
+    _initExpansionTileKeys();
+  }
 
+  // Metoda inicjująca klucze ExpansionTile
+  void _initExpansionTileKeys() {
+    expansionTileKeys.clear();
+    for (int i = 0; i < filteredData.length; i++) {
+      expansionTileKeys.add(GlobalKey());
+    }
+  }
+  void _updateExpansionTileKeys() {
+    setState(() {
+      _initExpansionTileKeys();
+    });
+  }
+
+  
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       title: const Text('Lista wydatków'),
@@ -52,30 +71,23 @@ class CSVReaderState extends State<CSVReader> {
     );
   }
 
-  Widget _buildListTile(
-  ExpensesListElementModel row, BuildContext context, int index) {
-  String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
+  Widget _buildListTile(ExpensesListElementModel row, BuildContext context, int index) {
+    String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
 
-  Color rowColor = index.isEven
-    ? dateColorMap[currentDay]!
-    : dateColorMap[currentDay]!.withOpacity(0.6);
+    Color rowColor = index.isEven
+      ? dateColorMap[currentDay]!
+      : dateColorMap[currentDay]!.withOpacity(0.6);
 
-  return Container(
-    color: rowColor,
-    child: ExpansionTile(
-      key: PageStorageKey(index),
-      initiallyExpanded: expansionStateMap[index] ?? false,
-      onExpansionChanged: (expanded) {
-        setState(() {
-          expansionStateMap[index] = expanded;
-        });
-      },
-      trailing: _buildTrailingText(row),
-      title: _buildTitle(currentDay, row),
-      children: _buildExpansionChildren(row, context),
-    ),
-  );
-}
+    return Container(
+      color: rowColor,
+      child: ExpansionTile(
+        key: expansionTileKeys[index], // Ustawiamy unikalny klucz
+        trailing: _buildTrailingText(row),
+        title: _buildTitle(currentDay, row),
+        children: _buildExpansionChildren(row, context),
+      ),
+    );
+  }
 
   Widget _buildTrailingText(ExpensesListElementModel row) {
     return Text(
@@ -222,11 +234,9 @@ void _loadCSV(BuildContext context) {
       csvData = data;
       filteredData = data;
       dateColorMap.clear();
-      dateShadeMap.clear();
       rowColorMap.clear();
-      expansionStateMap.clear();
 
-      // Initialize dateColorMap and dateShadeMap
+      // Initialize dateColorMap
       for (var row in csvData) {
         String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
         if (!dateColorMap.containsKey(currentDay)) {
@@ -234,7 +244,6 @@ void _loadCSV(BuildContext context) {
               ? Colors.blue[100]!
               : Colors.grey[350]!;
           dateColorMap[currentDay] = newColor;
-          dateShadeMap[currentDay] = true;
         }
       }
       
@@ -288,8 +297,7 @@ void _loadCSV(BuildContext context) {
 
           return withinDateRange && matchesProductFilter && matchesShopFilter && matchesCategoryFilter;
         }).toList();
-
-        expansionStateMap.clear();
+        _updateExpansionTileKeys();
       });
     }
   }
