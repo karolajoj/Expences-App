@@ -7,11 +7,10 @@ class CSVFilterDialog extends StatefulWidget {
   const CSVFilterDialog(this.onFiltersApplied, {super.key});
 
   @override
-  // ignore: library_private_types_in_public_api
-  _CSVFilterDialogState createState() => _CSVFilterDialogState();
+  CSVFilterDialogState createState() => CSVFilterDialogState();
 }
 
-class _CSVFilterDialogState extends State<CSVFilterDialog> {
+class CSVFilterDialogState extends State<CSVFilterDialog> {
   DateTime? startDate;
   DateTime? endDate;
   String? productFilter;

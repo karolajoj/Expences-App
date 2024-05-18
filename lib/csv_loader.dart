@@ -39,7 +39,7 @@ class CSVLoader {
             iloscWOpakowaniu: row[7] == "" ? null : row[7] ?? 0,
             zwrot: row[8] == "Tak" ? true : false,
             kosztDostawy: row[9] == "" ? null : double.tryParse(row[9].replaceAll(' zł', '').replaceAll(',', '.').replaceAll(' ', '')) ?? 0.0,
-            link: row[10],
+            link: row[10].replaceAll(' ', ''),
             komentarz: row[11],
           );
         }).toList();
