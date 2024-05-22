@@ -17,6 +17,7 @@ class CSVReaderState extends State<CSVReader> {
   List<ExpensesListElementModel> filteredData = [];
   List<Key> expansionTileKeys = [];
   Map<String, Color> dateColorMap = {};
+  Set<int> expandedTiles = {};
 
   @override
   void initState() {
@@ -28,12 +29,8 @@ class CSVReaderState extends State<CSVReader> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
+      drawer: _buildDrawer(context),
       body: _buildBody(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _loadCSV(context),
-        tooltip: 'Wczytaj CSV',
-        child: const Icon(Icons.folder_open),
-      ),
     );
   }
 
@@ -46,6 +43,44 @@ class CSVReaderState extends State<CSVReader> {
           icon: const Icon(Icons.filter_alt),
         ),
       ],
+    );
+  }
+
+  Drawer _buildDrawer(BuildContext context) {
+    return Drawer(
+      child: ListView(
+        padding: EdgeInsets.zero,
+        children: <Widget>[
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: Colors.blue,
+            ),
+            child: Text(
+              'Menu',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 24,
+              ),
+            ),
+          ),
+          ListTile(
+            leading: const Icon(Icons.import_export),
+            title: const Text('Importuj dane'),
+            onTap: () {
+              Navigator.pop(context);
+              _loadCSV(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.save_alt),
+            title: const Text('Eksportuj dane'),
+            onTap: () {
+              Navigator.pop(context);
+              _exportCSV(context);
+            },
+          ),
+        ],
+      ),
     );
   }
 
@@ -81,8 +116,17 @@ class CSVReaderState extends State<CSVReader> {
       child: ExpansionTile(
         key: expansionTileKeys[index],
         trailing: _buildTrailingText(row),
-        title: _buildTitle(currentDay, row),
+        title: _buildTitle(currentDay, row, index),
         children: _buildExpansionChildren(row, context),
+        onExpansionChanged: (bool expanded) {
+          setState(() {
+            if (expanded) {
+              expandedTiles.add(index);
+            } else {
+              expandedTiles.remove(index);
+            }
+          });
+        },
       ),
     );
   }
@@ -94,12 +138,23 @@ class CSVReaderState extends State<CSVReader> {
     );
   }
 
-  Widget _buildTitle(String currentDay, ExpensesListElementModel row) {
+  Widget _buildTitle(String currentDay, ExpensesListElementModel row, int index) {
+    bool isExpanded = expandedTiles.contains(index);
+
     return Row(
       children: [
-        SizedBox(width: 100, child: Text(currentDay)),
+        // Day
+        Text(currentDay),
+        // Spacer
         Container(width: 1, height: 24, color: Colors.grey, margin: const EdgeInsets.symmetric(horizontal: 8)),
-        Expanded(child: Text(row.produkt, overflow: TextOverflow.ellipsis)),
+        // Shop
+        Expanded(
+          child: Text(
+            row.produkt,
+            overflow: isExpanded ? TextOverflow.visible : TextOverflow.ellipsis,
+            softWrap: isExpanded,
+          ),
+        ),
       ],
     );
   }
@@ -229,6 +284,15 @@ class CSVReaderState extends State<CSVReader> {
         _applyDefaultFilters();
       });
     }).loadCSV(context);
+  }
+
+  void _exportCSV(BuildContext context) {
+    // Implement logic for exporting CSV data here
+    // You can use plugins like csv or dio to export data
+    // Example:
+    // csvData.forEach((element) {
+    //   print('${element.produkt},${element.cena},${element.data}');
+    // });
   }
 
   void _applyDefaultFilters() {

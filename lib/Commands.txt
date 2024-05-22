@@ -21,4 +21,7 @@ Zmiana ikony
         flutter pub get
         flutter pub run flutter_launcher_icons  
 
+Firebase
+    https://www.youtube.com/watch?v=AWQ89fw3yfU
+    
     
