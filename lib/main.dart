@@ -1,13 +1,11 @@
-import 'package:expences_app/firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'csv_reader.dart';
-import 'package:firebase_core/firebase_core.dart';
 // import 'package:window_size/window_size.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  // await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   // setWindowMinSize(const Size(1080/2.3, 2460/2.3));
   // setWindowMaxSize(const Size(1080/2.3, 2460/2.3));

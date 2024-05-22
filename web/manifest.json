@@ -1,6 +1,6 @@
 {
-    "name": "expences_app",
-    "short_name": "expences_app",
+    "name": "expenses_app_project",
+    "short_name": "expenses_app_project",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
