@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "465105732273",
+    "project_id": "expences-app-f71fb",
+    "storage_bucket": "expences-app-f71fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465105732273:android:00930045b3969f3839d890",
+        "android_client_info": {
+          "package_name": "com.example.expences_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw3GdS7UyQ2h_sXKd1wuRN5e3VgFFjTmk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

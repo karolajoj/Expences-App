@@ -15,31 +15,28 @@ class CSVReader extends StatefulWidget {
 class CSVReaderState extends State<CSVReader> {
   List<ExpensesListElementModel> csvData = [];
   List<ExpensesListElementModel> filteredData = [];
-  List<Key> expansionTileKeys = []; // List of keys for ExpansionTiles to keep track of their state and rebuild them after filtering
+  List<Key> expansionTileKeys = [];
   Map<String, Color> dateColorMap = {};
-  Map<int, Color> rowColorMap = {};
 
   @override
   void initState() {
     super.initState();
-    // Inicjujemy klucze ExpansionTile
     _initExpansionTileKeys();
   }
 
-  // Metoda inicjująca klucze ExpansionTile
-  void _initExpansionTileKeys() {
-    expansionTileKeys.clear();
-    for (int i = 0; i < filteredData.length; i++) {
-      expansionTileKeys.add(GlobalKey());
-    }
-  }
-  void _updateExpansionTileKeys() {
-    setState(() {
-      _initExpansionTileKeys();
-    });
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: _buildAppBar(context),
+      body: _buildBody(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => _loadCSV(context),
+        tooltip: 'Wczytaj CSV',
+        child: const Icon(Icons.folder_open),
+      ),
+    );
   }
 
-  
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
       title: const Text('Lista wydatków'),
@@ -54,34 +51,35 @@ class CSVReaderState extends State<CSVReader> {
 
   Widget _buildBody() {
     return Center(
-      child: csvData.isEmpty ? const Text('Brak danych CSV')
-          : Column(
-              children: [
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: filteredData.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      final row = filteredData[index];
-                      return _buildListTile(row, context, index);
-                    },
-                  ),
-                ),
-              ],
-            ),
+      child: csvData.isEmpty ? const Text('Brak danych CSV') : _buildListView(),
+    );
+  }
+
+  Widget _buildListView() {
+    return Column(
+      children: [
+        Expanded(
+          child: ListView.builder(
+            itemCount: filteredData.length,
+            itemBuilder: (BuildContext context, int index) {
+              final row = filteredData[index];
+              return _buildListTile(row, context, index);
+            },
+          ),
+        ),
+      ],
     );
   }
 
   Widget _buildListTile(ExpensesListElementModel row, BuildContext context, int index) {
     String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
 
-    Color rowColor = index.isEven
-      ? dateColorMap[currentDay]!
-      : dateColorMap[currentDay]!.withOpacity(0.6);
+    Color rowColor = index.isEven ? dateColorMap[currentDay]! : dateColorMap[currentDay]!.withOpacity(0.6);
 
     return Container(
       color: rowColor,
       child: ExpansionTile(
-        key: expansionTileKeys[index], // Ustawiamy unikalny klucz
+        key: expansionTileKeys[index],
         trailing: _buildTrailingText(row),
         title: _buildTitle(currentDay, row),
         children: _buildExpansionChildren(row, context),
@@ -106,8 +104,7 @@ class CSVReaderState extends State<CSVReader> {
     );
   }
 
-  List<Widget> _buildExpansionChildren(
-    ExpensesListElementModel row, BuildContext context) {
+  List<Widget> _buildExpansionChildren(ExpensesListElementModel row, BuildContext context) {
     return [
       Row(
         children: [
@@ -144,18 +141,16 @@ class CSVReaderState extends State<CSVReader> {
               Builder(
                 builder: (BuildContext context) {
                   var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
-                  return Text(isPortrait
-                      ? row.kategoria
-                      : 'Kategoria: ${row.kategoria}');
+                  return Text(isPortrait ? row.kategoria : 'Kategoria: ${row.kategoria}');
                 },
               ),
             if (row.kosztDostawy != null && row.kosztDostawy! > 0)
               Builder(
                 builder: (BuildContext context) {
                   var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
-                  return Text(isPortrait
-                      ? '${row.kosztDostawy?.toStringAsFixed(2)} zł'
-                      : 'Dostawa: ${row.kosztDostawy?.toStringAsFixed(2)} zł');
+                  return Text(
+                    isPortrait ? '${row.kosztDostawy?.toStringAsFixed(2)} zł' : 'Dostawa: ${row.kosztDostawy?.toStringAsFixed(2)} zł',
+                  );
                 },
               ),
           ],
@@ -196,9 +191,7 @@ class CSVReaderState extends State<CSVReader> {
         builder: (BuildContext context) {
           var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
           var maxLength = isPortrait ? 51 : 97;
-          var displayedLink = row.link.length > maxLength
-              ? '${row.link.substring(0, maxLength)}...'
-              : row.link;
+          var displayedLink = row.link.length > maxLength ? '${row.link.substring(0, maxLength)}...' : row.link;
           return Text('Link: $displayedLink', overflow: TextOverflow.ellipsis);
         },
       ),
@@ -215,45 +208,31 @@ class CSVReaderState extends State<CSVReader> {
     );
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar(context),
-      body: _buildBody(),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () => _loadCSV(context),
-        tooltip: 'Wczytaj CSV',
-        child: const Icon(Icons.folder_open),
-      ),
-    );
+  void _loadCSV(BuildContext context) {
+    CSVLoader((data) {
+      setState(() {
+        csvData = data;
+        filteredData = data;
+        dateColorMap.clear();
+
+        // Initialize dateColorMap
+        for (var row in csvData) {
+          String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
+          if (!dateColorMap.containsKey(currentDay)) {
+            Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
+                ? Colors.blue[100]!
+                : Colors.grey[350]!;
+            dateColorMap[currentDay] = newColor;
+          }
+        }
+
+        _applyDefaultFilters();
+      });
+    }).loadCSV(context);
   }
 
-void _loadCSV(BuildContext context) {
-  CSVLoader((data) {
-    setState(() {
-      csvData = data;
-      filteredData = data;
-      dateColorMap.clear();
-      rowColorMap.clear();
-
-      // Initialize dateColorMap
-      for (var row in csvData) {
-        String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
-        if (!dateColorMap.containsKey(currentDay)) {
-          Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
-              ? Colors.blue[100]!
-              : Colors.grey[350]!;
-          dateColorMap[currentDay] = newColor;
-        }
-      }
-      
-      _applyDefaultFilters();
-    });
-  }).loadCSV(context);
-}
-
   void _applyDefaultFilters() {
-    DateTime startDate = DateTime.now().subtract(const Duration(days: 7));
+    DateTime startDate = DateTime.now().subtract(const Duration(days: 30));
     DateTime endDate = DateTime.now();
     _applyFilters(startDate, endDate, null, null, null);
   }
@@ -269,8 +248,7 @@ void _loadCSV(BuildContext context) {
     );
   }
 
-  void _applyFilters(DateTime? startDate, DateTime? endDate,
-      String? productFilter, String? shopFilter, String? categoryFilter) {
+  void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter) {
     if (csvData.isNotEmpty) {
       setState(() {
         filteredData = csvData.where((element) {
@@ -320,5 +298,18 @@ void _loadCSV(BuildContext context) {
         );
       },
     );
+  }
+
+  void _initExpansionTileKeys() {
+    expansionTileKeys.clear();
+    for (int i = 0; i < filteredData.length; i++) {
+      expansionTileKeys.add(GlobalKey());
+    }
+  }
+
+  void _updateExpansionTileKeys() {
+    setState(() {
+      _initExpansionTileKeys();
+    });
   }
 }

@@ -46,25 +46,26 @@ class CSVLoader {
 
         onDataLoaded(csvData);
       } catch (e) {
-        showDialog(
-          // ignore: use_build_context_synchronously
-          context: context,
-          builder: (BuildContext context) {
-            return AlertDialog(
-              title: const Text("Błąd"),
-              content: Text(
-                  "Wystąpił błąd podczas przetwarzania pliku CSV: $e"),
-              actions: <Widget>[
-                TextButton(
-                  onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text("OK"),
-                ),
-              ],
-            );
-          },
-        );
+        if(context.mounted) {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return AlertDialog(
+                title: const Text("Błąd"),
+                content: Text(
+                    "Wystąpił błąd podczas przetwarzania pliku CSV: $e"),
+                actions: <Widget>[
+                  TextButton(
+                    onPressed: () {
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text("OK"),
+                  ),
+                ],
+              );
+            },
+          );
+        }
       }
     }
   }
