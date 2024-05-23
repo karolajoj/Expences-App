@@ -14,8 +14,7 @@ class CSVLoader {
   Future<void> loadCSV(BuildContext context) async {
     List<ExpensesListElementModel> csvData = [];
 
-    FilePickerResult? result = await FilePicker.platform
-        .pickFiles(type: FileType.custom, allowedExtensions: ['csv']);
+    FilePickerResult? result = await FilePicker.platform.pickFiles(type: FileType.custom, allowedExtensions: ['csv']);
 
     if (result != null) {
       try {
@@ -40,7 +39,7 @@ class CSVLoader {
             zwrot: row[8] == "Tak" ? true : false,
             kosztDostawy: row[9] == "" ? null : double.tryParse(row[9].replaceAll(' zł', '').replaceAll(',', '.').replaceAll(' ', '')) ?? 0.0,
             link: row[10].replaceAll(' ', ''),
-            komentarz: row[11],
+            komentarz: row[11] == " " ? "" : row[11],
           );
         }).toList();
 

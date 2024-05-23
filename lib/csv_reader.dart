@@ -1,11 +1,10 @@
+import 'package:expenses_app_project/message_dialog.dart';
 import 'package:expenses_app_project/drawer.dart';
-import 'package:expenses_app_project/error_dialog.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'expenses_list_element.dart';
 import 'csv_filter_dialog.dart';
-import 'csv_loader.dart';
 import 'package:intl/intl.dart';
+import 'csv_import_export.dart';
 
 class CSVReader extends StatefulWidget {
   const CSVReader({super.key});
@@ -15,10 +14,11 @@ class CSVReader extends StatefulWidget {
 }
 
 class CSVReaderState extends State<CSVReader> {
-  List<ExpensesListElementModel> csvData = [];
+  final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
   List<ExpensesListElementModel> filteredData = [];
-  List<Key> expansionTileKeys = [];
+  List<ExpensesListElementModel> csvData = [];
   Map<String, Color> dateColorMap = {};
+  List<Key> expansionTileKeys = [];
   Set<int> expandedTiles = {};
 
   @override
@@ -29,13 +29,16 @@ class CSVReaderState extends State<CSVReader> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: _buildAppBar(context),
-      drawer: AppDrawer(
-        onLoadCSV: (context) => _loadCSV(context),
-        onExportCSV: (context) => _exportCSV(context),
+    return ScaffoldMessenger(
+      key: _scaffoldMessengerKey,
+      child: Scaffold(
+        appBar: _buildAppBar(context),
+        drawer: AppDrawer(
+          onLoadCSV: (context) => loadCSV(context, setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey),
+          onExportCSV: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
+        ),
+        body: _buildBody(),
       ),
-      body: _buildBody(),
     );
   }
 
@@ -45,7 +48,7 @@ class CSVReaderState extends State<CSVReader> {
       actions: [
         IconButton(
           onPressed: () => _openFilterDialog(context),
-          icon: const Icon(Icons.filter_alt),
+          icon: const Icon(Icons.tune),
         ),
       ],
     );
@@ -211,55 +214,21 @@ class CSVReaderState extends State<CSVReader> {
     return ListTile(
       title: Builder(
         builder: (BuildContext context) {
-          var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
-          var maxLength = isPortrait ? 51 : 97;
-          var displayedLink = row.link.length > maxLength ? '${row.link.substring(0, maxLength)}...' : row.link;
-          return Text('Link: $displayedLink', overflow: TextOverflow.ellipsis);
+          return Text('Link: ${row.link}', overflow: TextOverflow.ellipsis);
         },
       ),
       contentPadding: const EdgeInsets.symmetric(horizontal: 20),
       onTap: () async {
         final Uri url = Uri.parse(row.link);
 
-        if (!await launchUrl(url)) {
+        // if (!await launchUrl(url)) {
+        if (true) {
           if (context.mounted) {
-            showErrorDialog(context, 'Could not launch $url');
+            messageDialog(context, 'Error', 'Could not launch $url');
           }
         }
       },
     );
-  }
-
-  void _loadCSV(BuildContext context) {
-    CSVLoader((data) {
-      setState(() {
-        csvData = data;
-        filteredData = data;
-        dateColorMap.clear();
-
-        // Initialize dateColorMap
-        for (var row in csvData) {
-          String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
-          if (!dateColorMap.containsKey(currentDay)) {
-            Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
-                ? Colors.blue[100]!
-                : Colors.grey[350]!;
-            dateColorMap[currentDay] = newColor;
-          }
-        }
-
-        _applyDefaultFilters();
-      });
-    }).loadCSV(context);
-  }
-
-  void _exportCSV(BuildContext context) {
-    // Implement logic for exporting CSV data here
-    // You can use plugins like csv or dio to export data
-    // Example:
-    // csvData.forEach((element) {
-    //   print('${element.produkt},${element.cena},${element.data}');
-    // });
   }
 
   void _applyDefaultFilters() {
