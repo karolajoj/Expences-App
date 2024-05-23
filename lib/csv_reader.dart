@@ -1,4 +1,5 @@
 import 'package:expenses_app_project/drawer.dart';
+import 'package:expenses_app_project/error_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'expenses_list_element.dart';
@@ -222,7 +223,7 @@ class CSVReaderState extends State<CSVReader> {
 
         if (!await launchUrl(url)) {
           if (context.mounted) {
-            _showErrorDialog(context, 'Could not launch $url');
+            showErrorDialog(context, 'Could not launch $url');
           }
         }
       },
@@ -308,26 +309,6 @@ class CSVReaderState extends State<CSVReader> {
         _updateExpansionTileKeys();
       });
     }
-  }
-
-  void _showErrorDialog(BuildContext context, String message) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return AlertDialog(
-          title: const Text('Error'),
-          content: Text(message),
-          actions: [
-            TextButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: const Text('OK'),
-            ),
-          ],
-        );
-      },
-    );
   }
 
   void _initExpansionTileKeys() {
