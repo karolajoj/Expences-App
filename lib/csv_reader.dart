@@ -1,3 +1,4 @@
+import 'package:expenses_app_project/drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'expenses_list_element.dart';
@@ -29,7 +30,10 @@ class CSVReaderState extends State<CSVReader> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
-      drawer: _buildDrawer(context),
+      drawer: AppDrawer(
+        onLoadCSV: (context) => _loadCSV(context),
+        onExportCSV: (context) => _exportCSV(context),
+      ),
       body: _buildBody(),
     );
   }
@@ -43,44 +47,6 @@ class CSVReaderState extends State<CSVReader> {
           icon: const Icon(Icons.filter_alt),
         ),
       ],
-    );
-  }
-
-  Drawer _buildDrawer(BuildContext context) {
-    return Drawer(
-      child: ListView(
-        padding: EdgeInsets.zero,
-        children: <Widget>[
-          const DrawerHeader(
-            decoration: BoxDecoration(
-              color: Colors.blue,
-            ),
-            child: Text(
-              'Menu',
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 24,
-              ),
-            ),
-          ),
-          ListTile(
-            leading: const Icon(Icons.import_export),
-            title: const Text('Importuj dane'),
-            onTap: () {
-              Navigator.pop(context);
-              _loadCSV(context);
-            },
-          ),
-          ListTile(
-            leading: const Icon(Icons.save_alt),
-            title: const Text('Eksportuj dane'),
-            onTap: () {
-              Navigator.pop(context);
-              _exportCSV(context);
-            },
-          ),
-        ],
-      ),
     );
   }
 
