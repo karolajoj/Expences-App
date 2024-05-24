@@ -1,17 +1,17 @@
-import 'dart:convert';
-import 'dart:io';
-import 'package:csv/csv.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 import 'expenses_list_element.dart';
+import 'package:intl/intl.dart';
+import 'package:csv/csv.dart';
+import 'dart:convert';
+import 'dart:io';
 
 class CSVLoader {
   final Function(List<ExpensesListElementModel>) onDataLoaded;
 
   CSVLoader(this.onDataLoaded);
 
-  Future<void> loadCSV(BuildContext context) async {
+  Future<void> importCSV(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey) async {
     List<ExpensesListElementModel> csvData = [];
 
     FilePickerResult? result = await FilePicker.platform.pickFiles(type: FileType.custom, allowedExtensions: ['csv']);
@@ -31,40 +31,23 @@ class CSVLoader {
             data: DateFormat('dd.MM.yyyy').parse(row[0]),
             sklep: row[1],
             kategoria: row[2],
-            produkt: row[3],
+            produkt: row[3] == "" ? "Brak danych" : row[3],
             ilosc: row[4] ?? 0,
             cena: row[5] == "" ? 0.0 : double.tryParse(row[5].replaceAll(' zł', '').replaceAll(',', '.').replaceAll(' ', '')) ?? 0.0,
             miara: row[6] == "" ? null : row[6],
             iloscWOpakowaniu: row[7] == "" ? null : row[7] ?? 0,
-            zwrot: row[8] == "Tak" ? true : false,
+            zwrot: (row[8].trim() == "Tak" || row[8].trim() == "-") ? true : false,
             kosztDostawy: row[9] == "" ? null : double.tryParse(row[9].replaceAll(' zł', '').replaceAll(',', '.').replaceAll(' ', '')) ?? 0.0,
-            link: row[10].replaceAll(' ', ''),
-            komentarz: row[11] == " " ? "" : row[11],
+            link: row[10].trim(),
+            komentarz: row[11].trim(),
           );
         }).toList();
 
         onDataLoaded(csvData);
+        scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Dane zostały zaimportowane')));
+
       } catch (e) {
-        if(context.mounted) {
-          showDialog(
-            context: context,
-            builder: (BuildContext context) {
-              return AlertDialog(
-                title: const Text("Błąd"),
-                content: Text(
-                    "Wystąpił błąd podczas przetwarzania pliku CSV: $e"),
-                actions: <Widget>[
-                  TextButton(
-                    onPressed: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Text("OK"),
-                  ),
-                ],
-              );
-            },
-          );
-        }
+        scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Wystąpił błąd podczas przetwarzania pliku CSV: $e')));  
       }
     }
   }

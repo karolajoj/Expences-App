@@ -1,19 +1,19 @@
-import 'package:expenses_app_project/message_dialog.dart';
 import 'package:expenses_app_project/drawer.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'expenses_list_element.dart';
-import 'csv_filter_dialog.dart';
+import 'filter_data_page.dart';
 import 'package:intl/intl.dart';
 import 'csv_import_export.dart';
 
-class CSVReader extends StatefulWidget {
-  const CSVReader({super.key});
+class ExpensesPage extends StatefulWidget {
+  const ExpensesPage({super.key});
 
   @override
-  CSVReaderState createState() => CSVReaderState();
+  ExpensesPageState createState() => ExpensesPageState();
 }
 
-class CSVReaderState extends State<CSVReader> {
+class ExpensesPageState extends State<ExpensesPage> {
   final GlobalKey<ScaffoldMessengerState> _scaffoldMessengerKey = GlobalKey<ScaffoldMessengerState>();
   List<ExpensesListElementModel> filteredData = [];
   List<ExpensesListElementModel> csvData = [];
@@ -35,7 +35,8 @@ class CSVReaderState extends State<CSVReader> {
         appBar: _buildAppBar(context),
         drawer: AppDrawer(
           onLoadCSV: (context) => loadCSV(context, setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey),
-          onExportCSV: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
+          onExportAllData: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
+          onExportFilteredData: (context) => exportCSV(context, _scaffoldMessengerKey, filteredData),
         ),
         body: _buildBody(),
       ),
@@ -139,7 +140,7 @@ class CSVReaderState extends State<CSVReader> {
           SizedBox(width: 10, child: Container(color: Colors.red)),
         ],
       ),
-      if (row.link.isNotEmpty) _buildLinkTile(row, context),
+      if (row.link.isNotEmpty) _buildLinkTile(row, context, _scaffoldMessengerKey),
       if (row.komentarz.isNotEmpty && row.komentarz.trim().isNotEmpty)
         ListTile(
           title: Text('Komentarz: ${row.komentarz}'),
@@ -210,7 +211,7 @@ class CSVReaderState extends State<CSVReader> {
     );
   }
 
-  Widget _buildLinkTile(ExpensesListElementModel row, BuildContext context) {
+  Widget _buildLinkTile(ExpensesListElementModel row, BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey) {
     return ListTile(
       title: Builder(
         builder: (BuildContext context) {
@@ -221,11 +222,8 @@ class CSVReaderState extends State<CSVReader> {
       onTap: () async {
         final Uri url = Uri.parse(row.link);
 
-        // if (!await launchUrl(url)) {
-        if (true) {
-          if (context.mounted) {
-            messageDialog(context, 'Error', 'Could not launch $url');
-          }
+        if (!await launchUrl(url)) {
+          scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Nie udało się otworzyć linku:    $url')));
         }
       },
     );
@@ -234,21 +232,21 @@ class CSVReaderState extends State<CSVReader> {
   void _applyDefaultFilters() {
     DateTime startDate = DateTime.now().subtract(const Duration(days: 30));
     DateTime endDate = DateTime.now();
-    _applyFilters(startDate, endDate, null, null, null);
+    _applyFilters(startDate, endDate, null, null, null, null, null);
   }
 
   void _openFilterDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return CSVFilterDialog((startDate, endDate, productFilter, shopFilter, categoryFilter) {
-          _applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter);
+        return FilterDataPage((startDate, endDate, productFilter, shopFilter, categoryFilter) {
+          _applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter, null, null);
         });
       },
     );
   }
 
-  void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter) {
+  void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, String? orderBy, String? orderType) {
     if (csvData.isNotEmpty) {
       setState(() {
         filteredData = csvData.where((element) {
@@ -275,6 +273,11 @@ class CSVReaderState extends State<CSVReader> {
 
           return withinDateRange && matchesProductFilter && matchesShopFilter && matchesCategoryFilter;
         }).toList();
+
+        (orderType == 'asc' || orderType == null)
+            ? filteredData.sort((a, b) => a.data.compareTo(b.data))
+            : filteredData.sort((a, b) => b.data.compareTo(a.data));
+
         _updateExpansionTileKeys();
       });
     }

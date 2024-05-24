@@ -7,6 +7,8 @@ import 'package:csv/csv.dart';
 import 'dart:convert';
 import 'dart:io';
 
+enum ExportOption { allData, filteredData }
+
 void loadCSV(BuildContext context, Function(void Function()) setState, List<ExpensesListElementModel> csvData, List<ExpensesListElementModel> filteredData,
   Map<String, Color> dateColorMap, VoidCallback applyDefaultFilters, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey) {
 
@@ -31,14 +33,30 @@ void loadCSV(BuildContext context, Function(void Function()) setState, List<Expe
       applyDefaultFilters();
     });
 
-    scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Dane zostały zaimportowane')));
-  }).loadCSV(context);
+  }).importCSV(context, scaffoldMessengerKey);
 }
 
-Future<void> exportCSV(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, List<ExpensesListElementModel> csvData) async {
+Future<void> exportCSV(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, List<ExpensesListElementModel> exportData) async {
+  
+  if (exportData.isEmpty) {
+    scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Brak danych do eksportu')));
+    return;
+  }
+
+  // ExportOption? selectedOption = await showDialog<ExportOption>(
+  //   context: context,
+  //   builder: (BuildContext context) {
+  //     return ExportOptionDialog(
+  //       onOptionSelected: (option) => Navigator.of(context).pop(option),
+  //     );
+  //   },
+  // );
+
+  // if (selectedOption == null) {return;}
+
   List<List<dynamic>> rows = [["Data", "Sklep", "Kategoria", "Produkt", "Ilość", "Cena", "Miara", "Ilość w opakowaniu", "Zwrot", "Koszt Dostawy", "Link", "Komentarz"]];
 
-  for (var element in csvData) {
+  for (var element in exportData) {
     List<dynamic> row = [
       DateFormat('dd.MM.yyyy').format(element.data),
       element.sklep,
@@ -59,13 +77,48 @@ Future<void> exportCSV(BuildContext context, GlobalKey<ScaffoldMessengerState> s
   String csvDataString = const ListToCsvConverter(fieldDelimiter: ';').convert(rows);
 
   final directory = await FilePicker.platform.getDirectoryPath();
+  String date = DateFormat('dd.MM.yyyy').format(DateTime.now());
   if (directory != null) {
-    final path = "$directory/wydatki_export.csv";
+    final path = "$directory/expenses_data-$date.csv";
     final file = File(path);
-    await file.writeAsString(csvDataString, encoding: utf8);
 
-    scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Wyeksportowano plik CSV do: $path')));
+    try {
+      await file.writeAsString(csvDataString, encoding: utf8);  
+      scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Wyeksportowano plik CSV do: $path')));
+    } catch (e) {
+      scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Wystąpił błąd podczas eksportu danych: $e')));  
+    }
   } else {
     scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Nie wybrano ścieżki')));
   }
 }
+
+// class ExportOptionDialog extends StatelessWidget {
+//   final void Function(ExportOption) onOptionSelected;
+
+//   const ExportOptionDialog({super.key, required this.onOptionSelected});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return AlertDialog(
+//       title: const Text('Wybierz dane do eksportu'),
+//       content: const Text('Chcesz eksportować wszystkie dane czy tylko przefiltrowane?'),
+//       actions: <Widget>[
+//         TextButton(
+//           onPressed: () {
+//             onOptionSelected(ExportOption.allData);
+//             Navigator.of(context, rootNavigator: true).pop();
+//           },
+//           child: const Text('Wszystkie dane'),
+//         ),
+//         TextButton(
+//           onPressed: () {
+//             onOptionSelected(ExportOption.filteredData);
+//             Navigator.of(context, rootNavigator: true).pop();
+//           },
+//           child: const Text('Tylko przefiltrowane'),
+//         ),
+//       ],
+//     );
+//   }
+// }

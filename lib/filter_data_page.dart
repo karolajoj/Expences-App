@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker_plus/flutter_datetime_picker_plus.dart';
 
-class CSVFilterDialog extends StatefulWidget {
+class FilterDataPage extends StatefulWidget {
   final Function(DateTime?, DateTime?, String?, String?, String?) onFiltersApplied;
 
-  const CSVFilterDialog(this.onFiltersApplied, {super.key});
+  const FilterDataPage(this.onFiltersApplied, {super.key});
 
   @override
-  CSVFilterDialogState createState() => CSVFilterDialogState();
+  FilterDataPageState createState() => FilterDataPageState();
 }
 
-class CSVFilterDialogState extends State<CSVFilterDialog> {
+class FilterDataPageState extends State<FilterDataPage> {
   DateTime? startDate;
   DateTime? endDate;
   String? productFilter;
