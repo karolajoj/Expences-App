@@ -31,8 +31,8 @@ class ExpensesListElementModel {
     required this.link,
     required this.komentarz,
   })  : totalCost = _calculateTotalCost(cena, ilosc, kosztDostawy),
-        pricePerKg = _calculatePricePerKg(cena, miara, ilosc),
-        pricePerPiece = _calculatePricePerPiece(cena, iloscWOpakowaniu);
+        pricePerKg = _calculatePricePerKg(cena, kosztDostawy, miara),
+        pricePerPiece = _calculatePricePerPiece(cena, kosztDostawy, iloscWOpakowaniu);
 
   static double _calculateTotalCost(double cena, int ilosc, double? kosztDostawy) {
     double koszt = cena * ilosc;
@@ -42,16 +42,18 @@ class ExpensesListElementModel {
     return koszt;
   }
 
-  static double? _calculatePricePerKg(double cena, int? miara, int ilosc) {
+  static double? _calculatePricePerKg(double cena, double? kosztDostawy, int? miara) {
     if (miara != null && miara > 0) {
-      return cena / miara * 1000; // assuming miara is in grams
+      kosztDostawy ??= 0; // Jeżeli kosztDostawy jest null, to ustawiamy go na 0
+      return (cena + kosztDostawy) / miara * 1000; // assuming miara is in grams
     }
     return null;
   }
 
-  static double? _calculatePricePerPiece(double cena, int? iloscWOpakowaniu) {
+  static double? _calculatePricePerPiece(double cena, double? kosztDostawy, int? iloscWOpakowaniu) {
     if (iloscWOpakowaniu != null && iloscWOpakowaniu > 0) {
-      return cena / iloscWOpakowaniu;
+      kosztDostawy ??= 0;
+      return (cena + kosztDostawy) / iloscWOpakowaniu;
     }
     return null;
   }

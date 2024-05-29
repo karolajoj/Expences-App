@@ -43,17 +43,6 @@ Future<void> exportCSV(BuildContext context, GlobalKey<ScaffoldMessengerState> s
     return;
   }
 
-  // ExportOption? selectedOption = await showDialog<ExportOption>(
-  //   context: context,
-  //   builder: (BuildContext context) {
-  //     return ExportOptionDialog(
-  //       onOptionSelected: (option) => Navigator.of(context).pop(option),
-  //     );
-  //   },
-  // );
-
-  // if (selectedOption == null) {return;}
-
   List<List<dynamic>> rows = [["Data", "Sklep", "Kategoria", "Produkt", "Ilość", "Cena", "Miara", "Ilość w opakowaniu", "Zwrot", "Koszt Dostawy", "Link", "Komentarz"]];
 
   for (var element in exportData) {
@@ -92,33 +81,3 @@ Future<void> exportCSV(BuildContext context, GlobalKey<ScaffoldMessengerState> s
     scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Nie wybrano ścieżki')));
   }
 }
-
-// class ExportOptionDialog extends StatelessWidget {
-//   final void Function(ExportOption) onOptionSelected;
-
-//   const ExportOptionDialog({super.key, required this.onOptionSelected});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return AlertDialog(
-//       title: const Text('Wybierz dane do eksportu'),
-//       content: const Text('Chcesz eksportować wszystkie dane czy tylko przefiltrowane?'),
-//       actions: <Widget>[
-//         TextButton(
-//           onPressed: () {
-//             onOptionSelected(ExportOption.allData);
-//             Navigator.of(context, rootNavigator: true).pop();
-//           },
-//           child: const Text('Wszystkie dane'),
-//         ),
-//         TextButton(
-//           onPressed: () {
-//             onOptionSelected(ExportOption.filteredData);
-//             Navigator.of(context, rootNavigator: true).pop();
-//           },
-//           child: const Text('Tylko przefiltrowane'),
-//         ),
-//       ],
-//     );
-//   }
-// }

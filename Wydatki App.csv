@@ -1,5 +1,111 @@
 ﻿Data;Sklep;Kategoria;Produkt;Ilość; Cena za szt ;Ilość ml|g | cm;Ilość w opakowaniu; Zwrot ; Dostawa ;Link; Komentarz 
-01.01.1900;Sklep_Test;Kategoria_Test;Produkt_Test;10;10,00 zł;150;2;;5,00 zł;https://www.drmax.pl/polcrom-2-20-mg-ml-przeciwalergiczny-aerozol-do-nosa-15ml-100004568; Komentarz testowy   
+28.02.2024;Krawcowa;Usługi;Doszycie rzepa do parasolki;1; -   zł ;;;;;; Za darmo 
+12.07.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Katowice;1;33,46 zł;;; - ;;;Zwrot któregoś biletu
+26.11.2023;Credit Agricole;Usługi;Prowadzenie rachunku;1;10,00 zł;;;;;;Zmienili minimum wpływów na konto z 1000zł na 1500zł
+26.11.2023;Credit Agricole;Usługi;Użytkowanie karty debetowej;1;10,00 zł;;;;;;Zmienili minimum wpływów na konto z 1000zł na 1500zł
+03.08.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;43,00 zł;;;;;;Zmienili cholera abonament i żeby mieć w Poznaniu kino to 43 a nie 38 (chyba oddali 38)
+06.05.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Płaszów - Tychy Zachodnie;1;12,40 zł;;;;;;Za Mnie
+06.05.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Płaszów - Tychy Zachodnie;1;25,30 zł;;;;;;Za Adama
+07.07.2023;McDonald's ;Żywność;Wrap ;1;10,00 zł;;;;;;Wrap na przecenie (500pkt) + 10zł + frytki + nuggetsy
+30.05.2023;Biedronka;Żywność;Chleb rodzinny 410g;1;3,99 zł;410;;;;;Waga pokazywała 480
+25.11.2023;Dealz;Żywność;Reese's rounds 6x16g 96g;3;6,00 zł;96;6;;;;Te są troche gorsze od tych z Action ale nadal dobre
+18.11.2022;Lokum;Alkohol;Piwo Fortuna Czarne;2;13,00 zł;;;;;;Spłacone 13 z 14 zł
+20.10.2022;Kaufland - Os. Stefana Batorego;Żywność;Gotowe danie Gyros | Hortex | 450g;1;8,99 zł;450;;;;;Potaniało
+20.10.2022;Kaufland - Winogrady;Żywność;Gotowe danie Meksykańskie | Hortex | 450g;6;8,99 zł;450;;;;;Potaniało
+05.05.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;38,00 zł;;;;;;Oddane 38 zł
+03.06.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;38,00 zł;;;;;;Oddane 38 zł
+03.07.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;38,00 zł;;;;;;Oddane 38 zł
+31.10.2023;Sushipak.pl;Żywność;Pak 2 + Pałeczki dodatkowe;1;41,00 zł;;;;;;Nie kupować żadnych dodatków, to jest zestaw dla dwóch osów, ma już podwójne pałeczki i podwójny sos sojowy
+03.06.2023;McDonald's ;Żywność;McWrap Chrupiący Klasyczny Zestaw;2;30,60 zł;;;;;;Na spółę z Adamem
+03.06.2023;McDonald's ;Żywność;Kawa Caramel Latte Macchiato 0.4L;1;16,70 zł;400;;;;;Na spółę z Adamem
+21.06.2023;Allegro;Higiena;Kroplomierz klasyczny LDPE miękki nasadką 1000 ml;1;21,00 zł;;;;9,98 zł;;Na płyn do soczewek
+19.11.2022;Kaufland;Żywność;Kurczak z ryżem po meksykańsku | Frosta | 450g;1;12,99 zł;450;;;;;Może być
+10.11.2022;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;4;4,49 zł;160;18;;;;Łączny rabat na salami 9.80
+19.05.2024;Pasibus;Żywność;Wypasik duży box;1;43,48 zł;;;;;https://www.ubereats.com/store/pasibus-swiety-marcin/Ogqr8eznVDqk32zFTZssTg?diningMode=DELIVERY&mod=quickView&modctx=%257B%2522storeUuid%2522%253A%25223a0aabf1-ece7-543a-a4df-6cc54d9b2c4e%2522%252C%2522sectionUuid%2522%253A%2522af51dcf6-d75b-547a-b950-79ba6a4cf930%2522%252C%2522subsectionUuid%2522%253A%25220379a62a-1156-4ddb-a09a-7e1dc45d5dfb%2522%252C%2522itemUuid%2522%253A%2522886b3406-d1d2-5467-91a6-9a560858e176%2522%252C%2522showSeeDetailsCTA%2522%253Atrue%257D&pl=JTdCJTIyYWRkcmVzcyUyMiUzQSUyMlBpJUM0JTg1dGtvd3NrYSUyMDgwQiUyMiUyQyUyMnJlZmVyZW5jZSUyMiUzQSUyMkNoSUpmWFZOQ0t0RUJFY1JFU0lUYm81V2dsdyUyMiUyQyUyMnJlZmVyZW5jZVR5cGUlMjIlM0ElMjJnb29nbGVfcGxhY2VzJTIyJTJDJTIybGF0aXR1ZGUlMjIlM0E1Mi40Mjg5NDglMkMlMjJsb25naXR1ZGUlMjIlM0ExNi45MTgyMDgzJTdE&ps=1&sc=SEARCH_SUGGESTION;   
+24.01.2023;Rossmann;Higiena;Isana Intensiv olejek do włosów 2w1 jojobaöl 100ml;1;10,99 zł;100;;;; https://www.rossmann.pl/Produkt/Serum-i-olejki/Isana-Intensiv-2in1-olejek-do-wlosow-100-ml,236997,8661 ;   
+13.05.2023;www.net-s.pl;Komputer;samsung Dysk SSD 970EVO PLUS MZ-V7S2T0BW 2 TB;1;572,78 zł;;;;;https://www.net-s.pl/produkt/samsung-dysk-ssd-970evo-plus-mz-v7s2t0bw-2-tb-912164;   
+01.10.2023;Neonet;Komputer;Adapter Bluetooth TP-LINK UB500 USB Nano Bluetooth 5.0;1;53,80 zł;;;;;https://www.neonet.pl/adaptery-bluetooth/tp-link-ub500-usb-nano-bluetooth-5-0.html;   
+21.05.2022;www.mediaexpert.pl;Komputer;RAM G.SKILL 16GB 2666MHz - 2 moduły;2;143,14 zł;;;;;https://www.mediaexpert.pl/komputery-i-tablety/podzespoly-komputerowe/pamieci-ram/pamiec-ddr4-g-skill-value-16gb-2x8gb-2666mhz-cl19-1-2v;   
+21.05.2022;www.lemonti.pl;Komputer;NVME - Dysk SSD Samsung 980 1 TB M.2 2280 PCI-E x4 Gen3 NVMe;1;495,00 zł;;;;;https://www.lemonti.pl/Dysk-SSD-Samsung-980-1-TB-M-2-2280-PCI-E-x4-Gen3-NVMe-p112;   
+20.10.2023;Apteka Dr.Max;Leki;Inaldin Gardło Max | aerozol do gardła 3mg/ml 150 dawek;1;14,22 zł;30;150;;;https://www.drmax.pl/inaldin-gardlo-max-aer-3-mg-ml-30-ml;   
+02.03.2024;Apteka Dr.Max;Leki;Krem na grzybicę skóry Hascofungin 30g 1g/100g;1;15,42 zł;30;;;;https://www.drmax.pl/hascofungin-1-g-100g-krem-stosowany-w-miejscowym-leczeniu-grzybicy-skory-30-g-100002422;   
+18.05.2024;Apteka Dr.Max;Leki;Desnoran, spray do nosa przeciw chrapaniu, 30 ml;1;23,37 zł;30;;;;https://www.drmax.pl/desnoran-spray-do-nosa-przeciw-chrapaniu-30-ml-100006459;   
+18.05.2024;Apteka Dr.Max;Leki;Allergodil 1 mg/ml, aerozol, 10 ml;1;37,58 zł;10;;;;https://www.drmax.pl/allergodil-1-mg-ml-0-1-aerozol-do-nosa-10-ml-100000177;   
+18.03.2023;aptelia.pl;Leki;Mollers Gold Tran Norweski, płyn o smaku cytrynowym, 250 ml;3;22,68 zł;750;;;; https://www.aptelia.pl/apteka/p131207-Mollers_Gold_Tran_Norweski_plyn_o_smaku_cytrynowym_250_ml ;   
+02.10.2023;aptelia.pl;Leki;Mollers Gold Tran Norweski, płyn o smaku cytrynowym, 250 ml;3;27,89 zł;750;;;;https://www.aptelia.pl/apteka/p131207-Mollers_Gold_Tran_Norweski_plyn_o_smaku_cytrynowym_250_ml;   
+27.11.2022;moser-wahl.pl;Higiena;Trymer do włosów Wahl 9855-1216 GroomsMan Pro;1;119,00 zł;;;;;https://moser-wahl.pl/pl/p/Trymer-do-wlosow%2C-zarostu%2C-uszu%2C-nosa%2C-brwi-golarka-Wahl-9855-1216-GroomsMan-Pro/471;   
+21.05.2022;www.mocnykomputer.pl;Komputer;Procesor AMD Ryzen 5 5600X;1;995,00 zł;;;;;https://mocnykomputer.pl/pl/p/Procesor-AMD-Ryzen-5-5600X-3.7GHz-MPK-na-stanie-24h-/32136;   
+22.12.2023;lock.me;Prezent;Wejście do EscapeRoom | Zaginiony Oficer The Bunkier;1;110,00 zł;;2;;;https://lock.me/pl/poland/wielkopolskie/poznan/escape-room/the-bunkier-escape-rooms/655-zaginiony-oficer;   
+21.05.2022;www.foxkomputer.pl;Komputer;Płyta główna - ASUS TUF GAMING B450M-PLUS II;1;309,99 zł;;;;;https://foxkomputer.pl/pl/p/Plyta-glowna-ASUS-TUF-GAMING-B450M-PLUS-II-TUF-GAMING-B450M-PLUS-II-PROMOCJA-FOXKOMPUTER/19845;   
+21.05.2022;www.foxkomputer.pl;Komputer;Karta graficzna - Asus GTX 1650 TUF GAMING 4GB GDDR6;1;1 079,99 zł;;;;;https://foxkomputer.pl/pl/p/Karta-graficzna-Asus-GTX-1650-TUF-GAMING-4GB-GDDR6-TUF-GTX1650-4GD6-GAMING-/16709;   
+04.11.2022;Deluxury;Telefon;Xiaomi POCO X4 GT;1;1 748,00 zł;;;;;https://deluxury.pl/pl/p/Xiaomi-Poco-X4-GT-5G-Dual-Sim-8GB-RAM-128GB-Black/3204;   
+09.10.2023;bigstarshoes.pl;Ubrania;TRAPERY MĘSKIE BIG STAR MM174156 906;1;299,90 zł;;;;;https://bigstarshoes.pl/pl/p/Trapery-meskie-BIG-STAR-MM174156-906/5644;   
+21.05.2022;www.beststore.pl;Komputer;Obudowa - Be quiet! Pure Base 500 BG034 czarna;1;378,99 zł;;;;;https://beststore.pl/be-quiet-obudowa-pure-base-500-bg034-czarna-p322158.html;   
+19.12.2023;Allegro;Prezent;ZAPARZACZ DO KAWY HERBATY FRENCH PRESS 1L;1;27,90 zł;;;;10,95 zł;https://allegro.pl/oferta/zaparzacz-do-kawy-herbaty-french-press-1l-13929201185;   
+01.10.2023;Allegro;Zakupy;Wymienna opaska do smartbanda Xiaomi Mi Band 5 6;1;6,99 zł;;;;9,99 zł;https://allegro.pl/oferta/wymienna-opaska-do-smartbanda-xiaomi-mi-band-5-6-14207716260;   
+01.10.2023;Allegro;Zakupy;Wymienna opaska do smartbanda Xiaomi Mi Band 5;2;3,99 zł;;;; -   zł ;https://allegro.pl/oferta/wymienna-opaska-do-smartbanda-xiaomi-mi-band-5-14207692973;   
+01.10.2023;Allegro;Komputer;UGREEN SZYBKI KABEL PRZEWÓD 2x USB 3.2 Gen 1 3m;1;24,90 zł;;;; -   zł ;https://allegro.pl/oferta/ugreen-szybki-kabel-przewod-2x-usb-3-2-gen-1-3m-12259955214;   
+01.10.2023;Allegro;Komputer;Ugreen płaski kabel Ethernet patchcord Cat 6 RJ45;1;9,99 zł;;;;9,99 zł;https://allegro.pl/oferta/ugreen-plaski-kabel-ethernet-patchcord-cat-6-rj45-9572854419;   
+09.11.2023;Allegro;Rower;Uchwyt rowerowy na telefon;1;54,90 zł;;;; -   zł ;https://allegro.pl/oferta/uchwyt-rowerowy-na-telefon-wodooporna-sakwa-torba-montowana-do-ramy-12597740905;   
+12.05.2023;Allegro;Zakupy;TERMOMETR Z SONDA do GrillLA MIĘSA WODY KUCHENNY;1;12,98 zł;;;;6,99 zł;https://allegro.pl/oferta/termometr-z-sonda-do-Grillla-miesa-wody-kuchenny-11006120973?snapshot=MjAyMy0wNS0xMlQwOToyMTozNi44MDgxMjZaO2J1eWVyOzNkMWY3MmVmMGJkYTQ1MGI1NGRmZWE0MzA5NDE2MjM4ZjkzZWZhMDJlZTUwYjU3M2M4NDA0ZWU4NmIxMDhhZTc%3D;   
+16.04.2023;Allegro;Zakupy;TAŚMY PASY DO ĆWICZEŃ TYPU TRX MOCNY KARABIŃCZYK;1;99,99 zł;;;; -   zł ; https://allegro.pl/oferta/tasmy-pasy-do-cwiczen-typu-trx-mocny-karabinczyk-11316137667?snapshot=MjAyMy0wNC0xNlQxNDoyNjo0NS4zMzEwMDRaO2J1eWVyOzgxNDVjYTc3NDUxZGVmM2VjYWY0YmM0ZTkxNDM0ODQyM2M0YjkwMDhlN2EzYmJkZmUwNmYxZTM4NmVkNTllMTE%3D ;   
+07.12.2023;Allegro;Prezent;Sztuka wojny, wydanie 3 Sun Tzu, Sun Pin;1;39,00 zł;;;;8,60 zł;https://allegro.pl/oferta/sztuka-wojny-wydanie-3-sun-tzu-sun-pin-14364767679; Dla Dawida na urodziny 
+14.03.2023;Allegro;Telefon;Słuchawki bezprzewodowe Redmi Buds 3 Lite;1;79,99 zł;;; - ; -   zł ; https://allegro.pl/oferta/sluchawki-bezprzewodowe-redmi-buds-3-lite-czarne-12079961720 ;   
+13.05.2023;Allegro;Zakupy;Opiekacz Teesa Opiekacz do Kanapek Ceramiczny Toster czarny 800 W;1;89,90 zł;;;; -   zł ;https://allegro.pl/oferta/sandwich-toster-opiekacz-do-kanapek-ceramiczny-10680034469?snapshot=MjAyMy0wNS0xM1QxOToyNjo1NS4zOTgxNzJaO2J1eWVyOzIzODM4YzhjYjZkZDYwNGExMDJhOWVmNzgzN2VmNDM3NjFjZDhiOGNhMzI3YWEwM2JiZGE0OTJhZGI3NTFjNTM%3D;   
+06.03.2023;Allegro;Żywność;Płatki drożdżowe nieaktywne Ecobi 1kg;1;56,90 zł;1000;;; -   zł ; https://allegro.pl/oferta/platki-drozdzowe-nieaktywne-1kg-9292495998 ;   
+01.04.2024;Allegro;Higiena;Plaster (taśma chirurgiczna) 3M 1,25cm x 9,1m ;7;2,97 zł;9100;7;;8,99 zł;https://allegro.pl/oferta/plaster-przylepiec-micropore-3m-1-25x9-1-bialy-9270201810;   
+22.02.2024;Allegro;Zakupy;Patelnia aluminiowa Florina Moreno 30 cm indukcja;1;87,49 zł;;;; -   zł ;https://allegro.pl/oferta/patelnia-aluminiowa-florina-moreno-30-cm-indukcja-11500925768; Adam kupił bo ma SMART 
+11.05.2023;Allegro;Leki;Olej z pestek czarnej porzeczki 250 ml;1;59,00 zł;250;;; -   zł ;https://allegro.pl/oferta/olej-z-pestek-czarnej-porzeczki-250-ml-13305031337;   
+20.01.2023;Allegro;Komputer;Adapter Bluetooth TP-LINK TL-UB500;1;46,39 zł;;; - ;; https://allegro.pl/oferta/nano-adapter-tp-link-ub500-bluetooth-5-0-bt5-12195845327?snapshot=MjAyMy0wMS0yMFQyMTowNjozMS4zMDU0MDJaO2J1eWVyO2Q0ZGVhZDhkOWU5MjI1YjIxZTBjMTRkY2VjMWZmNTI4ZWYzZWIxYzNiMDMwMGYxMTE0Nzg5NDBlNzk1MGE3YmU%3D ;   
+07.03.2024;Allegro;Komputer;Myszka bezprzewodowa Defender MM-665 sensor optyczny;1;25,00 zł;;;;8,50 zł;https://allegro.pl/oferta/myszka-mysz-bezprzewodowa-komputerowa-defender-10861218312;   
+05.02.2024;Allegro;Żywność;Monzini Syrop do drinków o smaku curacao z pompką;1;37,98 zł;1000;2;;8,99 zł;https://allegro.pl/oferta/monzini-syrop-do-drinkow-o-smaku-curacao-z-pompka-13518348633; Dostawa do Allegro One Box bo taniej (Dostałem 3 a zapłaciłem za 2) 
+11.05.2023;Allegro;Zakupy;Listerine Total Care 500ml 4+2 Gratis;1;74,94 zł;3000;6;;9,99 zł;https://allegro.pl/oferta/listerine-total-care-500ml-4-2-gratis-12344138856;   
+19.03.2024;Allegro;Zakupy;Lampka biurkowa ARSA GO KLASYCZNA / LOFT czarny moc do 60 W;1;45,00 zł;;;; -   zł ;https://allegro.pl/oferta/lampka-biurkowa-szkolna-na-biurko-lampa-do-czytania-uchwyt-i-stojak-15182470477;   
+07.02.2024;Allegro;Zakupy;Kubek filiżanka Jumbo szkło hartowane 500 ml;1;9,85 zł;;; - ;9,99 zł;https://allegro.pl/oferta/kubek-filizanka-jumbo-szklo-hartowane-500-ml-15116738725; Za mały 
+12.02.2024;Allegro;Prezent;KUBEK FILIŻANKA JUMBO BIAŁA DUŻA LUMINARC 600/700 ml;1;34,00 zł;;;;9,99 zł;https://allegro.pl/oferta/kubek-filizanka-jumbo-biala-duza-luminarc-700-ml-13781234143; Dla Adama na Walentynki 
+05.08.2023;Allegro;Żywność;KFD PREMIUM WPI 90 - BIAŁKO IZOLAT - Biała czekolada 700g;1;92,99 zł;700;;;9,99 zł;https://allegro.pl/oferta/kfd-premium-wpi-90-bialko-izolat-100-iso-whey-7147593555;   
+22.02.2024;Allegro;Żywność;KFD PREMIUM WPI 90 - BIAŁKO IZOLAT - Biała czekolada 700g;1;80,00 zł;700;;; -   zł ;https://allegro.pl/oferta/kfd-premium-wpi-90-bialko-izolat-100-iso-whey-7147593555; Adam Kupował 2  
+26.03.2024;Allegro;Komputer;Karta graficzna Gigabyte GeForce RTX 2060 Super WindForce OC 2.0 8 GB;1;730,00 zł;;;; -   zł ;https://allegro.pl/oferta/karta-graficzna-gigabyte-geforce-rtx-2060-super-windforce-oc-2-0-8-gb-15334709672; Używana. Taka jaką ma Adam 
+11.05.2023;Allegro;Zakupy;KAMIEŃ WODNY OSTRZAŁKA 1000/6000 osełka ocr22;1;56,94 zł;;;; -   zł ;https://allegro.pl/oferta/kamien-wodny-ostrzalka-1000-6000-oselka-ocr22-12763609151?snapshot=MjAyMy0wNS0xMVQxODo0MjozNi4xMzQ0NThaO2J1eWVyOzY4YjA1MjVlMjI2MGExZWE3OGI4MWY0OGU4YWU0MzkwNTRlNjNjZDY1ODU3N2E5MTg4MmYwODE3ZDRlM2IzNjI%3D;   
+02.04.2024;Allegro;Komputer;Kabel Displayport do HDMI 1,8m FULL HD;1;10,39 zł;1800;;;8,99 zł;https://allegro.pl/oferta/kabel-z-displayport-do-hdmi-1-8m-dp-full-hd-hd39-12141998043;   
+19.12.2023;Allegro;Prezent;Jelly Belly Bean Boozled 45g Fasolki wszystkich smaków;1;40,47 zł;;3;;8,99 zł;https://allegro.pl/oferta/jelly-belly-bean-boozled-45g-14913658263;   
+05.12.2023;Allegro;Telefon;Gumki do słuchawek dousznych (3 rozmiary w komplecie) czarne;1;4,99 zł;;3;;10,95 zł;https://allegro.pl/oferta/gumki-do-sluchawek-dousznych-3-rozmiary-w-komplecie-czarne-14566514255;   
+20.04.2024;Biedronka;Żywność;Rzodkiewki - pęk;2;2,61 zł;;;;;https://allegro.pl/oferta/grube-przescieradlo-frotte-z-gumka-120x200-bawelna-kolory-sprawdzona-jakosc-5182487862;   
+20.01.2023;Allegro;Komputer;Adapter Bluetooth Baseus BA04 czarny;1;30,01 zł;;;;; https://allegro.pl/oferta/baseus-mini-adapter-usb-odbiornik-bluetooth-5-1-12430664112 ;   
+13.05.2023;Allegro;Komputer;Adapter PCI-e x4 SSD karta m.2 NVMe przejściowka;1;65,90 zł;;;; -   zł ;https://allegro.pl/oferta/adapter-pci-e-x4-ssd-karta-m-2-nvme-przejsciowka-11769630964?snapshot=MjAyMy0wNS0xM1QxNjo0OToxMy40NzI5OTBaO2J1eWVyOzE5Yzk5YmRmYTlkMjY5M2E4ZGY5ZWU4NWM4NTkwMTIxOWE3MGE0YWRjYTQ5YzgxYTJkNjYwMTE1ZGM3NDFkYjg%3D;   
+18.10.2022;Allegro;Ubrania;6x majtki, BOKSERKI MĘSKIE BAWEŁNIANE L;1;44,00 zł;;6;;;https://allegro.pl/oferta/6x-bokserki-meskie-bawelniane-l-9925755387;   
+19.05.2024;Allegro;Higiena;Końcówki do szczoteczki Braun Oral-B 2x;1;29,90 zł;;2;;6,99 zł;https://allegro.pl/oferta/2x-koncowki-do-szczoteczki-braun-oral-b-cross-action-100-oryginalne-czarne-15259105910;   
+09.10.2023;Allegro;Zakupy;TERMOWENTYLATOR FARELKA ELEKTRYCZNA GRZEJNIK 2000W;1;48,89 zł;;;;9,99 zł;https://allegro.pl/moje-allegro/zakupy/kupione/ee174966-1ac8-37b7-b197-5104b66e57d1;   
+18.07.2023;Allegro;Zakupy;ŻEL LUBRYKANT ANALNY znieczulający ROZLUŹNIAJĄCY;1;32,47 zł;100;;;;https://allegro.pl/moje-allegro/zakupy/kupione/b3971d6d-3bbd-323b-bc2d-e687a26d5501/oferta/79028110-2551-11ee-8dd2-9da167ce05a3;   
+22.02.2024;Allegro;Rower;Smar Olej Finish Line 60 ml - Cross Country WET;1;24,50 zł;60;;;8,99 zł;https://allegro.pl/moje-allegro/zakupy/kupione/7b9e3ab7-b0be-338e-b484-ce2c84cfbf53/oferta/fa61b990-d188-11ee-8580-9dcd8e132032;   
+18.01.2023;Allegro;Ubrania;6x majtki, BOKSERKI MĘSKIE BAWEŁNIANE M;1;48,90 zł;;6;;; https://allegro.pl/moje-allegro/zakupy/kupione/46883c0b-89e4-3836-8f5e-95e0fe0bd60c ;   
+11.05.2023;Allegro;Zakupy;OTWIERACZ DO BUTELEK BRELOK ALUMINIOWY BRELOCZEK;1;1,59 zł;;;;9,99 zł;https://allegro.pl/moje-allegro/zakupy/kupione/257c9cb0-4420-3685-b668-d79416926818;   
+04.11.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Poznań;1;0,49 zł;;;;;;Dopłata za wymianę biletu na późniejszą godzinę
+06.10.2023;Sticky Password;Subskrypcje;Sticky Password Lifetime Premium License;1;219,00 zł;;;;;;Dokładnie 49,99 USD
+04.11.2023;Klub Papuga Kraków;Kluby;Szatnia;2;2,00 zł;;;;;;Dla mnie i Adama
+04.11.2023;Klub Papuga Kraków;Kluby;Wejście do klubu;2;10,00 zł;;;;;;Dla mnie i Adama
+08.07.2023;BILKOM;Pociąg;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;12,23 zł;;;;;;Dla mnie
+11.07.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Tychy;1;12,23 zł;;;;;;Dla mnie
+11.07.2023;BILKOM;Pociąg;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;12,23 zł;;;;;;Dla mnie
+12.07.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Katowice;1;11,25 zł;;;;;;Dla mnie
+06.07.2023;Cinema City;Kino;Bilet na SPIDER-MAN: POPRZEZ MULTIWERSUM;1;20,90 zł;;;;;;Dla Kuby
+23.09.2023;Empik;Prezent;Kartka urodzinowa;1;11,99 zł;;;;;;Dla Aśki
+23.09.2023;Flying Tiger;Prezent;Pluszak prosiaczek;1;20,00 zł;;;;;;Dla Aśki
+23.09.2023;Stokrotka;Prezent;Bombonierka Vobro;1;26,99 zł;;;;;;Dla Aśki
+23.09.2023;Stokrotka;Prezent;Martini Bianco;1;42,99 zł;1000;;;;;Dla Aśki
+23.09.2023;Stokrotka;Prezent;Torba Urodzinowa z podkową;1;4,99 zł;;;;;;Dla Aśki
+14.07.2023;Cinema City;Kino;"Bilet na ""Bez urazy"" normalny";1;26,01 zł;;;;;;Dla Adama we Wrocławiu (zniżka 10% z mbank z 28.90)
+08.07.2023;BILKOM;Pociąg;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;24,95 zł;;;;;;Dla Adama
+11.07.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Tychy;1;24,95 zł;;;;;;Dla Adama
+11.07.2023;BILKOM;Pociąg;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;24,95 zł;;;;;;Dla Adama
+12.07.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Katowice;1;22,95 zł;;;;;;Dla Adama
+25.11.2022;McDonald's ;Żywność;Zestaw powiększony + 6 nuggetsów ;1;26,60 zł;;;;;;Dawid zafundował ale od razu mu oddałem Blikiem
+30.04.2023;HAH;Kluby;Szatnia dla 3 osób;3;5,00 zł;;;;;;Adam, ja i Arek
+22.05.2023;https://sparkedhost.com/;Subskrypcje;Serwer 7D2D Wood(Budget);1;18,85 zł;;;;;;4,25$
+24.10.2023;Kaufland;Zakupy;Wyciskacz do czosnku | Spice & Soul;1;27,99 zł;;;;;;3 lata gwarancji i gwarancja zadowolenia
+03.05.2023;HAH;Alkohol;;2;19,00 zł;;;;;;2x drink dla mnie i Adama
+26.05.2023;Biedronka;Żywność;Tuńczyk w sosie własnym kawałki Marinero | 185/130g;3;3,73 zł;130;;;;;2+1gratis
+02.06.2023;Biedronka;Żywność;Rzodkiewki - pęk;2;1,25 zł;485;;;;;1+1gratis
 23.04.2022;Fryzjer;Fryzjer;Fryzjer Amaro;1;45,00 zł;;;;;;   
 26.04.2022;Galeria Orkana - Rossmann;Higiena;Nivea Men - Active Clean 500ml;2;8,34 zł;500;;;;; Przypadkiem kupiłem droższe o 4zł /szt | w Rossmannie w Kauflandzie były po 8.49 (Rabat zniwelował straty) 
 26.04.2022;Galeria Orkana - Rossmann;Higiena;Nivea Men - Silver Protection;3;8,49 zł;500;;;;; Przypadkiem kupiłem droższe o 4zł /szt | w Rossmannie w Kauflandzie były po 8.49 (Rabat zniwelował straty) 
@@ -19,12 +125,6 @@
 06.05.2022;Olimp - Multikino;Kino;Doctor Strange in Multiverse of Madness;1;16,90 zł;;;;;;   
 17.05.2022;Rossmann;Ubrania;Okulary przeciwsłoneczne;1;29,99 zł;;;;;;   
 21.05.2022;Kaufland;Żywność;Ziemniaki 5kg;2;9,51 zł;5000;;;;;   
-21.05.2022;www.beststore.pl;Komputer;Obudowa - Be quiet! Pure Base 500 BG034 czarna;1;378,99 zł;;;;;https://beststore.pl/be-quiet-obudowa-pure-base-500-bg034-czarna-p322158.html;   
-21.05.2022;www.foxkomputer.pl;Komputer;Karta graficzna - Asus GTX 1650 TUF GAMING 4GB GDDR6;1;1 079,99 zł;;;;;https://foxkomputer.pl/pl/p/Karta-graficzna-Asus-GTX-1650-TUF-GAMING-4GB-GDDR6-TUF-GTX1650-4GD6-GAMING-/16709;   
-21.05.2022;www.foxkomputer.pl;Komputer;Płyta główna - ASUS TUF GAMING B450M-PLUS II;1;309,99 zł;;;;;https://foxkomputer.pl/pl/p/Plyta-glowna-ASUS-TUF-GAMING-B450M-PLUS-II-TUF-GAMING-B450M-PLUS-II-PROMOCJA-FOXKOMPUTER/19845;   
-21.05.2022;www.lemonti.pl;Komputer;NVME - Dysk SSD Samsung 980 1 TB M.2 2280 PCI-E x4 Gen3 NVMe;1;495,00 zł;;;;;https://www.lemonti.pl/Dysk-SSD-Samsung-980-1-TB-M-2-2280-PCI-E-x4-Gen3-NVMe-p112;   
-21.05.2022;www.mediaexpert.pl;Komputer;RAM G.SKILL 16GB 2666MHz - 2 moduły;2;143,14 zł;;;;;https://www.mediaexpert.pl/komputery-i-tablety/podzespoly-komputerowe/pamieci-ram/pamiec-ddr4-g-skill-value-16gb-2x8gb-2666mhz-cl19-1-2v;   
-21.05.2022;www.mocnykomputer.pl;Komputer;Procesor AMD Ryzen 5 5600X;1;995,00 zł;;;;;https://mocnykomputer.pl/pl/p/Procesor-AMD-Ryzen-5-5600X-3.7GHz-MPK-na-stanie-24h-/32136;   
 26.05.2022;Kaufland;Prezent;Kwiaty dla mamy;1;21,99 zł;;;;;;   
 28.05.2022;Allegro;Majsterkowanie;Plastikowe Półkole Krawieckie;1;18,98 zł;;;;;;   
 28.05.2022;Allegro;Majsterkowanie;Torebki strunowe 100szt;1;10,88 zł;;100;;;;   
@@ -142,8 +242,8 @@
 14.10.2022;Kaufland;Żywność;Słodka Chwila Budyń Wanilia  43g;4;1,19 zł;43;;;;;   
 14.10.2022;Kaufland;Żywność;Słodka Chwila Kisiel Morela  30g;2;1,19 zł;30;;;;;   
 14.10.2022;Kaufland;Żywność;Syrop malinowy  Łowicz 680g;2;7,99 zł;680;;;;;   
-14.10.2022;Koleo;Usługi;Bilet na pociąg Poznań-Gniezno;1;8,33 zł;;;;;;   
-14.10.2022;Koleo;Usługi;Bilet na pociąg Poznań-Gniezno;1;8,33 zł;;;;;;   
+14.10.2022;Koleo;Pociąg;Bilet na pociąg Poznań - Gniezno;1;8,33 zł;;;;;;   
+14.10.2022;Koleo;Pociąg;Bilet na pociąg Poznań - Gniezno;1;8,33 zł;;;;;;   
 14.10.2022;MarkoweRowery.pl;Rower;Pompka do reweru;1;30,00 zł;;;;;;   
 15.10.2022;Hebe;Higiena;Head & Shoulders XXL Classic Clean | Apple Fresh | Citrus Fresh;3;35,99 zł;900;;;;; W biedronce po 27.99 (zaoszczędziłbym 24 zł) 
 15.10.2022;K2 Pizzeria;Żywność;Pizza średnia Caorle | pepsi;1;32,00 zł;;;;;; Taka średnia była 
@@ -152,20 +252,17 @@
 17.10.2022;Biedronka;Żywność;Chleb pszenno-żytni 550g;2;2,75 zł;550;;;;;   
 17.10.2022;Biedronka;Żywność;Nudle pomidorowe pikantne 63g | Knor;5;1,99 zł;63;;;;;   
 17.10.2022;Biedronka;Żywność;Paluszki rybne z fileta z dorsza | 300g;2;9,99 zł;300;;;;;   
-18.10.2022;Allegro;Ubrania;6x majtki, BOKSERKI MĘSKIE BAWEŁNIANE L;1;44,00 zł;;6;;;https://allegro.pl/oferta/6x-bokserki-meskie-bawelniane-l-9925755387;   
-18.10.2022;Koleo;Usługi;Bilet na pociąg Gniezno-Poznań;1;8,33 zł;;;;;;   
+18.10.2022;Koleo;Pociąg;Bilet na pociąg Gniezno - Poznań;1;8,33 zł;;;;;;   
 19.10.2022;Wydział;Żywność;Filet z kurczaka + ziemniaki;1;19,50 zł;;;;;;   
 20.10.2022;Biedronka;Energetyki;Energetyk Tiger Bubble Gum 500ml;1;3,80 zł;500;;;;;   
 20.10.2022;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;3;8,99 zł;;10;;;;   
 20.10.2022;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;3;6,94 zł;160;18;;;;   
 20.10.2022;Biedronka;Żywność;Ser Gouda | Włoszczowa 400g;3;12,94 zł;400;;;;;   
-20.10.2022;Kaufland - Os. Stefana Batorego;Żywność;Gotowe danie Gyros | Hortex | 450g;1;8,99 zł;450;;;;Potaniało;   
-20.10.2022;Kaufland - Winogrady;Żywność;Gotowe danie Meksykańskie | Hortex | 450g;6;8,99 zł;450;;;;Potaniało;   
 21.10.2022;Allegro;Ubrania;Szelki do naciągania koszuli;1;49,90 zł;;;;;;   
 21.10.2022;Fryzjer;Fryzjer;Strzyżenie r.13 | Amanda Jędrzejewska;1;25,00 zł;;;;;;   
 22.10.2022;Karczma u Grzegorza;Żywność;Schabowy z ziemniakami;1;19,50 zł;;;;;;   
 22.10.2022;Żabka;Żywność;Lipton 1L;1;5,99 zł;1000;;;;;   
-23.10.2022;BILKOM;Usługi;Bilet na pociąg Poznań-Lublin;1;32,90 zł;;;;;;   
+23.10.2022;BILKOM;Pociąg;Bilet na pociąg Poznań - Lublin;1;32,90 zł;;;;;;   
 24.10.2022;Biedronka;Żywność;Chleb pszenno-żytni 550g;4;2,75 zł;550;;;;;   
 24.10.2022;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;1;8,99 zł;;10;;;;   
 24.10.2022;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;6,94 zł;160;18;;;;   
@@ -179,7 +276,7 @@
 29.10.2022;LSS Społem ;Alkohol;Desperados;2;5,39 zł;;;;;;   
 29.10.2022;McDonald's ;Żywność;Nuggets;1;15,20 zł;;;;;;   
 30.10.2022;McDonald's ;Żywność;Zestaw powiekszony ;1;25,90 zł;;;;;;   
-31.10.2022;BILKOM;Usługi;Bilet na pociąg Lublin-Poznań;1;32,90 zł;;;;;;   
+31.10.2022;BILKOM;Pociąg;Bilet na pociąg Lublin - Poznań;1;32,90 zł;;;;;;   
 31.10.2022;Pelier;Żywność;Pepsi;1;8,00 zł;;;;;;   
 31.10.2022;Pelier;Żywność;Pizza + sos;1;31,00 zł;;;;;;   
 31.10.2022;Żabka;Żywność;Lipton;1;5,99 zł;;;;;;   
@@ -188,7 +285,6 @@
 04.11.2022;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,75 zł;550;;;;;   
 04.11.2022;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;1;8,99 zł;;10;;;;   
 04.11.2022;Climbing Spot;Wspinaczka;Wejście;1;30,00 zł;;;;;;   
-04.11.2022;Deluxury;Telefon;Xiaomi POCO X4 GT;1;1 748,00 zł;;;;;https://deluxury.pl/pl/p/Xiaomi-Poco-X4-GT-5G-Dual-Sim-8GB-RAM-128GB-Black/3204;   
 04.11.2022;Kaufland;Żywność;Gotowe danie Gyros | Hortex | 450g;2;9,99 zł;450;;;;;   
 04.11.2022;Kaufland;Żywność;Gotowe danie Meksykańskie | Hortex | 450g;2;9,99 zł;450;;;;;   
 04.11.2022;Kaufland;Żywność;Słodka Chwila Kisiel Jabłko&Gruszka  32g;6;1,27 zł;32;;;;;   
@@ -207,7 +303,6 @@
 10.11.2022;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,75 zł;550;;;;;   
 10.11.2022;Biedronka;Żywność;Fanta 1L;1;5,49 zł;1000;;;;;   
 10.11.2022;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;2;8,99 zł;;10;;;;   
-10.11.2022;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;4;4,49 zł;160;18;;;Łączny rabat na salami 9.80;   
 10.11.2022;Biedronka;Żywność;Ser Gouda | Włoszczowa 400g;3;13,99 zł;400;;;;;   
 10.11.2022;Kaufland;Żywność;Bułka czosnkowa;1;2,65 zł;175;;;;;   
 10.11.2022;Kaufland;Żywność;Kabanosy Wieprzowe 105g;1;4,49 zł;105;;;;;   
@@ -238,13 +333,11 @@
 18.11.2022;Kaufland;Żywność;Kostka z dzikiego łososia | Abramczyk 500g;2;19,99 zł;500;;;;;   
 18.11.2022;Kaufland;Żywność;Orzechy Pekan 200g;2;16,19 zł;200;;;;;   
 18.11.2022;Kaufland;Żywność;Rukola 80g;2;4,99 zł;80;;;;;   
-18.11.2022;Lokum;Alkohol;Piwo Fortuna Czarne;2;13,00 zł;;;;;Spłacone 13 z 14 zł;   
 18.11.2022;Rossmann;Higiena;Krem do rąk Isana Med 100ml;1;8,49 zł;100;;;;;   
 18.11.2022;Sinsay;Ubrania;Szalik;1;39,99 zł;;;;;;   
 19.11.2022;D-Lickcious;Żywność;D-Waffle;1;13,50 zł;;;;;;   
 19.11.2022;Kaufland;Żywność;Chicken Nuggets | Tender 500g;1;15,99 zł;500;;;;;   
 19.11.2022;Kaufland;Żywność;Gotowe danie Gyros | Hortex | 450g;1;11,99 zł;450;;;;;   
-19.11.2022;Kaufland;Żywność;Kurczak z ryżem po meksykańsku | Frosta | 450g;1;12,99 zł;450;;;;Może być;   
 19.11.2022;Kaufland;Żywność;Roślinny kurczak z kaszą i warzywami | Hortex | 400g;1;10,99 zł;400;;;;;   
 22.11.2022;Allegro;Telefon;Baseus kabel USB-C Typ C Quick Charge 3.0 2A 200cm;1;23,38 zł;;;;;;   
 22.11.2022;Climbing Spot;Wspinaczka;Wejście;1;30,00 zł;;;;;;   
@@ -259,7 +352,7 @@
 22.11.2022;Kaufland;Żywność;Sól spożywcza  Jodsalz 1kg;1;1,49 zł;1000;;;;;   
 23.11.2022;Wydział;Żywność;Spaghetti;1;11,00 zł;;;;;;   
 23.11.2022;Wydział;Żywność;Wafelki;1;3,00 zł;;;;;;   
-24.11.2022;BILKOM;Usługi;Bilet na pociąg Poznań-Lublin;1;32,90 zł;;;;;;   
+24.11.2022;BILKOM;Pociąg;Bilet na pociąg Poznań - Lublin;1;32,90 zł;;;;;;   
 24.11.2022;Office Solution;Usługi;Drukowanie dwóch stron;1;1,00 zł;;;;;;   
 24.11.2022;Steam;Gry;Gra Assetto Corsa dla Dawida;1;41,92 zł;;;;;;   
 25.11.2022;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;3;8,99 zł;;10;;;;   
@@ -269,10 +362,8 @@
 25.11.2022;Kaufland;Zakupy;Talerz plytki x6;1;4,99 zł;;6;;;;   
 25.11.2022;Kaufland;Żywność;Gotowe danie Meksykańskie | Hortex | 450g;3;9,99 zł;450;;;;;   
 25.11.2022;Kaufland;Żywność;Orzechy Pekan 200g;1;16,19 zł;200;;;;;   
-25.11.2022;McDonald's ;Żywność;Zestaw powiększony + 6 nuggetsów ;1;26,60 zł;;;;;Dawid zafundował ale od razu mu oddałem Blikiem;   
 25.11.2022;Office Solution;Usługi;Skanowanie dwustronne;1;2,00 zł;;;;;;   
 25.11.2022;Rossmann;Higiena;Dezodorant perfumy Nike Ultra Green 75ml;1;13,99 zł;75;;;;;   
-27.11.2022;moser-wahl.pl;Higiena;Trymer do włosów Wahl 9855-1216 GroomsMan Pro;1;119,00 zł;;;;;https://moser-wahl.pl/pl/p/Trymer-do-wlosow%2C-zarostu%2C-uszu%2C-nosa%2C-brwi-golarka-Wahl-9855-1216-GroomsMan-Pro/471;   
 29.11.2022;Allegro;Usługi;Rozliczenia z Allegro;1;4,35 zł;;;;;;   
 29.11.2022;ING;Usługi;Opłata za kartę VISA;1;1,50 zł;;;;;;   
 29.11.2022;Kaufland;Żywność;Chicken Nuggets | Tender 500g;1;15,99 zł;500;;;;;   
@@ -283,7 +374,7 @@
 29.11.2022;Wydział;Żywność;Pierogi ruskie;1;10,00 zł;;;;;;   
 30.11.2022;Wydział;Żywność;Zawijaniec;1;19,50 zł;;;;;;   
 30.11.2022;Żabka;Energetyki;Energetyk Tiger ;1;4,99 zł;;;;;;   
-01.12.2022;BILKOM;Usługi;Bilet na pociąg Lublin-Poznań;1;27,10 zł;;;;;;   
+01.12.2022;BILKOM;Pociąg;Bilet na pociąg Lublin - Poznań;1;27,10 zł;;;;;;   
 02.12.2022;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;3;8,99 zł;;10;;;;   
 02.12.2022;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;3;6,94 zł;160;18;;;;   
 02.12.2022;Kaufland;Żywność;Chicken Nuggets | Tender 500g;1;15,99 zł;500;;;;;   
@@ -335,9 +426,9 @@
 18.12.2022;Biedronka;Charytatywne;Kawa rozpouszczalna;1;4,99 zł;;;;;; Zakupy dla bezdomnej na święta 
 18.12.2022;Biedronka;Charytatywne;Matijas;1;8,56 zł;;;;;; Zakupy dla bezdomnej na święta 
 18.12.2022;Biedronka;Charytatywne;Mleko Mlekovia 3.2% 1L;2;4,29 zł;;;;;; Zakupy dla bezdomnej na święta 
-18.12.2022;Biedronka;Charytatywne;Płyn do prania;1;11,99 zł;;;;;; Zakupy dla bezdomnej na święta 
 18.12.2022;Biedronka;Charytatywne;Ser Gouda;1;4,75 zł;;;;;; Zakupy dla bezdomnej na święta 
 18.12.2022;Biedronka;Charytatywne;Szynka;1;4,86 zł;;;;;; Zakupy dla bezdomnej na święta 
+18.12.2022;Biedronka;Środki czystości;Płyn do prania;1;11,99 zł;;;;;; Zakupy dla bezdomnej na święta 
 18.12.2022;Haru Sushi;Żywność;Zestaw sushi Haru 6 (64 szt) i napój alosesowy;1;100,00 zł;;;;;; Dawid mi oddał bo uważał że za dużo (65zł z 165) 
 20.12.2022;Apteka Dr.Max;Leki;Tran Moller's 250ml;1;39,99 zł;250;1;;;;
 20.12.2022;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;3;8,99 zł;;10;;;;
@@ -378,11 +469,11 @@
 07.01.2023;Kaufland;Żywność;Barszcz czerwony | Artman | 470ml;1;2,99 zł;470;;;;;
 07.01.2023;Kaufland;Żywność;Mieszanka Meksykańska | Hortex 450g;1;5,99 zł;450;;;;;
 07.01.2023;Kaufland;Żywność;Warzywa na petelnię z soczewicą | Hortex | 450g;2;3,50 zł;450;;;;;
-08.01.2023;BILKOM;Usługi;Bilet na pociąg Poznań-Katowice;1;35,28 zł;;;;;;
+08.01.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Katowice;1;35,28 zł;;;;;;
 08.01.2023;McDonald's ;Żywność;Oferta śniadaniowa McWrap | Frytki | Placek Ziemniaczany | Kawa;1;22,50 zł;;;;;;
 09.01.2023;McDonald's ;Żywność;Zestaw okazYEAH | 6 nuggetsów | frytki | Cola;1;16,00 zł;;;;;;
 09.01.2023;Wydział;Żywność;Kurczak z Curry;1;20,00 zł;;;;;; 19.50 ale nie wziąłem reszty 
-10.01.2023;Allegro;Komputer;UGREEN NADAJNIK ODBIORNIK BLUETOOTH ADAPTER;1;64,00 zł;;;Tak;;; Zwrócone środki 
+10.01.2023;Allegro;Komputer;UGREEN NADAJNIK ODBIORNIK BLUETOOTH ADAPTER;1;64,00 zł;;; - ;;; Zwrócone środki 
 10.01.2023;Biedronka;Energetyki;Energetyk Be Power Classic 500ml;2;3,19 zł;500;;;;; niesmaczny  
 10.01.2023;Biedronka;Energetyki;Energetyk Be Power Zero Sugar  500ml;1;3,19 zł;500;;;;;
 10.01.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;3;8,99 zł;;10;;;;
@@ -392,19 +483,19 @@
 10.01.2023;Biedronka;Żywność;Sushi Toshii 400g;2;11,99 zł;400;;;;;
 11.01.2023;Wydział;Żywność;Spaghetti;1;12,00 zł;;;;;;
 12.01.2023;Biedronka;Energetyki;Energetyk Be Power Zero Sugar  500ml;4;3,19 zł;500;;;;;
-12.01.2023;BILKOM;Usługi;Bilet na pociąg Katowice-Poznań;1;39,20 zł;;;;;;
+12.01.2023;BILKOM;Pociąg;Bilet na pociąg Katowice - Poznań;1;39,20 zł;;;;;;
 12.01.2023;Burger King;Żywność;Shake Oreo 300ml ;1;9,95 zł;300;;;;;
-13.01.2023;BILKOM;Usługi;Bilet na pociąg Katowice-Tychy;1;4,19 zł;;;;;;
+13.01.2023;BILKOM;Pociąg;Bilet na pociąg Katowice - Tychy;1;4,19 zł;;;;;;
 13.01.2023;Maxi Pizza;Żywność;Pizza Dracula na spółę z Adamem;1;31,26 zł;;;;;;
 13.01.2023;Żabka;Żywność;Bułka grahamka;2;0,99 zł;75;;;;;
-14.01.2023;Biletomat;Usługi;Bilet na pociąg Katowice-Tychy;1;4,19 zł;;;;;; Chyba nie pobrało mi kasy a wydało bilet, albo zapomniałem kupić biletu do Katowic (update - po kilku dniach dopiero pojawiła się płatność) 
-14.01.2023;BILKOM;Usługi;Bilet na pociąg Tychy-Katowice;1;4,19 zł;;;;;;
+14.01.2023;Biletomat;Pociąg;Bilet na pociąg Katowice - Tychy;1;4,19 zł;;;;;; Chyba nie pobrało mi kasy a wydało bilet, albo zapomniałem kupić biletu do Katowic (update - po kilku dniach dopiero pojawiła się płatność) 
+14.01.2023;BILKOM;Pociąg;Bilet na pociąg Tychy - Katowice;1;4,19 zł;;;;;;
 14.01.2023;Żabka;Alkohol;Desperados;2;6,80 zł;400;;;;;
-15.01.2023;BILKOM;Usługi;Bilet na pociąg Tychy-Katowice;1;4,19 zł;;;;;;
+15.01.2023;BILKOM;Pociąg;Bilet na pociąg Tychy - Katowice;1;4,19 zł;;;;;;
 16.01.2023;Biedronka;Żywność;Nudle pomidorowe łagodne 65g | Knor;3;1,99 zł;65;;;;;
 16.01.2023;Biedronka;Żywność;Rukola 100g;1;3,99 zł;100;;;;;
 16.01.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;6,94 zł;160;18;;;;
-16.01.2023;Kaufland;Żywność;Banany;1;8,05 zł;1152;;;;;
+16.01.2023;Kaufland;Żywność;Banan luz;1;8,05 zł;1152;;;;;
 16.01.2023;Kaufland;Żywność;Chicken Nuggets | Tender 500g;1;15,99 zł;500;;;;;
 16.01.2023;Kaufland;Żywność;Cytryny bezpestkowe Eureka 450g;1;5,99 zł;450;;;;;
 16.01.2023;Kaufland;Żywność;Orzechy Pekan 200g;1;16,19 zł;200;;;;;
@@ -412,10 +503,7 @@
 16.01.2023;Kaufland;Żywność;Ser Gouda | K-Classic | 500g;1;15,99 zł;500;;;;;
 16.01.2023;Kaufland;Żywność;Warzywa na petelnię hiszpańskie | Hortex | 400g;1;6,99 zł;400;;;;;
 16.01.2023;Kaufland;Żywność;Warzywa na petelnię z soczewicą | Hortex | 450g;2;4,99 zł;450;;;;;
-18.01.2023;Allegro;Ubrania;6x majtki, BOKSERKI MĘSKIE BAWEŁNIANE M;1;48,90 zł;;6;;; https://allegro.pl/moje-allegro/zakupy/kupione/46883c0b-89e4-3836-8f5e-95e0fe0bd60c ; 
 18.01.2023;Wydział;Żywność;Kurczak w sosie pieczarkowym;1;19,50 zł;;;;;;
-20.01.2023;Allegro;Komputer;Adapter Bluetooth Baseus BA04 czarny;1;30,01 zł;;;;; https://allegro.pl/oferta/baseus-mini-adapter-usb-odbiornik-bluetooth-5-1-12430664112 ; 
-20.01.2023;Allegro;Komputer;Adapter Bluetooth TP-LINK TL-UB500;1;46,39 zł;;;Tak;; https://allegro.pl/oferta/nano-adapter-tp-link-ub500-bluetooth-5-0-bt5-12195845327?snapshot=MjAyMy0wMS0yMFQyMTowNjozMS4zMDU0MDJaO2J1eWVyO2Q0ZGVhZDhkOWU5MjI1YjIxZTBjMTRkY2VjMWZmNTI4ZWYzZWIxYzNiMDMwMGYxMTE0Nzg5NDBlNzk1MGE3YmU%3D ; 
 20.01.2023;Apteka Dr.Max;Leki;Strepsils Intensive 24 tabletki;1;29,99 zł;;24;;;;
 20.01.2023;Apteka Dr.Max;Zakupy;Igła 0.5 x 16mm;1;0,15 zł;;;;;; Do płynu do soczewek 
 20.01.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;3;8,99 zł;;10;;;;
@@ -442,7 +530,6 @@
 24.01.2023;Kaufland;Środki czystości;Balsam do mycia naczyń Kextra 750ml;2;4,39 zł;750;;;;;
 24.01.2023;Kaufland;Żywność;Chicken Nuggets | Tender 500g;1;15,99 zł;500;;;;;
 24.01.2023;Kaufland;Żywność;Mieszanka Meksykańska | Hortex 450g;3;5,99 zł;450;;;;;
-24.01.2023;Rossmann;Higiena;Isana Intensiv olejek do włosów 2w1 jojobaöl 100ml;1;10,99 zł;100;;;; https://www.rossmann.pl/Produkt/Serum-i-olejki/Isana-Intensiv-2in1-olejek-do-wlosow-100-ml,236997,8661 ; 
 25.01.2023;Wydział;Żywność;Zawijaniec;1;19,50 zł;;;;;;
 27.01.2023;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;1,58 zł;;;;;;
 28.01.2023;Biedronka;Energetyki;Energetyk Be Power Mojito 250ml;2;1,39 zł;250;;;;; Nawet dobre 
@@ -543,11 +630,11 @@
 19.02.2023;HAH;Alkohol;Piwo lane Domowe 0.5L;1;12,00 zł;500;;;;; Na spółę z Adamem 
 19.02.2023;HAH;Kluby;Szatnia HAH;2;5,00 zł;;;;;; Dla siebie i Adama 
 19.02.2023;HAH;Kluby;Wejście HAH;2;30,00 zł;;;;;; Dla siebie i Adama 
-19.02.2023;Private VPN;Subskrypcje;Private VPN automatyczne odnowienie;1;221,57 zł;;;Tak;;;
+19.02.2023;Private VPN;Subskrypcje;Private VPN automatyczne odnowienie;1;221,57 zł;;; - ;;;
 19.02.2023;Żabka;Żywność;Bułka z serem 65g;2;1,90 zł;65;;;;;
 19.02.2023;Żabka;Żywność;Herbata miętowa  Herbapol 40g 20szt;1;6,20 zł;40;20;;;;
 19.02.2023;Żabka;Żywność;Kajzerka 60g;2;0,65 zł;60;;;;;
-20.02.2023;Akademik;Usługi;Pobyt Adama w Akademiku;1;30,00 zł;;;;;;
+20.02.2023;Akademik;Usługi;Nocleg Adama;1;30,00 zł;;;;;;
 20.02.2023;McDonald's ;Żywność;Pół zestawu od Dawida;1;20,00 zł;;;;;;
 22.02.2023;Private VPN;Subskrypcje;Private VPN 36 miesięcy 72$;1;332,88 zł;;;;;; Ze 10 zł różnicy w przeliczniku 9.25/mies 
 24.02.2023;Biedronka;Leki;Strepsils Herbal 16 tabletek;2;11,99 zł;;16;;;; Nie działa 
@@ -570,11 +657,11 @@
 25.02.2023;Kaufland;Żywność;Zapalniczka Elektryczna;1;1,19 zł;;;;;;
 25.02.2023;Rossmann;Higiena;Krem do rąk Isana Med 100ml;1;8,79 zł;100;;;;;
 25.02.2023;Rossmann;Higiena;Pomadka do ust Original Care Nivea 4.8g;1;7,49 zł;5;;;;;
-27.02.2023;Credit Agricole;Usługi;Opłata za kartę VISA;1;15,00 zł;;;Tak;;; Oddano mi te 15 zł 5.03.2023 (nwm czemu pobrali a potem oddają) 
+27.02.2023;Credit Agricole;Usługi;Opłata za kartę VISA;1;15,00 zł;;; - ;;; Oddano mi te 15 zł 5.03.2023 (nwm czemu pobrali a potem oddają) 
 28.02.2023;Biedronka;Energetyki;Energetyk Be Power Tropical 500ml;2;3,19 zł;500;;;;;
 28.02.2023;Biedronka;Żywność;Napój Aloe Vita 1.5L;2;11,99 zł;1500;;;;;
 28.02.2023;Biedronka;Żywność;Napój Nestea brzoskwinia 1.5L;2;4,75 zł;1500;;;;;
-01.03.2023;BILKOM;Usługi;Bilet na pociąg Poznań-Katowice;1;29,99 zł;;;;;;
+01.03.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Katowice;1;29,99 zł;;;;;;
 01.03.2023;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;0,37 zł;;;;;;
 01.03.2023;ING;Usługi;"Ubezpieczenie ""Moja Ochrona"" ING";1;6,00 zł;;;;;;
 01.03.2023;PEKA;Usługi;Bilet semestralny 150 dni;1;202,00 zł;;150;;;;
@@ -599,8 +686,7 @@
 04.03.2023;Kaufland;Żywność;Pestki dyni 200g;2;7,40 zł;200;;;;;
 04.03.2023;Żabka;Alkohol;Lubelska Cytrynowa 100ml;1;9,99 zł;100;;;;;
 04.03.2023;Żabka;Żywność;Napój Hortex;1;2,99 zł;500;;;;;
-06.03.2023;Allegro;Żywność;Płatki drożdżowe nieaktywne Ecobi 1kg;1;56,90 zł;1000;;; -   zł ; https://allegro.pl/oferta/platki-drozdzowe-nieaktywne-1kg-9292495998 ; 
-07.03.2023;BILKOM;Usługi;Bilet na pociąg Poznań-Lublin;1;16,66 zł;;;;;;
+07.03.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Lublin;1;16,66 zł;;;;;;
 07.03.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;38,00 zł;;;;;; Oddane 38 zł 
 09.03.2023;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,75 zł;550;;;;;
 09.03.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;3;8,99 zł;;10;;;;
@@ -619,12 +705,11 @@
 11.03.2023;Biedronka;Żywność;Ser Gouda | Włoszczowa 400g;2;13,99 zł;400;;;;;
 11.03.2023;Biedronka;Żywność;Ser topiony kremowy z szynką Hochland 90g;2;3,19 zł;90;;;;;
 11.03.2023;Biedronka;Żywność;Ser topiony kremowy z ziołami Hochland 90g;1;3,19 zł;90;;;;;
-12.03.2023;BILKOM;Usługi;Bilet na pociąg Katowice-Poznań;1;35,28 zł;;;;;;
-12.03.2023;BILKOM;Usługi;Bilet na pociąg Lublin-Poznań;1;27,10 zł;;;;;;
+12.03.2023;BILKOM;Pociąg;Bilet na pociąg Katowice - Poznań;1;35,28 zł;;;;;;
+12.03.2023;BILKOM;Pociąg;Bilet na pociąg Lublin - Poznań;1;27,10 zł;;;;;;
 12.03.2023;Żabka;Żywność;Muffin czekoladowy E.Wedel;1;3,50 zł;;;;;; Dla Natalki na jej urodziny jutro 
 13.03.2023;Biedronka;Energetyki;Energetyk Tiger Zero Sugar Splash 500ml;1;3,80 zł;500;;;;;
 13.03.2023;Kaufland;Zakupy;Świeczki urodzinowe x24;1;4,99 zł;;24;;;;
-14.03.2023;Allegro;Telefon;Słuchawki bezprzewodowe Redmi Buds 3 Lite;1;79,99 zł;;;Tak; -   zł ; https://allegro.pl/oferta/sluchawki-bezprzewodowe-redmi-buds-3-lite-czarne-12079961720 ; 
 15.03.2023;Biedronka;Żywność;Olej kujawski 1l;1;10,94 zł;1000;;;;;
 15.03.2023;InPost;Usługi;Przesyłka do rodziców;1;20,99 zł;;;;;;
 16.03.2023;Biedronka;Energetyki;Energetyk Tiger Zero Sugar Thunder 500ml;1;3,80 zł;500;;;;;
@@ -633,12 +718,11 @@
 17.03.2023;Biedronka;Żywność;Sushi Toshii 400g;2;10,99 zł;400;;;;;
 17.03.2023;Kaufland;Środki czystości;Bref Zawieszka WC 4x50g;1;18,49 zł;200;4;;;;
 17.03.2023;Kaufland;Żywność;Banan luz;1;5,65 zł;808;;;;;
-17.03.2023;Kaufland;Żywność;Baton Twix 75g;1;3,49 zł;75;2;;;;
+17.03.2023;Kaufland;Żywność;Baton Twix Xtra 75g;1;3,49 zł;75;2;;;;
 17.03.2023;Kaufland;Żywność;Mieszanka Meksykańska | Hortex 450g;1;4,99 zł;450;;;;;
 17.03.2023;Kaufland;Żywność;Napój Lipton Green Ice Tea 1.5L;1;5,49 zł;1500;;;;;
 17.03.2023;Kaufland;Żywność;Ocet jabłkowy BIO 300ml;1;5,69 zł;300;;;;;
 17.03.2023;Rossmann;Higiena;Szampon Green Farmacy 350ml;1;9,99 zł;350;;;;;
-18.03.2023;aptelia.pl;Leki;Mollers Gold Tran Norweski, płyn o smaku cytrynowym, 250 ml;3;22,68 zł;750;;;; https://www.aptelia.pl/apteka/p131207-Mollers_Gold_Tran_Norweski_plyn_o_smaku_cytrynowym_250_ml ; 
 18.03.2023;Biedronka;Żywność;Cytryna luz;1;1,32 zł;220;1;;;;
 18.03.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 0.5L;1;0,69 zł;500;;;;;
 21.03.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;3;7,19 zł;160;18;;;;
@@ -648,7 +732,7 @@
 21.03.2023;Lidl;Żywność;Jajka regionalne z wolnego wybiegu | Złota Nioska;3;10,46 zł;;10;;;;
 21.03.2023;Lidl;Żywność;Napój Lemoniada jabłko-cytryna-limonka | Solevita 1.5L;1;2,99 zł;1500;;;;;
 21.03.2023;Lidl;Żywność;Rukola 100g;1;5,49 zł;100;;;;;
-22.03.2023;Biedronka;Żywność;Baton Twix 75g;1;3,49 zł;75;2;;;;
+22.03.2023;Biedronka;Żywność;Baton Twix Xtra 75g;1;3,49 zł;75;2;;;;
 22.03.2023;Biedronka;Żywność;Napój Lemoniada Tymbark 1.5L ;1;4,56 zł;1500;;;;;
 22.03.2023;Biedronka;Żywność;PralinBonBello;1;9,99 zł;200;;;;; Kupowałem Dawidowi (oddane za pizze) 
 22.03.2023;Biedronka;Żywność;Żuraw/Borów ;2;7,99 zł;300;;;;; Kupowałem Dawidowi (oddane za pizze) 
@@ -658,24 +742,24 @@
 23.03.2023;Kaufland;Żywność;Płatki kukurydziane Nestle 600g;1;12,99 zł;600;;;;;
 23.03.2023;Rojber Pub;Żywność;Nachosy z sosem serowym;1;15,00 zł;;;;;;
 23.03.2023;Rossmann;Higiena;Pomadka do ust Men Active Nivea 4.8g;1;12,99 zł;5;;;;;
-24.03.2023;BILKOM;Usługi;Bilet na pociąg Katowice - Pszczyna;1;6,25 zł;;;;;; Ja (na Tychy Główne ale była za krótka trasa wiec musiałem dłuższy bilet kupić) 
-24.03.2023;BILKOM;Usługi;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;37,18 zł;;;;;; Ja (12,23) + Adam (24,95) (Adam kupował ale ja płaciłem blikiem) 
+24.03.2023;BILKOM;Pociąg;Bilet na pociąg Katowice - Pszczyna;1;6,25 zł;;;;;; Ja (na Tychy Główne ale była za krótka trasa wiec musiałem dłuższy bilet kupić) 
+24.03.2023;BILKOM;Pociąg;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;37,18 zł;;;;;; Ja (12,23) + Adam (24,95) (Adam kupował ale ja płaciłem blikiem) 
 24.03.2023;Lidl;Żywność;Różne;1;79,25 zł;;;;;;
 24.03.2023;Zbiletem.pl;Usługi;Bilet na autobus do Tych z Katowic;1;2,00 zł;;;;;;
-25.03.2023;BILKOM;Usługi;Bilet na pociąg Katowice - Tychy Żwaków;1;12,74 zł;;;;;; Ja(4,19) + Adam(8,55) Wracamy z sushi 
-25.03.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny - Tychy Zachodnie;1;34,69 zł;;;;;; Ja(11,41) + Adam(23,28) Wracamy z Krakowa 
-25.03.2023;BILKOM;Usługi;Bilet na pociąg Tychy Żwaków - Katowice;1;12,74 zł;;;;;; Ja(4,19) + Adam(8,55) Jedziemy po sushi 
+25.03.2023;BILKOM;Pociąg;Bilet na pociąg Katowice - Tychy Żwaków;1;12,74 zł;;;;;; Ja(4,19) + Adam(8,55) Wracamy z sushi 
+25.03.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Tychy Zachodnie;1;34,69 zł;;;;;; Ja(11,41) + Adam(23,28) Wracamy z Krakowa 
+25.03.2023;BILKOM;Pociąg;Bilet na pociąg Tychy Żwaków - Katowice;1;12,74 zł;;;;;; Ja(4,19) + Adam(8,55) Jedziemy po sushi 
 25.03.2023;Bolt;Usługi;Bolt - wracamy z Papugi do Arka;1;23,00 zł;;;;;;
 25.03.2023;Klub Papuga Kraków;Kluby;Wejście Papuga;1;10,00 zł;;;;;; Za szatnię płacił Arek 
 25.03.2023;MPK Kraków;Usługi;Bilet normalny 20 min;1;4,00 zł;;;;;; Bilet na tramwaj dla Adama (Wracamy od Arka) 
 25.03.2023;MPK Kraków;Usługi;Bilet ulgowy 20 min;1;2,00 zł;;;;;; Bilet na tramwaj dla mnie (Wracamy od Arka) 
 25.03.2023;Sushipak.pl;Żywność;Pak 2 + dod sos + dod wasabi;1;46,00 zł;;12;;;;
-26.03.2023;BILKOM;Usługi;Bilet na pociąg Katowice - Tychy Żwaków;1;4,19 zł;;;;;; Jak się rozmyśliłem i wróciłem jednak do Adama zamiast do Poznania 
-26.03.2023;BILKOM;Usługi;Bilet na pociąg Tychy Żwaków - Katowice;1;4,19 zł;;;;;; Jak miałem wracać do Poznania 
+26.03.2023;BILKOM;Pociąg;Bilet na pociąg Katowice - Tychy Żwaków;1;4,19 zł;;;;;; Jak się rozmyśliłem i wróciłem jednak do Adama zamiast do Poznania 
+26.03.2023;BILKOM;Pociąg;Bilet na pociąg Tychy Żwaków - Katowice;1;4,19 zł;;;;;; Jak miałem wracać do Poznania 
 26.03.2023;BILKOM;Usługi;Wymiana biltu Katowice - Poznań;1;5,29 zł;;;;;; Z niedzieli na wtorek (był tańszy dlatego nadwyżka oddana) 
 26.03.2023;Credit Agricole;Usługi;Kapitalizacja odsetek kredytowych ;1;0,02 zł;;;;;; NWM co to jest Chyba za to że miałem ujemną kwotę -15 na koncie 
 26.03.2023;Sushipak.pl;Żywność;Pak 2;1;40,00 zł;;12;;;;
-28.03.2023;BILKOM;Usługi;Bilet na pociąg Tychy Żwaków - Katowice;1;4,19 zł;;;;;;
+28.03.2023;BILKOM;Pociąg;Bilet na pociąg Tychy Żwaków - Katowice;1;4,19 zł;;;;;;
 28.03.2023;Lidl;Żywność;Chipsy Lay's Oven Baked o smaku kurki w śmietanowym sosie 200g;1;7,79 zł;200;;;;; Katowice 
 28.03.2023;Lidl;Żywność;Chleb pszenno-żytni;1;1,99 zł;;;;;; Katowice 
 28.03.2023;Lidl;Żywność;Olej kujawski 1l;1;10,94 zł;1000;;;;; Katowice 
@@ -706,7 +790,7 @@
 05.04.2023;McDonald's ;Żywność;Zestaw ciastko jabłkowe i frytki;1;9,00 zł;;;;;;
 05.04.2023;Rossmann;Higiena;Maszynka do golenia BIC x12;1;36,99 zł;;12;;;;
 05.04.2023;Zbiletem.pl;Usługi;Bilet ulgowy 20 min;1;2,00 zł;;;;;;
-05.04.2023;Żabka;Żywność;?;1;5,39 zł;;;;;;
+05.04.2023;Żabka;Żywność;;1;5,39 zł;;;;;;
 06.04.2023;McDonald's ;Żywność;Zestaw ciastko jabłkowe i frytki;1;9,00 zł;;;;;;
 09.04.2023;Akademik;Czynsz;Czynsz kwiecień;1;540,00 zł;;;;;;
 12.04.2023;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,75 zł;550;;;;;
@@ -714,7 +798,6 @@
 12.04.2023;Biedronka;Żywność;Rukola 100g;1;5,49 zł;100;;;;;
 12.04.2023;Biedronka;Żywność;Ser topiony kremowy z szynką Hochland 180g;2;6,37 zł;180;;;;;
 12.04.2023;Biedronka;Żywność;Sushi Toshii 400g;2;11,99 zł;400;;;;;
-16.04.2023;Allegro;Zakupy;TAŚMY PASY DO ĆWICZEŃ TYPU TRX MOCNY KARABIŃCZYK;1;99,99 zł;;;; -   zł ; https://allegro.pl/oferta/tasmy-pasy-do-cwiczen-typu-trx-mocny-karabinczyk-11316137667?snapshot=MjAyMy0wNC0xNlQxNDoyNjo0NS4zMzEwMDRaO2J1eWVyOzgxNDVjYTc3NDUxZGVmM2VjYWY0YmM0ZTkxNDM0ODQyM2M0YjkwMDhlN2EzYmJkZmUwNmYxZTM4NmVkNTllMTE%3D ; 
 17.04.2023;Wydział;Żywność;Pierogi ruskie;1;12,00 zł;;;;;;
 18.04.2023;Kaufland;Higiena;Mydło w płynie Aile Jabłkowe  1L;1;4,99 zł;1000;;;;;
 18.04.2023;Kaufland;Środki czystości;Worki na śmieci 10x60L|Jan Niezbędny;1;6,99 zł;;10;;;;
@@ -786,7 +869,6 @@
 30.04.2023;Biedronka;Żywność;Ser Morski | Światowid | 500g;1;14,99 zł;500;;;;;
 30.04.2023;Biedronka;Żywność;Wodorosty Nori 16g;1;4,94 zł;16;6;;;;
 30.04.2023;HAH;Kluby;Inne wyjścia do HAHu łącznie;1;60,00 zł;;;;;; Kilka razy wejście po 10zł (dwa dni) + kilka razy szatnia po 5zł 
-30.04.2023;HAH;Kluby;Szatnia dla 3 osób;3;5,00 zł;;;;;Adam, ja i Arek;   
 30.04.2023;Lidl;Zakupy;Drewniane patyczki do szasłyków | Aromata | 20cm 125szt;1;3,99 zł;;125;;;;   
 30.04.2023;Lidl;Zakupy;Tacki aluminiowe do Grilla | Grilll & Fun | 6szt;1;4,49 zł;;6;;;;   
 30.04.2023;Lidl;Zakupy;Tacki papierowe na Grilla;1;3,99 zł;;20;;;;   
@@ -817,23 +899,19 @@
 02.05.2023;Biedronka;Żywność;Chleb żytni Kiełki 400g;2;4,29 zł;400;;;;;   
 02.05.2023;Biedronka;Żywność;Filet Makrela 170g;1;6,94 zł;170;;;;;   
 02.05.2023;Biedronka;Żywność;Jogurt Naturlny Kremowy Fruvita 400g;1;1,69 zł;400;;;;;   
-02.05.2023;Biedronka;Żywność;Kiwi;2;0,79 zł;;;;;;   
+02.05.2023;Biedronka;Żywność;Kiwi szt;2;0,79 zł;;;;;;   
 02.05.2023;Biedronka;Żywność;Pomidory koktajlowe 500g;1;8,99 zł;500;;;;;   
 02.05.2023;Biedronka;Żywność;Twaróg Półtłusty Klinek | 250g;2;3,49 zł;250;;;;;   
 02.05.2023;ING;Usługi;"Ubezpieczenie ""Moja Ochrona"" ING";1;6,00 zł;;;;;;   
-02.05.2023;McDonald's ;Żywność;?;1;16,00 zł;;;;;;   
+02.05.2023;McDonald's ;Żywność;;1;16,00 zł;;;;;;   
 03.05.2023;Apteka Dr.Max;Leki;Chlorchinaldin 20szt;1;15,99 zł;;20;;;;   
-03.05.2023;HAH;Alkohol;?;2;19,00 zł;;;;;2x drink dla mnie i Adama;   
 03.05.2023;Żabka;Zakupy;Chleb Baltonowski;1;2,99 zł;;;;;;   
 03.05.2023;Żabka;Zakupy;Mleko wypasione;1;4,40 zł;;;;;;   
 04.05.2023;Lidl ;Zakupy;Reklamówka;1;0,79 zł;;;;;;   
 04.05.2023;Lidl ;Żywność;Lasagne;1;16,85 zł;;;;;;   
 04.05.2023;Lidl ;Żywność;Lay's O.Baked 125g;1;6,49 zł;125;;;;;   
 04.05.2023;Zbiletem.pl;Usługi;Bilet ulgowy dobowy;1;6,00 zł;;;;;;   
-05.05.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;38,00 zł;;;;;Oddane 38 zł;   
-06.05.2023;BILKOM;Usługi;Bilet na pociąg Kraków Płaszów - Tychy Zachodnie;1;25,30 zł;;;;;Za Adama;   
-06.05.2023;BILKOM;Usługi;Bilet na pociąg Kraków Płaszów - Tychy Zachodnie;1;12,40 zł;;;;;Za Mnie;   
-07.05.2023;BILKOM;Usługi;Bilet na pociąg Tychy Żwaków - Poznań Główny;1;36,26 zł;;;;;;   
+07.05.2023;BILKOM;Pociąg;Bilet na pociąg Tychy Żwaków - Poznań Główny;1;36,26 zł;;;;;;   
 08.05.2023;Biedronka;Żywność;Cebula żółta luz;1;1,71 zł;285;2;;;;   
 08.05.2023;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,75 zł;550;;;;;   
 08.05.2023;Biedronka;Żywność;Herbata czarna Lipton Yellow Label 184g  92szt;1;11,99 zł;184;92;;;;   
@@ -851,10 +929,6 @@
 08.05.2023;Biedronka;Żywność;Tuńczyk w sosie własnym kawałki Marinero | 185/130g;1;5,59 zł;130;;;;;   
 08.05.2023;Biedronka;Żywność;Twaróg Półtłusty Klinek | 250g;1;3,49 zł;250;;;;;   
 09.05.2023;Akademik;Czynsz;Czynsz maj;1;540,00 zł;;;;;;   
-11.05.2023;Allegro;Leki;Olej z pestek czarnej porzeczki 250 ml;1;59,00 zł;250;;; -   zł ;https://allegro.pl/oferta/olej-z-pestek-czarnej-porzeczki-250-ml-13305031337;   
-11.05.2023;Allegro;Zakupy;KAMIEŃ WODNY OSTRZAŁKA 1000/6000 osełka ocr22;1;56,94 zł;;;; -   zł ;https://allegro.pl/oferta/kamien-wodny-ostrzalka-1000-6000-oselka-ocr22-12763609151?snapshot=MjAyMy0wNS0xMVQxODo0MjozNi4xMzQ0NThaO2J1eWVyOzY4YjA1MjVlMjI2MGExZWE3OGI4MWY0OGU4YWU0MzkwNTRlNjNjZDY1ODU3N2E5MTg4MmYwODE3ZDRlM2IzNjI%3D;   
-11.05.2023;Allegro;Zakupy;Listerine Total Care 500ml 4+2 Gratis;1;74,94 zł;3000;6;;9,99 zł;https://allegro.pl/oferta/listerine-total-care-500ml-4-2-gratis-12344138856;   
-11.05.2023;Allegro;Zakupy;OTWIERACZ DO BUTELEK BRELOK ALUMINIOWY BRELOCZEK;1;1,59 zł;;;;9,99 zł;https://allegro.pl/moje-allegro/zakupy/kupione/257c9cb0-4420-3685-b668-d79416926818;   
 11.05.2023;Apteka Wielkopolska;Leki;Chlorchinaldin 20szt;1;16,90 zł;;20;;;;   
 11.05.2023;Apteka Wielkopolska;Leki;Maść ochronna z witaminą A 25g;1;4,99 zł;25;;;;;   
 11.05.2023;Biedronka;Higiena;Ściereczki domowe do kurzu 3szt;1;3,99 zł;;3;;;;   
@@ -872,14 +946,10 @@
 11.05.2023;Kaufland;Żywność;Skittles 38g;1;2,29 zł;38;;;;;   
 11.05.2023;Rossmann;Higiena;Mydło szare w kostce Aleppo 200g;1;12,49 zł;200;;;;;   
 11.05.2023;Rossmann;Leki;VC 100 tabletki z witaminą C 100mg 9g 30szt;2;3,99 zł;9;30;;;;   
-12.05.2023;Allegro;Zakupy;TERMOMETR Z SONDA do GrillLA MIĘSA WODY KUCHENNY;1;12,98 zł;;;;6,99 zł;https://allegro.pl/oferta/termometr-z-sonda-do-Grillla-miesa-wody-kuchenny-11006120973?snapshot=MjAyMy0wNS0xMlQwOToyMTozNi44MDgxMjZaO2J1eWVyOzNkMWY3MmVmMGJkYTQ1MGI1NGRmZWE0MzA5NDE2MjM4ZjkzZWZhMDJlZTUwYjU3M2M4NDA0ZWU4NmIxMDhhZTc%3D;   
-13.05.2023;Allegro;Komputer;Adapter PCI-e x4 SSD karta m.2 NVMe przejściowka;1;65,90 zł;;;; -   zł ;https://allegro.pl/oferta/adapter-pci-e-x4-ssd-karta-m-2-nvme-przejsciowka-11769630964?snapshot=MjAyMy0wNS0xM1QxNjo0OToxMy40NzI5OTBaO2J1eWVyOzE5Yzk5YmRmYTlkMjY5M2E4ZGY5ZWU4NWM4NTkwMTIxOWE3MGE0YWRjYTQ5YzgxYTJkNjYwMTE1ZGM3NDFkYjg%3D;   
-13.05.2023;Allegro;Zakupy;Opiekacz Teesa Opiekacz do Kanapek Ceramiczny Toster czarny 800 W;1;89,90 zł;;;; -   zł ;https://allegro.pl/oferta/sandwich-toster-opiekacz-do-kanapek-ceramiczny-10680034469?snapshot=MjAyMy0wNS0xM1QxOToyNjo1NS4zOTgxNzJaO2J1eWVyOzIzODM4YzhjYjZkZDYwNGExMDJhOWVmNzgzN2VmNDM3NjFjZDhiOGNhMzI3YWEwM2JiZGE0OTJhZGI3NTFjNTM%3D;   
 13.05.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;28;;;;   
 13.05.2023;Biedronka;Żywność;Pierogi z truskawkami | Nasze Smaki | 700g;1;5,99 zł;700;;;;;   
 13.05.2023;Biedronka;Żywność;Tuńczyk w sosie własnym kawałki Marinero | 185/130g;1;5,59 zł;130;;;;;   
 13.05.2023;Biedronka;Żywność;Twaróg Półtłusty Klinek | 250g;1;3,49 zł;250;;;;;   
-13.05.2023;www.net-s.pl;Komputer;samsung Dysk SSD 970EVO PLUS MZ-V7S2T0BW 2 TB;1;572,78 zł;;;;;https://www.net-s.pl/produkt/samsung-dysk-ssd-970evo-plus-mz-v7s2t0bw-2-tb-912164;   
 15.05.2023;Biedronka;Żywność;Banan luz;1;7,45 zł;1066;;;;;   
 15.05.2023;Biedronka;Żywność;Cebula żółta luz;1;3,31 zł;552;;;;;   
 15.05.2023;Biedronka;Żywność;Cytryna luz;1;2,36 zł;262;;;;;   
@@ -887,7 +957,7 @@
 15.05.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;2;9,99 zł;;10;;;;   
 15.05.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;7,19 zł;160;18;;;;   
 15.05.2023;Biedronka;Żywność;Tuńczyk w sosie własnym kawałki Marinero | 185/130g;1;5,59 zł;130;;;;;   
-15.05.2023;Charytatywne;Charytatywne;?;1;20,00 zł;;;;;;   
+15.05.2023;Charytatywne;Charytatywne;;1;20,00 zł;;;;;;   
 15.05.2023;Eneba;Gry;Gra 7 Days to Die Steam Key GLOBAL;1;19,00 zł;;;;;;   
 16.05.2023;Biedronka;Alkohol;Desperados - butelka;1;5,49 zł;400;;;;;   
 16.05.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;30;;;;   
@@ -896,10 +966,9 @@
 16.05.2023;Biedronka;Żywność;Miód Słonecznikowy z europejskich pasiek 470g;1;13,99 zł;470;;;;;   
 16.05.2023;Biedronka;Żywność;Twaróg Półtłusty Klinek | 250g;1;3,49 zł;250;;;;;   
 18.05.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;11,94 zł;9000;6;;;;   
-18.05.2023;Cinema City;Usługi;Bilet na Strażników Galaktyki 3 dla Kuby;1;23,90 zł;;;;;;   
+18.05.2023;Cinema City;Kino;Bilet na Strażników Galaktyki 3 dla Kuby;1;23,90 zł;;;;;;   
 18.05.2023;Cinema City;Żywność;Pepsi Średnie 0.5L;1;8,10 zł;500;;;;;   
 18.05.2023;Cinema City;Żywność;Popcorn Średni 4.2L;1;20,61 zł;4200;;;;;   
-22.05.2023;https://sparkedhost.com/;Subskrypcje;Serwer 7D2D Wood(Budget);1;18,85 zł;;;;;4,25$;   
 23.05.2023;Biedronka;Higiena;Gąbki pod prysznic Oceania 4szt;1;3,79 zł;;4;;;;   
 23.05.2023;Biedronka;Higiena;Patyczki do uszu Be Beauty 200szt;1;3,19 zł;;200;;;;   
 23.05.2023;Biedronka;Żywność;Cebula żółta luz;1;1,83 zł;305;2;;;;   
@@ -922,7 +991,6 @@
 25.05.2023;Kaufland;Żywność;Ser feta Favita sałatkowo-kanapkowy półtłusty 270g;1;4,99 zł;270;;;;;   
 25.05.2023;Rossmann;Higiena;Nivea Men - Sensitive pianka do golenia 200ml;1;13,99 zł;200;;;;;   
 26.05.2023;Biedronka;Żywność;Chleb tostowy 500g;1;3,29 zł;500;;;;;   
-26.05.2023;Biedronka;Żywność;Tuńczyk w sosie własnym kawałki Marinero | 185/130g;3;3,73 zł;130;;;;2+1gratis;   
 26.05.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;11,94 zł;9000;6;;;;   
 26.05.2023;Fryzjer;Fryzjer;Strzyżenie r.10 | Amanda Jędrzejewska;1;35,00 zł;;;;;;   
 27.05.2023;Biedronka;Alkohol;Soplica Cytryna Pigwa 500ml;1;26,99 zł;500;;;;;   
@@ -934,7 +1002,6 @@
 29.05.2023;Biedronka;Żywność;Ser Morski | Światowid | 500g;1;14,99 zł;500;;;;;   
 29.05.2023;Biedronka;Żywność;Sos Barbecue Classic Mild & Smokey | Madero | 480g;1;5,99 zł;480;;;;;   
 30.05.2023;Biedronka;Energetyki;Energetyk Be Power Camouflage 500ml;1;3,19 zł;500;;;;;   
-30.05.2023;Biedronka;Żywność;Chleb rodzinny 410g;1;3,99 zł;410;;;;Waga pokazywała 480;   
 30.05.2023;Biedronka;Żywność;Kawa rozpouszczalna Nescafe Crema 200g;1;27,99 zł;200;;;;;   
 30.05.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 3.2% 1L;1;3,19 zł;1000;;;;;   
 01.06.2023;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;0,63 zł;;;;;;   
@@ -943,7 +1010,6 @@
 02.06.2023;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,75 zł;550;;;;;   
 02.06.2023;Biedronka;Żywność;Chleb tostowy 500g;1;3,29 zł;500;;;;;   
 02.06.2023;Biedronka;Żywność;Jogurt Naturlny Kremowy Fruvita 400g;1;1,69 zł;400;;;;;   
-02.06.2023;Biedronka;Żywność;Rzodkiewki - pęk;2;1,25 zł;485;;;;1+1gratis;   
 02.06.2023;Biedronka;Żywność;Ser feta Elios Queijo feta 150g;1;7,49 zł;150;;;;;   
 02.06.2023;Biedronka;Żywność;Tuńczyk w oleju słonecznikowym kawałki Marinero | 185/130g;2;5,59 zł;130;;;;;   
 02.06.2023;Biedronka;Żywność;Twaróg Półtłusty Klinek | 250g;1;3,49 zł;250;;;;;   
@@ -954,9 +1020,6 @@
 03.06.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 3.2% 1L;1;3,19 zł;1000;;;;;   
 03.06.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;7,61 zł;160;18;;;;   
 03.06.2023;Biedronka;Żywność;Ser Morski | Światowid | 500g;1;14,99 zł;500;;;;;   
-03.06.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;38,00 zł;;;;;Oddane 38 zł;   
-03.06.2023;McDonald's ;Żywność;McWrap Chrupiący Klasyczny Zestaw;2;30,60 zł;;;;;Na spółę z Adamem;   
-03.06.2023;McDonald's ;Żywność;Kawa Caramel Latte Macchiato 0.4L;1;16,70 zł;400;;;;Na spółę z Adamem;   
 04.06.2023;Doner Kebab;Żywność;Doner z mięsem i surówkami [mały];1;24,00 zł;;;;;;   
 04.06.2023;Doner Kebab;Żywność;Tortilla z mięsem i surówkami [mała];1;24,00 zł;;;;;;   
 06.06.2023;Biedronka;Higiena;Papier Toaletowy Regina 16 rolek;1;26,99 zł;;16;;;;   
@@ -997,7 +1060,6 @@
 20.06.2023;Biedronka;Żywność;Cebula żółta luz;1;2,16 zł;360;2;;;;   
 20.06.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;;;;;   
 20.06.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 3.2% 1L;1;3,19 zł;1000;;;;;   
-21.06.2023;Allegro;Higiena;Kroplomierz klasyczny LDPE miękki nasadką 1000 ml;1;21,00 zł;;;;9,98 zł;Na płyn do soczewek;   
 22.06.2023;server.nitrado.net;Subskrypcje;Serwer 7D2D 4 slots;1;24,32 zł;;;;;;   
 23.06.2023;Fryzjer;Fryzjer;Strzyżenie r.10 | Amanda Jędrzejewska;1;35,00 zł;;;;;;   
 25.06.2023;Biedronka;Środki czystości;Worki na śmieci 10x60L|Jan Niezbędny;1;6,99 zł;;10;;;;   
@@ -1008,8 +1070,8 @@
 25.06.2023;Biedronka;Żywność;Ser Gouda | Światowid | 1000g;1;26,94 zł;1000;;;;;   
 25.06.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;13,14 zł;9000;6;;;;   
 26.06.2023;Credit Agricole;Usługi;Powiadomienia SMS;1;6,00 zł;;;;;;   
-27.06.2023;BILKOM;Usługi;Bilet na pociąg Katowice - Poznań;1;36,26 zł;;;;;;   
-27.06.2023;BILKOM;Usługi;Bilet na pociąg Poznań-Katowice;1;36,26 zł;;;;;;   
+27.06.2023;BILKOM;Pociąg;Bilet na pociąg Katowice - Poznań;1;36,26 zł;;;;;;   
+27.06.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Katowice;1;36,26 zł;;;;;;   
 28.06.2023;BeActive;Subskrypcje;Karnet BeActive COMFORT 2+2;1;178,00 zł;;4;;;;   
 28.06.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;1;9,99 zł;;10;;;;   
 28.06.2023;Biedronka;Żywność;Sos Barbecue Classic Smokey & Rich | Heinz | 400 ml;1;10,99 zł;400;;;;;   
@@ -1031,23 +1093,18 @@
 03.07.2023;Biedronka;Żywność;Nudle pomidorowe pikantne 63g | Knor;1;2,56 zł;63;;;;;   
 03.07.2023;Biedronka;Żywność;Sushi Toshii 400g;2;11,99 zł;400;;;;;   
 03.07.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;13,14 zł;9000;6;;;;   
-03.07.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;38,00 zł;;;;;Oddane 38 zł;   
 05.07.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;;;;;   
 05.07.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;1;9,99 zł;;10;;;;   
 05.07.2023;Biedronka;Żywność;Panierowane nuggestsy z piersi z kurczaka | 300g+2x25g;2;7,99 zł;300;;;;;   
 05.07.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;7,61 zł;160;18;;;;   
 05.07.2023;Biedronka;Żywność;Ser Gouda | Światowid | 1000g;1;26,94 zł;1000;;;;;   
-06.07.2023;Cinema City;Usługi;Bilet na SPIDER-MAN: POPRZEZ MULTIWERSUM;1;20,90 zł;;;;;Dla Kuby;   
-07.07.2023;Lidl;Żywność;Woda Saguaro;1;5,94 zł;;6;;;;   
+07.07.2023;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;;6;;;;   
 07.07.2023;Lidl;Żywność;Cebula żółta luz;1;2,04 zł;314;;;;;   
-07.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked ;1;8,99 zł;;;;;;   
-07.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked Jogurtowe;2;7,99 zł;;;;;;   
+07.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked ;1;8,99 zł;200;;;;;   
+07.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked Jogurtowe;2;7,99 zł;200;;;;;   
 07.07.2023;Lidl;Żywność;Cukier;1;5,79 zł;;;;;;   
 07.07.2023;Lidl;Żywność;Pączek z powidłami śliwka;2;1,34 zł;;;;;;   
 07.07.2023;Lidl;Żywność;Powidła śliwkowe;1;6,19 zł;;;;;;   
-07.07.2023;McDonald's ;Żywność;Wrap ;1;10,00 zł;;;;;Wrap na przecenie (500pkt) + 10zł + frytki + nuggetsy;   
-08.07.2023;BILKOM;Usługi;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;24,95 zł;;;;;Dla Adama;   
-08.07.2023;BILKOM;Usługi;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;12,23 zł;;;;;Dla mnie;   
 08.07.2023;Kaufland;Alkohol;Piwo Somersby Mango 0.4L;1;5,49 zł;400;;;;;   
 08.07.2023;Kaufland;Alkohol;Piwo Somersby Mango 0.4L;1;5,49 zł;400;;;;;   
 08.07.2023;Kaufland;Alkohol;Piwo Somersby Truskawka & Kiwi 0.4L;1;5,49 zł;400;;;;;   
@@ -1059,7 +1116,7 @@
 10.07.2023;Akademik;Czynsz;Czynsz lipiec;1;540,00 zł;;;;;;   
 10.07.2023;Lidl;Zakupy;Grill jednorazowy;1;13,99 zł;;;;;;   
 10.07.2023;Lidl;Żywność;Cebula żółta luz;1;1,80 zł;300;;;;;   
-10.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked Jogurtowe;1;7,99 zł;;;;;;   
+10.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked Jogurtowe;1;7,99 zł;200;;;;;   
 10.07.2023;Lidl;Żywność;Filet z indyka XXL;1;22,29 zł;1115;;;;;   
 10.07.2023;Lidl;Żywność;Herbata;1;4,49 zł;;;;;;   
 10.07.2023;Lidl;Żywność;Jajka M 10szt;1;7,99 zł;;10;;;;   
@@ -1072,16 +1129,9 @@
 10.07.2023;Lidl;Żywność;Musztarda Kania;1;1,49 zł;;;;;;   
 10.07.2023;Lidl;Żywność;Sos pieczeniowy;1;1,19 zł;;;;;;   
 10.07.2023;Lidl;Żywność;Sos pieczeniowy;1;1,19 zł;;;;;;   
-10.07.2023;Lidl;Żywność;Woda Saguaro;1;5,94 zł;;6;;;;   
+10.07.2023;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;;6;;;;   
 10.07.2023;Lidl;Żywność;Ziemniaki młode polskie;1;6,01 zł;1506;;;;;   
 11.07.2023;BILKOM;Usługi;Opłata za bilet 1e9.0f01c58;1;0,49 zł;;;;;;   
-11.07.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny - Tychy;1;24,95 zł;;;;;Dla Adama;   
-11.07.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny - Tychy;1;12,23 zł;;;;;Dla mnie;   
-11.07.2023;BILKOM;Usługi;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;24,95 zł;;;;;Dla Adama;   
-11.07.2023;BILKOM;Usługi;Bilet na pociąg Tychy Żwaków - Kraków Główny;1;12,23 zł;;;;;Dla mnie;   
-12.07.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny - Katowice;1;22,95 zł;;;;;Dla Adama;   
-12.07.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny - Katowice;1;11,25 zł;;;;;Dla mnie;   
-12.07.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny - Katowice;1;33,46 zł;;;Tak;;Zwrot któregoś biletu;   
 12.07.2023;Kaufland;Alkohol;Piwo Somersby CA 0.4L;1;5,49 zł;400;;;;;   
 12.07.2023;Kaufland;Alkohol;Piwo Somersby Czarna porzeczka 0.4L;1;5,49 zł;400;;;;;   
 12.07.2023;Kaufland;Alkohol;Piwo Somersby Jabłko 0.4L;1;5,49 zł;400;;;;;   
@@ -1091,12 +1141,12 @@
 12.07.2023;Kaufland;Żywność;Guma Orbit Lemon 35g;1;3,79 zł;35;;;;;   
 12.07.2023;Zbiletem.pl;Usługi;Bilet ulgowy 20min;1;2,00 zł;;;;;;   
 12.07.2023;Zbiletem.pl;Usługi;Bilet ulgowy 20min;1;2,00 zł;;;;;;   
-13.07.2023;BILKOM;Usługi;Bilet na pociąg Tychy - Wrocław;1;39,90 zł;;;;;;   
-13.07.2023;BILKOM;Usługi;Bilet na pociąg Tychy - Wrocław;1;19,55 zł;;;;;;   
-13.07.2023;BILKOM;Usługi;Bilet na pociąg Wrocław - Tychy;1;39,90 zł;;;;;;   
-13.07.2023;BILKOM;Usługi;Bilet na pociąg Wrocław - Tychy;1;19,55 zł;;;;;;   
+13.07.2023;BILKOM;Pociąg;Bilet na pociąg Tychy - Wrocław;1;39,90 zł;;;;;;   
+13.07.2023;BILKOM;Pociąg;Bilet na pociąg Tychy - Wrocław;1;19,55 zł;;;;;;   
+13.07.2023;BILKOM;Pociąg;Bilet na pociąg Wrocław - Tychy;1;39,90 zł;;;;;;   
+13.07.2023;BILKOM;Pociąg;Bilet na pociąg Wrocław - Tychy;1;19,55 zł;;;;;;   
 13.07.2023;Lidl;Żywność;Banan luz;1;3,91 zł;1132;;;;;   
-13.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked Jogurtowe;2;7,99 zł;;;;;;   
+13.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked Jogurtowe;2;7,99 zł;200;;;;;   
 13.07.2023;Lidl;Żywność;Chleb ;1;3,59 zł;;;;;;   
 13.07.2023;Lidl;Żywność;Jajka M 10szt;1;7,99 zł;;10;;;;   
 13.07.2023;Lidl;Żywność;Jogurt Naturlny 400g;1;1,69 zł;400;;;;;   
@@ -1105,11 +1155,9 @@
 13.07.2023;Lidl;Żywność;Skubaniec Chojecki;1;4,99 zł;;;;;;   
 13.07.2023;Lidl;Żywność;Sól Himalajska;1;3,99 zł;;;;;;   
 13.07.2023;Lidl;Żywność;Twaróg Półtłusty Klinek | 250g;1;3,57 zł;250;;;;;   
-14.07.2023;Cinema City;Usługi;"Bilet na ""Bez urazy"" normalny";1;26,01 zł;;;;;Dla Adama we Wrocławiu (zniżka 10% z mbank z 28.90);   
 14.07.2023;Express Oriental;Żywność;Jedzenie na wagę;1;14,70 zł;;;;;;   
 14.07.2023;Zahir Kebab;Żywność;Rollo Kebab mega;1;27,89 zł;;;;;;   
 14.07.2023;Zbiletem.pl;Usługi;Bilet ulgowy 24h;1;7,00 zł;;;;;;   
-18.07.2023;Allegro;Zakupy;ŻEL LUBRYKANT ANALNY znieczulający ROZLUŹNIAJĄCY;1;32,47 zł;100;;;;https://allegro.pl/moje-allegro/zakupy/kupione/b3971d6d-3bbd-323b-bc2d-e687a26d5501/oferta/79028110-2551-11ee-8dd2-9da167ce05a3;   
 18.07.2023;Biedronka;Zakupy;Tarka kuchenna;1;7,99 zł;;;;;;   
 18.07.2023;Biedronka;Zakupy;Wyciskacz do czosnku;1;19,99 zł;;;;;;   
 18.07.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;;;;;   
@@ -1191,12 +1239,10 @@
 01.08.2023;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;0,49 zł;;;;;;   
 01.08.2023;ING;Usługi;"Ubezpieczenie ""Moja Ochrona"" ING";1;6,00 zł;;;;;;   
 02.08.2023;Stokrotka;Alkohol;Piwo Somersby Blackberry 0,5L;1;5,69 zł;400;;;;;   
-03.08.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;43,00 zł;;;;;Zmienili cholera abonament i żeby mieć w Poznaniu kino to 43 a nie 38 (chyba oddali 38);   
-05.08.2023;Allegro;Żywność;KFD PREMIUM WPI 90 - BIAŁKO IZOLAT - Biała czekolada 700g;1;92,99 zł;700;;;9,99 zł;https://allegro.pl/oferta/kfd-premium-wpi-90-bialko-izolat-100-iso-whey-7147593555;   
 07.08.2023;Biedronka;Żywność;Cebula żółta luz;1;2,58 zł;430;;;;;   
 07.08.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;11,34 zł;9000;6;;;;   
 16.08.2023;www.iobit.com;Subskrypcje;IObit Uninstaller 13 PRO Licencja 1 rok;1;59,90 zł;;12;;;;   
-19.08.2023;BILKOM;Usługi;Bilet na pociąg Lublin-Kraków + pies;1;40,24 zł;;;;;;   
+19.08.2023;BILKOM;Pociąg;Bilet na pociąg Lublin-Kraków + pies;1;40,24 zł;;;;;;   
 20.08.2023;Auchan;Żywność;Ice Tea Arizona;1;11,88 zł;1500;;;;;   
 21.08.2023;server.nitrado.net;Subskrypcje;Serwer 7D2D 4 slots;1;24,32 zł;;;;;;   
 24.08.2023;Leopardus;Pies;Kaganiec nylonowy S/M;1;16,99 zł;;;;;;   
@@ -1209,7 +1255,7 @@
 27.08.2023;SkyCash;Usługi;Bilet ulgowy 20 min;1;2,00 zł;;;;;;   
 27.08.2023;SkyCash;Usługi;Bilet ulgowy 20 min;1;2,00 zł;;;;;;   
 28.08.2023;Biedronka;Zakupy;Zakupy w Krakowie;1;29,51 zł;;;;;;   
-28.08.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny - Lublin + pies;1;49,99 zł;;;;;;   
+28.08.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Lublin + pies;1;49,99 zł;;;;;;   
 28.08.2023;Rynek;Zakupy;Kula śnieżna Kraków;1;30,00 zł;;;;;;   
 28.08.2023;Rynek;Żywność;Obwarzanek krakowoski;3;3,00 zł;;;;;;   
 29.08.2023;Allegro;Komputer;KABEL PRZEWÓD UGREEN HDMI 2.0 4K 60HZ 2M HD;1;27,50 zł;;;;9,99 zł;;   
@@ -1220,8 +1266,8 @@
 04.09.2023;Rossmann;Higiena;Anty perspirant Garnier Men Invisible Protection 72h 50ml;1;17,99 zł;50;;;;;   
 04.09.2023;Rossmann;Higiena;Szampon Green Farmacy 350ml;1;9,99 zł;350;;;;;   
 05.09.2023;Steam;Gry;Gra Sons of The Forest;1;138,99 zł;;;;;;   
+10.09.2023;Żabka;Alkohol;Lubelska Cytrynowa 200ml;1;14,99 zł;200;;;;;   
 10.09.2023;Żabka;Żywność;Coca Cola Zero 0,85L;1;6,99 zł;850;;;;;   
-10.09.2023;Żabka;Żywność;Lubelska Cytrynowa 200ml;1;14,99 zł;200;;;;;   
 14.09.2023;Empik;Prezent;Składka na prezent dla Klaudi;1;51,32 zł;;;;;;   
 14.09.2023;Empik;Prezent;Składka na prezent dla Wery;1;46,49 zł;;;;;;   
 16.09.2023;Biedronka;Alkohol;Wódka Lubelska Cytrynowa 100ml;1;7,99 zł;100;;;;;   
@@ -1231,24 +1277,14 @@
 16.09.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;9,56 zł;9000;6;;;;   
 18.09.2023;x-kom;Komputer;RAM Patriot 32GB (2x16GB) 3600MHz CL18 Viper Steel;1;319,00 zł;;2;;;;   
 23.09.2023;Biedronka;Alkohol;Piwo Somersby Jabłko 0.4L;4;5,49 zł;400;;;;;   
-23.09.2023;Empik;Prezent;Kartka urodzinowa;1;11,99 zł;;;;;Dla Aśki;   
-23.09.2023;Flying Tiger;Prezent;Pluszak prosiaczek;1;20,00 zł;;;;;Dla Aśki;   
-23.09.2023;Stokrotka;Prezent;Bombonierka Vobro;1;26,99 zł;;;;;Dla Aśki;   
-23.09.2023;Stokrotka;Prezent;Martini Bianco;1;42,99 zł;1000;;;;Dla Aśki;   
-23.09.2023;Stokrotka;Prezent;Torba Urodzinowa z podkową;1;4,99 zł;;;;;Dla Aśki;   
 23.09.2023;Żabka;Żywność;Coca Cola;1;5,50 zł;;;;;;   
 24.09.2023;Helium;Alkohol;Szoty w Helium Arbuzowe;1;28,00 zł;200;4;;;;   
 24.09.2023;Helium;Alkohol;Szoty w Helium Witaminki;1;27,00 zł;200;4;;;;   
 29.09.2023;Weternarz Astra-Wet;Pies;Szczepienie na wściekliznę;1;45,00 zł;;;;;;   
 29.09.2023;;Komputer;Laptop od Dawida;1;200,00 zł;;;;;;   
-01.10.2023;Allegro;Komputer;Ugreen płaski kabel Ethernet patchcord Cat 6 RJ45;1;9,99 zł;;;;9,99 zł;https://allegro.pl/oferta/ugreen-plaski-kabel-ethernet-patchcord-cat-6-rj45-9572854419;   
-01.10.2023;Allegro;Komputer;UGREEN SZYBKI KABEL PRZEWÓD 2x USB 3.2 Gen 1 3m;1;24,90 zł;;;; -   zł ;https://allegro.pl/oferta/ugreen-szybki-kabel-przewod-2x-usb-3-2-gen-1-3m-12259955214;   
-01.10.2023;Allegro;Zakupy;Wymienna opaska do smartbanda Xiaomi Mi Band 5;2;3,99 zł;;;; -   zł ;https://allegro.pl/oferta/wymienna-opaska-do-smartbanda-xiaomi-mi-band-5-14207692973;   
-01.10.2023;Allegro;Zakupy;Wymienna opaska do smartbanda Xiaomi Mi Band 5 6;1;6,99 zł;;;;9,99 zł;https://allegro.pl/oferta/wymienna-opaska-do-smartbanda-xiaomi-mi-band-5-6-14207716260;   
-01.10.2023;BILKOM;Usługi;Bilet na pociąg Kraków-Poznań;1;31,65 zł;;;Tak;;;   
-01.10.2023;BILKOM;Usługi;Bilet na pociąg Poznań-Kraków;1;37,24 zł;;;Tak;;;   
+01.10.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Poznań;1;31,65 zł;;; - ;;;   
+01.10.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Kraków;1;37,24 zł;;; - ;;;   
 01.10.2023;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;0,19 zł;;;;;;   
-01.10.2023;Neonet;Komputer;Adapter Bluetooth TP-LINK UB500 USB Nano Bluetooth 5.0;1;53,80 zł;;;;;https://www.neonet.pl/adaptery-bluetooth/tp-link-ub500-usb-nano-bluetooth-5-0.html;   
 02.10.2023;Action;Środki czystości;Ścierki z mikrofibry  30x30;1;4,49 zł;;4;;;;   
 02.10.2023;Action;Zakupy;Bidon Tacx 750ml;1;8,85 zł;;;;;;   
 02.10.2023;Action;Zakupy;Elektroniczna waga kuchenna | Day Useful Everyday;1;27,95 zł;;;;;;   
@@ -1258,7 +1294,6 @@
 02.10.2023;Akademik;Usługi;Akademik Kaucja;1;640,00 zł;;;;;;   
 02.10.2023;Allegro;Higiena;Kroplomierz Dozownik Zakraplacz z LDPE 250 ml;1;14,84 zł;250;;;9,99 zł;;   
 02.10.2023;Apteka DOZ;Zakupy;Igła 0.5 x 25mm;1;2,00 zł;;5;;;;   
-02.10.2023;aptelia.pl;Leki;Mollers Gold Tran Norweski, płyn o smaku cytrynowym, 250 ml;3;27,89 zł;750;;;;https://www.aptelia.pl/apteka/p131207-Mollers_Gold_Tran_Norweski_plyn_o_smaku_cytrynowym_250_ml;   
 02.10.2023;Biedronka;Środki czystości;Worki na śmieci 10x60L|Jan Niezbędny;1;6,99 zł;;10;;;;   
 02.10.2023;Biedronka;Żywność;Makaron Lubella Świderki | 400g;1;4,99 zł;400;;;;;   
 02.10.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
@@ -1272,14 +1307,11 @@
 04.10.2023;Biedronka;Żywność;Shoarma z pieczarkami | Sphinx | 350g;1;11,99 zł;350;;;;;   
 04.10.2023;PEKA;Usługi;Bilet semestralny 150 dni;1;202,00 zł;;150;;;;   
 05.10.2023;Castorama;Zakupy;Pudło dekoracyjne XL | Erkar | Biała deska 42x32x32;1;26,48 zł;;2;;;;   
-06.10.2023;Sticky Password;Subskrypcje;Sticky Password Lifetime Premium License;1;219,00 zł;;;;;Dokładnie 49,99 USD;   
-09.10.2023;Allegro;Zakupy;TERMOWENTYLATOR FARELKA ELEKTRYCZNA GRZEJNIK 2000W;1;48,89 zł;;;;9,99 zł;https://allegro.pl/moje-allegro/zakupy/kupione/ee174966-1ac8-37b7-b197-5104b66e57d1;   
 09.10.2023;Biedronka;Higiena;Nivea Men - Sensitive pianka do golenia 200ml;1;13,99 zł;200;;;;;   
 09.10.2023;Biedronka;Środki czystości;Gąbki kuchenne x10 | Zosia Samosia;1;2,69 zł;;10;;;;   
+09.10.2023;Biedronka;Środki czystości;Płyn do mycia naczyń | Ludwik | 900g;2;5,99 zł;900;;;;;   
 09.10.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;3;2,99 zł;1000;;;;;   
-09.10.2023;Biedronka;Żywność;Płyn do mycia naczyń | Ludwik | 900g;2;5,99 zł;900;;;;;   
 09.10.2023;Biedronka;Żywność;Smalec wyborowy |Nasze Smaki | 200g;2;2,28 zł;200;;;;;   
-09.10.2023;bigstarshoes.pl;Ubrania;TRAPERY MĘSKIE BIG STAR MM174156 906;1;299,90 zł;;;;;https://bigstarshoes.pl/pl/p/Trapery-meskie-BIG-STAR-MM174156-906/5644;   
 10.10.2023;Biedronka;Energetyki;Energetyk Be Power Japan 500ml;2;3,19 zł;500;;;;;   
 10.10.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
 13.10.2023;Biedronka;Żywność;Cebula żółta luz;1;3,24 zł;650;4;;;;   
@@ -1324,7 +1356,6 @@
 19.10.2023;Biedronka;Żywność;Banan luz;1;3,87 zł;970;6;;;;   
 19.10.2023;Biedronka;Żywność;Kiwi szt;4;1,99 zł;;;;;;   
 19.10.2023;Biedronka;Żywność;Pomarańcze Deserowe luz;1;4,82 zł;690;2;;;;   
-20.10.2023;Apteka Dr.Max;Leki;Inaldin Gardło Max | aerozol do gardła 3mg/ml 150 dawek;1;14,22 zł;30;150;;;https://www.drmax.pl/inaldin-gardlo-max-aer-3-mg-ml-30-ml;   
 20.10.2023;Biedronka;Higiena;Gąbki pod prysznic Oceania 4szt;1;3,85 zł;;4;;;;   
 20.10.2023;Biedronka;Środki czystości;Płyn do prania Perwoll Renew 1.98L 36 prań;1;29,99 zł;1980;36;;;;   
 20.10.2023;Biedronka;Zakupy;Papier do pieczenia | Zosia samosia | 20m;1;7,49 zł;;20;;;;   
@@ -1339,12 +1370,11 @@
 24.10.2023;Biedronka;Energetyki;Energetyk Be Power Lulo 500ml;1;3,19 zł;500;;;;;   
 24.10.2023;Biedronka;Żywność;Nudle pomidorowe pikantne 63g | Knor;2;2,56 zł;63;;;;;   
 24.10.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
-24.10.2023;Kaufland;Zakupy;Wyciskacz do czosnku | Spice & Soul;1;27,99 zł;;;;;3 lata gwarancji i gwarancja zadowolenia;   
 24.10.2023;Kaufland;Zakupy;Zakreślacze Talentus;1;3,49 zł;;4;;;;   
 24.10.2023;Kaufland;Zakupy;Zeszyt A4 80 kartek Talentus ;1;4,99 zł;;80;;;;   
 24.10.2023;Kaufland;Żywność;Masło Kerrygold 200g;4;6,99 zł;200;;;;;   
 24.10.2023;Kaufland;Żywność;Płatki kukurydziane Nestle 600g;1;11,99 zł;600;;;;;   
-25.10.2023;BILKOM;Usługi;Bilet na pociąg Poznań-Lublin;1;32,90 zł;;;;;;   
+25.10.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Lublin;1;32,90 zł;;;;;;   
 25.10.2023;Wolt;Usługi;Kaucja za plecak Wolt;1;150,00 zł;;;;;;   
 27.10.2023;Żabka;Żywność;Coca Cola 1.5 L;1;9,99 zł;1500;;;;;   
 27.10.2023;Żabka;Żywność;Majonez Dekoracyjny 400ml;1;12,99 zł;400;;;;;   
@@ -1361,8 +1391,8 @@
 29.10.2023;Biedronka;Żywność;Pomidor luz;1;3,82 zł;425;;;;;   
 29.10.2023;Biedronka;Żywność;Twaróg Półtłusty Klinek | 250g;1;3,57 zł;250;;;;;   
 29.10.2023;Biedronka;Żywność;Ziemniaki Jadalne luz;1;3,54 zł;1185;;;;;   
-29.10.2023;SkyCash;Usługi;Bilet Ulgowy ;1;3,00 zł;;;;;;   
-29.10.2023;SkyCash;Usługi;Bilet Ulgowy ;1;3,00 zł;;;;;;   
+29.10.2023;SkyCash;Usługi;Bilet ulgowy;1;3,00 zł;;;;;;   
+29.10.2023;SkyCash;Usługi;Bilet ulgowy;1;3,00 zł;;;;;;   
 30.10.2023;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,65 zł;550;;;;;   
 30.10.2023;Biedronka;Żywność;Cytryna luz;1;1,26 zł;140;;;;;   
 30.10.2023;Biedronka;Żywność;Czosnek Polski szt;1;1,89 zł;;;;;;   
@@ -1375,16 +1405,12 @@
 31.10.2023;Biedronka;Żywność;Jogurt Naturlny 400g;1;1,69 zł;400;;;;;   
 31.10.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;1;2,99 zł;1000;;;;;   
 31.10.2023;Biedronka;Żywność;Ser Morski | Światowid | 300g;1;9,23 zł;300;;;;;   
-31.10.2023;Sushipak.pl;Żywność;Pak 2 + Pałeczki dodatkowe;1;41,00 zł;;;;;Nie kupować żadnych dodatków, to jest zestaw dla dwóch osów, ma już podwójne pałeczki i podwójny sos sojowy;   
 01.11.2023;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;0,10 zł;;;;;;   
-02.11.2023;BILKOM;Usługi;Bilet na pociąg Lublin-Nałęczów;1;6,25 zł;;;;;;   
-02.11.2023;BILKOM;Usługi;Bilet na pociąg Nałęczów-Kraków Główny;1;36,75 zł;;;;;;   
-03.11.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny-Poznań;1;37,24 zł;;;;;;   
+02.11.2023;BILKOM;Pociąg;Bilet na pociąg Lublin - Nałęczów;1;6,25 zł;;;;;;   
+02.11.2023;BILKOM;Pociąg;Bilet na pociąg Nałęczów - Kraków Główny;1;36,75 zł;;;;;;   
+03.11.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Poznań;1;37,24 zł;;;;;;   
 04.11.2023;Biedronka;Alkohol;Wódka Żubrówka Bison Grass 500ml + Tymbark Cytroneta;1;29,99 zł;500;;;;;   
-04.11.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny-Poznań;1;0,49 zł;;;;;Dopłata za wymianę biletu na późniejszą godzinę;   
-04.11.2023;Klub Papuga Kraków;Imprezy;Szatnia;2;2,00 zł;;;;;Dla mnie i Adama;   
-04.11.2023;Klub Papuga Kraków;Imprezy;Wejście do klubu;2;10,00 zł;;;;;Dla mnie i Adama;   
-06.11.2023;Akademik;Czynsz;Czynsz Listopad;1;640,00 zł;;;;;;   
+06.11.2023;Akademik;Czynsz;Czynsz listopad;1;640,00 zł;;;;;;   
 06.11.2023;Biedronka;Energetyki;Energetyk Be Power Asia 500ml;2;3,19 zł;500;;;;;   
 06.11.2023;Biedronka;Żywność;Cytryna luz;1;1,57 zł;185;;;;;   
 06.11.2023;Biedronka;Żywność;Guma Orbit Peppermint 29g;2;3,49 zł;29;21;;;;   
@@ -1393,14 +1419,13 @@
 06.11.2023;Biedronka;Żywność;Nudle pomidorowe pikantne 63g | Knor;4;2,56 zł;63;;;;;   
 07.11.2023;Doner Kebab;Żywność;Tortilla z mięsem i surówkami [duża];1;29,00 zł;;;;;;   
 07.11.2023;Dworzec Autobusowy Poznań;Kara/Mandat;Kara za przypięcie roweru;1;50,00 zł;;;;;;   
-09.11.2023;Allegro;Rower;Uchwyt rowerowy na telefon;1;54,90 zł;;;; -   zł ;https://allegro.pl/oferta/uchwyt-rowerowy-na-telefon-wodooporna-sakwa-torba-montowana-do-ramy-12597740905;   
 10.11.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;2;10,46 zł;;10;;;;   
 10.11.2023;Biedronka;Żywność;Kiwi szt;3;1,99 zł;;;;;;   
 10.11.2023;Biedronka;Żywność;Krakersy solone Top 175g;1;2,95 zł;175;;;;;   
 10.11.2023;Biedronka;Żywność;Majonez Dekoracyjny Winiary 500ml;1;10,98 zł;500;;;;;   
 10.11.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;2;2,99 zł;1000;;;;;   
 10.11.2023;Biedronka;Żywność;Suchary Bieszczadzkie San 90g;2;1,89 zł;90;;;;;   
-10.11.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;;;;;   
+10.11.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
 10.11.2023;Dealz;Rower;Poduszka nakładka na siodełko ;1;12,00 zł;;;;;;   
 14.11.2023;Biedronka;Żywność;Baton Twix 5x2 250g;1;9,99 zł;250;10;;;;   
 14.11.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;2;10,99 zł;;10;;;;   
@@ -1432,7 +1457,7 @@
 17.11.2023;Biedronka;Żywność;Twaróg Półtłusty Klinek | 250g;1;3,57 zł;250;;;;;   
 18.11.2023;Bolt;Usługi;Przejazd bolt Jurek->HAH;1;16,68 zł;;;;;;   
 18.11.2023;HAH;Kluby;Szatnia HAH;1;5,00 zł;;;;;;   
-18.11.2023;HAH;Kluby;Wejście do HAHu;3;15,00 zł;;;;;;   
+18.11.2023;HAH;Kluby;Wejście HAH;3;15,00 zł;;;;;;   
 19.11.2023;Żabka;Żywność;Baton Kinder Maxi King 35g;2;3,60 zł;35;;;;;   
 19.11.2023;Żabka;Żywność;Makaron do spaghetti Lubella 300g;1;5,20 zł;300;;;;;   
 19.11.2023;Żabka;Żywność;Mleko świeże Łaciate 2% 1L;2;3,80 zł;1000;;;;;   
@@ -1468,10 +1493,7 @@
 25.11.2023;Biedronka;Żywność;Cebula żółta luz;1;1,64 zł;410;3;;;;   
 25.11.2023;Biedronka;Żywność;Filet z piersi z kurczaka | Kraina mięs;1;10,41 zł;602;;;;;   
 25.11.2023;Biedronka;Żywność;Filet z piersi z kurczaka | Kraina mięs;1;10,84 zł;627;;;;;   
-25.11.2023;Dealz;Żywność;Reese's rounds 6x16g 96g;3;6,00 zł;96;6;;;Te są troche gorsze od tych z Action ale nadal dobre;   
 25.11.2023;Empik;Gry;Gra planszowa Gierki małżeńskie | MDR;1;99,99 zł;;;;;;   
-26.11.2023;Credit Agricole;Usługi;Prowadzenie rachunku;1;10,00 zł;;;;;Zmienili minimum wpływów na konto z 1000zł na 1500zł;   
-26.11.2023;Credit Agricole;Usługi;Użytkowanie karty debetowej;1;10,00 zł;;;;;Zmienili minimum wpływów na konto z 1000zł na 1500zł;   
 27.11.2023;Biedronka;Żywność;Filet z piersi z kurczaka | Kraina mięs;1;9,53 zł;456;;;;;   
 27.11.2023;Biedronka;Żywność;Filet z piersi z kurczaka | Kraina mięs;1;12,03 zł;576;;;;;   
 27.11.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;1;2,99 zł;1000;;;;;   
@@ -1504,14 +1526,12 @@
 04.12.2023;Kaufland;Zakupy;Zeszyt A4 80 kartek Talentus ;3;4,99 zł;;80;;;;   
 04.12.2023;Kaufland;Żywność;Oliwa z oliwek najwyższej jakości z pierwszego tłoczenia K-classic 750ml;1;29,99 zł;750;;;;;   
 04.12.2023;Rossmann;Higiena;Pomadka do ust Original Care Nivea 4.8g;2;7,99 zł;5;;;;;   
-05.12.2023;Akademik;Czynsz;Czynsz Grudzień;1;640,00 zł;;;;;;   
-05.12.2023;Allegro;Telefon;Gumki do słuchawek dousznych (3 rozmiary w komplecie) czarne;1;4,99 zł;;3;;10,95 zł;https://allegro.pl/oferta/gumki-do-sluchawek-dousznych-3-rozmiary-w-komplecie-czarne-14566514255;   
+05.12.2023;Akademik;Czynsz;Czynsz grudzień;1;640,00 zł;;;;;;   
 06.12.2023;Biedronka;Żywność;Majonez Dekoracyjny Winiary 500ml;1;10,98 zł;500;;;;;   
 06.12.2023;Biedronka;Żywność;Śmietana 12% Mleczna Dolina | 330g;2;2,89 zł;330;;;;;   
-06.12.2023;BILKOM;Usługi;Bilet na pociąg Kraków-Poznań;1;37,24 zł;;;;;;   
-06.12.2023;BILKOM;Usługi;Bilet na pociąg Poznań-Kraków;1;37,24 zł;;;;;;   
-06.12.2023;BILKOM;Usługi;Bilet na pociąg Poznań-Lublin;1;39,20 zł;;;;;;   
-07.12.2023;Allegro;Prezent;Sztuka wojny, wydanie 3 Sun Tzu, Sun Pin;1;39,00 zł;;;;8,60 zł;https://allegro.pl/oferta/sztuka-wojny-wydanie-3-sun-tzu-sun-pin-14364767679; Dla Dawida na urodziny 
+06.12.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Poznań;1;37,24 zł;;;;;;   
+06.12.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Kraków;1;37,24 zł;;;;;;   
+06.12.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Lublin;1;39,20 zł;;;;;;   
 07.12.2023;Kaufland;Higiena;Mydło w płynie Aile Jabłkowe  1L;1;3,99 zł;1000;;;;;   
 07.12.2023;Kaufland;Prezent;Świeczki urodzinowe x24;1;4,99 zł;;24;;;;   
 07.12.2023;Kaufland;Prezent;Wyrzutnia konfetti;1;9,99 zł;;;;;;   
@@ -1527,14 +1547,14 @@
 09.12.2023;HAH;Alkohol;Autorskie szoty 4 szt;1;52,00 zł;40;4;;;;   
 09.12.2023;HAH;Alkohol;Autorskie szoty 4 szt;1;25,00 zł;40;4;;;;   
 09.12.2023;HAH;Kluby;Szatnia HAH;1;5,00 zł;;;;;;   
-09.12.2023;HAH;Kluby;Wejście do HAHu;2;25,00 zł;;;;;;   
+09.12.2023;HAH;Kluby;Wejście HAH;2;25,00 zł;;;;;;   
 10.12.2023;HAH;Kluby;Szatnia HAH;1;5,00 zł;;;;;;   
-10.12.2023;HAH;Kluby;Wejście do HAHu;2;30,00 zł;;;;;;   
+10.12.2023;HAH;Kluby;Wejście HAH;2;30,00 zł;;;;;;   
 11.12.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;2;2,29 zł;1000;;;;;   
 11.12.2023;Biedronka;Żywność;Panierowane nuggestsy z piersi z kurczaka | 300g+2x25g;1;9,99 zł;300;;;;;   
 11.12.2023;Biedronka;Żywność;Ser Salami Światowid 300g;2;7,99 zł;300;;;;;   
 11.12.2023;Biedronka;Żywność;Skrzydełka z kurczaka panierowane | Yeemy 315g+25g;1;8,14 zł;315;;;;; Z kośćmi (100g samych kości i chrząstek) więć wychodzi nawet drożej niż za zwykłe nuggetsy 
-13.12.2023;BILKOM;Usługi;Bilet na pociąg Poznań-Lublin;1;32,90 zł;;;;;;   
+13.12.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Lublin;1;32,90 zł;;;;;;   
 13.12.2023;eBilet;Kluby;Bilet na sylwestra do HAHu;1;63,00 zł;;;;;;   
 13.12.2023;Majerbus;Usługi;Bilet na busa do Krakowa;1;29,00 zł;;;;;;   
 13.12.2023;Majerbus;Usługi;Bilet na busa do Zakopanego;1;27,00 zł;;;;;;   
@@ -1550,7 +1570,7 @@
 14.12.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;5,49 zł;160;;;;;   
 14.12.2023;Biedronka;Żywność;Smalec wyborowy |Nasze Smaki | 200g;2;2,18 zł;200;;;;;   
 15.12.2023;American Burgers & Buffet;Żywność;Danie na wagę;1;32,33 zł;670;;;;;   
-15.12.2023;BILKOM;Usługi;Bilet na pociąg Kraków Główny - Kraków Płaszów;1;2,69 zł;;;;;;   
+15.12.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Kraków Płaszów;1;2,69 zł;;;;;;   
 15.12.2023;Carrefour;Żywność;Filet z piersi z kurczaka;1;13,09 zł;524;;;;;   
 15.12.2023;Carrefour;Żywność;Paluszki lajkonik;1;4,99 zł;;;;;;   
 15.12.2023;Carrefour;Żywność;Pieczywo lekkie Sonko;1;4,29 zł;;;;;;   
@@ -1559,7 +1579,7 @@
 15.12.2023;Carrefour;Żywność;Torba Carrefour;1;0,79 zł;;;;;;   
 15.12.2023;Carrefour;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;2;2,39 zł;1500;;;;;   
 15.12.2023;H&M;Prezent;Biała bluza dla Adama;1;115,19 zł;;;;;;   
-15.12.2023;Lidl;Żywność;Baton proteinowy;2;3,29 zł;;;;;;   
+15.12.2023;Lidl;Żywność;Baton Proteinowy 49g;2;3,29 zł;49;;;;;   
 15.12.2023;Lidl;Żywność;Bułka ciabatta;2;0,99 zł;;;;;;   
 15.12.2023;Lidl;Żywność;Bułka fitness;2;0,99 zł;;;;;;   
 15.12.2023;Lidl;Żywność;Bułka przekąska z serem;2;1,46 zł;;;;;;   
@@ -1575,8 +1595,6 @@
 16.12.2023;;Żywność;Duży oscypek;1;13,00 zł;;;;;;   
 17.12.2023;BILKOM;Usługi;Dopłata do biletu Kraków - Poznań;1;0,49 zł;;;;;;   
 17.12.2023;Carrefour;Żywność;Schweppes Mojito 1.35 L;1;7,29 zł;1350;;;;;   
-19.12.2023;Allegro;Prezent;Jelly Belly Bean Boozled 45g Fasolki wszystkich smaków;1;40,47 zł;;3;;8,99 zł;https://allegro.pl/oferta/jelly-belly-bean-boozled-45g-14913658263;   
-19.12.2023;Allegro;Prezent;ZAPARZACZ DO KAWY HERBATY FRENCH PRESS 1L;1;27,90 zł;;;;10,95 zł;https://allegro.pl/oferta/zaparzacz-do-kawy-herbaty-french-press-1l-13929201185;   
 21.12.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;;;;;   
 21.12.2023;Biedronka;Żywność;Mięso mielone z łopatki wieprzowej | Dolina dobra | 400g;1;11,48 zł;400;;;;;   
 21.12.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;2;2,99 zł;1000;;;;;   
@@ -1587,7 +1605,6 @@
 21.12.2023;Biedronka;Żywność;Sos Boloński Culineo 520g;1;5,59 zł;520;;;;;   
 21.12.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
 21.12.2023;Jula;Zakupy;Ścisk do klejenia 60mm | Meec Tools;2;9,99 zł;;;;;;   
-22.12.2023;lock.me;Prezent;Wejście do EscapeRoom | Zaginiony Oficer The Bunkier;1;110,00 zł;;2;;;https://lock.me/pl/poland/wielkopolskie/poznan/escape-room/the-bunkier-escape-rooms/655-zaginiony-oficer;   
 26.12.2023;Credit Agricole;Usługi;Prowadzenie rachunku;1;10,00 zł;;;;;;   
 26.12.2023;Credit Agricole;Usługi;Użytkowanie karty debetowej;1;10,00 zł;;;;;;   
 27.12.2023;Bolt;Usługi;Przejazd bolt Aśka->Dom;1;21,87 zł;;;;;;   
@@ -1623,7 +1640,7 @@
 02.01.2024;Gostom Service;Zakupy;Blok techniczny DECO rose Happy Color A4;1;13,10 zł;;20;;;;   
 02.01.2024;Gostom Service;Zakupy;Blok techniczny z czarnymi kartkami A4 | Kreska;1;6,40 zł;;10;;;;   
 03.01.2024;Fryzjer;Fryzjer;Trwała/styling ondulacja włosy krotki - loki bez amoniaku | Luiza Wieczorek;1;120,00 zł;;;;;;   
-04.01.2024;Akademik;Czynsz;Czynsz Styczeń;1;640,00 zł;;;;;;   
+04.01.2024;Akademik;Czynsz;Czynsz styczeń;1;640,00 zł;;;;;;   
 05.01.2024;Bricomarche;Zakupy;Podłoże uniwersalne COMPO COMPLETE 5L;1;14,99 zł;5000;;;;;   
 05.01.2024;Bricomarche;Zakupy;Uniwersalny nawóz w płynie Biopon 500ml;1;10,99 zł;500;;;;;   
 05.01.2024;Rossmann;Higiena;Aktywator skrętu w kremie OnlyBio 200ml;1;15,99 zł;200;;;;;   
@@ -1638,9 +1655,9 @@
 08.01.2024;Kaufland;Żywność;Pierogi ruskie K-Classic 400g;1;6,79 zł;400;;;;;   
 08.01.2024;Kaufland;Żywność;Sos pieczeniowy Winiary 27g;2;2,29 zł;27;;;;;   
 08.01.2024;Kaufland;Żywność;Ziemniaki Jadalne luz;1;4,86 zł;1624;;;;;   
-08.01.2024;PKP Intercity;Usługi;Bilet na pociąg Kraków-Poznań;1;37,24 zł;;;;;;   
-08.01.2024;PKP Intercity;Usługi;Bilet na pociąg Kraków-Poznań;1;37,24 zł;;;;;; Zamiast wymienić to kupił się drugi bilet 
-08.01.2024;PKP Intercity;Usługi;Bilet na pociąg Poznań-Kraków;1;37,24 zł;;;;;;   
+08.01.2024;PKP Intercity;Pociąg;Bilet na pociąg Kraków Główny - Poznań;1;37,24 zł;;;;;;   
+08.01.2024;PKP Intercity;Pociąg;Bilet na pociąg Kraków Główny - Poznań;1;37,24 zł;;;;;; Zamiast wymienić to kupił się drugi bilet 
+08.01.2024;PKP Intercity;Pociąg;Bilet na pociąg Poznań - Kraków;1;37,24 zł;;;;;;   
 08.01.2024;Rossmann;Higiena;Maszynka do golenia BIC x12;1;31,99 zł;;12;;;;   
 08.01.2024;Rossmann;Higiena;Nivea Men - Sensitive żel do golenia 200ml;1;11,99 zł;200;;;;;   
 09.01.2024;Biedronka;Alkohol;Piwo Somersby Jabłko 0.5L;1;3,99 zł;500;;;;;   
@@ -1721,8 +1738,8 @@
 02.02.2024;Lidl;Żywność;Deser Monteravy;1;4,99 zł;;;;;;
 03.02.2024;HAH;Alkohol;Piwo z sokiem;1;15,00 zł;500;;;;; Na spółę z Adamem 
 03.02.2024;HAH;Alkohol;Szoty kamikaze;1;36,00 zł;;8;;;; Na spółę z Adamem 
-03.02.2024;HAH;Usługi;Szatnia HAH;1;5,00 zł;;;;;;   
-03.02.2024;HAH;Usługi;Wejście do HAHu;2;15,00 zł;;;;;;   
+03.02.2024;HAH;Kluby;Szatnia HAH;1;5,00 zł;;;;;;   
+03.02.2024;HAH;Kluby;Wejście HAH;2;15,00 zł;;;;;;   
 03.02.2024;Lidl;Żywność;Cebula żółta luz;1;1,14 zł;228;;;;;   
 03.02.2024;Lidl;Żywność;Chleb włoski;1;3,99 zł;;;;;;   
 03.02.2024;Lidl;Żywność;Freeway Cola taste 1,5L;2;4,99 zł;1500;;;;;   
@@ -1737,16 +1754,15 @@
 04.02.2024;HAH;Alkohol;Piwo z sokiem;1;15,00 zł;500;;;;; Na spółę z Adamem 
 04.02.2024;HAH;Alkohol;Piwo z sokiem;1;15,00 zł;500;;;;; Na spółę z Adamem 
 04.02.2024;Stodola Kebap 'N Grill;Żywność;Kebab Rollo Plus 200g ;1;34,99 zł;343;;;;; Na paragonie 200g a na stronie 343 
-05.02.2024;Akademik;Czynsz;Czynsz Luty;1;640,00 zł;;;;;;   
-05.02.2024;Allegro;Żywność;Monzini Syrop do drinków o smaku curacao z pompką;1;37,98 zł;1000;2;;8,99 zł;https://allegro.pl/oferta/monzini-syrop-do-drinkow-o-smaku-curacao-z-pompka-13518348633; Dostawa do Allegro One Box bo taniej (Dostałem 3 a zapłaciłem za 2) 
+05.02.2024;Akademik;Czynsz;Czynsz luty;1;640,00 zł;;;;;;   
 05.02.2024;Lidl;Higiena;Papier Toaletowy Floralys 16 rolek 3 warstwy;1;17,99 zł;;16;;;;   
 05.02.2024;Lidl;Żywność;Cebula żółta luz;1;1,94 zł;388;;;;;   
 05.02.2024;Lidl;Żywność;Chleb włoski;1;3,99 zł;;;;;;   
 05.02.2024;Lidl;Żywność;Hummus z suszonymi pomidorami 160g;1;3,99 zł;160;;;;;   
-05.02.2024;Lidl;Żywność;Jajka regionalne z wolnego wybiegu;1;10,99 zł;;10;;;;   
+05.02.2024;Lidl;Żywność;Jajka regionalne z wolnego wybiegu | Złota Nioska;1;10,99 zł;;10;;;;   
 05.02.2024;Lidl;Żywność;Monte 150g;2;1,99 zł;150;;;;;   
 05.02.2024;Lidl;Żywność;Wafle w stylu Holenderskim Sondey 400g;1;8,94 zł;400;;;;;   
-05.02.2024;Lidl;Żywność;Woda Saguaro Muszyńskie magnez + wapń 1.5L;1;10,14 zł;9000;6;;;;   
+05.02.2024;Lidl;Żywność;Woda Saguaro Muszyńskie magnez + wapń 1.5L x6;1;10,14 zł;9000;6;;;;   
 06.02.2024;Biedronka;Żywność;Gotowe danie Gyros | Hortex | 450g;2;11,99 zł;450;;;;;   
 06.02.2024;Biedronka;Żywność;Kabanosy exclusive Tarczyński;2;3,74 zł;105;;;;;   
 06.02.2024;Lidl;Alkohol;Piwo Somersby Blackberry 0,5L 0%;1;5,59 zł;500;;;;;   
@@ -1759,13 +1775,14 @@
 06.02.2024;Lidl;Żywność;Hummus 220g;1;5,95 zł;;;;;;   
 06.02.2024;Lidl;Żywność;Jajka regionalne z wolnego wybiegu | Złota Nioska;2;10,49 zł;220;;;;;   
 06.02.2024;Lidl;Żywność;Szynka konserwowa PIKOK 200g;2;3,78 zł;200;16;;;;   
-07.02.2024;Allegro;Zakupy;Kubek filiżanka Jumbo szkło hartowane 500 ml;1;9,85 zł;;;Tak;9,99 zł;https://allegro.pl/oferta/kubek-filizanka-jumbo-szklo-hartowane-500-ml-15116738725; Za mały 
 07.02.2024;Biedronka;Żywność;Barszcz czerwony | Nasze Smaki | 480ml;1;2,66 zł;480;;;;;   
 07.02.2024;Biedronka;Żywność;Tortellini z prosciutto i serem | Rana 250g;1;7,49 zł;250;;;;;   
 07.02.2024;Kaufland;Zakupy;Chochla do zupy 140ml;1;6,99 zł;;;;;;   
 07.02.2024;Kaufland;Zakupy;Łopatka drewniana;3;5,99 zł;;;;;;   
 07.02.2024;Kaufland;Zakupy;Miska Salaterka 17cm 700/1000ml;2;15,99 zł;;;;;;   
 07.02.2024;Kaufland;Zakupy;Zestaw kieliszków do wódki 25ml;1;19,99 zł;;6;;;;   
+07.02.2024;Lidl;Alkohol;Piwo Somersby Blackberry 0,5L 0%;1;5,59 zł;500;;;;;   
+07.02.2024;Lidl;Alkohol;Piwo Somersby Mango 0.5L 0%;1;5,59 zł;500;;;;;   
 07.02.2024;Lidl;Żywność;Chleb włoski;1;3,99 zł;;;;;;   
 07.02.2024;Lidl;Żywność;Chleb włoski;1;3,99 zł;;;;;;   
 07.02.2024;Lidl;Żywność;Herbata Duo;1;4,49 zł;;;;;;   
@@ -1774,12 +1791,10 @@
 07.02.2024;Lidl;Żywność;Kasza Kuskus z pszenicy durum Kuchnia Lidla 300g;1;2,99 zł;300;;;;;   
 07.02.2024;Lidl;Żywność;Kopytka Chef Select XXL 1kg;1;10,96 zł;1000;;;;;   
 07.02.2024;Lidl;Żywność;Ksylitol | Sante | 250g;1;10,99 zł;250;;;;;   
-07.02.2024;Lidl;Żywność;Piwo Somersby Blackberry 0,5L 0%;1;5,59 zł;500;;;;;   
-07.02.2024;Lidl;Żywność;Piwo Somersby Mango 0.5L 0%;1;5,59 zł;500;;;;;   
 07.02.2024;Lidl;Żywność;Smalec z boczkiem i cebulką | Regionalne Szlaki 250g;1;3,99 zł;250;;;;;   
 07.02.2024;Lidl;Żywność;Sos pieczeniowy jasny Kania 30g;2;1,29 zł;30;;;;;   
-07.02.2024;PKP Intercity;Usługi;Bilet na pociąg Kraków-Poznań;1;76,00 zł;;;;;; Adam 
-07.02.2024;PKP Intercity;Usługi;Bilet na pociąg Poznań-Kraków;1;114,73 zł;;;;;;   
+07.02.2024;PKP Intercity;Pociąg;Bilet na pociąg Kraków Główny - Poznań;1;76,00 zł;;;;;; Adam 
+07.02.2024;PKP Intercity;Pociąg;Bilet na pociąg Poznań - Kraków;1;114,73 zł;;;;;;   
 07.02.2024;Rossmann;Higiena;Pasta do zębów Colgate Advanced White Charcoal 75ml;1;9,99 zł;75;;;;;   
 08.02.2024;Biedronka;Żywność;Ciastko jabłkowe;2;2,66 zł;95;;;;;   
 08.02.2024;Biedronka;Żywność;Mięso mielone z szynki wieprzowej | 500g;1;11,48 zł;500;;;;;   
@@ -1796,8 +1811,8 @@
 09.02.2024;Lidl;Żywność;Sos pieczeniowy jasny Kania 30g;2;1,29 zł;30;;;;;   
 09.02.2024;Stacja Orlen;Żywność;Woda cytrynowa żywiec zdrój 1,2L;1;7,59 zł;1200;;;;;   
 10.02.2024;Biedronka;Żywność;Cytryna luz;1;10,83 zł;1550;10;;;;   
-10.02.2024;HAH;Usługi;Szatnia HAH;1;5,00 zł;;;;;;   
-10.02.2024;HAH;Usługi;Wejście do HAHu;2;15,00 zł;;;;;;   
+10.02.2024;HAH;Kluby;Szatnia HAH;1;5,00 zł;;;;;;   
+10.02.2024;HAH;Kluby;Wejście HAH;2;15,00 zł;;;;;;   
 10.02.2024;Lidl;Alkohol;Wódka Stock 40% 700ml;1;39,99 zł;700;;;;;   
 10.02.2024;Lidl;Żywność;Cebula żółta luz;1;1,50 zł;300;;;;;   
 10.02.2024;Lidl;Żywność;Kopytka Chef Select XXL 1kg;1;5,48 zł;1000;;;;;   
@@ -1807,7 +1822,6 @@
 10.02.2024;Stodola Kebap 'N Grill;Żywność;Rollo Plus 200g;1;34,99 zł;200;;;;;   
 10.02.2024;Świstak Kebab;Żywność;Rollo Plus 200g;1;32,00 zł;200;;;;;   
 11.02.2024;HAH;Alkohol;Piwo z sokiem;1;15,00 zł;;;;;;   
-12.02.2024;Allegro;Prezent;KUBEK FILIŻANKA JUMBO BIAŁA DUŻA LUMINARC 600/700 ml;1;34,00 zł;;;;9,99 zł;https://allegro.pl/oferta/kubek-filizanka-jumbo-biala-duza-luminarc-700-ml-13781234143; Dla Adama na Walentynki 
 12.02.2024;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;1;10,49 zł;;10;;;;   
 12.02.2024;Biedronka;Żywność;Kebab z kurczaka z warzywami | Danie Ekspress | 600g;2;10,94 zł;600;;;;;   
 13.02.2024;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;2;10,49 zł;;10;;;;   
@@ -1844,9 +1858,6 @@
 21.02.2024;Lidl;Żywność;Mandarynki luz;1;3,60 zł;400;;;;;   
 21.02.2024;Lidl;Żywność;Mleko świeże Pilos 2% 1L;2;1,59 zł;1000;;;;;   
 21.02.2024;Telakces.com;Telefon;Folia ochronna na telefon;1;109,00 zł;;;;;; w Avenidzie (najdroższa była za 149 a ta ciut tańsza 109) | 2 marca wymienione na nowe (spytałem po prostu czy jest szansa na wymianę folii i pokazałem tylko telefon i nic więcej) 
-22.02.2024;Allegro;Rower;Smar Olej Finish Line 60 ml - Cross Country WET;1;24,50 zł;60;;;8,99 zł;https://allegro.pl/moje-allegro/zakupy/kupione/7b9e3ab7-b0be-338e-b484-ce2c84cfbf53/oferta/fa61b990-d188-11ee-8580-9dcd8e132032;   
-22.02.2024;Allegro;Zakupy;Patelnia aluminiowa Florina Moreno 30 cm indukcja;1;87,49 zł;;;; -   zł ;https://allegro.pl/oferta/patelnia-aluminiowa-florina-moreno-30-cm-indukcja-11500925768; Adam kupił bo ma SMART 
-22.02.2024;Allegro;Żywność;KFD PREMIUM WPI 90 - BIAŁKO IZOLAT - Biała czekolada 700g;1;80,00 zł;700;;; -   zł ;https://allegro.pl/oferta/kfd-premium-wpi-90-bialko-izolat-100-iso-whey-7147593555; Adam Kupował 2  
 22.02.2024;Biedronka;Żywność;Kebab z kurczaka z warzywami | Danie Ekspress | 600g;2;10,94 zł;600;;;;;   
 22.02.2024;Biedronka;Żywność;Przekąska kurczak curry 95g;2;3,99 zł;95;;;;;   
 22.02.2024;Biedronka;Żywność;Przyprawa do ryb | Kamis 15g;1;1,99 zł;20;;;;;   
@@ -1865,22 +1876,20 @@
 28.02.2024;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;2;10,49 zł;;10;;;;   
 28.02.2024;Biedronka;Żywność;Ketchup Pikantny | Kotlin 450g;1;6,59 zł;450;;;;;   
 28.02.2024;Biedronka;Żywność;Pierogi ruskie | Nasze Smaki |  1kg;1;11,99 zł;1000;39;;;;   
-28.02.2024;Krawcowa;Usługi;Doszycie rzepa do parasolki;1; -   zł ;;;;;; Za darmo 
 28.02.2024;Lidl;Żywność;Lasagne bolognese Chef Select 1000g;1;17,99 zł;1000;;;;;   
 28.02.2024;Lidl;Żywność;Płatki kukurydziane Nestle 800g;1;15,99 zł;800;;;;;   
 28.02.2024;Lidl;Żywność;Polędwica z piersi kurczaka Pikok XXL 250g;2;4,99 zł;250;;;;;   
 29.02.2024;Lidl;Żywność;Kiełbasa królewska z szynki | Regionalne szlaki ;1;6,46 zł;324;;;;;   
 29.02.2024;Lidl;Żywność;Parówki z szynki wieprzowej PREMIUM | PIKOK | 250g;2;4,99 zł;250;;;;;   
 29.02.2024;Wydział;Żywność;Drugie danie;1;20,00 zł;;;;;;   
-01.03.2024;Akademik;Czynsz;Czynsz Marzec;1;640,00 zł;;;;;;   
-01.03.2024;BILKOM;Usługi;Bilet na pociąg Poznań-Lublin;1;21,29 zł;;;;;;   
+01.03.2024;Akademik;Czynsz;Czynsz marzec;1;640,00 zł;;;;;;   
+01.03.2024;BILKOM;Pociąg;Bilet na pociąg Poznań - Lublin;1;21,29 zł;;;;;;   
 01.03.2024;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;2,17 zł;;;;;;   
 01.03.2024;PEKA;Usługi;Bilet semestralny 150 dni;1;202,00 zł;;150;;;;   
 02.03.2024;Action;Ubrania;Slipy, majtki Jack Parker L | Briefs Cotton stretch;1;16,95 zł;;;;;;   
 02.03.2024;Action;Zakupy;Termos/dzbanek 1L Redstone;1;27,95 zł;;;;;;   
 02.03.2024;Action;Żywność;Arizona pomegranate Green Tea 500ml;2;3,79 zł;500;;;;;   
 02.03.2024;Action;Żywność;Reese's Peanut butter cups 4x42.5g 170g;1;17,95 zł;170;;;;;   
-02.03.2024;Apteka Dr.Max;Leki;krem na grzybicę skóry Hascofungin 30g 1g/100g;1;15,42 zł;30;;;;;   
 02.03.2024;Express Kuchnia Marche;Żywność;Danie na wagę;1;20,03 zł;590;;;;; 50% zniżki 
 02.03.2024;Lidl;Żywność;Chleb na maślance;1;2,99 zł;;;;;;   
 02.03.2024;Lidl;Żywność;Filety z makreli w sosie pomidorowym | NIXE | 170g;2;4,75 zł;170;;;;;   
@@ -1897,7 +1906,7 @@
 04.03.2024;Lidl;Żywność;Ketchup Pikantny | Kotlin 450g;1;6,59 zł;;;;;;   
 04.03.2024;Lidl;Żywność;Mleko UHT 3,2% Pilos 1L;6;1,71 zł;6000;;;;; 3+3 gratis 
 04.03.2024;Lidl;Żywność;Śmietana 12% Pilos | 400g;1;3,62 zł;400;;;;;   
-04.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;1;5,94 zł;9000;6;;;;   
+04.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
 04.03.2024;Wydział;Żywność;Drugie danie;1;22,00 zł;;;;;;   
 05.03.2024;Lidl;Energetyki;Energetyk Kong Strong Colosus Tropical 500ml;1;3,19 zł;500;;;;;   
 05.03.2024;Lidl;Energetyki;Energetyk Kong Strong Colosus Zero 500ml;1;3,19 zł;500;;;;;   
@@ -1908,8 +1917,7 @@
 06.03.2024;Biedronka;Żywność;Śmietana 12% Mleczna Dolina | 330g;1;2,99 zł;330;;;;;   
 06.03.2024;Pasmanteria Duo;Zakupy;Nić biała ariadna 200m;1;4,20 zł;;;;;;   
 06.03.2024;Pasmanteria Duo;Zakupy;Sznurek 2.5zł/m;1;5,00 zł;2000;;;;;   
-07.03.2024;Allegro;Komputer;Myszka bezprzewodowa Defender MM-665 sensor optyczny;1;25,00 zł;;;;8,50 zł;https://allegro.pl/oferta/myszka-mysz-bezprzewodowa-komputerowa-defender-10861218312;   
-07.03.2024;BILKOM;Usługi;Bilet na pociąg Lublin Zachodni - Poznań Główny;1;32,90 zł;;;;;;   
+07.03.2024;BILKOM;Pociąg;Bilet na pociąg Lublin Zachodni - Poznań Główny;1;32,90 zł;;;;;;   
 07.03.2024;Lidl;Żywność;Chrzan tarty Kania 60% 160g;2;1,44 zł;160;;;;;   
 07.03.2024;Lidl;Żywność;Hummus paprykowy Vamondo 160g;1;2,39 zł;160;;;;;   
 07.03.2024;Lidl;Żywność;Hummus z suszonymi pomidorami Vamondo 160g;1;3,99 zł;160;;;;;   
@@ -1918,8 +1926,8 @@
 08.03.2024;Biedronka;Alkohol;Piwo Łomża Miodowa 0,5L;2;4,79 zł;500;;;;;   
 08.03.2024;Biedronka;Żywność;Chicken Paella Danie z kurczakiem po hiszpańsku | Frosta | 450g;2;10,99 zł;450;;;;;   
 08.03.2024;Biedronka;Żywność;Przyprawa Suszone pomidory | Kamis 15g;2;1,99 zł;15;;;;;   
-08.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;1;5,94 zł;9000;6;;;;   
-09.03.2024;Auchan;Żywność;Chipsy Oven Baked kurkowe | Lays;2;8,68 zł;;;;;;   
+08.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+09.03.2024;Auchan;Żywność;Chipsy Lay's Oven Baked o smaku kurki w śmietanowym sosie 200g;2;8,68 zł;200;;;;;   
 09.03.2024;Biedronka;Żywność;Winogrona różowe luz;1;2,80 zł;280;;;;;   
 09.03.2024;IKEA;Żywność;De volaille z puree ziemniaczanym i brokułami + zupa pomidorowa;1;20,30 zł;;;;;; jakiś rabat w godzinach 20.00-20.30 ale nie wiem jaki (24 kotlet + 7 zupa normalnie) 
 09.03.2024;Lidl;Żywność;Banan luz;1;1,61 zł;494;;;;;   
@@ -1941,10 +1949,10 @@
 12.03.2024;Biedronka;Żywność;Przyprawa Papryka wędzona Kamis 20g;3;1,99 zł;20;;;;;   
 12.03.2024;Biedronka;Żywność;Ryż orientalny z kurczakiem i warzywami | Asia flavours 600g;2;12,47 zł;600;;;;;   
 12.03.2024;Biedronka;Żywność;Skittles 174g;1;7,48 zł;174;;;;;   
-12.03.2024;Glovo;Usługi;Wpłata salda gotówkowego;1;115,55 zł;;;Tak;;;   
+12.03.2024;Glovo;Usługi;Wpłata salda gotówkowego;1;115,55 zł;;; - ;;;   
 12.03.2024;Lidl;Żywność;Bułki pszenne hot dog 3x Tastino 180g;2;3,70 zł;180;3;;;;   
 12.03.2024;Lidl;Żywność;Chipsy Monster Munch Original 100g;1;6,99 zł;100;;;;;   
-12.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;1;5,94 zł;9000;6;;;;   
+12.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
 12.03.2024;Lidl;Zakupy;Baterie Micro LR03 1,5V AAA 8x Tronic ;1;10,99 zł;;8;;;;   
 12.03.2024;Lidl;Żywność;Bułki mleczne 12 sztuk;1;5,39 zł;480;12;;;;   
 12.03.2024;Lidl;Żywność;Chleb Baltanowski;1;1,79 zł;;;;;;   
@@ -1954,7 +1962,7 @@
 13.03.2024;Fryzjer ;Fryzjer;Strzyżenie r.6 i r.9 | Amanda Jędrzejewska;1;35,00 zł;;;;;; Boki nożyczkami i maszynką 6 i 9. 1cm z góry. Z MYCIEM 
 13.03.2024;Lidl;Żywność;Filet z piersi z kurczaka | Kurczak Biesiadny;1;15,17 zł;542;;;;;   
 14.03.2024;Biedronka;Żywność;Czekolada mleczna z całymi orzechami laskowymi | Nussbeisser | 100g;4;3,45 zł;100;;;;;   
-14.03.2024;Biedronka;Żywność;Granola wydokobiałkowa z czekoladą i morelą | GoActive | 200g;1;9,51 zł;200;;;;;   
+14.03.2024;Biedronka;Żywność;Granola wysokobiałkowa z czekoladą i morelą | GoActive | 200g;1;9,51 zł;200;;;;;   
 14.03.2024;Biedronka;Żywność;Jogurt Naturlny Kremowy Fruvita 400g;1;1,69 zł;400;;;;;   
 14.03.2024;Biedronka;Żywność;Mleko UHT 3,2% Mleczna Dolina 1L;6;1,65 zł;9000;;;;;   
 16.03.2024;Pizzeria na maxa Piątkowo;Żywność;Pizza Kebab 50cm  + sos pomidorowy + salami;1;71,90 zł;;;;4,00 zł;; Taka sobie. po 4 zł za sos i dostawę oraz 8 za dodatkowe salami 
@@ -1977,9 +1985,8 @@
 18.03.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
 18.03.2024;Bolt;Usługi;Przejazd bolt Siłownia->Adam;1;13,93 zł;;;;;;   
 18.03.2024;Wydział;Żywność;Tiger Classic 250ml;1;4,50 zł;250;;;;;   
-19.03.2024;Allegro;Zakupy;Lampka biurkowa ARSA GO KLASYCZNA / LOFT czarny moc do 60 W;1;45,00 zł;;;; -   zł ;https://allegro.pl/oferta/lampka-biurkowa-szkolna-na-biurko-lampa-do-czytania-uchwyt-i-stojak-15182470477;   
 19.03.2024;Biedronka;Żywność;Banan luz;1;6,66 zł;1335;;;;;   
-19.03.2024;Biedronka;Żywność;Borówka Amerykańska | Warzywniak owocowy;1;8,99 zł;300;;;;;   
+19.03.2024;Biedronka;Żywność;Borówka Amerykańska | Warzywniak owocowy | 300g;1;8,99 zł;300;;;;;   
 19.03.2024;Biedronka;Żywność;Jogurt Naturlny Kremowy Fruvita 400g;1;1,69 zł;400;;;;;   
 19.03.2024;Kaufland;Higiena;Prezerwatywy R3 PURE 12st;1;8,99 zł;;12;;;;   
 19.03.2024;Lidl;Żywność;Cebula żółta luz;1;1,61 zł;322;;;;;   
@@ -2012,7 +2019,7 @@
 23.03.2024;Lidl;Alkohol;Wódka Stock 40% 500ml;2;26,24 zł;500;;;;;   
 23.03.2024;Lidl;Żywność;Cebula żółta luz;1;1,84 zł;368;;;;;   
 23.03.2024;Lidl;Żywność;Papryka czerwona;1;8,51 zł;568;;;;;   
-23.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;1;5,94 zł;9000;6;;;;   
+23.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
 24.03.2024;Biedronka;Żywność;Przyprawa do Gyrosa | Kamis | 30g;4;1,49 zł;30;;;;;   
 24.03.2024;Biedronka;Żywność;Przyprawa do kurczaka złocista | Kamis | 30g;4;1,49 zł;30;;;;;   
 24.03.2024;Biedronka;Żywność;Ser Gouda | Światowid | 500g;2;9,99 zł;500;;;;;   
@@ -2022,18 +2029,15 @@
 25.03.2024;Biedronka;Żywność;Tortilla Kurczak Curry | Dania Express | 250g;1;7,48 zł;250;;;;;   
 25.03.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
 25.03.2024;Biedronka;Żywność;Worki na śmieci 10x35L|Zosia Samosia;2;3,00 zł;;15;;;;   
-26.03.2024;Allegro;Komputer;Karta graficzna Gigabyte GeForce RTX 2060 Super WindForce OC 2.0 8 GB;1;730,00 zł;;;; -   zł ;https://allegro.pl/oferta/karta-graficzna-gigabyte-geforce-rtx-2060-super-windforce-oc-2-0-8-gb-15334709672; Używana. Taka jaką ma Adam 
 26.03.2024;Biedronka;Żywność;Warzywa na patelnię 450g;2;5,99 zł;450;;;;;   
 26.03.2024;Biedronka;Żywność;Winogrona różowe luz;1;3,45 zł;345;;;;;   
 28.03.2024;KFC;Żywność;Coca cola;1;7,00 zł;;;;;; Aśce tyle oddałem za cole z dolewką 
 31.03.2024;P.SKOOL.COM;Usługi;Subskrypcja dla Dawida;1;16,54 zł;;;;;; Mama mi odddała 500 zł z tego 
-01.04.2024;Allegro;Higiena;Plaster (taśma chirurgiczna) 3M 1,25cm x 9,1m ;7;2,97 zł;9100;7;;8,99 zł;https://allegro.pl/oferta/plaster-przylepiec-micropore-3m-1-25x9-1-bialy-9270201810;   
 01.04.2024;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;2,19 zł;;;;;;   
-02.04.2024;Allegro;Komputer;Kabel Displayport do HDMI 1,8m FULL HD;1;10,39 zł;1800;;;8,99 zł;https://allegro.pl/oferta/kabel-z-displayport-do-hdmi-1-8m-dp-full-hd-hd39-12141998043;   
 02.04.2024;P.SKOOL.COM;Usługi;Prowizja za przewalutowanie PLN do USD;1;15,50 zł;;;;;; Gdy płaciłem za subskrypcje Dawida 
 03.04.2024;Biedronka;Żywność;Tortilla Gyros | Dania Express | 250g;1;4,99 zł;250;;;;;   
 03.04.2024;Biedronka;Żywność;Tortilla Kurczak Curry | Dania Express | 250g;1;4,99 zł;250;;;;;   
-05.04.2024;Akademik;Czynsz;Czynsz Kwiecień;1;640,00 zł;;;;;;   
+05.04.2024;Akademik;Czynsz;Czynsz kwiecień;1;640,00 zł;;;;;;   
 05.04.2024;Allegro;Komputer;Przejściówka adapter Displayport do HDMI 0,2m FULL HD;1;26,99 zł;;;;8,99 zł;;   
 05.04.2024;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;2;7,87 zł;;10;;;;   
 05.04.2024;Biedronka;Żywność;Kebab z kurczaka z warzywami | Danie Ekspress | 600g;2;11,99 zł;600;;;;;   
@@ -2047,7 +2051,7 @@
 05.04.2024;Lidl;Żywność;Filet z piersi indyka XXL | Rzeźnik;1;14,24 zł;1096;;;;;   
 05.04.2024;Lidl;Żywność;Filet z piersi indyka XXL | Rzeźnik;1;14,78 zł;1138;;;;;   
 05.04.2024;Lidl;Żywność;Mleko świeże Pilos 2% 1L;2;2,99 zł;1000;;;;;   
-05.04.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;1;5,94 zł;9000;6;;;;   
+05.04.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
 05.04.2024;Rossmann;Zakupy;Okulary Eyemedic ;1;14,99 zł;;;;;; Dla Adama bo mu zepsułem 
 06.04.2024;BeActive;Subskrypcje;Karnet BeActive OPEN 2+2;1;299,00 zł;;4;;;;   
 06.04.2024;Biedronka;Żywność;Tortilla Gyros | Dania Express | 250g;1;7,48 zł;250;;;;;   
@@ -2057,10 +2061,10 @@
 07.04.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;1;1,19 zł;1500;;;;;   
 07.04.2024;Bolt;Usługi;Przejazd bolt Kacper-> HAH Wrocław;1;11,70 zł;;;;;;   
 07.04.2024;HAH Wrocław;Alkohol;Piwo z sokiem;2;15,00 zł;;;;;;   
-07.04.2024;HAH Wrocław;Usługi;Szatnia HAH;2;5,00 zł;;;;;;   
-07.04.2024;HAH Wrocław;Usługi;Wejście do HAHu;2;30,00 zł;;;;;;   
-07.04.2024;PKP Intercity;Usługi;Bilet na pociąg Wrocław-Poznań;1;32,00 zł;;;;;;   
-07.04.2024;PKP Intercity;Usługi;Bilet na pociąg Wrocław-Poznań;1;15,70 zł;;;;;;   
+07.04.2024;HAH Wrocław;Kluby;Szatnia HAH;2;5,00 zł;;;;;;   
+07.04.2024;HAH Wrocław;Kluby;Wejście HAH;2;30,00 zł;;;;;;   
+07.04.2024;PKP Intercity;Pociąg;Bilet na pociąg Wrocław - Poznań;1;32,00 zł;;;;;;   
+07.04.2024;PKP Intercity;Pociąg;Bilet na pociąg Wrocław - Poznań;1;15,70 zł;;;;;;   
 08.04.2024;Bolt;Usługi;Przejazd hulajnogą;1;20,90 zł;;;;;;   
 08.04.2024;Bolt;Usługi;Przejazd hulajnogą;1;20,18 zł;;;;;;   
 11.04.2024;Lidl;Żywność;Fix tagiatelle z kurczakiem | Kania | 32g;4;2,99 zł;32;;;;;   
@@ -2086,7 +2090,7 @@
 17.04.2024;Biedronka;Żywność;Bułki hot dog ?????;1;4,99 zł;240;;;;;   
 17.04.2024;Biedronka;Żywność;Kabanosy Klasyczne wieprzowe | Tarczyński | 300g;1;12,94 zł;300;;;;;   
 17.04.2024;Biedronka;Żywność;Ser Cheddar | Mlekovita | 300g;2;7,99 zł;300;;;;;   
-17.04.2024;Fryzjer;Usługi;Strzyżenie całych boków| Luiza Wieczorek;1;45,00 zł;;;;;;   
+17.04.2024;Fryzjer;Fryzjer;Strzyżenie całych boków| Luiza Wieczorek;1;45,00 zł;;;;;;   
 17.04.2024;Pepco;Zakupy;Dywanik łazienkowy 40x60;1;12,00 zł;;;;;;   
 18.04.2024;Biedronka;Żywność;Cebula żółta luz;1;1,76 zł;420;;;;;   
 18.04.2024;Biedronka;Żywność;Kebab z kurczaka z warzywami | Danie Ekspress | 600g;3;11,99 zł;600;;;;;   
@@ -2094,7 +2098,6 @@
 18.04.2024;Biedronka;Żywność;Salami codzienne - Kraina Wędlin 300g;1;9,99 zł;300;;;;;   
 20.04.2024;Allegro;Zakupy;Prześcieradło z gumką Piruu frotte 120 x 200 cm;1;23,99 zł;;;;10,95 zł;;   
 20.04.2024;Biedronka;Żywność;Lasagne bolognese Dania Express 1000g;2;11,99 zł;1000;;;;;   
-20.04.2024;Biedronka;Żywność;Rzodkiewki - pęk;2;2,61 zł;;;;;https://allegro.pl/oferta/grube-przescieradlo-frotte-z-gumka-120x200-bawelna-kolory-sprawdzona-jakosc-5182487862;   
 22.04.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
 22.04.2024;Lidl;Żywność;Mleko UHT 3,2% Mlekovita 1L;6;1,79 zł;1000;;;;;   
 22.04.2024;Lidl;Żywność;Pinsa Margherita 135g;2;4,99 zł;135;;;;;   
@@ -2139,12 +2142,12 @@
 30.04.2024;Lidl;Żywność;Mleko świeże Pilos 2% 1L;3;2,99 zł;1000;;;;;   
 30.04.2024;Lidl;Żywność;Pieczarki na Grilla 400g;1;4,89 zł;400;;;;;   
 30.04.2024;Lidl;Żywność;Ser Gouda | 150g;1;4,45 zł;150;;;;;   
-30.04.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;1;5,94 zł;1000;;;;;   
+30.04.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
 30.04.2024;Lokum;Alkohol;Piwo Kozel z sokiem malinowym 500ml;2;17,00 zł;500;;;;;   
 30.04.2024;Żabka;Zakupy;Grill jednorazowy | dancoal;1;12,99 zł;;;;;;   
-02.05.2024;Akademik;Czynsz;Czynsz Maj;1;640,00 zł;;;;;;   
-02.05.2024;BILKOM;Usługi;Bilet na pociąg Poznań-Wrocław;1;49,00 zł;;;;;;   
-02.05.2024;BILKOM;Usługi;Bilet na pociąg Poznań-Wrocław;1;24,01 zł;;;;;;   
+02.05.2024;Akademik;Czynsz;Czynsz maj;1;640,00 zł;;;;;;   
+02.05.2024;BILKOM;Pociąg;Bilet na pociąg Poznań - Wrocław;1;49,00 zł;;;;;;   
+02.05.2024;BILKOM;Pociąg;Bilet na pociąg Poznań - Wrocław;1;24,01 zł;;;;;;   
 02.05.2024;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;2,52 zł;;;;;;
 02.05.2024;Lidl;Żywność;Cebula żółta luz;1;2,38 zł;476;;;;;   
 02.05.2024;Lidl;Żywność;Filet z piersi z kurczaka;1;10,85 zł;1096;;;;;   
@@ -2155,8 +2158,8 @@
 02.05.2024;Lidl;Żywność;Napój gazowany Freeway orange 2L;1;1,64 zł;2000;;;;;   
 02.05.2024;Lidl;Żywność;Papryka czerwona;1;6,84 zł;456;;;;;   
 02.05.2024;P.SKOOL.COM;Usługi;Prowizja za przewalutowanie PLN do USD;1;15,69 zł;;;;;; Gdy płaciłem za subskrypcje Dawida 
-03.05.2024;BILKOM;Usługi;Bilet na pociąg Sobótka-Wrocław;1;12,41 zł;;;;;;   
-03.05.2024;BILKOM;Usługi;Bilet na pociąg Sobótka-Wrocław;1;6,08 zł;;;;;;   
+03.05.2024;BILKOM;Pociąg;Bilet na pociąg Sobótka - Wrocław;1;12,41 zł;;;;;;   
+03.05.2024;BILKOM;Pociąg;Bilet na pociąg Sobótka - Wrocław;1;6,08 zł;;;;;;   
 03.05.2024;POLBUS-PKS;Usługi;Bilet na busa Wrocław-Przełęcz Tąpadła;2;17,00 zł;;;;;;   
 03.05.2024;Żabka;Żywność;Coca cola;1;9,50 zł;1500;;;;;   
 03.05.2024;Żabka;Żywność;Mleko świeże Łaciate 2% 1L;1;4,80 zł;1000;;;;;   
@@ -2164,12 +2167,12 @@
 04.05.2024;Biedronka;Żywność;Banan luz;1;3,08 zł;1080;;;;;   
 04.05.2024;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;2;10,49 zł;;10;;;;   
 04.05.2024;Biedronka;Żywność;Schab wędzony na wiśniowo | Kraina Wędlin | 250g;2;6,99 zł;250;;;;;   
-04.05.2024;BILKOM;Usługi;Bilet na pociąg Wrocław-Poznań;1;49,00 zł;;;;;;   
-04.05.2024;BILKOM;Usługi;Bilet na pociąg Wrocław-Poznań;1;24,01 zł;;;;;;   
+04.05.2024;BILKOM;Pociąg;Bilet na pociąg Wrocław - Poznań;1;49,00 zł;;;;;;   
+04.05.2024;BILKOM;Pociąg;Bilet na pociąg Wrocław - Poznań;1;24,01 zł;;;;;;   
 04.05.2024;Bolt;Usługi;Przejazd bolt Dworzec->Akademik;1;10,48 zł;;;;;;   
 04.05.2024;Bolt;Usługi;Przejazd bolt Kacper -> HAH Wrocław ;1;12,73 zł;;;;;;   
-04.05.2024;HAH Wrocław;Usługi;Szatnia HAH;1;10,00 zł;;;;;;   
-04.05.2024;HAH Wrocław;Usługi;Wejście do HAHu;2;10,00 zł;;;;;;   
+04.05.2024;HAH Wrocław;Kluby;Szatnia HAH;1;10,00 zł;;;;;;   
+04.05.2024;HAH Wrocław;Kluby;Wejście HAH;2;10,00 zł;;;;;;   
 04.05.2024;HAH Wrocław;Alkohol;Piwo lane;2;11,00 zł;;;;;;   
 04.05.2024;Lidl;Żywność;Chleb wieloziarnisty;1;4,39 zł;;;;;;   
 04.05.2024;Lidl;Żywność;Rukola myta 80g;1;3,44 zł;80;;;;;   
@@ -2177,7 +2180,7 @@
 04.05.2024;Lidl;Żywność;Skyr owocowy 150g;2;1,69 zł;150;;;;;   
 06.05.2024;Biedronka;Żywność;Chicken Paella Danie z kurczakiem po hiszpańsku | Frosta | 450g;2;7,99 zł;450;;;;;   
 06.05.2024;Biedronka;Żywność;Mleko UHT 3,2% Mlekovita 1L;6;1,75 zł;1000;;;;;   
-06.05.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;6;1,19 zł;1500;;;;;   
+06.05.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
 06.05.2024;Kaufland;Higiena;Listerine Total Care 1000ml;1;27,99 zł;1000;;;;;   
 06.05.2024;Lidl;Żywność;Chleb wieloziarnisty;1;4,39 zł;;;;;;   
 06.05.2024;Lidl;Żywność;Kapusta pekińska;1;7,26 zł;1038;;;;;   
@@ -2185,7 +2188,7 @@
 06.05.2024;Lidl;Żywność;Parówki z szynki wieprzowej PREMIUM | PIKOK | 250g;1;2,99 zł;250;;;;;   
 06.05.2024;Lidl;Żywność;Sól Himalajska jodowana drobnoziarnista | Kuchnia Lidla | 500g;1;3,99 zł;500;;;;;   
 06.05.2024;Lidl;Żywność;Wafle w stylu Holenderskim Sondey 400g;1;8,94 zł;400;;;;;   
-06.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
+06.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
 06.05.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;2;1,89 zł;70;;;;;   
 06.05.2024;Rossmann;Higiena;Pumeks kosmetyczny KillyS;1;7,99 zł;;;;;;   
 06.05.2024;Rossmann;Higiena;Szczotka do włosów Beauty;1;12,49 zł;;;;;;   
@@ -2223,10 +2226,10 @@
 11.05.2024;Pastwisko;Żywność;Burger Bydlak [pojedynczy burger] bułka sezamowa;1;35,00 zł;;;;3,00 zł;;   
 11.05.2024;Pepco;Zakupy;Stalowy ugniatak do ziemniaków;1;8,00 zł;;;;;;   
 11.05.2024;Pepco;Zakupy;Zestaw noży Chef's knife | Peter cook ;1;15,00 zł;;;;;;   
-12.05.2024;BILKOM;Usługi;Bilet na pociąg Kudowa-Zdrój->Poznań;1;65,38 zł;;;;;;   
-12.05.2024;BILKOM;Usługi;Bilet na pociąg Kudowa-Zdrój->Poznań;1;32,04 zł;;;;;;   
-12.05.2024;BILKOM;Usługi;Bilet na pociąg Poznań->Kudowa-Zdrój;1;48,30 zł;;;;;;   
-12.05.2024;BILKOM;Usługi;Bilet na pociąg Poznań->Kudowa-Zdrój;1;23,67 zł;;;;;;   
+12.05.2024;BILKOM;Pociąg;Bilet na pociąg Kudowa-Zdrój - Poznań;1;65,38 zł;;;;;;   
+12.05.2024;BILKOM;Pociąg;Bilet na pociąg Kudowa-Zdrój - Poznań;1;32,04 zł;;;;;;   
+12.05.2024;BILKOM;Pociąg;Bilet na pociąg Poznań - Kudowa-Zdrój;1;48,30 zł;;;;;;   
+12.05.2024;BILKOM;Pociąg;Bilet na pociąg Poznań - Kudowa-Zdrój;1;23,67 zł;;;;;;   
 12.05.2024;Booking;Usługi;Nocleg w Kudowie (2 noce 2 osoby);2;152,00 zł;;;;;;   
 13.05.2024;Biedronka;Żywność;Cebula żółta luz;1;1,52 zł;390;5;;;;   
 13.05.2024;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;2,78 zł;550;;;;;   
@@ -2246,6 +2249,66 @@
 14.05.2024;Lidl;Żywność;Ogórek zielony;1;5,23 zł;524;;;;;   
 14.05.2024;Lidl;Żywność;Ziemniaki Jadalne myte;1;4,83 zł;1152;;;;;   
 15.05.2024;Allegro;Żywność;KFD PREMIUM WPI 90 - BIAŁKO IZOLAT - Biała czekolada 700g;1;75,00 zł;700;;; -   zł ;; Adam Kupował 
+15.05.2024;Biedronka;Środki czystości;Płyn do prania niebieski | Coccolino | 925ml 37 prań;1;11,99 zł;925;37;;;;
+15.05.2024;Biedronka;Środki czystości;Płyn do prania różowy | Coccolino | 925ml 37 prań;1;11,99 zł;925;37;;;;
+15.05.2024;Biedronka;Żywność;Bakerolls pizza 150g;2;6,49 zł;150;;;;;
 15.05.2024;Biedronka;Żywność;FitKing delicious pasta sauce | AllNutrition | 500g;1;17,99 zł;500;;;;;   
+15.05.2024;Biedronka;Żywność;Jogurt Fantasia Gwiazdki | 102g;1;1,99 zł;102;;;;;
+15.05.2024;Biedronka;Żywność;Jogurt Fantasia kremowy z kulkami w czekoladzie| 102g;1;1,99 zł;102;;;;;
+15.05.2024;Biedronka;Żywność;Jogurt Fantasia Płatki Czekoladowe | 102g;1;1,99 zł;102;;;;;
+15.05.2024;Biedronka;Żywność;Lody Marletto 120ml;1;2,99 zł;120;;;;;
+15.05.2024;Biedronka;Żywność;Lody Marletto 120ml;1;2,99 zł;120;;;;;
+15.05.2024;Biedronka;Żywność;Nudle grzybowa z borowikami i maślakami 57g | Amino;4;1,72 zł;57;;;;;
+15.05.2024;Biedronka;Żywność;Ogórek gruntowy polski luz;1;10,99 zł;920;6;;;;
 15.05.2024;Biedronka;Żywność;Szynka zawędzana Kraina Wędlin 250g;2;6,49 zł;250;;;;;   
-15.05.2024;Fryzjer;Usługi;Trwała/styling ondulacja włosy krotki - loki bez amoniaku | Luiza Wieczorek;1;120,00 zł;;;;;;   
+15.05.2024;Fryzjer;Fryzjer;Trwała/styling ondulacja włosy krotki - loki bez amoniaku | Luiza Wieczorek;1;120,00 zł;;;;;;   
+16.05.2024;Kaufland;Żywność;Oliwa z oliwek najwyższej jakości z pierwszego tłoczenia K-classic 750ml;2;32,99 zł;750;;;;;
+16.05.2024;Lidl;Żywność;Cebula żółta luz;1;3,07 zł;592;;;;;
+16.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;
+16.05.2024;Lidl;Żywność;Ziemniaki do gotowania | Ryneczek Lidla | 2.5kg;1;10,99 zł;2500;;;;;
+17.05.2024;Biedronka;Żywność;Mleko wypasione 3,2% Mlekovita 1L;3;2,45 zł;1000;;;;;
+17.05.2024;Biedronka;Żywność;Pomidor gałązka luz;1;4,55 zł;455;;;;;
+17.05.2024;Biedronka;Żywność;Warzywa na patelnię po europejsku| Mroźna Kraina | 700g;2;6,99 zł;700;;;;;
+18.05.2024;Biedronka;Alkohol;Piwo Somersby Blackcurrant & Lime  0,4L 0%;1;3,99 zł;400;;;;;
+18.05.2024;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,78 zł;550;;;;;
+18.05.2024;Biedronka;Żywność;Lody Czekoladowe Grycan 1100ml;1;24,99 zł;1100;;;;;
+18.05.2024;Biedronka;Żywność;Pomidor gałązka luz;1;2,75 zł;275;;;;;
+18.05.2024;Lidl;Żywność;Bagietka czosnkowa;1;2,94 zł;;;;;;
+18.05.2024;Lidl;Żywność;Drożdżówka z kruszonką;1;2,93 zł;;;;;;
+18.05.2024;Lidl;Żywność;Filet z piersi z kurczaka | Rzeźnik;1;9,46 zł;956;;;;;
+18.05.2024;Lidl;Żywność;Filet z piersi z kurczaka | Rzeźnik;1;8,83 zł;892;;;;;
+18.05.2024;Lidl;Żywność;Filet z piersi z kurczaka | Rzeźnik;1;8,66 zł;875;;;;;
+18.05.2024;Lidl;Żywność;Kapusta pekińska;1;7,37 zł;1054;;;;;
+18.05.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;1;3,79 zł;285;;;;;
+18.05.2024;Lidl;Żywność;Papryka żółta luz;1;5,94 zł;700;;;;;
+18.05.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;2;1,98 zł;70;;;;;
+20.05.2024;Biedronka;Alkohol;Gazowany napój alkoholowy o smaku Kamikaze Impress 4.4% 250ml;1;4,99 zł;250;;;;;
+20.05.2024;Biedronka;Alkohol;Gazowany napój alkoholowy o smaku żuroawinowym Cranberry Impress 4.4% 250ml;1;4,99 zł;250;;;;;
+20.05.2024;Biedronka;Żywność;Baton Go On 50g;1;3,29 zł;50;;;;;
+20.05.2024;Biedronka;Żywność;Baton Go On 50g;1;3,29 zł;50;;;;;
+20.05.2024;Biedronka;Żywność;Borówka Amerykańska | Warzywniak owocowy | 300g;1;8,99 zł;300;;;;;
+20.05.2024;Biedronka;Żywność;Granola wysokobiałkowa z czekoladą i morelą | GoActive | 200g;1;9,99 zł;200;;;;;
+20.05.2024;Biedronka;Żywność;Jogurt Naturlny Kremowy Fruvita 400g;1;1,69 zł;400;;;;;
+20.05.2024;Biedronka;Żywność;Morela luz;1;6,10 zł;305;;;;;
+20.05.2024;Biedronka;Żywność;Ziemniaki Jadalne myte;1;8,02 zł;2010;;;;;
+20.05.2024;Lidl;Żywność;Banan luz;1;2,66 zł;762;;;;;
+20.05.2024;Lidl;Żywność;Koperek świeży;1;1,99 zł;;;;;;
+20.05.2024;Lidl;Żywność;Śmietanka kremowa 30% Pilos 330ml;1;3,29 zł;330;;;;;
+21.05.2024;Biedronka;Żywność;Borówka Amerykańska | Warzywniak owocowy | 300g;1;8,99 zł;300;;;;;
+21.05.2024;Biedronka;Żywność;Burger Master bułka do burgerów | Pano | 320g;1;5,76 zł;320;;;;;
+21.05.2024;Biedronka;Żywność;Burger wołowy | Czas na Grill | 200g;2;5,49 zł;200;;;;;
+21.05.2024;Biedronka;Żywność;Cebula żółta luz;1;1,47 zł;490;;;;;
+21.05.2024;Biedronka;Żywność;Granola wysokobiałkowa z orzeszkami ziemnymi i karmelem | GoActive | 200g;1;9,99 zł;200;;;;;
+21.05.2024;Biedronka;Żywność;Jogurt Naturlny Kremowy Fruvita 400g;1;1,69 zł;400;;;;;
+21.05.2024;Biedronka;Żywność;Kiwi szt;2;1,29 zł;;;;;;
+21.05.2024;Biedronka;Żywność;Mieszanka Wiosenna | Mroźna Kraina | 750g;3;4,47 zł;750;;;;;
+21.05.2024;Biedronka;Żywność;Mleko UHT 3,2% Łowicz 1L;3;1,59 zł;1000;;;;;
+21.05.2024;Biedronka;Żywność;Pomidor gałązka luz;1;3,04 zł;610;;;;;
+21.05.2024;Krawcowa;Usługi;Powiększenie kieszeni i naprawa rękawa;1;40,00 zł;;;;;;
+22.05.2024;Biedronka;Żywność;Jogurt kremowy z brzoskwiniami i granolą | Fruvita | 230g;1;4,19 zł;230;;;;;
+22.05.2024;Biedronka;Żywność;Jogurt kremowy z truskawkami i granolą | Fruvita | 230g;1;4,19 zł;230;;;;;
+22.05.2024;Lidl;Alkohol;Piwo Somersby Mango & Lime 0.4L 4.5%;1;5,59 zł;400;;;;;
+22.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;
+22.05.2024;Stodola Kebap 'N Grill;Żywność;Bułka Klasyk;1;28,49 zł;;;;;; Zniżka UberEats -30zł 
+22.05.2024;Stodola Kebap 'N Grill;Żywność;Rollo Greckie;1;28,50 zł;;;;;; Zniżka UberEats -30zł 
+22.05.2024;Stodola Kebap 'N Grill;Żywność;Rollo Plus;1;30,95 zł;;;;;; Zniżka UberEats -30zł 

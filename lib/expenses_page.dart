@@ -21,6 +21,15 @@ class ExpensesPageState extends State<ExpensesPage> {
   List<Key> expansionTileKeys = [];
   Set<int> expandedTiles = {};
 
+  // Pola do przechowywania aktualnych filtrów
+  DateTime? _currentStartDate;
+  DateTime? _currentEndDate;
+  String? _currentProductFilter;
+  String? _currentShopFilter;
+  String? _currentCategoryFilter;
+  SortOption _currentSortOption = SortOption.date;
+  bool _isAscending = true;
+
   @override
   void initState() {
     super.initState();
@@ -134,7 +143,7 @@ class ExpensesPageState extends State<ExpensesPage> {
     return [
       Row(
         children: [
-          if (row.sklep.isNotEmpty) _buildShopInfo(row, context),
+          _buildShopInfo(row, context),
           _buildProductDetails(row),
           _buildPriceDetails(row),
           SizedBox(width: 10, child: Container(color: Colors.red)),
@@ -152,6 +161,7 @@ class ExpensesPageState extends State<ExpensesPage> {
 
   Widget _buildShopInfo(ExpensesListElementModel row, BuildContext context) {
     return Expanded(
+      flex: 5,
       child: Container(
         padding: const EdgeInsets.only(left: 20),
         child: Column(
@@ -160,6 +170,9 @@ class ExpensesPageState extends State<ExpensesPage> {
             Builder(
               builder: (BuildContext context) {
                 var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
+                if (row.sklep.isEmpty) {
+                  return const Text('');
+                }
                 return Text(isPortrait ? row.sklep : 'Sklep: ${row.sklep}');
               },
             ),
@@ -170,13 +183,15 @@ class ExpensesPageState extends State<ExpensesPage> {
                   return Text(isPortrait ? row.kategoria : 'Kategoria: ${row.kategoria}');
                 },
               ),
-            if (row.kosztDostawy != null && row.kosztDostawy! > 0)
               Builder(
                 builder: (BuildContext context) {
                   var isPortrait = MediaQuery.of(context).orientation == Orientation.portrait;
-                  return Text(
-                    isPortrait ? '${row.kosztDostawy?.toStringAsFixed(2)} zł' : 'Dostawa: ${row.kosztDostawy?.toStringAsFixed(2)} zł',
-                  );
+                  
+                  if (row.kosztDostawy != null && row.kosztDostawy! > 0.0) {
+                    return Text(isPortrait ? '${row.kosztDostawy!.toStringAsFixed(2)} zł' : 'Dostawa: ${row.kosztDostawy!.toStringAsFixed(2)} zł');
+                  } else {
+                    return const Text('');
+                  }
                 },
               ),
           ],
@@ -187,12 +202,13 @@ class ExpensesPageState extends State<ExpensesPage> {
 
   Widget _buildProductDetails(ExpensesListElementModel row) {
     return Expanded(
+      flex: 5,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Ilość: ${row.ilosc}'),
-          if (row.miara != null) Text('Miara: ${row.miara} ml/g'),
-          if (row.iloscWOpakowaniu != null) Text('W opakowaniu: ${row.iloscWOpakowaniu}'),
+          row.miara == null ? const Text('') : Text('Miara: ${row.miara} ml/g'),
+          row.iloscWOpakowaniu == null ? const Text('') : Text('W opakowaniu: ${row.iloscWOpakowaniu}'),
         ],
       ),
     );
@@ -200,12 +216,13 @@ class ExpensesPageState extends State<ExpensesPage> {
 
   Widget _buildPriceDetails(ExpensesListElementModel row) {
     return Expanded(
+      flex: 6,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text('Cena: ${row.cena.toStringAsFixed(2)} zł'),
-          if (row.pricePerKg != null) Text('Cena za kg: ${row.pricePerKg?.toStringAsFixed(2)} zł/kg'),
-          if (row.pricePerPiece != null) Text('Cena za sztukę: ${row.pricePerPiece?.toStringAsFixed(2)} zł'),
+          row.pricePerKg == null ? const Text('') : Text('Cena za kg: ${row.pricePerKg?.toStringAsFixed(2)} zł/kg'),
+          row.pricePerPiece == null ? const Text('') : Text('Cena za szt: ${row.pricePerPiece?.toStringAsFixed(2)} zł'),
         ],
       ),
     );
@@ -232,55 +249,90 @@ class ExpensesPageState extends State<ExpensesPage> {
   void _applyDefaultFilters() {
     DateTime startDate = DateTime.now().subtract(const Duration(days: 30));
     DateTime endDate = DateTime.now();
-    _applyFilters(startDate, endDate, null, null, null, null, null);
+    _applyFilters(startDate, endDate, null, null, null, SortOption.date, true);
   }
 
   void _openFilterDialog(BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return FilterDataPage((startDate, endDate, productFilter, shopFilter, categoryFilter) {
-          _applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter, null, null);
-        });
+        return FilterDataPage(
+          onFiltersApplied: (startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending) {
+            _applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending);
+            _updateFilterValues(startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending);
+          },
+          currentStartDate: _currentStartDate,
+          currentEndDate: _currentEndDate,
+          currentProductFilter: _currentProductFilter,
+          currentShopFilter: _currentShopFilter,
+          currentCategoryFilter: _currentCategoryFilter,
+          currentSortOption: _currentSortOption,
+          isAscending: _isAscending,
+        );
       },
     );
   }
 
-  void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, String? orderBy, String? orderType) {
-    if (csvData.isNotEmpty) {
-      setState(() {
-        filteredData = csvData.where((element) {
-          bool withinDateRange = true;
-          bool matchesProductFilter = true;
-          bool matchesShopFilter = true;
-          bool matchesCategoryFilter = true;
+  void _updateFilterValues(
+    DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption sortOption, bool isAscending) {
+    setState(() {
+      _currentStartDate = startDate;
+      _currentEndDate = endDate;
+      _currentProductFilter = productFilter;
+      _currentShopFilter = shopFilter;
+      _currentCategoryFilter = categoryFilter;
+      _currentSortOption = sortOption;
+      _isAscending = isAscending;
+    });
+  }
 
-          if (startDate != null && endDate != null) {
-            withinDateRange = element.data.isAfter(startDate) && element.data.isBefore(endDate);
+  void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption? orderBy, bool? isAscending) {
+      if (csvData.isNotEmpty) {
+        setState(() {
+          filteredData = csvData.where((element) {
+            bool withinDateRange = true;
+            bool matchesProductFilter = true;
+            bool matchesShopFilter = true;
+            bool matchesCategoryFilter = true;
+
+            if (startDate != null && endDate != null) {
+              withinDateRange = element.data.isAfter(startDate) && element.data.isBefore(endDate);
+            }
+
+            if (productFilter != null) {
+              matchesProductFilter = element.produkt.toLowerCase().contains(productFilter.toLowerCase());
+            }
+
+            if (shopFilter != null) {
+              matchesShopFilter = element.sklep.toLowerCase().contains(shopFilter.toLowerCase());
+            }
+
+            if (categoryFilter != null) {
+              matchesCategoryFilter = element.kategoria.toLowerCase().contains(categoryFilter.toLowerCase());
+            }
+
+            return withinDateRange && matchesProductFilter && matchesShopFilter && matchesCategoryFilter;
+          }).toList();
+
+          switch (orderBy) {
+            case SortOption.date || null:
+              filteredData.sort((a, b) => a.data.compareTo(b.data));
+              break;
+            case SortOption.product:
+              filteredData.sort((a, b) => a.produkt.compareTo(b.produkt));
+              break;
+            case SortOption.cost:
+              filteredData.sort((a, b) => a.totalCost.compareTo(b.totalCost));
+              break;
           }
 
-          if (productFilter != null) {
-            matchesProductFilter = element.produkt.toLowerCase().contains(productFilter.toLowerCase());
+          if (isAscending != null && !isAscending) {
+            filteredData = filteredData.reversed.toList();
           }
 
-          if (shopFilter != null) {
-            matchesShopFilter = element.sklep.toLowerCase().contains(shopFilter.toLowerCase());
-          }
-
-          if (categoryFilter != null) {
-            matchesCategoryFilter = element.kategoria.toLowerCase().contains(categoryFilter.toLowerCase());
-          }
-
-          return withinDateRange && matchesProductFilter && matchesShopFilter && matchesCategoryFilter;
-        }).toList();
-
-        (orderType == 'asc' || orderType == null)
-            ? filteredData.sort((a, b) => a.data.compareTo(b.data))
-            : filteredData.sort((a, b) => b.data.compareTo(a.data));
-
-        _updateExpansionTileKeys();
-      });
-    }
+          _updateExpansionTileKeys();
+        });
+      }
   }
 
   void _initExpansionTileKeys() {
