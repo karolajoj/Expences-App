@@ -9,7 +9,6 @@ class FilterDataPage extends StatefulWidget {
   final String? currentProductFilter;
   final String? currentShopFilter;
   final String? currentCategoryFilter;
-  final String? currentFilterOption;
   final SortOption currentSortOption;
   final bool isAscending;
 
@@ -21,7 +20,6 @@ class FilterDataPage extends StatefulWidget {
     this.currentProductFilter,
     this.currentShopFilter,
     this.currentCategoryFilter,
-    this.currentFilterOption,
     this.currentSortOption = SortOption.date,
     this.isAscending = true,
   });
@@ -43,6 +41,8 @@ class FilterDataPageState extends State<FilterDataPage> {
   late TextEditingController productController;
   late TextEditingController shopController;
   late TextEditingController categoryController;
+  
+  DateTime now = DateTime.now();
 
   @override
   void initState() {
@@ -59,7 +59,40 @@ class FilterDataPageState extends State<FilterDataPage> {
     shopController = TextEditingController(text: shopFilter);
     categoryController = TextEditingController(text: categoryFilter);
 
-    selectedFilterOption = widget.currentFilterOption ?? 'Opcje filtrowania';
+    if (widget.currentStartDate != null && widget.currentEndDate != null) {
+      selectedFilterOption = _getFilterOptionByDateRange(widget.currentStartDate!, widget.currentEndDate!);
+    } else {
+      selectedFilterOption = 'Całość';
+    }
+  }
+
+ String _getFilterOptionByDateRange(DateTime start, DateTime end) {
+    DateTime now = DateTime.now();
+    if (_isSameDay(start, now) && _isSameDay(end, now)) {
+      return 'Dzisiaj';
+    } else if (_isSameRange(start, end, now.subtract(Duration(days: now.weekday - 1)), now.subtract(Duration(days: now.weekday - 1)).add(Duration(days: 6)))) {
+      return 'Obecny tydzień';
+    } else if (_isSameRange(start, end, DateTime(now.year, now.month, 1), DateTime(now.year, now.month + 1, 0))) {
+      return 'Obecny miesiąc';
+    } else if (_isSameRange(start, end, now.subtract(const Duration(days: 7)), now)) {
+      return '7 dni wstecz';
+    } else if (_isSameRange(start, end, now.subtract(const Duration(days: 30)), now)) {
+      return '30 dni wstecz';
+    } else if (_isSameRange(start, end, DateTime(now.year, 1, 1), DateTime(now.year + 1, 1, 0))) {
+      return 'Obecny rok';
+    } else if (_isSameRange(start, end, DateTime(now.year - 1, 1, 1), DateTime(now.year, 1, 0))) {
+      return 'Rok wstecz';
+    } else {
+      return 'Całość';
+    }
+  }
+
+  bool _isSameDay(DateTime date1, DateTime date2) {
+    return date1.year == date2.year && date1.month == date2.month && date1.day == date2.day;
+  }
+
+  bool _isSameRange(DateTime start1, DateTime end1, DateTime start2, DateTime end2) {
+    return _isSameDay(start1, start2) && _isSameDay(end1, end2);
   }
 
   @override
@@ -87,7 +120,7 @@ class FilterDataPageState extends State<FilterDataPage> {
       categoryFilter = null;
       sortOption = SortOption.date;
       isAscending = true;
-      selectedFilterOption = 'Opcje filtrowania';
+      selectedFilterOption = 'Całość';
       productController.clear();
       shopController.clear();
       categoryController.clear();
@@ -118,226 +151,170 @@ class FilterDataPageState extends State<FilterDataPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            sortOptionsWidget(),
-            const SizedBox(height: 16),
-            filterOptionsWidget(),
-            textFormFieldsWidget(),
-            const SizedBox(height: 16),
-            buttonsWidget(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget sortOptionsWidget() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        ChoiceChip(
-          label: const Text('Data'),
-          selected: sortOption == SortOption.date,
-          onSelected: (selected) {
-            setState(() {
-              sortOption = SortOption.date;
-            });
-          },
-        ),
-        ChoiceChip(
-          label: const Text('Produkt'),
-          selected: sortOption == SortOption.product,
-          onSelected: (selected) {
-            setState(() {
-              sortOption = SortOption.product;
-            });
-          },
-        ),
-        ChoiceChip(
-          label: const Text('Koszt'),
-          selected: sortOption == SortOption.cost,
-          onSelected: (selected) {
-            setState(() {
-              sortOption = SortOption.cost;
-            });
-          },
-        ),
-        IconButton(
-          icon: Icon(isAscending ? Icons.arrow_upward : Icons.arrow_downward),
-          onPressed: () {
-            setState(() {
-              isAscending = !isAscending;
-            });
-          },
-        ),
-      ],
-    );
-  }
-
-  Widget filterOptionsWidget() {
-    return ListTile(
-      title: Text(selectedFilterOption),
-      trailing: const Icon(Icons.expand_more),
-      onTap: () {
-        showModalBottomSheet(
-          context: context,
-          builder: (BuildContext context) {
-            return Column(
-              mainAxisSize: MainAxisSize.min,
+            const Text('Sortuj'),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                ListTile(
-                  title: const Text('Dzisiaj'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    DateTime today = DateTime.now();
-                    selectedFilterOption = 'Dzisiaj';
-                    _setDateRange(today, today, 'Dzisiaj');
+                ChoiceChip(
+                  label: const Text('Data'),
+                  selected: sortOption == SortOption.date,
+                  onSelected: (selected) {
+                    setState(() {
+                      sortOption = SortOption.date;
+                    });
                   },
                 ),
-                ListTile(
-                  title: const Text('Obecny tydzień'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    DateTime now = DateTime.now();
-                    DateTime startOfWeek =
-                        now.subtract(Duration(days: now.weekday - 1));
-                    selectedFilterOption = 'Obecny tydzień';
-                    _setDateRange(
-                        startOfWeek,
-                        startOfWeek.add(const Duration(days: 6)),
-                        'Obecny tydzień');
+                ChoiceChip(
+                  label: const Text('Produkt'),
+                  selected: sortOption == SortOption.product,
+                  onSelected: (selected) {
+                    setState(() {
+                      sortOption = SortOption.product;
+                    });
                   },
                 ),
-                ListTile(
-                  title: const Text('Obecny miesiąc'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    DateTime now = DateTime.now();
-                    selectedFilterOption = 'Obecny miesiąc';
-                    _setDateRange(
-                      DateTime(now.year, now.month, 1),
-                      DateTime(now.year, now.month + 1, 0),
-                      'Obecny miesiąc',
-                    );
+                ChoiceChip(
+                  label: const Text('Koszt'),
+                  selected: sortOption == SortOption.cost,
+                  onSelected: (selected) {
+                    setState(() {
+                      sortOption = SortOption.cost;
+                    });
                   },
                 ),
-                ListTile(
-                  title: const Text('7 dni wstecz'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    DateTime now = DateTime.now();
-                    selectedFilterOption = '7 dni wstecz';
-                    _setDateRange(
-                      now.subtract(const Duration(days: 7)),
-                      now,
-                      '7 dni wstecz',
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('30 dni wstecz'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    DateTime now = DateTime.now();
-                    selectedFilterOption = '30 dni wstecz';
-                    _setDateRange(
-                      now.subtract(const Duration(days: 30)),
-                      now,
-                      '30 dni wstecz',
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('Obecny rok'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    DateTime now = DateTime.now();
-                    selectedFilterOption = 'Obecny rok';
-                    _setDateRange(
-                      DateTime(now.year, 1, 1),
-                      DateTime(now.year + 1, 1, 0),
-                      'Obecny rok',
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('Rok wstecz'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    DateTime now = DateTime.now();
-                    selectedFilterOption = 'Rok wstecz';
-                    _setDateRange(
-                      DateTime(now.year - 1, 1, 1),
-                      DateTime(now.year, 1, 0),
-                      'Rok wstecz',
-                    );
-                  },
-                ),
-                ListTile(
-                  title: const Text('Całość'),
-                  onTap: () {
-                    Navigator.pop(context);
-                    selectedFilterOption = 'Całość';
-                    _setDateRange(null, null, 'Całość'); // No date range
+                IconButton(
+                  icon: Icon(
+                      isAscending ? Icons.arrow_upward : Icons.arrow_downward),
+                  onPressed: () {
+                    setState(() {
+                      isAscending = !isAscending;
+                    });
                   },
                 ),
               ],
-            );
-          },
-        );
-      },
-    );
-  }
-
-  Widget textFormFieldsWidget() {
-    return Column(
-      children: [
-        TextFormField(
-          decoration: const InputDecoration(labelText: 'Produkt'),
-          onChanged: (value) {
-            setState(() {
-              productFilter = value;
-            });
-          },
-          initialValue: productFilter,
+            ),
+            const SizedBox(height: 16),
+            const Text('Opcje filtrowania'),
+            ListTile(
+              title: Text(selectedFilterOption),
+              trailing: const Icon(Icons.expand_more),
+              onTap: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ListTile(
+                          title: const Text('Dzisiaj'),
+                          onTap: () {
+                            Navigator.pop(context);
+                            _setDateRange(now, now, 'Dzisiaj');
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('Obecny tydzień'),
+                          onTap: () {
+                            Navigator.pop(context);
+                            DateTime startOfWeek = now.subtract(Duration(days: now.weekday - 1));
+                            _setDateRange(startOfWeek,startOfWeek.add(const Duration(days: 6)),'Obecny tydzień');
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('Obecny miesiąc'),
+                          onTap: () {
+                            Navigator.pop(context);
+                            _setDateRange(DateTime(now.year, now.month, 1),DateTime(now.year, now.month + 1, 0),'Obecny miesiąc');
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('7 dni wstecz'),
+                          onTap: () {
+                            Navigator.pop(context);
+                            _setDateRange(now.subtract(const Duration(days: 7)),now, '7 dni wstecz');
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('30 dni wstecz'),
+                          onTap: () {
+                            Navigator.pop(context);
+                            _setDateRange(now.subtract(const Duration(days: 30)),now,'30 dni wstecz');
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('Obecny rok'),
+                          onTap: () {
+                            Navigator.pop(context);
+                            _setDateRange(DateTime(now.year, 1, 1),DateTime(now.year + 1, 1, 0), 'Obecny rok');
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('Rok wstecz'),
+                          onTap: () {
+                            Navigator.pop(context);
+                            _setDateRange(DateTime(now.year - 1, 1, 1),DateTime(now.year, 1, 0), 'Rok wstecz');
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('Całość'),
+                          onTap: () {
+                            Navigator.pop(context);
+                            _setDateRange(null, null, "Całość"); // No date range
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
+              },
+            ),
+            TextFormField(
+              controller: productController,
+              decoration: const InputDecoration(labelText: 'Produkt'),
+              onChanged: (value) {
+                setState(() {
+                  productFilter = value;
+                });
+              },
+            ),
+            TextFormField(
+              controller: shopController,
+              decoration: const InputDecoration(labelText: 'Sklep'),
+              onChanged: (value) {
+                setState(() {
+                  shopFilter = value;
+                });
+              },
+            ),
+            TextFormField(
+              controller: categoryController,
+              decoration: const InputDecoration(labelText: 'Kategoria'),
+              onChanged: (value) {
+                setState(() {
+                  categoryFilter = value;
+                });
+              },
+            ),
+            const SizedBox(height: 16),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  onPressed: _clearFilters,
+                  child: const Text('Czyść filtry'),
+                ),
+                const SizedBox(width: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    _applyFiltersAndClose();
+                  },
+                  child: const Text('Filtruj'),
+                ),
+              ],
+            ),
+          ],
         ),
-        TextFormField(
-          decoration: const InputDecoration(labelText: 'Sklep'),
-          onChanged: (value) {
-            setState(() {
-              shopFilter = value;
-            });
-          },
-          initialValue: shopFilter,
-        ),
-        TextFormField(
-          decoration: const InputDecoration(labelText: 'Kategoria'),
-          onChanged: (value) {
-            setState(() {
-              categoryFilter = value;
-            });
-          },
-          initialValue: categoryFilter,
-        ),
-      ],
-    );
-  }
-
-  Widget buttonsWidget() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        ElevatedButton(
-          onPressed: _clearFilters,
-          child: const Text('Czyść filtry'),
-        ),
-        const SizedBox(width: 16),
-        ElevatedButton(
-          onPressed: () {
-            _applyFiltersAndClose();
-          },
-          child: const Text('Filtruj'),
-        ),
-      ],
+      ),
     );
   }
 }
