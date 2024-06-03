@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 class ExpensesListElementModel {
   final DateTime data;
   final String sklep;
@@ -56,5 +58,26 @@ class ExpensesListElementModel {
       return (cena + kosztDostawy) / iloscWOpakowaniu;
     }
     return null;
+  }
+  
+  Map<String, dynamic> toMap() {
+    return {
+      'data': Timestamp.fromDate(data),
+      'sklep': sklep,
+      'kategoria': kategoria,
+      'produkt': produkt,
+      'ilosc': ilosc,
+      'cena': cena,
+      'miara': miara,
+      'miaraUnit': miaraUnit,
+      'iloscWOpakowaniu': iloscWOpakowaniu,
+      'kosztDostawy': kosztDostawy,
+      'totalCost': totalCost,
+      'pricePerKg': pricePerKg,
+      'pricePerPiece': pricePerPiece,
+      'zwrot': zwrot ? "Tak" : "Nie",
+      'link': link,
+      'komentarz': komentarz,
+    };
   }
 }

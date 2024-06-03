@@ -22,6 +22,8 @@ class ExpensesPageState extends State<ExpensesPage> {
   List<Key> expansionTileKeys = [];
   Set<int> expandedTiles = {};
 
+  FirestoreService firestore = FirestoreService();
+
   // Pola do przechowywania aktualnych filtrów
   DateTime? _currentStartDate;
   DateTime? _currentEndDate;
@@ -30,6 +32,23 @@ class ExpensesPageState extends State<ExpensesPage> {
   String? _currentCategoryFilter;
   SortOption _currentSortOption = SortOption.date;
   bool _isAscending = true;
+
+ ExpensesListElementModel newExpense = ExpensesListElementModel(
+    data: DateTime.now(),
+    sklep: 'Supermarket',
+    kategoria: 'Żywność',
+    produkt: 'Mleko',
+    ilosc: 2,
+    cena: 4.99,
+    miara: 1000,
+    miaraUnit: 'ml',
+    iloscWOpakowaniu: 1,
+    kosztDostawy: 5.0,
+    zwrot: false,
+    link: 'https://example.com',
+    komentarz: 'Zakup na tydzień',
+  );
+
 
   @override
   void initState() {
@@ -50,7 +69,9 @@ class ExpensesPageState extends State<ExpensesPage> {
         ),
         body: _buildBody(),
         floatingActionButton: FloatingActionButton(
-          onPressed: _addExpense,
+          onPressed: () async {
+          await firestore.addNewExpense(newExpense);
+        },
             child: const Icon(Icons.add),
           )),
     );
@@ -89,10 +110,6 @@ class ExpensesPageState extends State<ExpensesPage> {
         ),
       ],
     );
-  }
-  void _addExpense() {
-// Tutaj należy dodać logikę do dodawania nowego wydatku
-    FirestoreService().addExpense("Nazwa wydatku", 10.0); // Przykładowe wywołanie dodawania wydatku
   }
 
   Widget _buildListTile(ExpensesListElementModel row, BuildContext context, int index) {
