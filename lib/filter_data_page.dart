@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 
 enum SortOption { date, product, cost }
 
@@ -41,8 +42,10 @@ class FilterDataPageState extends State<FilterDataPage> {
   late TextEditingController productController;
   late TextEditingController shopController;
   late TextEditingController categoryController;
-  
+
   DateTime now = DateTime.now();
+
+  List<DateTime?> _selectedDates = [];
 
   @override
   void initState() {
@@ -66,13 +69,13 @@ class FilterDataPageState extends State<FilterDataPage> {
     }
   }
 
- String _getFilterOptionByDateRange(DateTime start, DateTime end) {
+  String _getFilterOptionByDateRange(DateTime start, DateTime end) {
     DateTime now = DateTime.now();
     if (_isSameDay(start, now) && _isSameDay(end, now)) {
       return 'Dzisiaj';
-    } else if (_isSameRange(start, end, now.subtract(Duration(days: now.weekday - 1)), now.subtract(Duration(days: now.weekday - 1)).add(Duration(days: 6)))) {
+    } else if (_isSameRange(start, end, now.subtract(Duration(days: now.weekday - 1)), now.subtract(Duration(days: now.weekday - 1)).add(const Duration(days: 6)))) {
       return 'Obecny tydzień';
-    } else if (_isSameRange(start, end, DateTime(now.year, now.month, 1), DateTime(now.year, now.month + 1, 0))) {
+    } else if (_isSameRange(start, end, DateTime(now.year, now.month, 1),DateTime(now.year, now.month + 1, 0))) {
       return 'Obecny miesiąc';
     } else if (_isSameRange(start, end, now.subtract(const Duration(days: 7)), now)) {
       return '7 dni wstecz';
@@ -83,7 +86,7 @@ class FilterDataPageState extends State<FilterDataPage> {
     } else if (_isSameRange(start, end, DateTime(now.year - 1, 1, 1), DateTime(now.year, 1, 0))) {
       return 'Rok wstecz';
     } else {
-      return 'Całość';
+      return 'Niestandardowy';
     }
   }
 
@@ -196,10 +199,17 @@ class FilterDataPageState extends State<FilterDataPage> {
             const SizedBox(height: 16),
             const Text('Opcje filtrowania'),
             ListTile(
-              title: Text(selectedFilterOption),
+              title: Row(
+                children: [
+                  const Icon(Icons.calendar_today),
+                  const SizedBox(width: 8),
+                  Text(selectedFilterOption)
+                ],
+              ),
               trailing: const Icon(Icons.expand_more),
               onTap: () {
                 showModalBottomSheet(
+                  isScrollControlled: true,
                   context: context,
                   builder: (BuildContext context) {
                     return Column(
@@ -217,42 +227,42 @@ class FilterDataPageState extends State<FilterDataPage> {
                           onTap: () {
                             Navigator.pop(context);
                             DateTime startOfWeek = now.subtract(Duration(days: now.weekday - 1));
-                            _setDateRange(startOfWeek,startOfWeek.add(const Duration(days: 6)),'Obecny tydzień');
+                            _setDateRange(startOfWeek, startOfWeek.add(const Duration(days: 6)), 'Obecny tydzień');
                           },
                         ),
                         ListTile(
                           title: const Text('Obecny miesiąc'),
                           onTap: () {
                             Navigator.pop(context);
-                            _setDateRange(DateTime(now.year, now.month, 1),DateTime(now.year, now.month + 1, 0),'Obecny miesiąc');
+                            _setDateRange(DateTime(now.year, now.month, 1), DateTime(now.year, now.month + 1, 0), 'Obecny miesiąc');
                           },
                         ),
                         ListTile(
                           title: const Text('7 dni wstecz'),
                           onTap: () {
                             Navigator.pop(context);
-                            _setDateRange(now.subtract(const Duration(days: 7)),now, '7 dni wstecz');
+                            _setDateRange(now.subtract(const Duration(days: 7)), now, '7 dni wstecz');
                           },
                         ),
                         ListTile(
                           title: const Text('30 dni wstecz'),
                           onTap: () {
                             Navigator.pop(context);
-                            _setDateRange(now.subtract(const Duration(days: 30)),now,'30 dni wstecz');
+                            _setDateRange(now.subtract(const Duration(days: 30)), now, '30 dni wstecz');
                           },
                         ),
                         ListTile(
                           title: const Text('Obecny rok'),
                           onTap: () {
                             Navigator.pop(context);
-                            _setDateRange(DateTime(now.year, 1, 1),DateTime(now.year + 1, 1, 0), 'Obecny rok');
+                            _setDateRange(DateTime(now.year, 1, 1), DateTime(now.year + 1, 1, 0), 'Obecny rok');
                           },
                         ),
                         ListTile(
                           title: const Text('Rok wstecz'),
                           onTap: () {
                             Navigator.pop(context);
-                            _setDateRange(DateTime(now.year - 1, 1, 1),DateTime(now.year, 1, 0), 'Rok wstecz');
+                            _setDateRange(DateTime(now.year - 1, 1, 1), DateTime(now.year, 1, 0), 'Rok wstecz');
                           },
                         ),
                         ListTile(
@@ -260,6 +270,28 @@ class FilterDataPageState extends State<FilterDataPage> {
                           onTap: () {
                             Navigator.pop(context);
                             _setDateRange(null, null, "Całość"); // No date range
+                          },
+                        ),
+                        ListTile(
+                          title: const Text('Zakres niestandardowy'),
+                          onTap: () async {
+                            Navigator.pop(context);
+                            final List<DateTime?>? pickedDates = await showCalendarDatePicker2Dialog(
+                              context: context,
+                              config: CalendarDatePicker2WithActionButtonsConfig(
+                                calendarType: CalendarDatePicker2Type.range,
+                                firstDayOfWeek: 1,
+                              ),
+                              dialogSize: const Size(325, 400),
+                              value: _selectedDates,
+                            );
+                            if (pickedDates != null) {
+                              _selectedDates = pickedDates;
+                              if (pickedDates.isNotEmpty) {
+                                _setDateRange(pickedDates.first,
+                                    pickedDates.last, 'Niestandardowy');
+                              }
+                            }
                           },
                         ),
                       ],
