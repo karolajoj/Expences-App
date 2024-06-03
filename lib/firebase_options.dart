@@ -66,4 +66,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'expenses-app-c5470.appspot.com',
     measurementId: 'G-DP1BWM84BJ',
   );
+
 }

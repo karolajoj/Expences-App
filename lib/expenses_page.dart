@@ -5,6 +5,7 @@ import 'expenses_list_element.dart';
 import 'filter_data_page.dart';
 import 'package:intl/intl.dart';
 import 'csv_import_export.dart';
+import 'services/firestore.dart';
 
 class ExpensesPage extends StatefulWidget {
   const ExpensesPage({super.key});
@@ -48,9 +49,13 @@ class ExpensesPageState extends State<ExpensesPage> {
           onExportFilteredData: (context) => exportCSV(context, _scaffoldMessengerKey, filteredData),
         ),
         body: _buildBody(),
-      ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: _addExpense,
+            child: const Icon(Icons.add),
+          )),
     );
   }
+
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
@@ -84,6 +89,10 @@ class ExpensesPageState extends State<ExpensesPage> {
         ),
       ],
     );
+  }
+  void _addExpense() {
+// Tutaj należy dodać logikę do dodawania nowego wydatku
+    FirestoreService().addExpense("Nazwa wydatku", 10.0); // Przykładowe wywołanie dodawania wydatku
   }
 
   Widget _buildListTile(ExpensesListElementModel row, BuildContext context, int index) {

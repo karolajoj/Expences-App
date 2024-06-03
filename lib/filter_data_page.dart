@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+import 'package:intl/intl.dart';
 
 enum SortOption { date, product, cost }
 
@@ -86,7 +87,8 @@ class FilterDataPageState extends State<FilterDataPage> {
     } else if (_isSameRange(start, end, DateTime(now.year - 1, 1, 1), DateTime(now.year, 1, 0))) {
       return 'Rok wstecz';
     } else {
-      return 'Niestandardowy';
+      DateFormat dateFormat = DateFormat('dd.MM.yyyy');
+      return 'Niestandardowy ${dateFormat.format(start)} - ${dateFormat.format(end)}';
     }
   }
 
@@ -285,11 +287,11 @@ class FilterDataPageState extends State<FilterDataPage> {
                               dialogSize: const Size(325, 400),
                               value: _selectedDates,
                             );
+                            DateFormat dateFormat = DateFormat('dd.MM.yyyy');
                             if (pickedDates != null) {
                               _selectedDates = pickedDates;
                               if (pickedDates.isNotEmpty) {
-                                _setDateRange(pickedDates.first,
-                                    pickedDates.last, 'Niestandardowy');
+                                _setDateRange(pickedDates.first, pickedDates.last, 'Niestandardowy ${dateFormat.format(pickedDates.first!)} - ${dateFormat.format(pickedDates.last!)}');
                               }
                             }
                           },
