@@ -5,7 +5,7 @@ import 'expenses_list_element.dart';
 import 'filter_data_page.dart';
 import 'package:intl/intl.dart';
 import 'csv_import_export.dart';
-import 'services/firestore.dart';
+import 'Firestore/firestore.dart';
 
 class ExpensesPage extends StatefulWidget {
   const ExpensesPage({super.key});

@@ -15,5 +15,6 @@ class FirestoreService {
   } catch (e) {
     const SnackBar(content: Text('Wystąpił błąd podczas dodawania wydatku'));
   }
+  
 }
 }
