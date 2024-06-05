@@ -10,10 +10,17 @@ class AuthService {
     required BuildContext context,
   }) async {
     try {
-      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+      
+      final String? userEmail = userCredential.user?.email;
+      
+      final String? userName = userEmail?.split('@').first;
+
+      // Aktualizacja nazwy użytkownika w Firebase Auth
+      await userCredential.user?.updateDisplayName(userName);
 
       if (context.mounted) {
         Navigator.pushReplacement(

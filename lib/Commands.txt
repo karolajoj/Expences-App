@@ -27,4 +27,6 @@ Zmiana ikony
 Firebase
     https://www.youtube.com/watch?v=AWQ89fw3yfU
     
-    
+Firebase Authentication
+    https://www.youtube.com/watch?v=T96Pue6ePGA
+

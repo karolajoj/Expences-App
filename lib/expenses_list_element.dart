@@ -71,11 +71,8 @@ class ExpensesListElementModel {
       'miara': miara,
       'miaraUnit': miaraUnit,
       'iloscWOpakowaniu': iloscWOpakowaniu,
-      'kosztDostawy': kosztDostawy,
-      'totalCost': totalCost,
-      'pricePerKg': pricePerKg,
-      'pricePerPiece': pricePerPiece,
       'zwrot': zwrot ? "Tak" : "Nie",
+      'kosztDostawy': kosztDostawy,
       'link': link,
       'komentarz': komentarz,
     };
