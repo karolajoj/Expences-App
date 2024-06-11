@@ -88,7 +88,7 @@ class FilterDataPageState extends State<FilterDataPage> {
       return 'Rok wstecz';
     } else {
       DateFormat dateFormat = DateFormat('dd.MM.yyyy');
-      return 'Niestandardowy ${dateFormat.format(start)} - ${dateFormat.format(end)}';
+      return '${dateFormat.format(start)} - ${dateFormat.format(end)}';
     }
   }
 
@@ -291,7 +291,7 @@ class FilterDataPageState extends State<FilterDataPage> {
                             if (pickedDates != null) {
                               _selectedDates = pickedDates;
                               if (pickedDates.isNotEmpty) {
-                                _setDateRange(pickedDates.first, pickedDates.last, 'Niestandardowy ${dateFormat.format(pickedDates.first!)} - ${dateFormat.format(pickedDates.last!)}');
+                                _setDateRange(pickedDates.first, pickedDates.last, '${dateFormat.format(pickedDates.first!)} - ${dateFormat.format(pickedDates.last!)}');
                               }
                             }
                           },

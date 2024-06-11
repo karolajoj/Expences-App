@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ExpensesListElementModel {
+  final String id;
   final DateTime data;
   final String sklep;
   final String kategoria;
@@ -19,6 +20,7 @@ class ExpensesListElementModel {
   final String komentarz;
 
   ExpensesListElementModel({
+    String? id, // Allow id to be optional
     required this.data,
     required this.sklep,
     required this.kategoria,
@@ -34,7 +36,8 @@ class ExpensesListElementModel {
     required this.komentarz,
   })  : totalCost = _calculateTotalCost(cena, ilosc, kosztDostawy),
         pricePerKg = _calculatePricePerKg(cena, kosztDostawy, miara),
-        pricePerPiece = _calculatePricePerPiece(cena, kosztDostawy, iloscWOpakowaniu);
+        pricePerPiece = _calculatePricePerPiece(cena, kosztDostawy, iloscWOpakowaniu),
+        id = id ?? FirebaseFirestore.instance.collection('dummy').doc().id; // Generate id if not provided
 
   static double _calculateTotalCost(double cena, int ilosc, double? kosztDostawy) {
     double koszt = cena * ilosc;
@@ -46,8 +49,8 @@ class ExpensesListElementModel {
 
   static double? _calculatePricePerKg(double cena, double? kosztDostawy, int? miara) {
     if (miara != null && miara > 0) {
-      kosztDostawy ??= 0; // Jeżeli kosztDostawy jest null, to ustawiamy go na 0
-      return (cena + kosztDostawy) / miara * 1000; // assuming miara is in grams
+      kosztDostawy ??= 0;
+      return (cena + kosztDostawy) / miara * 1000;
     }
     return null;
   }
@@ -62,6 +65,7 @@ class ExpensesListElementModel {
   
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'data': Timestamp.fromDate(data),
       'sklep': sklep,
       'kategoria': kategoria,
@@ -71,10 +75,29 @@ class ExpensesListElementModel {
       'miara': miara,
       'miaraUnit': miaraUnit,
       'iloscWOpakowaniu': iloscWOpakowaniu,
-      'zwrot': zwrot ? "Tak" : "Nie",
       'kosztDostawy': kosztDostawy,
+      'zwrot': zwrot,
       'link': link,
       'komentarz': komentarz,
     };
+  }
+
+  factory ExpensesListElementModel.fromMap(Map<String, dynamic> map) {
+    return ExpensesListElementModel(
+      id: map['id'],
+      data: (map['data'] as Timestamp).toDate(),
+      sklep: map['sklep'],
+      kategoria: map['kategoria'],
+      produkt: map['produkt'],
+      ilosc: map['ilosc'],
+      cena: map['cena'],
+      miara: map['miara'],
+      miaraUnit: map['miaraUnit'],
+      iloscWOpakowaniu: map['iloscWOpakowaniu'],
+      kosztDostawy: map['kosztDostawy'],
+      zwrot: map['zwrot'] == "Tak",
+      link: map['link'],
+      komentarz: map['komentarz'],
+    );
   }
 }

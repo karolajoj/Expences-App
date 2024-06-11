@@ -1,3 +1,4 @@
+import 'package:expenses_app_project/add_expense_page.dart';
 import 'package:expenses_app_project/drawer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -34,6 +35,7 @@ class ExpensesPageState extends State<ExpensesPage> {
   bool _isAscending = true;
 
  ExpensesListElementModel newExpense = ExpensesListElementModel(
+    id: '',
     data: DateTime.now(),
     sklep: 'Supermarket',
     kategoria: 'Żywność',
@@ -54,7 +56,31 @@ class ExpensesPageState extends State<ExpensesPage> {
   void initState() {
     super.initState();
     _initExpansionTileKeys();
+      firestore.getFirebaseData().then((data) {
+      setState(() {
+        csvData.clear();
+        csvData.addAll(data);
+        filteredData.clear();
+        filteredData.addAll(data);
+        dateColorMap.clear();
+
+        for (var row in csvData) {
+          String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
+          if (!dateColorMap.containsKey(currentDay)) {
+            Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
+                ? Colors.blue[100]!
+                : Colors.grey[350]!;
+            dateColorMap[currentDay] = newColor;
+          }
+        }
+      _applyDefaultFilters();
+
+      });
+    }).catchError((error, ) {
+      print("");
+    });
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -70,7 +96,7 @@ class ExpensesPageState extends State<ExpensesPage> {
         body: _buildBody(),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-          await firestore.addNewExpense(newExpense);
+          await firestore.addNewExpense(newExpense: newExpense, context: context, scaffoldMessengerKey: _scaffoldMessengerKey);  
         },
             child: const Icon(Icons.add),
           )),
@@ -112,7 +138,7 @@ class ExpensesPageState extends State<ExpensesPage> {
     );
   }
 
-  Widget _buildListTile(ExpensesListElementModel row, BuildContext context, int index) {
+Widget _buildListTile(ExpensesListElementModel row, BuildContext context, int index) {
     String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
 
     Color rowColor = index.isEven ? dateColorMap[currentDay]! : dateColorMap[currentDay]!.withOpacity(0.6);
@@ -120,7 +146,7 @@ class ExpensesPageState extends State<ExpensesPage> {
     return Container(
       color: rowColor,
       child: ExpansionTile(
-        key: expansionTileKeys[index],
+        key: Key(row.id), // Ensure a unique key for each tile
         trailing: _buildTrailingText(row),
         title: _buildTitle(currentDay, row, index),
         children: _buildExpansionChildren(row, context),
@@ -181,6 +207,24 @@ class ExpensesPageState extends State<ExpensesPage> {
           title: Text('Komentarz: ${row.komentarz}'),
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),
         ),
+      const SizedBox(height: 15),
+      Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddExpensePage(expense: row,),
+                ),
+              );
+            },
+            child: const Icon(Icons.edit, color: Colors.blue),
+          ),
+          const SizedBox(width: 15),
+        ],
+      ),
       const SizedBox(height: 15),
     ];
   }

@@ -1,6 +1,7 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'expenses_list_element.dart';
+import 'Firestore/firestore.dart';
 import 'package:intl/intl.dart';
 import 'package:csv/csv.dart';
 import 'dart:convert';
@@ -44,6 +45,7 @@ class CSVLoader {
         }).toList();
 
         onDataLoaded(csvData);
+        // await syncData();
         scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Dane zostały zaimportowane')));
 
       } catch (e) {
