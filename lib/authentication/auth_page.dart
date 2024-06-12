@@ -1,4 +1,4 @@
-import 'package:expenses_app_project/authentication/auth_service.dart';
+import 'package:expenses_app_project/Authentication/auth_service.dart';
 import 'package:expenses_app_project/expenses_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/gestures.dart';

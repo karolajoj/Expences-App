@@ -1,22 +1,58 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hive/hive.dart';
 
+part 'expenses_list_element.g.dart';
+
+@HiveType(typeId: 0)
 class ExpensesListElementModel {
+  @HiveField(0)
   final String id;
+
+  @HiveField(1)
   final DateTime data;
+
+  @HiveField(2)
   final String sklep;
+
+  @HiveField(3)
   final String kategoria;
+
+  @HiveField(4)
   final String produkt;
+
+  @HiveField(5)
   final int ilosc;
+
+  @HiveField(6)
   final double cena;
+
+  @HiveField(7)
   final int? miara;
+
+  @HiveField(8)
   final String? miaraUnit;
+
+  @HiveField(9)
   final int? iloscWOpakowaniu;
+
+  @HiveField(10)
   final double? kosztDostawy;
+
+  @HiveField(11)
   final double totalCost;
+
+  @HiveField(12)
   final double? pricePerKg;
+
+  @HiveField(13)
   final double? pricePerPiece;
+
+  @HiveField(14)
   final bool zwrot;
+
+  @HiveField(15)
   final String link;
+
+  @HiveField(16)
   final String komentarz;
 
   ExpensesListElementModel({
@@ -37,7 +73,7 @@ class ExpensesListElementModel {
   })  : totalCost = _calculateTotalCost(cena, ilosc, kosztDostawy),
         pricePerKg = _calculatePricePerKg(cena, kosztDostawy, miara),
         pricePerPiece = _calculatePricePerPiece(cena, kosztDostawy, iloscWOpakowaniu),
-        id = id ?? FirebaseFirestore.instance.collection('dummy').doc().id; // Generate id if not provided
+        id = id ?? DateTime.now().millisecondsSinceEpoch.toString(); // Generate id if not provided
 
   static double _calculateTotalCost(double cena, int ilosc, double? kosztDostawy) {
     double koszt = cena * ilosc;
@@ -62,11 +98,11 @@ class ExpensesListElementModel {
     }
     return null;
   }
-  
+
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'data': Timestamp.fromDate(data),
+      'data': data.toIso8601String(),
       'sklep': sklep,
       'kategoria': kategoria,
       'produkt': produkt,
@@ -85,7 +121,7 @@ class ExpensesListElementModel {
   factory ExpensesListElementModel.fromMap(Map<String, dynamic> map) {
     return ExpensesListElementModel(
       id: map['id'],
-      data: (map['data'] as Timestamp).toDate(),
+      data: DateTime.parse(map['data']),
       sklep: map['sklep'],
       kategoria: map['kategoria'],
       produkt: map['produkt'],

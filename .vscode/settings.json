@@ -1,4 +1,23 @@
 {
     "cmake.sourceDirectory": "C:/Users/Karol/Programy/Studia/Laboratoria mobilne/expenses_app_project/windows",
-    "cmake.configureOnOpen": true
+    "cmake.configureOnOpen": true,
+    "files.exclude": {
+        "macos": true,
+        "linux": true,
+        ".flutter-plugins": true,
+        ".flutter-plugins-dependencies": true,
+        ".gitignore": true,
+        ".metadata": true,
+        "analysis_options.yaml": true,
+        "expenses_app_project.iml": true,
+        "firebase.json": true,
+        "flutter-apk — skrót .lnk": true,
+        "pubspec.lock": true,
+        "README.md": true,
+        "Wydatki App.csv": true,
+        "ios": true,
+        ".vscode": true,
+        ".dart_tool": true,
+        ".idea": true
+    }
 }

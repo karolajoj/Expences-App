@@ -1,23 +1,26 @@
+import 'package:expenses_app_project/Repositories/Local%20Data/expenses_list_element.dart';
 import 'package:expenses_app_project/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter/material.dart';
 import 'expenses_page.dart';
-// import 'package:window_size/window_size.dart';
 
+final navigatorKey = GlobalKey<NavigatorState>();
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  // setWindowMinSize(const Size(1080/2.3, 2460/2.3));
-  // setWindowMaxSize(const Size(1080/2.3, 2460/2.3));
-  // setWindowFrame(const Rect.fromLTWH(0, 0, 1080/2.3, 2460/2.3));
+  await Hive.initFlutter();
+  Hive.registerAdapter(ExpensesListElementModelAdapter());
+  await Hive.openBox<ExpensesListElementModel>('expenses_local');
 
   runApp(const ExpensesApp());
 }
 
 class ExpensesApp extends StatelessWidget {
   const ExpensesApp({super.key});
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +31,7 @@ class ExpensesApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const ExpensesPage(),
+      navigatorKey: navigatorKey, // This is the key that will be used to show dialogs
     );
   }
 }

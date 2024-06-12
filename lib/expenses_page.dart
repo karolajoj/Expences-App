@@ -1,12 +1,14 @@
+import 'Repositories/Import & Export/csv_import_export.dart';
 import 'package:expenses_app_project/add_expense_page.dart';
+import 'Repositories/Local Data/expenses_list_element.dart';
+import 'Repositories/Local Data/expenses_provider.dart';
 import 'package:expenses_app_project/drawer.dart';
+import 'Repositories/Online Data/firestore.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
-import 'expenses_list_element.dart';
-import 'filter_data_page.dart';
 import 'package:intl/intl.dart';
-import 'csv_import_export.dart';
-import 'Firestore/firestore.dart';
+import 'package:hive/hive.dart';
+import 'filter_data_page.dart';
 
 class ExpensesPage extends StatefulWidget {
   const ExpensesPage({super.key});
@@ -24,6 +26,7 @@ class ExpensesPageState extends State<ExpensesPage> {
   Set<int> expandedTiles = {};
 
   FirestoreService firestore = FirestoreService();
+  ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>('expenses_local'));
 
   // Pola do przechowywania aktualnych filtrów
   DateTime? _currentStartDate;
@@ -56,31 +59,87 @@ class ExpensesPageState extends State<ExpensesPage> {
   void initState() {
     super.initState();
     _initExpansionTileKeys();
-      firestore.getFirebaseData().then((data) {
-      setState(() {
-        csvData.clear();
-        csvData.addAll(data);
-        filteredData.clear();
-        filteredData.addAll(data);
-        dateColorMap.clear();
+    loadLocalData();
+    //   firestore.getFirebaseData().then((data) {
+    //   setState(() {
+    //       csvData.clear();
+    //       csvData.addAll(data);
+    //       filteredData.clear();
+    //       filteredData.addAll(data);
+    //       dateColorMap.clear();
 
-        for (var row in csvData) {
-          String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
-          if (!dateColorMap.containsKey(currentDay)) {
-            Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
-                ? Colors.blue[100]!
-                : Colors.grey[350]!;
-            dateColorMap[currentDay] = newColor;
-          }
-        }
-      _applyDefaultFilters();
+    //       for (var row in csvData) {
+    //         String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
+    //         if (!dateColorMap.containsKey(currentDay)) {
+    //           Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
+    //               ? Colors.blue[100]!
+    //               : Colors.grey[350]!;
+    //           dateColorMap[currentDay] = newColor;
+    //         }
+    //       }
+    //     _applyDefaultFilters();
 
-      });
-    }).catchError((error, ) {
-      print("");
-    });
+    //   });
+    // }
+    // ).catchError((error, ) {
+    //   print("");
+    // });
   }
 
+    Future<void> loadLocalData() async {
+    var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+    List<ExpensesListElementModel> localData = box.values.toList();
+
+    // Czyszczenie wszystkich danych
+    // await box.clear();
+
+    setState(() {
+      csvData.clear();
+      csvData.addAll(localData);
+      filteredData.clear();
+      filteredData.addAll(localData);
+      dateColorMap.clear();
+
+      for (var row in csvData) {
+        String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
+        if (!dateColorMap.containsKey(currentDay)) {
+          Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
+              ? Colors.blue[100]!
+              : Colors.grey[350]!;
+          dateColorMap[currentDay] = newColor;
+        }
+      }
+      _applyDefaultFilters();
+    });
+
+    _scaffoldMessengerKey.currentState?.showSnackBar(
+      SnackBar(content: Text('Załadowano ${localData.length} wydatków')),
+    );
+  }
+
+  Future<void> refreshData() async {
+    var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+    List<ExpensesListElementModel> localData = box.values.toList();
+
+    setState(() {
+      csvData.clear();
+      csvData.addAll(localData);
+      filteredData.clear();
+      filteredData.addAll(localData);
+      dateColorMap.clear();
+
+      for (var row in csvData) {
+        String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
+        if (!dateColorMap.containsKey(currentDay)) {
+          Color newColor = dateColorMap.isEmpty || dateColorMap.values.last == Colors.grey[350]
+              ? Colors.blue[100]!
+              : Colors.grey[350]!;
+          dateColorMap[currentDay] = newColor;
+        }
+      }
+      _applyDefaultFilters();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -89,7 +148,7 @@ class ExpensesPageState extends State<ExpensesPage> {
       child: Scaffold(
         appBar: _buildAppBar(context),
         drawer: AppDrawer(
-          onLoadCSV: (context) => loadCSV(context, setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey),
+          onLoadCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey),
           onExportAllData: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
           onExportFilteredData: (context) => exportCSV(context, _scaffoldMessengerKey, filteredData),
         ),
@@ -97,6 +156,8 @@ class ExpensesPageState extends State<ExpensesPage> {
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
           await firestore.addNewExpense(newExpense: newExpense, context: context, scaffoldMessengerKey: _scaffoldMessengerKey);  
+          await expensesProvider.addExpense(newExpense);
+          await refreshData();
         },
             child: const Icon(Icons.add),
           )),

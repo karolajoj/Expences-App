@@ -1,7 +1,7 @@
-import 'package:expenses_app_project/csv_loader.dart';
+import 'package:expenses_app_project/Repositories/Import%20&%20Export/csv_loader.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
-import 'expenses_list_element.dart';
+import '../Local Data/expenses_list_element.dart';
 import 'package:intl/intl.dart';
 import 'package:csv/csv.dart';
 import 'dart:convert';
@@ -9,7 +9,7 @@ import 'dart:io';
 
 enum ExportOption { allData, filteredData }
 
-void loadCSV(BuildContext context, Function(void Function()) setState, List<ExpensesListElementModel> csvData, List<ExpensesListElementModel> filteredData,
+void loadCSV(Function(void Function()) setState, List<ExpensesListElementModel> csvData, List<ExpensesListElementModel> filteredData,
   Map<String, Color> dateColorMap, VoidCallback applyDefaultFilters, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey) {
 
   CSVLoader((data) {
@@ -32,8 +32,7 @@ void loadCSV(BuildContext context, Function(void Function()) setState, List<Expe
 
       applyDefaultFilters();
     });
-
-  }).importCSV(context, scaffoldMessengerKey);
+  }).importCSV(scaffoldMessengerKey);
 }
 
 Future<void> exportCSV(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, List<ExpensesListElementModel> exportData) async {

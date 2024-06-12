@@ -1,5 +1,5 @@
-import 'package:expenses_app_project/authentication/Pages/auth_page.dart';
-import 'package:expenses_app_project/authentication/auth_service.dart';
+import 'package:expenses_app_project/Authentication/auth_page.dart';
+import 'package:expenses_app_project/Authentication/auth_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
