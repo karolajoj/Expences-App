@@ -148,17 +148,28 @@ class ExpensesPageState extends State<ExpensesPage> {
       child: Scaffold(
         appBar: _buildAppBar(context),
         drawer: AppDrawer(
-          onLoadCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey),
+          onLoadCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey, true),
+          onReplaceCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey, false),
           onExportAllData: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
           onExportFilteredData: (context) => exportCSV(context, _scaffoldMessengerKey, filteredData),
-        ),
-        body: _buildBody(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () async {
-          await firestore.addNewExpense(newExpense: newExpense, context: context, scaffoldMessengerKey: _scaffoldMessengerKey);  
-          await expensesProvider.addExpense(newExpense);
-          await refreshData();
-        },
+          ),
+          body: _buildBody(),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () async {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const AddExpensePage(
+                    expense: null,
+                  ),
+                ),
+              ).then((_) async {
+                // przenieść ten kod do Expense page
+                await firestore.addExpense(newExpense: newExpense,context: context,scaffoldMessengerKey: _scaffoldMessengerKey);
+                await expensesProvider.addExpense(newExpense);
+                await refreshData();
+              });
+            },
             child: const Icon(Icons.add),
           )),
     );

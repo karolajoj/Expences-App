@@ -5,12 +5,14 @@ import 'package:flutter/material.dart';
 
 class AppDrawer extends StatefulWidget {
   final Function(BuildContext) onLoadCSV;
+  final Function(BuildContext) onReplaceCSV;
   final Function(BuildContext) onExportAllData;
   final Function(BuildContext) onExportFilteredData;
 
   const AppDrawer({
     super.key,
     required this.onLoadCSV,
+    required this.onReplaceCSV,
     required this.onExportAllData,
     required this.onExportFilteredData,
   });
@@ -21,6 +23,7 @@ class AppDrawer extends StatefulWidget {
 
 class AppDrawerState extends State<AppDrawer> {
   bool _isExportExpanded = false;
+  bool _isImportExpanded = false;
   final User? user = FirebaseAuth.instance.currentUser;
 
   @override
@@ -63,10 +66,12 @@ class AppDrawerState extends State<AppDrawer> {
             leading: const Icon(Icons.import_export),
             title: const Text('Importuj dane'),
             onTap: () {
-              Navigator.pop(context);
-              widget.onLoadCSV(context);
+              setState(() {
+                _isImportExpanded = !_isImportExpanded;
+              });
             },
           ),
+          if (_isImportExpanded) ..._buildImportOptions(context),
           ListTile(
             leading: const Icon(Icons.save_alt),
             title: const Text('Eksportuj dane'),
@@ -98,6 +103,27 @@ class AppDrawerState extends State<AppDrawer> {
         onTap: () {
           Navigator.pop(context);
           widget.onExportFilteredData(context);
+        },
+      ),
+    ];
+  }
+
+  List<Widget> _buildImportOptions(BuildContext context) {
+    return [
+      ListTile(
+        leading: const SizedBox(width: 35),
+        title: const Text('Zastąp obecne dane'),
+        onTap: () {
+          Navigator.pop(context);
+          widget.onReplaceCSV(context);
+        },
+      ),
+      ListTile(
+        leading: const SizedBox(width: 35),
+        title: const Text('Dodaj nowe dane'),
+        onTap: () {
+          Navigator.pop(context);
+          widget.onLoadCSV(context);
         },
       ),
     ];

@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+import 'Repositories/Local Data/expenses_list_element.dart';
+import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:hive/hive.dart';
 
 enum SortOption { date, product, cost }
 
@@ -40,6 +42,12 @@ class FilterDataPageState extends State<FilterDataPage> {
   late SortOption sortOption;
   late bool isAscending;
 
+  List<String> _allSklepy = [];
+  List<String> _allKategorie = [];
+  List<String> _allProdukty = [];
+
+  late TextEditingController fieldTextEditingController;
+
   late TextEditingController productController;
   late TextEditingController shopController;
   late TextEditingController categoryController;
@@ -51,6 +59,7 @@ class FilterDataPageState extends State<FilterDataPage> {
   @override
   void initState() {
     super.initState();
+    _loadAllSuggestions();
     startDate = widget.currentStartDate;
     endDate = widget.currentEndDate;
     productFilter = widget.currentProductFilter;
@@ -68,6 +77,16 @@ class FilterDataPageState extends State<FilterDataPage> {
     } else {
       selectedFilterOption = 'Całość';
     }
+  }
+
+  Future<void> _loadAllSuggestions() async {
+    var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+    var allExpenses = box.values.toList();
+    setState(() {
+      _allSklepy = allExpenses.map((expense) => expense.sklep.trim()).where((sklep) => sklep.isNotEmpty).toSet().toList()..sort();
+      _allKategorie = allExpenses.map((expense) => expense.kategoria.trim()).where((kategoria) => kategoria.isNotEmpty).toSet().toList()..sort();
+      _allProdukty = allExpenses.map((expense) => expense.produkt.trim()).where((produkt) => produkt.isNotEmpty).toSet().toList()..sort();
+    });
   }
 
   String _getFilterOptionByDateRange(DateTime start, DateTime end) {
@@ -102,9 +121,10 @@ class FilterDataPageState extends State<FilterDataPage> {
 
   @override
   void dispose() {
-    productController.dispose();
-    shopController.dispose();
-    categoryController.dispose();
+    // productController.dispose();
+    // shopController.dispose();
+    // categoryController.dispose();
+    fieldTextEditingController.dispose();
     super.dispose();
   }
 
@@ -153,8 +173,7 @@ class FilterDataPageState extends State<FilterDataPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
             const Text('Sortuj'),
             Row(
@@ -302,31 +321,148 @@ class FilterDataPageState extends State<FilterDataPage> {
                 );
               },
             ),
-            TextFormField(
-              controller: productController,
-              decoration: const InputDecoration(labelText: 'Produkt'),
-              onChanged: (value) {
-                setState(() {
-                  productFilter = value;
+            // TextFormField(
+            //   controller: productController,
+            //   decoration: const InputDecoration(labelText: 'Produkt'),
+            //   onChanged: (value) {
+            //     setState(() {
+            //       productFilter = value;
+            //     });
+            //   },
+            // ),
+            // TextFormField(
+            //   controller: shopController,
+            //   decoration: const InputDecoration(labelText: 'Sklep'),
+            //   onChanged: (value) {
+            //     setState(() {
+            //       shopFilter = value;
+            //     });
+            //   },
+            // ),
+            // TextFormField(
+            //   controller: categoryController,
+            //   decoration: const InputDecoration(labelText: 'Kategoria'),
+            //   onChanged: (value) {
+            //     setState(() {
+            //       categoryFilter = value;
+            //     });
+            //   },
+            // ),
+            Autocomplete<String>(
+              optionsBuilder: (TextEditingValue textEditingValue) {
+                if (textEditingValue.text.isEmpty) {
+                  return const Iterable<String>.empty();
+                }
+                return _allSklepy.where((String option) {
+                  return option.toLowerCase().contains(textEditingValue.text.toLowerCase());
                 });
               },
-            ),
-            TextFormField(
-              controller: shopController,
-              decoration: const InputDecoration(labelText: 'Sklep'),
-              onChanged: (value) {
+              onSelected: (String selection) {
                 setState(() {
-                  shopFilter = value;
+                  shopController.text = selection;
+                  shopFilter = selection;
                 });
               },
+              fieldViewBuilder: (BuildContext context, TextEditingController fieldTextEditingController, FocusNode fieldFocusNode, VoidCallback onFieldSubmitted) {
+                shopController = fieldTextEditingController; // Assign the controller
+                return TextFormField(
+                  controller: fieldTextEditingController,
+                  focusNode: fieldFocusNode,
+                  decoration: InputDecoration(
+                    labelText: 'Sklep',
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.clear),
+                      onPressed: () {
+                        fieldTextEditingController.clear();
+                        FocusScope.of(context).requestFocus(FocusNode()); // Hide the keyboard
+                      },
+                    ),
+                  ),
+                  onSaved: (value) => shopFilter = value!,
+                  onTap: () {
+                    setState(() {
+                      fieldTextEditingController.text = '';
+                    });
+                  },
+                );
+              },
             ),
-            TextFormField(
-              controller: categoryController,
-              decoration: const InputDecoration(labelText: 'Kategoria'),
-              onChanged: (value) {
-                setState(() {
-                  categoryFilter = value;
+            Autocomplete<String>(
+              optionsBuilder: (TextEditingValue textEditingValue) {
+                if (textEditingValue.text.isEmpty) {
+                  return const Iterable<String>.empty();
+                }
+                return _allKategorie.where((String option) {
+                  return option.toLowerCase().contains(textEditingValue.text.toLowerCase());
                 });
+              },
+              onSelected: (String selection) {
+                setState(() {
+                  categoryController.text = selection;
+                  categoryFilter = selection;
+                });
+              },
+              fieldViewBuilder: (BuildContext context, TextEditingController fieldTextEditingController, FocusNode fieldFocusNode, VoidCallback onFieldSubmitted) {
+                categoryController = fieldTextEditingController; // Assign the controller
+                return TextFormField(
+                  controller: fieldTextEditingController,
+                  focusNode: fieldFocusNode,
+                  decoration: InputDecoration(
+                    labelText: 'Kategoria',
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.clear),
+                      onPressed: () {
+                        fieldTextEditingController.clear();
+                        FocusScope.of(context).requestFocus(FocusNode()); // Hide the keyboard
+                      },
+                    ),
+                  ),
+                  onSaved: (value) => categoryFilter = value!,
+                  onTap: () {
+                    setState(() {
+                      fieldTextEditingController.text = '';
+                    });
+                  },
+                );
+              },
+            ),
+            Autocomplete<String>(
+              optionsBuilder: (TextEditingValue textEditingValue) {
+                if (textEditingValue.text.isEmpty) {
+                  return const Iterable<String>.empty();
+                }
+                return _allProdukty.where((String option) {
+                  return option.toLowerCase().contains(textEditingValue.text.toLowerCase());
+                });
+              },
+              onSelected: (String selection) {
+                setState(() {
+                  productController.text = selection;
+                  productFilter = selection;
+                });
+              },
+              fieldViewBuilder: (BuildContext context, TextEditingController fieldTextEditingController, FocusNode fieldFocusNode, VoidCallback onFieldSubmitted) {
+                productController = fieldTextEditingController; // Assign the controller
+                return TextFormField(
+                  controller: fieldTextEditingController,
+                  focusNode: fieldFocusNode,
+                  decoration: InputDecoration(
+                    labelText: 'Produkt',
+                    suffixIcon: IconButton(
+                      icon: const Icon(Icons.clear),
+                      onPressed: () {
+                        fieldTextEditingController.clear();
+                        FocusScope.of(context).requestFocus(FocusNode()); // Hide the keyboard
+                      },
+                    ),
+                  ),
+                  onSaved: (value) => productFilter = value!,
+                  onTap: () {
+                    setState(() {
+                      fieldTextEditingController.text = '';
+                    });
+                  },
+                );
               },
             ),
             const SizedBox(height: 16),

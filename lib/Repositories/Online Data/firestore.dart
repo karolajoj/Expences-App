@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 class FirestoreService {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   
-    Future<void> addNewExpense({
+    Future<void> addExpense({
     required GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
     required ExpensesListElementModel newExpense,
     required BuildContext context,
