@@ -32,6 +32,10 @@ class AddExpensePageState extends State<AddExpensePage> {
   late String _link;
   late String _komentarz;
 
+  late ValueNotifier<String> shopNotifier;
+  late ValueNotifier<String> categoryNotifier;
+  late ValueNotifier<String> productNotifier;
+
   @override
   void initState() {
     super.initState();
@@ -69,6 +73,10 @@ class AddExpensePageState extends State<AddExpensePage> {
       _link = '';
       _komentarz = '';
     }
+
+    shopNotifier = ValueNotifier(_sklep);
+    categoryNotifier = ValueNotifier(_kategoria);
+    productNotifier = ValueNotifier(_produkt);
   }
 
   Future<void> _loadSuggestions() async {
@@ -117,6 +125,14 @@ class AddExpensePageState extends State<AddExpensePage> {
   }
 
   @override
+  void dispose() {
+    shopNotifier.dispose();
+    categoryNotifier.dispose();
+    productNotifier.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -131,30 +147,51 @@ class AddExpensePageState extends State<AddExpensePage> {
               AutocompleteField(
                 options: getAllSklepy(),
                 label: 'Sklep',
-                controller: TextEditingController(text: _sklep),
+                valueNotifier: shopNotifier,
                 onSelected: (selection) {
                   setState(() {
                     _sklep = selection;
+                    shopNotifier.value = selection;
+                  });
+                },
+                onClear: () {
+                  setState(() {
+                    _sklep = '';
+                    shopNotifier.value = '';
                   });
                 },
               ),
               AutocompleteField(
                 options: getAllKategorie(),
                 label: 'Kategoria',
-                controller: TextEditingController(text: _kategoria),
+                valueNotifier: categoryNotifier,
                 onSelected: (selection) {
                   setState(() {
                     _kategoria = selection;
+                    categoryNotifier.value = selection;
+                  });
+                },
+                onClear: () {
+                  setState(() {
+                    _kategoria = '';
+                    categoryNotifier.value = '';
                   });
                 },
               ),
               AutocompleteField(
                 options: getAllProdukty(),
                 label: 'Produkt',
-                controller: TextEditingController(text: _produkt),
+                valueNotifier: productNotifier,
                 onSelected: (selection) {
                   setState(() {
                     _produkt = selection;
+                    productNotifier.value = selection;
+                  });
+                },
+                onClear: () {
+                  setState(() {
+                    _produkt = '';
+                    productNotifier.value = '';
                   });
                 },
               ),

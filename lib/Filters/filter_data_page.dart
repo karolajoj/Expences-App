@@ -42,9 +42,10 @@ class FilterDataPageState extends State<FilterDataPage> {
   late SortOption sortOption;
   late bool isAscending;
 
-  late TextEditingController productController;
-  late TextEditingController shopController;
-  late TextEditingController categoryController;
+  // Potrzebne do popranego czyszczenie pól tekstowych
+  late ValueNotifier<String> productNotifier;
+  late ValueNotifier<String> shopNotifier;
+  late ValueNotifier<String> categoryNotifier;
 
   DateTime now = DateTime.now();
 
@@ -62,9 +63,9 @@ class FilterDataPageState extends State<FilterDataPage> {
     sortOption = widget.currentSortOption;
     isAscending = widget.isAscending;
 
-    productController = TextEditingController(text: productFilter ?? '');
-    shopController = TextEditingController(text: shopFilter ?? '');
-    categoryController = TextEditingController(text: categoryFilter ?? '');
+    productNotifier = ValueNotifier(productFilter ?? '');
+    shopNotifier = ValueNotifier(shopFilter ?? '');
+    categoryNotifier = ValueNotifier(categoryFilter ?? '');
 
     if (widget.currentStartDate != null && widget.currentEndDate != null) {
       selectedFilterOption = getFilterOptionByDateRange(widget.currentStartDate!, widget.currentEndDate!, now);
@@ -76,14 +77,6 @@ class FilterDataPageState extends State<FilterDataPage> {
   Future<void> _loadSuggestions() async {
     await loadAllSuggestions();
     setState(() {});
-  }
-
-  @override
-  void dispose() {
-    productController.dispose();
-    shopController.dispose();
-    categoryController.dispose();
-    super.dispose();
   }
 
   void _setDateRange(DateTime? start, DateTime? end, String filterName) {
@@ -104,9 +97,9 @@ class FilterDataPageState extends State<FilterDataPage> {
       sortOption = SortOption.date;
       isAscending = true;
       selectedFilterOption = 'Całość';
-      productController.clear();
-      shopController.clear();
-      categoryController.clear();
+      productNotifier.value = '';
+      shopNotifier.value = '';
+      categoryNotifier.value = '';
     });
   }
 
@@ -114,9 +107,9 @@ class FilterDataPageState extends State<FilterDataPage> {
     widget.onFiltersApplied(
       startDate,
       endDate,
-      productController.text.isNotEmpty ? productController.text : null,
-      shopController.text.isNotEmpty ? shopController.text : null,
-      categoryController.text.isNotEmpty ? categoryController.text : null,
+      productNotifier.value.isNotEmpty ? productNotifier.value : null,
+      shopNotifier.value.isNotEmpty ? shopNotifier.value : null,
+      categoryNotifier.value.isNotEmpty ? categoryNotifier.value : null,
       sortOption,
       isAscending,
     );
@@ -184,33 +177,51 @@ class FilterDataPageState extends State<FilterDataPage> {
             AutocompleteField(
               options: getAllSklepy(),
               label: 'Sklep',
-              controller: shopController,
+              valueNotifier: shopNotifier,
               onSelected: (selection) {
                 setState(() {
-                  shopController.text = selection;
+                  shopNotifier.value = selection;
                   shopFilter = selection;
+                });
+              },
+              onClear: () {
+                setState(() {
+                  shopNotifier.value = '';
+                  shopFilter = null;
                 });
               },
             ),
             AutocompleteField(
               options: getAllKategorie(),
               label: 'Kategoria',
-              controller: categoryController,
+              valueNotifier: categoryNotifier,
               onSelected: (selection) {
                 setState(() {
-                  categoryController.text = selection;
+                  categoryNotifier.value = selection;
                   categoryFilter = selection;
+                });
+              },
+              onClear: () {
+                setState(() {
+                  categoryNotifier.value = '';
+                  categoryFilter = null;
                 });
               },
             ),
             AutocompleteField(
               options: getAllProdukty(),
               label: 'Produkt',
-              controller: productController,
+              valueNotifier: productNotifier,
               onSelected: (selection) {
                 setState(() {
-                  productController.text = selection;
+                  productNotifier.value = selection;
                   productFilter = selection;
+                });
+              },
+              onClear: () {
+                setState(() {
+                  productNotifier.value = '';
+                  productFilter = null;
                 });
               },
             ),
