@@ -1,7 +1,6 @@
 import 'package:expenses_app_project/Repositories/Local%20Data/expenses_list_element.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 
 class FirestoreService {

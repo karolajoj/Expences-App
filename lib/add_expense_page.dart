@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
+import 'Repositories/Local Data/expenses_list_element.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:hive/hive.dart';
-import 'Repositories/Local Data/expenses_list_element.dart';
+import 'package:flutter/material.dart';
+import 'autocomplete_field.dart';
+import 'utils.dart';
 
 class AddExpensePage extends StatefulWidget {
   final ExpensesListElementModel? expense;
@@ -30,14 +31,15 @@ class AddExpensePageState extends State<AddExpensePage> {
   late bool _zwrot;
   late String _link;
   late String _komentarz;
-  List<String> _allSklepy = [];
-  List<String> _allKategorie = [];
-  List<String> _allProdukty = [];
 
   @override
   void initState() {
     super.initState();
-    loadAllSuggestions();
+    _initializeFields();
+    _loadSuggestions();
+  }
+
+  void _initializeFields() {
     if (widget.expense != null) {
       _data = widget.expense!.data;
       _sklep = widget.expense!.sklep;
@@ -69,14 +71,9 @@ class AddExpensePageState extends State<AddExpensePage> {
     }
   }
 
-  Future<void> loadAllSuggestions() async {
-    var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
-    var allExpenses = box.values.toList();
-    setState(() {
-      _allSklepy = allExpenses.map((expense) => expense.sklep.trim()).where((sklep) => sklep.isNotEmpty).toSet().toList()..sort();
-      _allKategorie = allExpenses.map((expense) => expense.kategoria.trim()).where((kategoria) => kategoria.isNotEmpty).toSet().toList()..sort();
-      _allProdukty = allExpenses.map((expense) => expense.produkt.trim()).where((produkt) => produkt.isNotEmpty).toSet().toList()..sort();
-    });
+  Future<void> _loadSuggestions() async {
+    await loadAllSuggestions();
+    setState(() {});
   }
 
   Future<void> _saveExpense() async {
@@ -112,11 +109,10 @@ class AddExpensePageState extends State<AddExpensePage> {
           .doc(newExpense.id)
           .set(newExpense.toMap());
 
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')),
-      );
-
-      Navigator.pop(context);
+      if (mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')));
+        Navigator.pop(context);
+      }
     }
   }
 
@@ -132,130 +128,34 @@ class AddExpensePageState extends State<AddExpensePage> {
           key: _formKey,
           child: ListView(
             children: [
-              Autocomplete<String>(
-                optionsBuilder: (TextEditingValue textEditingValue) {
-                  if (textEditingValue.text.isEmpty) {
-                    return const Iterable<String>.empty();
-                  }                  
-                  return _allSklepy.where((String option) {
-                    return option.toLowerCase().contains(textEditingValue.text.toLowerCase());
-                  });
-                },
-                onSelected: (String selection) {
+              AutocompleteField(
+                options: getAllSklepy(),
+                label: 'Sklep',
+                controller: TextEditingController(text: _sklep),
+                onSelected: (selection) {
                   setState(() {
                     _sklep = selection;
                   });
                 },
-                fieldViewBuilder: (BuildContext context, TextEditingController fieldTextEditingController, FocusNode fieldFocusNode, VoidCallback onFieldSubmitted) {
-                  return TextFormField(
-                    controller: fieldTextEditingController,
-                    focusNode: fieldFocusNode,
-                    decoration: InputDecoration(
-                      labelText: 'Sklep',
-                      suffixIcon: IconButton(
-                        icon: const Icon(Icons.clear),
-                        onPressed: () {
-                          fieldTextEditingController.clear();
-                        },
-                      ),
-                    ),
-                    onSaved: (value) => _sklep = value!,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Pole sklep nie może być puste';
-                      }
-                      return null;
-                    },
-                    onTap: () {
-                      setState(() {
-                        fieldTextEditingController.text = '';
-                      });
-                    },
-                  );
-                },
               ),
-              Autocomplete<String>(
-                optionsBuilder: (TextEditingValue textEditingValue) {
-                  if (textEditingValue.text.isEmpty) {
-                    return const Iterable<String>.empty();
-                  }                  
-                  return _allKategorie.where((String option) {
-                    return option.toLowerCase().contains(textEditingValue.text.toLowerCase());
-                  });
-                },
-                onSelected: (String selection) {
+              AutocompleteField(
+                options: getAllKategorie(),
+                label: 'Kategoria',
+                controller: TextEditingController(text: _kategoria),
+                onSelected: (selection) {
                   setState(() {
                     _kategoria = selection;
                   });
                 },
-                fieldViewBuilder: (BuildContext context, TextEditingController fieldTextEditingController, FocusNode fieldFocusNode, VoidCallback onFieldSubmitted) {
-                  return TextFormField(
-                    controller: fieldTextEditingController,
-                    focusNode: fieldFocusNode,
-                    decoration: InputDecoration(
-                      labelText: 'Kategoria',
-                      suffixIcon: IconButton(
-                        icon: const Icon(Icons.clear),
-                        onPressed: () {
-                          fieldTextEditingController.clear();
-                        },
-                      ),
-                    ),
-                    onSaved: (value) => _kategoria = value!,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Pole kategoria nie może być puste';
-                      }
-                      return null;
-                    },
-                    onTap: () {
-                      setState(() {
-                        fieldTextEditingController.text = '';
-                      });
-                    },
-                  );
-                },
               ),
-              Autocomplete<String>(
-                optionsBuilder: (TextEditingValue textEditingValue) {
-                  if (textEditingValue.text.isEmpty) {
-                    return const Iterable<String>.empty();
-                  }
-                  return _allProdukty.where((String option) {
-                    return option.toLowerCase().contains(textEditingValue.text.toLowerCase());
-                  });
-                },
-                onSelected: (String selection) {
+              AutocompleteField(
+                options: getAllProdukty(),
+                label: 'Produkt',
+                controller: TextEditingController(text: _produkt),
+                onSelected: (selection) {
                   setState(() {
                     _produkt = selection;
                   });
-                },
-                fieldViewBuilder: (BuildContext context, TextEditingController fieldTextEditingController, FocusNode fieldFocusNode, VoidCallback onFieldSubmitted) {
-                  return TextFormField(
-                    controller: fieldTextEditingController,
-                    focusNode: fieldFocusNode,
-                    decoration: InputDecoration(
-                      labelText: 'Produkt',
-                      suffixIcon: IconButton(
-                        icon: const Icon(Icons.clear),
-                        onPressed: () {
-                          fieldTextEditingController.clear();
-                        },
-                      ),
-                    ),
-                    onSaved: (value) => _produkt = value!,
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Pole produkt nie może być puste';
-                      }
-                      return null;
-                    },
-                    onTap: () {
-                      setState(() {
-                        fieldTextEditingController.text = '';
-                      });
-                    },                    
-                  );
                 },
               ),
               // ... inne pola formularza

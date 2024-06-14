@@ -79,9 +79,9 @@ class AuthPageState extends State<AuthPage> {
                 ),
               ),
               const SizedBox(height: 80,),
-              _emailAddress(),
+              _buildTextField('Adres Email', _emailController, false),
               const SizedBox(height: 20,),
-              _password(),
+              _buildTextField('Hasło', _passwordController, true),
               const SizedBox(height: 50,),
               _mainButton(context),
             ],
@@ -91,13 +91,13 @@ class AuthPageState extends State<AuthPage> {
     );
   }
 
-  Widget _emailAddress() {
+  Widget _buildTextField(String label, TextEditingController controller, bool isPassword) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Adres Email',
+          label,
           style: GoogleFonts.raleway(
             textStyle: const TextStyle(
               color: Colors.black,
@@ -108,7 +108,8 @@ class AuthPageState extends State<AuthPage> {
         ),
         const SizedBox(height: 16,),
         TextField(
-          controller: _emailController,
+          controller: controller,
+          obscureText: isPassword,
           decoration: InputDecoration(
             filled: true,
             hintStyle: const TextStyle(
@@ -116,38 +117,6 @@ class AuthPageState extends State<AuthPage> {
               fontWeight: FontWeight.normal,
               fontSize: 14,
             ),
-            fillColor: const Color(0xffF7F7F9),
-            border: OutlineInputBorder(
-              borderSide: BorderSide.none,
-              borderRadius: BorderRadius.circular(14),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget _password() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          'Hasło',
-          style: GoogleFonts.raleway(
-            textStyle: const TextStyle(
-              color: Colors.black,
-              fontWeight: FontWeight.normal,
-              fontSize: 16,
-            ),
-          ),
-        ),
-        const SizedBox(height: 16,),
-        TextField(
-          controller: _passwordController,
-          obscureText: true,
-          decoration: InputDecoration(
-            filled: true,
             fillColor: const Color(0xffF7F7F9),
             border: OutlineInputBorder(
               borderSide: BorderSide.none,

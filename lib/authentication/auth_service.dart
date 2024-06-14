@@ -14,9 +14,8 @@ class AuthService {
         email: email,
         password: password,
       );
-      
+
       final String? userEmail = userCredential.user?.email;
-      
       final String? userName = userEmail?.split('@').first;
 
       // Aktualizacja nazwy użytkownika w Firebase Auth
@@ -29,30 +28,10 @@ class AuthService {
         );
       }
     } on FirebaseAuthException catch (e) {
-      String message = '';
-      if (e.code == 'weak-password') {
-        message = 'Podane hasło jest zbyt słabe.';
-      }
-      else if (e.code == 'invalid-email') {
-        message = 'Podany adres e-mail jest nieprawidłowy.';
-      }
-      else if (e.code == 'email-already-in-use') {
-        message = 'Podany adres e-mail jest już w użyciu.';
-      }
-      else {
-        message = 'Błąd $e';
-      }
-      Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.SNACKBAR,
-        backgroundColor: Colors.black54,
-        textColor: Colors.white,
-        fontSize: 14.0,
-      );
+      _handleAuthError(e);
     } catch (e) {
       Fluttertoast.showToast(
-        msg: 'Wystąpił błąd podczas rejestracji użytkownika : $e',
+        msg: 'Wystąpił błąd podczas rejestracji użytkownika: $e',
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.SNACKBAR,
         backgroundColor: Colors.black54,
@@ -80,32 +59,10 @@ class AuthService {
         );
       }
     } on FirebaseAuthException catch (e) {
-      String message = '';
-      if (e.code == 'invalid-email') {
-        message = 'Podany adres e-mail jest nieprawidłowy.';
-      }
-      else if (e.code == 'invalid-credential') {
-        message = 'Podane dane są nieprawidłowe.';
-      }
-      else if (e.code == 'too-many-requests') {
-        message = 'Zbyt wiele prób logowania. Spróbuj ponownie później.';
-      }
-
-      else {
-        message = 'Błąd $e';
-      }
-
-      Fluttertoast.showToast(
-        msg: message,
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.SNACKBAR,
-        backgroundColor: Colors.black54,
-        textColor: Colors.white,
-        fontSize: 14.0,
-      );
+      _handleAuthError(e);
     } catch (e) {
       Fluttertoast.showToast(
-        msg: 'Wystąpił błąd podczas logowania użytkownika : $e',
+        msg: 'Wystąpił błąd podczas logowania użytkownika: $e',
         toastLength: Toast.LENGTH_LONG,
         gravity: ToastGravity.SNACKBAR,
         backgroundColor: Colors.black54,
@@ -124,5 +81,31 @@ class AuthService {
         MaterialPageRoute(builder: (BuildContext context) => const ExpensesPage()),
       );
     }
+  }
+
+  void _handleAuthError(FirebaseAuthException e) {
+    String message = '';
+    if (e.code == 'weak-password') {
+      message = 'Podane hasło jest zbyt słabe.';
+    } else if (e.code == 'invalid-email') {
+      message = 'Podany adres e-mail jest nieprawidłowy.';
+    } else if (e.code == 'email-already-in-use') {
+      message = 'Podany adres e-mail jest już w użyciu.';
+    } else if (e.code == 'invalid-credential') {
+      message = 'Podane dane są nieprawidłowe.';
+    } else if (e.code == 'too-many-requests') {
+      message = 'Zbyt wiele prób logowania. Spróbuj ponownie później.';
+    } else {
+      message = 'Błąd: $e';
+    }
+
+    Fluttertoast.showToast(
+      msg: message,
+      toastLength: Toast.LENGTH_LONG,
+      gravity: ToastGravity.SNACKBAR,
+      backgroundColor: Colors.black54,
+      textColor: Colors.white,
+      fontSize: 14.0,
+    );
   }
 }
