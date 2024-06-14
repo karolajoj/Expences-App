@@ -1,9 +1,9 @@
-import 'Repositories/Local Data/expenses_list_element.dart';
+import '../../Repositories/Local Data/expenses_list_element.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'autocomplete_field.dart';
-import 'utils.dart';
+import '../../autocomplete_field.dart';
+import '../../utils.dart';
 
 class AddExpensePage extends StatefulWidget {
   final ExpensesListElementModel? expense;

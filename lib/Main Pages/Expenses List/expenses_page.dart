@@ -1,14 +1,14 @@
-import 'Repositories/Import & Export/csv_import_export.dart';
-import 'package:expenses_app_project/add_expense_page.dart';
-import 'Repositories/Local Data/expenses_list_element.dart';
-import 'Repositories/Local Data/expenses_provider.dart';
+import '../../Repositories/Import & Export/csv_import_export.dart';
+import 'package:expenses_app_project/Main%20Pages/Expenses%20List/add_expense_page.dart';
+import '../../Repositories/Local Data/expenses_list_element.dart';
+import '../../Repositories/Local Data/expenses_provider.dart';
 import 'package:expenses_app_project/drawer.dart';
-import 'Repositories/Online Data/firestore.dart';
+import '../../Repositories/Online Data/firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'Filters/filter_data_page.dart';
+import '../../Filters/filter_data_page.dart';
 import 'expense_tile.dart';
-import 'utils.dart';
+import '../../utils.dart';
 
 class ExpensesPage extends StatefulWidget {
   const ExpensesPage({super.key});

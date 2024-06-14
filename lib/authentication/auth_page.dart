@@ -1,5 +1,5 @@
 import 'package:expenses_app_project/Authentication/auth_service.dart';
-import 'package:expenses_app_project/expenses_page.dart';
+import 'package:expenses_app_project/Main%20Pages/Expenses%20List/expenses_page.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';

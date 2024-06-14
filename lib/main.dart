@@ -1,9 +1,9 @@
 import 'package:expenses_app_project/Repositories/Local%20Data/expenses_list_element.dart';
 import 'package:expenses_app_project/firebase_options.dart';
+import 'package:expenses_app_project/main_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter/material.dart';
-import 'expenses_page.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 Future<void> main() async {
@@ -30,8 +30,8 @@ class ExpensesApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const ExpensesPage(),
-      navigatorKey: navigatorKey, // This is the key that will be used to show dialogs
+      home: const MainPage(),
+      navigatorKey: navigatorKey,
     );
   }
 }
