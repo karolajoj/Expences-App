@@ -1,4 +1,4 @@
-import '../../../Repositories/Local Data/expenses_list_element.dart';
+import '../../Repositories/Local Data/expenses_list_element.dart';
 import 'package:expenses_app_project/Main%20Pages/Expenses%20List/add_expense_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +29,7 @@ class ExpenseTile extends StatelessWidget {
     return Container(
       color: rowColor,
       child: ExpansionTile(
-        key: Key(row.id),
+        key: Key(row.localId),
         trailing: _buildTrailingText(),
         title: _buildTitle(currentDay),
         onExpansionChanged: onExpansionChanged,

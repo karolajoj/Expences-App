@@ -18,7 +18,8 @@ class ExpensesListElementModelAdapter
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
     return ExpensesListElementModel(
-      id: fields[0] as String?,
+      localId: fields[0] as String?,
+      firebaseId: fields[17] as String?,
       data: fields[1] as DateTime,
       sklep: fields[2] as String,
       kategoria: fields[3] as String,
@@ -38,9 +39,9 @@ class ExpensesListElementModelAdapter
   @override
   void write(BinaryWriter writer, ExpensesListElementModel obj) {
     writer
-      ..writeByte(17)
+      ..writeByte(18)
       ..writeByte(0)
-      ..write(obj.id)
+      ..write(obj.localId)
       ..writeByte(1)
       ..write(obj.data)
       ..writeByte(2)
@@ -72,7 +73,9 @@ class ExpensesListElementModelAdapter
       ..writeByte(15)
       ..write(obj.link)
       ..writeByte(16)
-      ..write(obj.komentarz);
+      ..write(obj.komentarz)
+      ..writeByte(17)
+      ..write(obj.firebaseId);
   }
 
   @override

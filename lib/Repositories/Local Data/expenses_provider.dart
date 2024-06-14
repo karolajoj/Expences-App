@@ -19,7 +19,7 @@ class ExpensesProvider {
   // Read by id
   ExpensesListElementModel? getExpenseById(String id) {
     try {
-      return _expensesBox.values.firstWhere((element) => element.id == id);
+      return _expensesBox.values.firstWhere((element) => element.localId == id);
     } catch (e) {
       return null;
     }
@@ -29,7 +29,7 @@ class ExpensesProvider {
   Future<void> updateExpense(String id, ExpensesListElementModel updatedExpense) async {
     final key = _expensesBox.keys.firstWhere((element) {
       final expense = _expensesBox.get(element);
-      return expense?.id == id;
+      return expense?.localId == id;
     }, orElse: () => null);
 
     if (key != null) {
@@ -41,14 +41,14 @@ class ExpensesProvider {
   Future<void> deleteExpense(String id) async {
     final key = _expensesBox.keys.firstWhere((element) {
       final expense = _expensesBox.get(element);
-      return expense?.id == id;
+      return expense?.localId == id;
     }, orElse: () => null);
 
     if (key != null) {
       await _expensesBox.delete(key);
     }
-
   }
+
   // DeleteAll
   Future<void> deleteAllExpense() async {
     await _expensesBox.clear();

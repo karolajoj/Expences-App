@@ -9,6 +9,8 @@ import 'package:csv/csv.dart';
 import 'dart:convert';
 import 'dart:io';
 
+import '../Local Data/expenses_provider.dart';
+
 Future<void> loadCSV(
   Function(void Function()) setState,
   List<ExpensesListElementModel> csvData,
@@ -184,4 +186,19 @@ Future<bool?> _showConfirmationDialog(int dataCount) {
       );
     },
   );
+}
+
+void deleteAllData(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider) async {
+  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+  int count = box.length;
+  await expensesProvider.deleteAllExpense();
+  await loadOrRefreshLocalData();
+  scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Wszystkie dane zostały usunięte: $count wydatków')));
+}
+
+void deleteFilteredData(BuildContext context, List<ExpensesListElementModel> filteredData, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider) async {
+  int count = filteredData.length;
+  await Future.wait(filteredData.map((expense) => expensesProvider.deleteExpense(expense.localId)));
+  await loadOrRefreshLocalData();
+  scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Przefiltrowane dane zostały usunięte: $count wydatków')));
 }

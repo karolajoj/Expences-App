@@ -8,6 +8,8 @@ class AppDrawer extends StatefulWidget {
   final Function(BuildContext) onReplaceCSV;
   final Function(BuildContext) onExportAllData;
   final Function(BuildContext) onExportFilteredData;
+  final Function(BuildContext) onDeleteAllData;
+  final Function(BuildContext) onDeleteFilteredData;
 
   const AppDrawer({
     super.key,
@@ -15,6 +17,8 @@ class AppDrawer extends StatefulWidget {
     required this.onReplaceCSV,
     required this.onExportAllData,
     required this.onExportFilteredData,
+    required this.onDeleteAllData,
+    required this.onDeleteFilteredData,
   });
 
   @override
@@ -24,11 +28,11 @@ class AppDrawer extends StatefulWidget {
 class AppDrawerState extends State<AppDrawer> {
   bool _isExportExpanded = false;
   bool _isImportExpanded = false;
+  bool _isDeleteExpanded = false;
   final User? user = FirebaseAuth.instance.currentUser;
 
   @override
   Widget build(BuildContext context) {
-
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -40,7 +44,7 @@ class AppDrawerState extends State<AppDrawer> {
             currentAccountPicture: CircleAvatar(
               child: user != null && user?.photoURL != null
                   ? Image.network(user!.photoURL!)
-                  : const Icon(Icons.person , size: 50, color: Colors.white),
+                  : const Icon(Icons.person, size: 50, color: Colors.white),
             ),
           ),
           ListTile(
@@ -82,6 +86,16 @@ class AppDrawerState extends State<AppDrawer> {
             },
           ),
           if (_isExportExpanded) ..._buildExportOptions(context),
+          ListTile(
+            leading: const Icon(Icons.delete),
+            title: const Text('Usuń dane'),
+            onTap: () {
+              setState(() {
+                _isDeleteExpanded = !_isDeleteExpanded;
+              });
+            },
+          ),
+          if (_isDeleteExpanded) ..._buildDeleteOptions(context),
         ],
       ),
     );
@@ -124,6 +138,27 @@ class AppDrawerState extends State<AppDrawer> {
         onTap: () {
           Navigator.pop(context);
           widget.onLoadCSV(context);
+        },
+      ),
+    ];
+  }
+
+  List<Widget> _buildDeleteOptions(BuildContext context) {
+    return [
+      ListTile(
+        leading: const SizedBox(width: 35),
+        title: const Text('Wszystkie dane'),
+        onTap: () {
+          Navigator.pop(context);
+          widget.onDeleteAllData(context);
+        },
+      ),
+      ListTile(
+        leading: const SizedBox(width: 35),
+        title: const Text('Tylko przefiltrowane dane'),
+        onTap: () {
+          Navigator.pop(context);
+          widget.onDeleteFilteredData(context);
         },
       ),
     ];

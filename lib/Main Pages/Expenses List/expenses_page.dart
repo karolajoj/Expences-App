@@ -1,4 +1,4 @@
-import '../../Repositories/Import & Export/csv_import_export.dart';
+import '../../Repositories/Import & Export & Delete/csv_import_export.dart';
 import 'package:expenses_app_project/Main%20Pages/Expenses%20List/add_expense_page.dart';
 import '../../Repositories/Local Data/expenses_list_element.dart';
 import '../../Repositories/Local Data/expenses_provider.dart';
@@ -29,8 +29,8 @@ class ExpensesPageState extends State<ExpensesPage> {
   ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>('expenses_local'));
 
   // Pola do przechowywania aktualnych filtrów
-  DateTime? _currentStartDate;
-  DateTime? _currentEndDate;
+  DateTime? _currentStartDate = DateTime.now().subtract(const Duration(days: 30));
+  DateTime? _currentEndDate = DateTime.now();
   String? _currentProductFilter;
   String? _currentShopFilter;
   String? _currentCategoryFilter;
@@ -38,7 +38,7 @@ class ExpensesPageState extends State<ExpensesPage> {
   bool _isAscending = true;
 
   ExpensesListElementModel newExpense = ExpensesListElementModel(
-    id: '',
+    localId: '',
     data: DateTime.now(),
     sklep: 'Supermarket',
     kategoria: 'Żywność',
@@ -73,7 +73,7 @@ class ExpensesPageState extends State<ExpensesPage> {
       dateColorMap.clear();
 
       updateDateColorMap(csvData, dateColorMap);
-      _applyDefaultFilters();
+      _applyFilters(_currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending);
     });
 
     _scaffoldMessengerKey.currentState?.showSnackBar(
@@ -92,6 +92,8 @@ class ExpensesPageState extends State<ExpensesPage> {
           onReplaceCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey, false),
           onExportAllData: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
           onExportFilteredData: (context) => exportCSV(context, _scaffoldMessengerKey, filteredData),
+          onDeleteAllData: (context) => deleteAllData(context, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider),
+          onDeleteFilteredData: (context) => deleteFilteredData(context, filteredData, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider),
         ),
         body: _buildBody(),
         floatingActionButton: FloatingActionButton(
@@ -111,8 +113,8 @@ class ExpensesPageState extends State<ExpensesPage> {
         builder: (context) => const AddExpensePage(expense: null),
       ),
     ).then((_) async {
-      await firestore.addExpense(newExpense: newExpense, context: context, scaffoldMessengerKey: _scaffoldMessengerKey);
-      await expensesProvider.addExpense(newExpense);
+      // await firestore.addExpense(newExpense: newExpense, context: context, scaffoldMessengerKey: _scaffoldMessengerKey);
+      // await expensesProvider.addExpense(newExpense);
       await loadOrRefreshLocalData();
     });
   }

@@ -1,4 +1,4 @@
-import '../Repositories/Local Data/expenses_list_element.dart';
+import 'Repositories/Local Data/expenses_list_element.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:hive/hive.dart';

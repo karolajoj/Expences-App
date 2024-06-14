@@ -5,7 +5,7 @@ part 'expenses_list_element.g.dart';
 @HiveType(typeId: 0)
 class ExpensesListElementModel {
   @HiveField(0)
-  final String id;
+  final String localId;
 
   @HiveField(1)
   final DateTime data;
@@ -55,8 +55,12 @@ class ExpensesListElementModel {
   @HiveField(16)
   final String komentarz;
 
+  @HiveField(17)
+  final String? firebaseId;
+
   ExpensesListElementModel({
-    String? id, // Allow id to be optional
+    String? localId,
+    this.firebaseId,
     required this.data,
     required this.sklep,
     required this.kategoria,
@@ -73,7 +77,7 @@ class ExpensesListElementModel {
   })  : totalCost = _calculateTotalCost(cena, ilosc, kosztDostawy),
         pricePerKg = _calculatePricePerKg(cena, kosztDostawy, miara),
         pricePerPiece = _calculatePricePerPiece(cena, kosztDostawy, iloscWOpakowaniu),
-        id = id ?? DateTime.now().millisecondsSinceEpoch.toString(); // Generate id if not provided
+        localId = localId ?? DateTime.now().millisecondsSinceEpoch.toString();
 
   static double _calculateTotalCost(double cena, int ilosc, double? kosztDostawy) {
     double koszt = cena * ilosc;
@@ -101,7 +105,8 @@ class ExpensesListElementModel {
 
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
+      'localId': localId,
+      'firebaseId': firebaseId,
       'data': data.toIso8601String(),
       'sklep': sklep,
       'kategoria': kategoria,
@@ -120,7 +125,8 @@ class ExpensesListElementModel {
 
   factory ExpensesListElementModel.fromMap(Map<String, dynamic> map) {
     return ExpensesListElementModel(
-      id: map['id'],
+      localId: map['localId'],
+      firebaseId: map['firebaseId'],
       data: DateTime.parse(map['data']),
       sklep: map['sklep'],
       kategoria: map['kategoria'],
@@ -134,6 +140,42 @@ class ExpensesListElementModel {
       zwrot: map['zwrot'] == "Tak",
       link: map['link'],
       komentarz: map['komentarz'],
+    );
+  }
+
+  ExpensesListElementModel copyWith({
+    String? localId,
+    String? firebaseId,
+    DateTime? data,
+    String? sklep,
+    String? kategoria,
+    String? produkt,
+    int? ilosc,
+    double? cena,
+    int? miara,
+    String? miaraUnit,
+    int? iloscWOpakowaniu,
+    double? kosztDostawy,
+    bool? zwrot,
+    String? link,
+    String? komentarz,
+  }) {
+    return ExpensesListElementModel(
+      localId: localId ?? this.localId,
+      firebaseId: firebaseId ?? this.firebaseId,
+      data: data ?? this.data,
+      sklep: sklep ?? this.sklep,
+      kategoria: kategoria ?? this.kategoria,
+      produkt: produkt ?? this.produkt,
+      ilosc: ilosc ?? this.ilosc,
+      cena: cena ?? this.cena,
+      miara: miara ?? this.miara,
+      miaraUnit: miaraUnit ?? this.miaraUnit,
+      iloscWOpakowaniu: iloscWOpakowaniu ?? this.iloscWOpakowaniu,
+      kosztDostawy: kosztDostawy ?? this.kosztDostawy,
+      zwrot: zwrot ?? this.zwrot,
+      link: link ?? this.link,
+      komentarz: komentarz ?? this.komentarz,
     );
   }
 }

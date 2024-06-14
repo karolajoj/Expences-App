@@ -3,6 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../autocomplete_field.dart';
+import 'package:intl/intl.dart';
+import 'package:hive/hive.dart';
 import '../../utils.dart';
 
 class AddExpensePage extends StatefulWidget {
@@ -88,13 +90,9 @@ class AddExpensePageState extends State<AddExpensePage> {
     if (_formKey.currentState?.validate() ?? false) {
       _formKey.currentState?.save();
 
-      final User? user = _auth.currentUser;
-      if (user == null) {
-        throw Exception('Nie zalogowano użytkownika');
-      }
-
       final newExpense = ExpensesListElementModel(
-        id: widget.expense?.id ?? FirebaseFirestore.instance.collection('dummy').doc().id,
+        localId: widget.expense?.localId,
+        firebaseId: widget.expense?.firebaseId,
         data: _data,
         sklep: _sklep,
         kategoria: _kategoria,
@@ -110,18 +108,37 @@ class AddExpensePageState extends State<AddExpensePage> {
         komentarz: _komentarz,
       );
 
-      await FirebaseFirestore.instance
-          .collection("MainCollection")
-          .doc(user.uid)
-          .collection("expenses")
-          .doc(newExpense.id)
-          .set(newExpense.toMap());
+      await _saveExpenseLocally(newExpense);
+      await _saveExpenseToFirebase(newExpense);
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')));
         Navigator.pop(context);
       }
     }
+  }
+
+
+  Future<void> _saveExpenseToFirebase(ExpensesListElementModel expense) async {
+    final User? user = _auth.currentUser;
+    if (user == null) {
+      throw Exception('Nie zalogowano użytkownika');
+    }
+
+    final newExpense = expense.copyWith(firebaseId: expense.firebaseId ?? FirebaseFirestore.instance.collection('dummy').doc().id);
+    
+    await FirebaseFirestore.instance
+        .collection("MainCollection")
+        .doc(user.uid)
+        .collection("expenses")
+        .doc(newExpense.firebaseId)
+        .set(newExpense.toMap());
+  }
+
+
+  Future<void> _saveExpenseLocally(ExpensesListElementModel expense) async {
+    var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+    await box.put(expense.localId, expense);
   }
 
   @override
@@ -144,6 +161,24 @@ class AddExpensePageState extends State<AddExpensePage> {
           key: _formKey,
           child: ListView(
             children: [
+              TextFormField(
+                initialValue: DateFormat('dd.MM.yyyy').format(_data),
+                decoration: const InputDecoration(labelText: 'Data'),
+                readOnly: true,
+                onTap: () async {
+                  final DateTime? picked = await showDatePicker(
+                    context: context,
+                    initialDate: _data,
+                    firstDate: DateTime(2000),
+                    lastDate: DateTime(2101),
+                  );
+                  if (picked != null && picked != _data) {
+                    setState(() {
+                      _data = picked;
+                    });
+                  }
+                },
+              ),
               AutocompleteField(
                 options: getAllSklepy(),
                 label: 'Sklep',
@@ -195,7 +230,64 @@ class AddExpensePageState extends State<AddExpensePage> {
                   });
                 },
               ),
-              // ... inne pola formularza
+              TextFormField(
+                initialValue: _ilosc.toString(),
+                decoration: const InputDecoration(labelText: 'Ilość'),
+                keyboardType: TextInputType.number,
+                onSaved: (value) => _ilosc = int.parse(value ?? '1'),
+              ),
+              TextFormField(
+                initialValue: _cena.toString(),
+                decoration: const InputDecoration(labelText: 'Cena'),
+                keyboardType: TextInputType.number,
+                onSaved: (value) => _cena = double.parse(value ?? '0.0'),
+              ),
+              TextFormField(
+                initialValue: _miara?.toString(),
+                decoration: const InputDecoration(labelText: 'Miara'),
+                keyboardType: TextInputType.number,
+                onSaved: (value) => _miara = int.parse(value ?? '1'),
+              ),
+              TextFormField(
+                initialValue: _miaraUnit ?? '',
+                decoration: const InputDecoration(labelText: 'Jednostka miary'),
+                onSaved: (value) => _miaraUnit = value,
+              ),
+              TextFormField(
+                initialValue: _iloscWOpakowaniu?.toString(),
+                decoration: const InputDecoration(labelText: 'Ilość w opakowaniu'),
+                keyboardType: TextInputType.number,
+                onSaved: (value) => _iloscWOpakowaniu = int.parse(value ?? '1'),
+              ),
+              TextFormField(
+                initialValue: _kosztDostawy?.toString(),
+                decoration: const InputDecoration(labelText: 'Koszt dostawy'),
+                keyboardType: TextInputType.number,
+                onSaved: (value) => _kosztDostawy = double.parse(value ?? '0.0'),
+              ),
+              Row(
+                children: [
+                  const Text('Zwrot'),
+                  Checkbox(
+                    value: _zwrot,
+                    onChanged: (value) {
+                      setState(() {
+                        _zwrot = value ?? false;
+                      });
+                    },
+                  ),
+                ],
+              ),
+              TextFormField(
+                initialValue: _link,
+                decoration: const InputDecoration(labelText: 'Link'),
+                onSaved: (value) => _link = value ?? '',
+              ),
+              TextFormField(
+                initialValue: _komentarz,
+                decoration: const InputDecoration(labelText: 'Komentarz'),
+                onSaved: (value) => _komentarz = value ?? '',
+              ),
               ElevatedButton(
                 onPressed: _saveExpense,
                 child: const Text('Zapisz'),

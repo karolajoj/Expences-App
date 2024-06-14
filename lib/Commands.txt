@@ -31,6 +31,6 @@ Firebase Authentication
     https://www.youtube.com/watch?v=T96Pue6ePGA
 
 Hive (Store Local Data)
-    flutter packages pub run build_runner build
+    dart run build_runner build
 
     Pliki generować w /lib

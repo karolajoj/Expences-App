@@ -26,7 +26,7 @@ class FirestoreService {
       final String expenseId = newExpenseRef.id;
       
       final ExpensesListElementModel expenseWithUid = ExpensesListElementModel(
-        id: expenseId,
+        localId: expenseId,
         data: newExpense.data,
         sklep: newExpense.sklep,
         kategoria: newExpense.kategoria,
