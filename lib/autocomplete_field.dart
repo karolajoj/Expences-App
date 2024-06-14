@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AutocompleteField extends StatelessWidget {
+class AutocompleteField extends StatefulWidget {
   final List<String> options;
   final String label;
   final ValueNotifier<String> valueNotifier;
@@ -17,39 +17,92 @@ class AutocompleteField extends StatelessWidget {
   });
 
   @override
+  AutocompleteFieldState createState() => AutocompleteFieldState();
+}
+
+class AutocompleteFieldState extends State<AutocompleteField> {
+  late ValueNotifier<int> hoveredIndexNotifier;
+
+  @override
+  void initState() {
+    super.initState();
+    hoveredIndexNotifier = ValueNotifier<int>(-1);
+  }
+
+  @override
+  void dispose() {
+    hoveredIndexNotifier.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<String>(
-      valueListenable: valueNotifier,
+      valueListenable: widget.valueNotifier,
       builder: (context, value, child) {
         return Autocomplete<String>(
           optionsBuilder: (TextEditingValue textEditingValue) {
             if (textEditingValue.text.isEmpty) {
               return const Iterable<String>.empty();
             }
-            return options.where((String option) {
+            return widget.options.where((String option) {
               return option.toLowerCase().contains(textEditingValue.text.toLowerCase());
             });
           },
-          onSelected: onSelected,
+          onSelected: widget.onSelected,
           initialValue: TextEditingValue(text: value),
           fieldViewBuilder: (BuildContext context, TextEditingController fieldTextEditingController, FocusNode fieldFocusNode, VoidCallback onFieldSubmitted) {
             fieldTextEditingController.text = value;
             fieldTextEditingController.addListener(() {
-              valueNotifier.value = fieldTextEditingController.text;
+              widget.valueNotifier.value = fieldTextEditingController.text;
             });
             return TextFormField(
               controller: fieldTextEditingController,
               focusNode: fieldFocusNode,
               decoration: InputDecoration(
-                labelText: label,
+                labelText: widget.label,
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.clear),
                   onPressed: () {
                     fieldTextEditingController.clear();
-                    valueNotifier.value = '';
-                    FocusScope.of(context).requestFocus(FocusNode()); // Hide the keyboard
-                    onClear();
+                    widget.valueNotifier.value = '';
+                    FocusScope.of(context).requestFocus(FocusNode()); // Hide the keyboard when the field is cleared
+                    widget.onClear();
                   },
+                ),
+              ),
+            );
+          },
+          optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
+            final int optionCount = options.length;
+            const double optionHeight = 56.0; // Default height of ListTile
+
+            return Align(
+              alignment: Alignment.topLeft,
+              child: Material(
+                elevation: 4.0,
+                child: ConstrainedBox(
+                  constraints: BoxConstraints(
+                    maxHeight: optionCount <= 4 ? optionHeight * optionCount : optionHeight * 4,
+                  ),
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width - 40, // Adjust to match the width of the TextField
+                    child: ListView.builder(
+                      padding: EdgeInsets.zero,
+                      itemCount: optionCount,
+                      itemBuilder: (BuildContext context, int index) {
+                        final String option = options.elementAt(index);
+                        return ListTile(
+                          title: Text(option),
+                          tileColor: index == 0 ? Colors.grey[200] : Colors.white,
+                          onTap: () {
+                            onSelected(option);
+                          },
+                          hoverColor: Colors.grey[500], 
+                        );
+                      },
+                    ),
+                  ),
                 ),
               ),
             );

@@ -139,7 +139,7 @@ class AddExpensePageState extends State<AddExpensePage> {
         title: Text(widget.expense == null ? 'Dodaj wydatek' : 'Edytuj wydatek'),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20),
         child: Form(
           key: _formKey,
           child: ListView(
