@@ -1,3 +1,5 @@
+import 'package:expenses_app_project/main.dart';
+
 import '../../Repositories/Import & Export & Delete/csv_import_export.dart';
 import 'package:expenses_app_project/Main%20Pages/Expenses%20List/add_expense_page.dart';
 import '../../Repositories/Local Data/expenses_list_element.dart';
@@ -37,23 +39,6 @@ class ExpensesPageState extends State<ExpensesPage> {
   SortOption _currentSortOption = SortOption.date;
   bool _isAscending = true;
 
-  ExpensesListElementModel newExpense = ExpensesListElementModel(
-    localId: '',
-    data: DateTime.now(),
-    sklep: 'Supermarket',
-    kategoria: 'Żywność',
-    produkt: 'Mleko',
-    ilosc: 2,
-    cena: 4.99,
-    miara: 1000,
-    miaraUnit: 'ml',
-    iloscWOpakowaniu: 1,
-    kosztDostawy: 5.0,
-    zwrot: false,
-    link: 'https://example.com',
-    komentarz: 'Zakup na tydzień',
-  );
-
   @override
   void initState() {
     super.initState();
@@ -76,6 +61,7 @@ class ExpensesPageState extends State<ExpensesPage> {
       _applyFilters(_currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending);
     });
 
+    // TODO: Zmienić żeby nie zawsze sie to pokazywało
     _scaffoldMessengerKey.currentState?.showSnackBar(
       SnackBar(content: Text('Załadowano ${localData.length} wydatków')),
     );
@@ -92,8 +78,8 @@ class ExpensesPageState extends State<ExpensesPage> {
           onReplaceCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey, false),
           onExportAllData: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
           onExportFilteredData: (context) => exportCSV(context, _scaffoldMessengerKey, filteredData),
-          onDeleteAllData: (context) => deleteAllData(context, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider),
-          onDeleteFilteredData: (context) => deleteFilteredData(context, filteredData, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider),
+          onDeleteAllData: (context) => deleteAllData(context, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider, navigatorKey),
+          onDeleteFilteredData: (context) => deleteFilteredData(context, filteredData, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider, navigatorKey),
         ),
         body: _buildBody(),
         floatingActionButton: FloatingActionButton(
@@ -107,15 +93,15 @@ class ExpensesPageState extends State<ExpensesPage> {
   }
 
   Future<void> _addNewExpense(BuildContext context) async {
-    Navigator.push(
+     Navigator.push(
       context,
       MaterialPageRoute(
         builder: (context) => const AddExpensePage(expense: null),
       ),
-    ).then((_) async {
-      // await firestore.addExpense(newExpense: newExpense, context: context, scaffoldMessengerKey: _scaffoldMessengerKey);
-      // await expensesProvider.addExpense(newExpense);
-      await loadOrRefreshLocalData();
+    ).then((value) {
+      if (value == true) {
+        loadOrRefreshLocalData();
+      }
     });
   }
 
@@ -133,7 +119,12 @@ class ExpensesPageState extends State<ExpensesPage> {
 
   Widget _buildBody() {
     return Center(
-      child: csvData.isEmpty ? const Text('Brak danych CSV') : _buildListView(),
+      child: csvData.isEmpty 
+        ? const Text('Brak danych CSV') 
+        : RefreshIndicator(
+            onRefresh: loadOrRefreshLocalData,
+            child: _buildListView(),
+          ),
     );
   }
 
@@ -208,7 +199,7 @@ class ExpensesPageState extends State<ExpensesPage> {
     });
   }
 
-  void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption? orderBy, bool? isAscending) {
+    void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption? orderBy, bool? isAscending) {
     if (csvData.isNotEmpty) {
       setState(() {
         filteredData = csvData.where((element) {
@@ -218,7 +209,11 @@ class ExpensesPageState extends State<ExpensesPage> {
           bool matchesCategoryFilter = true;
 
           if (startDate != null && endDate != null) {
-            withinDateRange = element.data.isAfter(startDate) && element.data.isBefore(endDate);
+            if (startDate == endDate) {
+              withinDateRange = element.data.isAtSameMomentAs(startDate) || (element.data.isAfter(startDate) && element.data.isBefore(endDate));
+            } else {
+              withinDateRange = element.data.isAfter(startDate) && element.data.isBefore(endDate);
+            }
           }
 
           if (productFilter != null) {

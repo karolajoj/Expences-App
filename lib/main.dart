@@ -6,6 +6,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter/material.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
+// TODO: WSZĘDZIE UŻYWAĆ navigatorKey zamiast BuildContext
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 

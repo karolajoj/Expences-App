@@ -88,7 +88,7 @@ class ExpenseTile extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddExpensePage(expense: row,),
+                  builder: (context) => AddExpensePage(expense: row),
                 ),
               );
             },

@@ -36,7 +36,7 @@ String getFilterOptionByDateRange(DateTime start, DateTime end, DateTime now) {
     return '30 dni wstecz';
   } else if (isSameRange(start, end, DateTime(now.year, 1, 1), DateTime(now.year + 1, 1, 0))) {
     return 'Obecny rok';
-  } else if (isSameRange(start, end, DateTime(now.year - 1, 1, 1), DateTime(now.year, 1, 0))) {
+  } else if (isSameRange(start, end, now.subtract(const Duration(days: 365)), now)) {
     return 'Rok wstecz';
   } else {
     DateFormat dateFormat = DateFormat('dd.MM.yyyy');

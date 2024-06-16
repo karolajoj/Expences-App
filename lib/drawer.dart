@@ -148,17 +148,17 @@ class AppDrawerState extends State<AppDrawer> {
       ListTile(
         leading: const SizedBox(width: 35),
         title: const Text('Wszystkie dane'),
-        onTap: () {
+        onTap: () async {
           Navigator.pop(context);
-          widget.onDeleteAllData(context);
+          await widget.onDeleteAllData(context);
         },
       ),
       ListTile(
         leading: const SizedBox(width: 35),
         title: const Text('Tylko przefiltrowane dane'),
-        onTap: () {
+        onTap: () async {
           Navigator.pop(context);
-          widget.onDeleteFilteredData(context);
+          await widget.onDeleteFilteredData(context);
         },
       ),
     ];

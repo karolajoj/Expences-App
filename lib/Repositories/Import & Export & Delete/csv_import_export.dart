@@ -25,7 +25,11 @@ Future<void> loadCSV(
   if (result != null) {
     List<ExpensesListElementModel> csvDataList = await _parseCSV(result.files.single.path!);
 
-    bool? confirm = await _showConfirmationDialog(csvDataList.length);
+    bool? confirm = await _showConfirmationDialog(
+      'Potwierdzenie importu',
+      'Czy na pewno chcesz zaimportować te dane?\n${keepCurrentData ? '' : 'Obecne dane zostaną zastąpione nowymi\n'}Łącznie : ${csvDataList.length} wydatków',
+      navigatorKey,
+    );
 
     if (confirm == true) {
       await _handleCSVData(csvDataList, setState, csvData, filteredData, dateColorMap, applyDefaultFilters, scaffoldMessengerKey, keepCurrentData);
@@ -166,13 +170,14 @@ Future<void> _writeCSVFile(
   }
 }
 
-Future<bool?> _showConfirmationDialog(int dataCount) {
+// TODO: Przenieść do utils.dart
+Future<bool?> _showConfirmationDialog(String title, String content, GlobalKey<NavigatorState> navigatorKey) {
   return showDialog<bool>(
     context: navigatorKey.currentContext!,
     builder: (BuildContext context) {
       return AlertDialog(
-        title: const Text('Potwierdzenie Importu'),
-        content: Text('Czy chcesz dodać $dataCount nowych wydatków?'),
+        title: Text(title),
+        content: Text(content),
         actions: <Widget>[
           TextButton(
             onPressed: () => Navigator.of(context).pop(false),
@@ -188,17 +193,101 @@ Future<bool?> _showConfirmationDialog(int dataCount) {
   );
 }
 
-void deleteAllData(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider) async {
-  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
-  int count = box.length;
-  await expensesProvider.deleteAllExpense();
-  await loadOrRefreshLocalData();
-  scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Wszystkie dane zostały usunięte: $count wydatków')));
+void _showLoadingDialog(GlobalKey<NavigatorState> navigatorKey) {
+  showDialog(
+    context: navigatorKey.currentContext!,
+    barrierDismissible: false,
+    builder: (BuildContext context) {
+      return const AlertDialog(
+        content: Row(
+          children: [
+            CircularProgressIndicator(),
+            SizedBox(width: 20),
+            Expanded(child: Text("Trwa usuwanie danych...")),
+          ],
+        ),
+      );
+    },
+  );
 }
 
-void deleteFilteredData(BuildContext context, List<ExpensesListElementModel> filteredData, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider) async {
-  int count = filteredData.length;
-  await Future.wait(filteredData.map((expense) => expensesProvider.deleteExpense(expense.localId)));
+Future<void> deleteAllData(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider, GlobalKey<NavigatorState> navigatorKey) async {
+  int count = await Hive.openBox<ExpensesListElementModel>('expenses_local').then((box) => box.length);
+
+  if (count == 0) {
+    scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Brak danych do usunięcia')));
+    return;
+  }
+
+  final bool? confirm = await _showConfirmationDialog('Potwierdzenie usunięcia','Czy na pewno chcesz usunąć te dane?\nŁącznie : $count wydatków',navigatorKey,);
+
+  if (confirm != true) {return;}
+
+  _showLoadingDialog(navigatorKey);
+
+  bool allDeleted = false;
+
+  while (!allDeleted) {
+    await expensesProvider.deleteAllExpense();
+
+    var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+    if (box.isEmpty) {
+      allDeleted = true;
+    } else {
+      await Future.delayed(const Duration(milliseconds: 100));
+    }
+  }
+
+  navigatorKey.currentState?.pop();
+
   await loadOrRefreshLocalData();
-  scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Przefiltrowane dane zostały usunięte: $count wydatków')));
+
+  scaffoldMessengerKey.currentState?.showSnackBar(
+    SnackBar(content: Text('Wszystkie dane zostały usunięte: $count wydatków')),
+  );
+}
+
+Future<void> deleteFilteredData(BuildContext context, List<ExpensesListElementModel> filteredData, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider, GlobalKey<NavigatorState> navigatorKey) async {
+  int count = filteredData.length;
+
+  if (count == 0) {
+    scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Brak danych do usunięcia')));
+    return;
+  }
+
+  final bool? confirm = await _showConfirmationDialog('Potwierdzenie usunięcia', 'Czy na pewno chcesz usunąć te dane?\nŁącznie : $count wydatków', navigatorKey);
+
+  if (confirm != true) {return;}
+
+  _showLoadingDialog(navigatorKey);
+
+  bool allDeleted = false;
+  List<ExpensesListElementModel> notDeleted = [];
+
+  while (!allDeleted) {
+    notDeleted.clear();
+    for (var expense in filteredData) {
+      await expensesProvider.deleteExpense(expense.localId);
+    }
+
+    for (var expense in filteredData) {
+      if (expensesProvider.getExpenseById(expense.localId) != null) {
+        notDeleted.add(expense);
+      }
+    }
+
+    if (notDeleted.isEmpty) {
+      allDeleted = true;
+    } else {
+      await Future.delayed(const Duration(milliseconds: 100));
+    }
+  }
+
+  navigatorKey.currentState?.pop();
+
+  await loadOrRefreshLocalData();
+
+  scaffoldMessengerKey.currentState?.showSnackBar(
+    SnackBar(content: Text('Przefiltrowane dane zostały usunięte: $count wydatków')),
+  );
 }

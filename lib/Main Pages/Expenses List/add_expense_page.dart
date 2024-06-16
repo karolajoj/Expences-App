@@ -1,6 +1,6 @@
+import 'package:calendar_date_picker2/calendar_date_picker2.dart';
+
 import '../../Repositories/Local Data/expenses_list_element.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../autocomplete_field.dart';
 import 'package:intl/intl.dart';
@@ -17,7 +17,6 @@ class AddExpensePage extends StatefulWidget {
 }
 
 class AddExpensePageState extends State<AddExpensePage> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   final _formKey = GlobalKey<FormState>();
 
   late DateTime _data;
@@ -38,11 +37,15 @@ class AddExpensePageState extends State<AddExpensePage> {
   late ValueNotifier<String> categoryNotifier;
   late ValueNotifier<String> productNotifier;
 
+  final List<String> miaraUnits = ['kg', 'g', 'ml', 'l', 'szt'];
+  late TextEditingController _dataController;
+
   @override
   void initState() {
     super.initState();
     _initializeFields();
     _loadSuggestions();
+    _dataController = TextEditingController(text: DateFormat('dd.MM.yyyy').format(_data));
   }
 
   void _initializeFields() {
@@ -61,24 +64,28 @@ class AddExpensePageState extends State<AddExpensePage> {
       _link = widget.expense!.link;
       _komentarz = widget.expense!.komentarz;
     } else {
-      _data = DateTime.now();
-      _sklep = '';
-      _kategoria = '';
-      _produkt = '';
-      _ilosc = 1;
-      _cena = 0.0;
-      _miara = null;
-      _miaraUnit = null;
-      _iloscWOpakowaniu = null;
-      _kosztDostawy = null;
-      _zwrot = false;
-      _link = '';
-      _komentarz = '';
+      _resetFields();
     }
 
     shopNotifier = ValueNotifier(_sklep);
     categoryNotifier = ValueNotifier(_kategoria);
     productNotifier = ValueNotifier(_produkt);
+  }
+
+  void _resetFields() {
+    _data = DateTime.now();
+    _sklep = '';
+    _kategoria = '';
+    _produkt = '';
+    _ilosc = 1;
+    _cena = 0.0;
+    _miara = null;
+    _miaraUnit = null;
+    _iloscWOpakowaniu = null;
+    _kosztDostawy = null;
+    _zwrot = false;
+    _link = '';
+    _komentarz = '';
   }
 
   Future<void> _loadSuggestions() async {
@@ -109,36 +116,37 @@ class AddExpensePageState extends State<AddExpensePage> {
       );
 
       await _saveExpenseLocally(newExpense);
-      await _saveExpenseToFirebase(newExpense);
 
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')));
-        Navigator.pop(context);
+        Navigator.pop(context, true);
       }
     }
   }
 
-
-  Future<void> _saveExpenseToFirebase(ExpensesListElementModel expense) async {
-    final User? user = _auth.currentUser;
-    if (user == null) {
-      throw Exception('Nie zalogowano użytkownika');
-    }
-
-    final newExpense = expense.copyWith(firebaseId: expense.firebaseId ?? FirebaseFirestore.instance.collection('dummy').doc().id);
-    
-    await FirebaseFirestore.instance
-        .collection("MainCollection")
-        .doc(user.uid)
-        .collection("expenses")
-        .doc(newExpense.firebaseId)
-        .set(newExpense.toMap());
-  }
-
-
   Future<void> _saveExpenseLocally(ExpensesListElementModel expense) async {
     var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
     await box.put(expense.localId, expense);
+  }
+
+  String _calculatePrice(String input) {
+    input = input.replaceAll(',', '.');
+    if (input.contains('/')) {
+      var parts = input.split('/');
+      if (parts.length == 2) {
+        double num = double.tryParse(parts[0]) ?? 0;
+        double denom = double.tryParse(parts[1]) ?? 1;
+        return (num / denom).toString();
+      }
+    } else if (input.contains('*')) {
+      var parts = input.split('*');
+      if (parts.length == 2) {
+        double num1 = double.tryParse(parts[0]) ?? 0;
+        double num2 = double.tryParse(parts[1]) ?? 0;
+        return (num1 * num2).toString();
+      }
+    }
+    return double.tryParse(input)?.toString() ?? '0.0';
   }
 
   @override
@@ -146,7 +154,100 @@ class AddExpensePageState extends State<AddExpensePage> {
     shopNotifier.dispose();
     categoryNotifier.dispose();
     productNotifier.dispose();
+    _dataController.dispose();
     super.dispose();
+  }
+
+  Widget _buildDateField() {
+    return TextFormField(
+      controller: _dataController,
+      decoration: const InputDecoration(labelText: 'Data'),
+      readOnly: true,
+      onTap: () async {
+        final List<DateTime?>? picked = await showCalendarDatePicker2Dialog(
+          context: context,
+          config: CalendarDatePicker2WithActionButtonsConfig(
+            calendarType: CalendarDatePicker2Type.single,
+            firstDayOfWeek: 1,
+          ),
+          dialogSize: const Size(325, 400),
+        );
+        if (picked != null && picked.isNotEmpty && picked.first != _data) {
+          setState(() {
+            _data = picked.first!;
+            _dataController.text = DateFormat('dd.MM.yyyy').format(_data);
+          });
+        }
+      },
+    );
+  }
+
+
+  // Widget _buildAutocompleteField(String label, ValueNotifier<String> notifier, List<String> options, Function(String) onSelected) {
+  //   return AutocompleteField(
+  //     options: options,
+  //     label: label,
+  //     valueNotifier: notifier,
+  //     onSelected: (selection) {
+  //       setState(() {
+  //         onSelected(selection);
+  //         notifier.value = selection;
+  //       });
+  //     },
+  //     onClear: () {
+  //       setState(() {
+  //         onSelected('');
+  //         notifier.value = '';
+  //       });
+  //     },
+  //   );
+  // }
+
+  Widget _buildDropdownButtonFormField() {
+    return DropdownButtonFormField<String>(
+      value: _miaraUnit,
+      decoration: const InputDecoration(labelText: 'Jednostka miary'),
+      items: miaraUnits.map((String unit) {
+        return DropdownMenuItem<String>(
+          value: unit,
+          child: Text(unit),
+        );
+      }).toList(),
+      onChanged: (newValue) {
+        setState(() {
+          _miaraUnit = newValue;
+        });
+      },
+      onSaved: (value) => _miaraUnit = value,
+    );
+  }
+
+  Widget _buildNullableTextFormField({
+    required String? initialValue,
+    required String labelText,
+    required Function(String?) onSaved,
+    TextInputType keyboardType = TextInputType.text,
+  }) {
+    return TextFormField(
+      initialValue: initialValue ?? '',
+      decoration: InputDecoration(labelText: labelText),
+      keyboardType: keyboardType,
+      onSaved: (value) => onSaved(value?.isEmpty == true ? null : value),
+    );
+  }
+
+  Widget _buildTextFormField({
+    required String initialValue,
+    required String labelText,
+    required Function(String?) onSaved,
+    TextInputType keyboardType = TextInputType.text,
+  }) {
+    return TextFormField(
+      initialValue: initialValue,
+      decoration: InputDecoration(labelText: labelText),
+      keyboardType: keyboardType,
+      onSaved: onSaved,
+    );
   }
 
   @override
@@ -161,24 +262,7 @@ class AddExpensePageState extends State<AddExpensePage> {
           key: _formKey,
           child: ListView(
             children: [
-              TextFormField(
-                initialValue: DateFormat('dd.MM.yyyy').format(_data),
-                decoration: const InputDecoration(labelText: 'Data'),
-                readOnly: true,
-                onTap: () async {
-                  final DateTime? picked = await showDatePicker(
-                    context: context,
-                    initialDate: _data,
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime(2101),
-                  );
-                  if (picked != null && picked != _data) {
-                    setState(() {
-                      _data = picked;
-                    });
-                  }
-                },
-              ),
+              _buildDateField(),
               AutocompleteField(
                 options: getAllSklepy(),
                 label: 'Sklep',
@@ -230,40 +314,36 @@ class AddExpensePageState extends State<AddExpensePage> {
                   });
                 },
               ),
-              TextFormField(
+              _buildTextFormField(
                 initialValue: _ilosc.toString(),
-                decoration: const InputDecoration(labelText: 'Ilość'),
+                labelText: 'Ilość',
                 keyboardType: TextInputType.number,
                 onSaved: (value) => _ilosc = int.parse(value ?? '1'),
               ),
-              TextFormField(
+              _buildTextFormField(
                 initialValue: _cena.toString(),
-                decoration: const InputDecoration(labelText: 'Cena'),
+                labelText: 'Cena',
                 keyboardType: TextInputType.number,
-                onSaved: (value) => _cena = double.parse(value ?? '0.0'),
+                onSaved: (value) => _cena = double.parse(_calculatePrice(value ?? '0.0')),
               ),
-              TextFormField(
+              _buildNullableTextFormField(
                 initialValue: _miara?.toString(),
-                decoration: const InputDecoration(labelText: 'Miara'),
+                labelText: 'Miara',
                 keyboardType: TextInputType.number,
-                onSaved: (value) => _miara = int.parse(value ?? '1'),
+                onSaved: (value) => _miara = value != null ? int.parse(value) : null,
               ),
-              TextFormField(
-                initialValue: _miaraUnit ?? '',
-                decoration: const InputDecoration(labelText: 'Jednostka miary'),
-                onSaved: (value) => _miaraUnit = value,
-              ),
-              TextFormField(
+              _buildDropdownButtonFormField(),
+              _buildNullableTextFormField(
                 initialValue: _iloscWOpakowaniu?.toString(),
-                decoration: const InputDecoration(labelText: 'Ilość w opakowaniu'),
+                labelText: 'Ilość w opakowaniu',
                 keyboardType: TextInputType.number,
-                onSaved: (value) => _iloscWOpakowaniu = int.parse(value ?? '1'),
+                onSaved: (value) => _iloscWOpakowaniu = value != null ? int.parse(value) : null,
               ),
-              TextFormField(
+              _buildNullableTextFormField(
                 initialValue: _kosztDostawy?.toString(),
-                decoration: const InputDecoration(labelText: 'Koszt dostawy'),
+                labelText: 'Koszt dostawy',
                 keyboardType: TextInputType.number,
-                onSaved: (value) => _kosztDostawy = double.parse(value ?? '0.0'),
+                onSaved: (value) => _kosztDostawy = value != null ? double.parse(value) : null,
               ),
               Row(
                 children: [
@@ -278,14 +358,14 @@ class AddExpensePageState extends State<AddExpensePage> {
                   ),
                 ],
               ),
-              TextFormField(
+              _buildTextFormField(
                 initialValue: _link,
-                decoration: const InputDecoration(labelText: 'Link'),
+                labelText: 'Link',
                 onSaved: (value) => _link = value ?? '',
               ),
-              TextFormField(
+              _buildTextFormField(
                 initialValue: _komentarz,
-                decoration: const InputDecoration(labelText: 'Komentarz'),
+                labelText: 'Komentarz',
                 onSaved: (value) => _komentarz = value ?? '',
               ),
               ElevatedButton(

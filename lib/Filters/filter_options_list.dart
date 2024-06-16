@@ -66,14 +66,16 @@ class FilterOptionsList extends StatelessWidget {
           title: const Text('Rok wstecz'),
           onTap: () {
             Navigator.pop(context);
-            onSelectDateRange(DateTime(now.year - 1, 1, 1), DateTime(now.year, 1, 0), 'Rok wstecz');
+            DateTime now = DateTime.now();
+            DateTime oneYearAgo = now.subtract(const Duration(days: 365));
+            onSelectDateRange(oneYearAgo, now, 'Rok wstecz');
           },
         ),
         ListTile(
           title: const Text('Całość'),
           onTap: () {
             Navigator.pop(context);
-            onSelectDateRange(null, null, "Całość"); // No date range
+            onSelectDateRange(null, null, "Całość");
           },
         ),
         ListTile(

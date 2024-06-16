@@ -42,9 +42,6 @@ class AutocompleteFieldState extends State<AutocompleteField> {
       builder: (context, value, child) {
         return Autocomplete<String>(
           optionsBuilder: (TextEditingValue textEditingValue) {
-            if (textEditingValue.text.isEmpty) {
-              return const Iterable<String>.empty();
-            }
             return widget.options.where((String option) {
               return option.toLowerCase().contains(textEditingValue.text.toLowerCase());
             });
@@ -74,7 +71,8 @@ class AutocompleteFieldState extends State<AutocompleteField> {
             );
           },
           optionsViewBuilder: (BuildContext context, AutocompleteOnSelected<String> onSelected, Iterable<String> options) {
-            final int optionCount = options.length;
+            final List<String> allOptions = widget.options;
+            final int optionCount = allOptions.length;
             const double optionHeight = 56.0; // Default height of ListTile
 
             return Align(
@@ -91,14 +89,14 @@ class AutocompleteFieldState extends State<AutocompleteField> {
                       padding: EdgeInsets.zero,
                       itemCount: optionCount,
                       itemBuilder: (BuildContext context, int index) {
-                        final String option = options.elementAt(index);
+                        final String option = allOptions[index];
                         return ListTile(
                           title: Text(option),
                           tileColor: index == 0 ? Colors.grey[200] : Colors.white,
                           onTap: () {
                             onSelected(option);
                           },
-                          hoverColor: Colors.grey[500], 
+                          hoverColor: Colors.grey[500],
                         );
                       },
                     ),
