@@ -1,6 +1,6 @@
 import 'package:calendar_date_picker2/calendar_date_picker2.dart';
-
 import '../../Repositories/Local Data/expenses_list_element.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/material.dart';
 import '../../autocomplete_field.dart';
 import 'package:intl/intl.dart';
@@ -9,8 +9,9 @@ import '../../utils.dart';
 
 class AddExpensePage extends StatefulWidget {
   final ExpensesListElementModel? expense;
+  final Function loadOrRefreshLocalData;
 
-  const AddExpensePage({super.key, this.expense});
+  const AddExpensePage({super.key, this.expense, required this.loadOrRefreshLocalData});
 
   @override
   AddExpensePageState createState() => AddExpensePageState();
@@ -73,7 +74,7 @@ class AddExpensePageState extends State<AddExpensePage> {
   }
 
   void _resetFields() {
-    _data = DateTime.now();
+    _data = DateTime.now().copyWith(hour: 0, minute: 0, second: 0, millisecond: 0, microsecond: 0);
     _sklep = '';
     _kategoria = '';
     _produkt = '';
@@ -117,6 +118,8 @@ class AddExpensePageState extends State<AddExpensePage> {
 
       await _saveExpenseLocally(newExpense);
 
+      await widget.loadOrRefreshLocalData();
+
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')));
         Navigator.pop(context, true);
@@ -158,6 +161,7 @@ class AddExpensePageState extends State<AddExpensePage> {
     super.dispose();
   }
 
+  // TODO : Ustawić tak żeby nie można było ustawić daty w przyszłości ??
   Widget _buildDateField() {
     return TextFormField(
       controller: _dataController,
@@ -181,27 +185,6 @@ class AddExpensePageState extends State<AddExpensePage> {
       },
     );
   }
-
-
-  // Widget _buildAutocompleteField(String label, ValueNotifier<String> notifier, List<String> options, Function(String) onSelected) {
-  //   return AutocompleteField(
-  //     options: options,
-  //     label: label,
-  //     valueNotifier: notifier,
-  //     onSelected: (selection) {
-  //       setState(() {
-  //         onSelected(selection);
-  //         notifier.value = selection;
-  //       });
-  //     },
-  //     onClear: () {
-  //       setState(() {
-  //         onSelected('');
-  //         notifier.value = '';
-  //       });
-  //     },
-  //   );
-  // }
 
   Widget _buildDropdownButtonFormField() {
     return DropdownButtonFormField<String>(
@@ -241,11 +224,13 @@ class AddExpensePageState extends State<AddExpensePage> {
     required String labelText,
     required Function(String?) onSaved,
     TextInputType keyboardType = TextInputType.text,
+    List<TextInputFormatter>? inputFormatters,
   }) {
     return TextFormField(
       initialValue: initialValue,
       decoration: InputDecoration(labelText: labelText),
       keyboardType: keyboardType,
+      inputFormatters: inputFormatters,
       onSaved: onSaved,
     );
   }
@@ -323,7 +308,10 @@ class AddExpensePageState extends State<AddExpensePage> {
               _buildTextFormField(
                 initialValue: _cena.toString(),
                 labelText: 'Cena',
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[\d\.,/*]')),
+                ],
                 onSaved: (value) => _cena = double.parse(_calculatePrice(value ?? '0.0')),
               ),
               _buildNullableTextFormField(

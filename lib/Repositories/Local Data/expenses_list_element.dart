@@ -8,55 +8,55 @@ class ExpensesListElementModel {
   final String localId;
 
   @HiveField(1)
-  final DateTime data;
+  final String? firebaseId;
 
   @HiveField(2)
-  final String sklep;
+  final DateTime data;
 
   @HiveField(3)
-  final String kategoria;
+  final String sklep;
 
   @HiveField(4)
-  final String produkt;
+  final String kategoria;
 
   @HiveField(5)
-  final int ilosc;
+  final String produkt;
 
   @HiveField(6)
-  final double cena;
+  final int ilosc;
 
   @HiveField(7)
-  final int? miara;
+  final double cena;
 
   @HiveField(8)
-  final String? miaraUnit;
+  final int? miara;
 
   @HiveField(9)
-  final int? iloscWOpakowaniu;
+  final String? miaraUnit;
 
   @HiveField(10)
-  final double? kosztDostawy;
+  final int? iloscWOpakowaniu;
 
   @HiveField(11)
-  final double totalCost;
+  final double? pricePerPiece;
 
   @HiveField(12)
   final double? pricePerKg;
 
   @HiveField(13)
-  final double? pricePerPiece;
+  final double? kosztDostawy;
 
   @HiveField(14)
   final bool zwrot;
 
   @HiveField(15)
-  final String link;
+  final double totalCost;
 
   @HiveField(16)
-  final String komentarz;
+  final String link;
 
   @HiveField(17)
-  final String? firebaseId;
+  final String komentarz;
 
   ExpensesListElementModel({
     String? localId,
@@ -75,8 +75,8 @@ class ExpensesListElementModel {
     required this.link,
     required this.komentarz,
   })  : totalCost = _calculateTotalCost(cena, ilosc, kosztDostawy),
-        pricePerKg = _calculatePricePerKg(cena, kosztDostawy, miara),
-        pricePerPiece = _calculatePricePerPiece(cena, kosztDostawy, iloscWOpakowaniu),
+        pricePerKg = _calculatePricePerKg(cena, kosztDostawy, miara, ilosc),
+        pricePerPiece = _calculatePricePerPiece(cena, kosztDostawy, iloscWOpakowaniu, ilosc),
         localId = localId ?? DateTime.now().millisecondsSinceEpoch.toString();
 
   static double _calculateTotalCost(double cena, int ilosc, double? kosztDostawy) {
@@ -87,18 +87,16 @@ class ExpensesListElementModel {
     return koszt;
   }
 
-  static double? _calculatePricePerKg(double cena, double? kosztDostawy, int? miara) {
+  static double? _calculatePricePerKg(double cena, double? kosztDostawy, int? miara, int ilosc) {
     if (miara != null && miara > 0) {
-      kosztDostawy ??= 0;
-      return (cena + kosztDostawy) / miara * 1000;
+      return _calculateTotalCost(cena, ilosc, kosztDostawy) / (miara * ilosc) * 1000;
     }
     return null;
   }
 
-  static double? _calculatePricePerPiece(double cena, double? kosztDostawy, int? iloscWOpakowaniu) {
+  static double? _calculatePricePerPiece(double cena, double? kosztDostawy, int? iloscWOpakowaniu, int ilosc) {
     if (iloscWOpakowaniu != null && iloscWOpakowaniu > 0) {
-      kosztDostawy ??= 0;
-      return (cena + kosztDostawy) / iloscWOpakowaniu;
+      return _calculateTotalCost(cena, ilosc, kosztDostawy) / iloscWOpakowaniu;
     }
     return null;
   }

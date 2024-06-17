@@ -96,13 +96,9 @@ class ExpensesPageState extends State<ExpensesPage> {
      Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const AddExpensePage(expense: null),
+        builder: (context) => AddExpensePage(expense: null, loadOrRefreshLocalData: loadOrRefreshLocalData),
       ),
-    ).then((value) {
-      if (value == true) {
-        loadOrRefreshLocalData();
-      }
-    });
+    );
   }
 
   AppBar _buildAppBar(BuildContext context) {
@@ -139,6 +135,7 @@ class ExpensesPageState extends State<ExpensesPage> {
               return ExpenseTile(
                 row: row,
                 index: index,
+                loadOrRefreshLocalData: loadOrRefreshLocalData,
                 dateColorMap: dateColorMap,
                 expandedTiles: expandedTiles,
                 scaffoldMessengerKey: _scaffoldMessengerKey,
@@ -208,12 +205,10 @@ class ExpensesPageState extends State<ExpensesPage> {
           bool matchesShopFilter = true;
           bool matchesCategoryFilter = true;
 
+          
           if (startDate != null && endDate != null) {
-            if (startDate == endDate) {
-              withinDateRange = element.data.isAtSameMomentAs(startDate) || (element.data.isAfter(startDate) && element.data.isBefore(endDate));
-            } else {
-              withinDateRange = element.data.isAfter(startDate) && element.data.isBefore(endDate);
-            }
+            withinDateRange = (element.data.isAfter(startDate) || element.data.isAtSameMomentAs(startDate))
+                           && (element.data.isBefore(endDate) || element.data.isAtSameMomentAs(endDate));
           }
 
           if (productFilter != null) {

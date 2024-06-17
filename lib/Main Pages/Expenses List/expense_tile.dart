@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 class ExpenseTile extends StatelessWidget {
   final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey;
   final ValueChanged<bool> onExpansionChanged;
+  final Function loadOrRefreshLocalData;
   final Map<String, Color> dateColorMap;
   final ExpensesListElementModel row;
   final Set<int> expandedTiles;
@@ -15,6 +16,7 @@ class ExpenseTile extends StatelessWidget {
   const ExpenseTile({super.key, 
     required this.row,
     required this.index,
+    required this.loadOrRefreshLocalData,
     required this.dateColorMap,
     required this.expandedTiles,
     required this.onExpansionChanged,
@@ -88,7 +90,7 @@ class ExpenseTile extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => AddExpensePage(expense: row),
+                  builder: (context) => AddExpensePage(expense: row, loadOrRefreshLocalData: loadOrRefreshLocalData),
                 ),
               );
             },

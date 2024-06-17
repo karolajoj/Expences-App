@@ -38,7 +38,7 @@ class ExpensesProvider {
   }
 
   Future<void> deleteExpense(String id) async {
-    final key = _expensesBox.keys.cast<int?>().firstWhere((element) {
+    final key = _expensesBox.keys.firstWhere((element) {
       final expense = _expensesBox.get(element);
       return expense?.localId == id;
     }, orElse: () => null);

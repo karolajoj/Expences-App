@@ -2,6 +2,7 @@ import 'package:expenses_app_project/Main%20Pages/Expenses%20List/expenses_page.
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
+import '../main_page.dart';
 
 class AuthService {
   Future<void> signup({
@@ -55,7 +56,7 @@ class AuthService {
       if (context.mounted) {
         Navigator.pushReplacement(
           context,
-          MaterialPageRoute(builder: (BuildContext context) => const ExpensesPage()),
+          MaterialPageRoute(builder: (BuildContext context) => const MainPage()),
         );
       }
     } on FirebaseAuthException catch (e) {
@@ -78,7 +79,7 @@ class AuthService {
     if (context.mounted) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (BuildContext context) => const ExpensesPage()),
+        MaterialPageRoute(builder: (BuildContext context) => const MainPage()),
       );
     }
   }

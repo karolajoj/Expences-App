@@ -34,3 +34,8 @@ Hive (Store Local Data)
     dart run build_runner build
 
     Pliki generować w /lib
+
+Zmiana kolejności HiveField
+    - zmienić kolejność
+    - dart run build_runner build --delete-conflicting-outputs
+    - wyczyścić dane aplikacji (Na windows są w ...)

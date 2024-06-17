@@ -7,13 +7,14 @@ class FilterOptionsList extends StatelessWidget {
   final DateTime now;
   final List<DateTime?> selectedDates;
 
-  const FilterOptionsList({
+  FilterOptionsList({
     super.key,
     required this.onSelectDateRange,
-    required this.now,
+    required DateTime now,
     required this.selectedDates,
-  });
+  }) : now = now.copyWith(hour: 0, minute: 0, second: 0, millisecond: 0, microsecond: 0);
 
+  // TODO : Po obróceniu ekranu jest overflow
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -31,7 +32,8 @@ class FilterOptionsList extends StatelessWidget {
           onTap: () {
             Navigator.pop(context);
             DateTime startOfWeek = now.subtract(Duration(days: now.weekday - 1));
-            onSelectDateRange(startOfWeek, startOfWeek.add(const Duration(days: 6)), 'Obecny tydzień');
+            DateTime endOfWeek = startOfWeek.add(const Duration(days: 6));
+            onSelectDateRange(startOfWeek, endOfWeek, 'Obecny tydzień');
           },
         ),
         ListTile(
@@ -66,7 +68,6 @@ class FilterOptionsList extends StatelessWidget {
           title: const Text('Rok wstecz'),
           onTap: () {
             Navigator.pop(context);
-            DateTime now = DateTime.now();
             DateTime oneYearAgo = now.subtract(const Duration(days: 365));
             onSelectDateRange(oneYearAgo, now, 'Rok wstecz');
           },
