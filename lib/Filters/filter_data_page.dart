@@ -6,6 +6,8 @@ import '../utils.dart';
 
 enum SortOption { date, product, cost }
 
+
+// TODO : Traktować elementy z flagą toBeDeleted jako nieistniejące i ich nie pokazywać w aplikacji
 class FilterDataPage extends StatefulWidget {
   final Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool) onFiltersApplied;
   final DateTime? currentStartDate;

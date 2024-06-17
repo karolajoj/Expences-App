@@ -2,14 +2,14 @@ import '../Local Data/expenses_list_element.dart';
 import 'package:expenses_app_project/utils.dart';
 import 'package:expenses_app_project/main.dart';
 import 'package:file_picker/file_picker.dart';
+import '../Local Data/expenses_provider.dart';
 import 'package:flutter/material.dart';
+import '../Online Data/firestore.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:csv/csv.dart';
 import 'dart:convert';
 import 'dart:io';
-
-import '../Local Data/expenses_provider.dart';
 
 Future<void> loadCSV(
   Function(void Function()) setState,
@@ -68,6 +68,7 @@ Future<List<ExpensesListElementModel>> _parseCSV(String filePath) async {
   }).toList();
 }
 
+// TODO : Przy usuwaniu lokalnie, ustawić flagę do usunięcia z Firebase ??
 Future<void> _handleCSVData(
   List<ExpensesListElementModel> csvDataList,
   Function(void Function()) setState,
@@ -81,7 +82,6 @@ Future<void> _handleCSVData(
   if (!keepCurrentData) {
     var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
     await box.clear();
-    // Dodatkowo dane powinny być tu usuwane z Firebase
   }
   
   setState(() {
@@ -100,6 +100,12 @@ Future<void> _handleCSVData(
 
   var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
   await box.addAll(csvDataList);
+
+  await FirestoreService().addExpenses(
+    scaffoldMessengerKey: scaffoldMessengerKey,
+    newExpenses: csvDataList,
+    navigatorKey: navigatorKey
+  );
 
   scaffoldMessengerKey.currentState?.showSnackBar(
     const SnackBar(content: Text('Dane zostały zaimportowane')),

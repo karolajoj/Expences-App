@@ -1,4 +1,5 @@
 import 'package:hive/hive.dart';
+import 'package:uuid/uuid.dart';
 
 part 'expenses_list_element.g.dart';
 
@@ -58,6 +59,15 @@ class ExpensesListElementModel {
   @HiveField(17)
   final String komentarz;
 
+  @HiveField(18)
+  late bool? toBeSent; // Meaning added localy but not yet on server
+
+  @HiveField(18)
+  late bool? toBeUpdated; // Meaning modified localy but not yet on server
+
+  @HiveField(20)
+  late bool? toBeDeleted; // Meaning deleted localy but not yet on server
+
   ExpensesListElementModel({
     String? localId,
     this.firebaseId,
@@ -74,10 +84,13 @@ class ExpensesListElementModel {
     required this.zwrot,
     required this.link,
     required this.komentarz,
+    this.toBeSent = false,
+    this.toBeUpdated = false,
+    this.toBeDeleted = false,
   })  : totalCost = _calculateTotalCost(cena, ilosc, kosztDostawy),
         pricePerKg = _calculatePricePerKg(cena, kosztDostawy, miara, ilosc),
         pricePerPiece = _calculatePricePerPiece(cena, kosztDostawy, iloscWOpakowaniu, ilosc),
-        localId = localId ?? DateTime.now().millisecondsSinceEpoch.toString();
+        localId = localId ?? const Uuid().v4();
 
   static double _calculateTotalCost(double cena, int ilosc, double? kosztDostawy) {
     double koszt = cena * ilosc;
@@ -118,6 +131,9 @@ class ExpensesListElementModel {
       'zwrot': zwrot,
       'link': link,
       'komentarz': komentarz,
+      'toBeSent': toBeSent,
+      'toBeUpdated': toBeUpdated,
+      'toBeDeleted': toBeDeleted,
     };
   }
 
@@ -138,9 +154,12 @@ class ExpensesListElementModel {
       zwrot: map['zwrot'] == "Tak",
       link: map['link'],
       komentarz: map['komentarz'],
+      toBeSent: map['toBeSent'] ?? false,
+      toBeUpdated: map['toBeUpdated'] ?? false,
+      toBeDeleted: map['toBeDeleted'] ?? false,
     );
   }
-
+  
   ExpensesListElementModel copyWith({
     String? localId,
     String? firebaseId,
@@ -157,6 +176,9 @@ class ExpensesListElementModel {
     bool? zwrot,
     String? link,
     String? komentarz,
+    bool? toBeSent,
+    bool? toBeUpdated,
+    bool? toBeDeleted,
   }) {
     return ExpensesListElementModel(
       localId: localId ?? this.localId,
@@ -174,6 +196,9 @@ class ExpensesListElementModel {
       zwrot: zwrot ?? this.zwrot,
       link: link ?? this.link,
       komentarz: komentarz ?? this.komentarz,
+      toBeSent: toBeSent ?? this.toBeSent,
+      toBeUpdated: toBeUpdated ?? this.toBeUpdated,
+      toBeDeleted: toBeDeleted ?? this.toBeDeleted,
     );
   }
 }
