@@ -106,6 +106,8 @@ class AddExpensePageState extends State<AddExpensePage> {
       _kategoria = categoryNotifier.value.isEmpty ? _kategoria : categoryNotifier.value;
       _produkt = productNotifier.value.isEmpty ? _produkt : productNotifier.value;
 
+      bool isUpdating = widget.expense != null;
+
       final newExpense = ExpensesListElementModel(
         localId: widget.expense?.localId,
         firebaseId: widget.expense?.firebaseId,
@@ -122,7 +124,8 @@ class AddExpensePageState extends State<AddExpensePage> {
         zwrot: _zwrot,
         link: _link,
         komentarz: _komentarz,
-        toBeSent: true,
+        toBeSent: !isUpdating, // Ustawienie na true, jeśli dodano nowy wydatek
+        toBeUpdated: isUpdating, // Ustawienie na true, jeśli modyfikowano wydatek
       );
 
       await _saveExpenseLocally(newExpense);
@@ -130,8 +133,7 @@ class AddExpensePageState extends State<AddExpensePage> {
       await widget.loadOrRefreshLocalData();
 
       widget.navigatorKey.currentState?.pop();
-      ScaffoldMessenger.of(widget.navigatorKey.currentContext!).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')),
-      );
+      ScaffoldMessenger.of(widget.navigatorKey.currentContext!).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')));
     }
 }
 

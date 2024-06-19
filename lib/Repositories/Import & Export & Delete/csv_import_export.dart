@@ -68,7 +68,6 @@ Future<List<ExpensesListElementModel>> _parseCSV(String filePath) async {
   }).toList();
 }
 
-// TODO : Przy usuwaniu lokalnie, ustawić flagę do usunięcia z Firebase ??
 Future<void> _handleCSVData(
   List<ExpensesListElementModel> csvDataList,
   Function(void Function()) setState,
@@ -296,5 +295,71 @@ Future<void> deleteFilteredData(BuildContext context, List<ExpensesListElementMo
 
   scaffoldMessengerKey.currentState?.showSnackBar(
     SnackBar(content: Text('Przefiltrowane dane zostały usunięte: $count wydatków')),
+  );
+}
+
+Future<void> markAllDataForDeletion(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider, GlobalKey<NavigatorState> navigatorKey) async {
+  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+  int count = box.length;
+
+  if (count == 0) {
+    scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Brak danych do usunięcia')));
+    return;
+  }
+
+  final bool? confirm = await _showConfirmationDialog('Potwierdzenie usunięcia', 'Czy na pewno chcesz usunąć te dane?\nŁącznie : $count wydatków', navigatorKey);
+
+  if (confirm != true) {return;}
+
+  _showLoadingDialog(navigatorKey);
+
+  for (var key in box.keys) {
+    var expense = box.get(key);
+    if (expense != null) {
+      expense.toBeDeleted = true;
+      await box.put(key, expense);
+    }
+  }
+
+  navigatorKey.currentState?.pop();
+
+  await loadOrRefreshLocalData();
+
+  scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Wszystkie dane zostały oznaczone do usunięcia: $count wydatków')));
+}
+
+Future<void> markFilteredDataForDeletion(BuildContext context, List<ExpensesListElementModel> filteredData, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider, GlobalKey<NavigatorState> navigatorKey) async {
+  int count = filteredData.length;
+
+  if (count == 0) {
+    scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Brak danych do usunięcia')));
+    return;
+  }
+
+  final bool? confirm = await _showConfirmationDialog('Potwierdzenie usunięcia', 'Czy na pewno chcesz usunąć te dane?\nŁącznie : $count wydatków', navigatorKey);
+
+  if (confirm != true) {return;}
+
+  _showLoadingDialog(navigatorKey);
+
+  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+
+  for (var expense in filteredData) {
+    var key = box.keys.firstWhere((k) => box.get(k)?.localId == expense.localId, orElse: () => null);
+    if (key != null) {
+      var expense = box.get(key);
+      if (expense != null) {
+        expense.toBeDeleted = true;
+        await box.put(key, expense);
+      }
+    }
+  }
+
+  navigatorKey.currentState?.pop();
+
+  await loadOrRefreshLocalData();
+
+  scaffoldMessengerKey.currentState?.showSnackBar(
+    SnackBar(content: Text('Przefiltrowane dane zostały oznaczone do usunięcia: $count wydatków')),
   );
 }

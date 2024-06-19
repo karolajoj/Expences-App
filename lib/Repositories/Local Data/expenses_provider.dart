@@ -48,6 +48,21 @@ class ExpensesProvider {
     }
   }
 
+  Future<void> setForDeletion(String id) async {
+  final key = _expensesBox.keys.firstWhere((element) {
+    final expense = _expensesBox.get(element);
+    return expense?.localId == id;
+  }, orElse: () => null);
+
+  if (key != null) {
+    final expense = _expensesBox.get(key);
+    if (expense != null) {
+      expense.toBeDeleted = true;
+      await _expensesBox.put(key, expense);
+    }
+  }
+}
+
   // DeleteAll
   Future<void> deleteAllExpense() async {
     await _expensesBox.clear();

@@ -94,7 +94,8 @@ class ExpenseTile extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () async {
-                await expensesProvider.deleteExpense(row.localId);
+                await expensesProvider.setForDeletion(row.localId);
+                ScaffoldMessenger.of(navigatorKey.currentContext!).showSnackBar(const SnackBar(content: Text('Usunięto wydatek')));
                 await loadOrRefreshLocalData();
               },
               child: const Icon(Icons.delete, color: Colors.red),

@@ -52,9 +52,9 @@ class ExpensesPageState extends State<ExpensesPage> {
 
     setState(() {
       csvData.clear();
-      csvData.addAll(localData);
+      csvData.addAll(localData.where((expense) => !expense.toBeDeleted).toList()); // Filtrowanie wydatków z flagą toDelete
       filteredData.clear();
-      filteredData.addAll(localData);
+      filteredData.addAll(csvData);
       dateColorMap.clear();
 
       updateDateColorMap(csvData, dateColorMap);
@@ -62,9 +62,7 @@ class ExpensesPageState extends State<ExpensesPage> {
     });
 
     // TODO: Zmienić żeby nie zawsze sie to pokazywało
-    _scaffoldMessengerKey.currentState?.showSnackBar(
-      SnackBar(content: Text('Załadowano ${localData.length} wydatków')),
-    );
+    _scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Załadowano ${csvData.length} wydatków'), duration: const Duration(milliseconds: 400)));
   }
 
   @override
@@ -78,8 +76,8 @@ class ExpensesPageState extends State<ExpensesPage> {
           onReplaceCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey, false),
           onExportAllData: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
           onExportFilteredData: (context) => exportCSV(context, _scaffoldMessengerKey, filteredData),
-          onDeleteAllData: (context) => deleteAllData(context, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider, navigatorKey),
-          onDeleteFilteredData: (context) => deleteFilteredData(context, filteredData, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider, navigatorKey),
+          onDeleteAllData: (context) => markAllDataForDeletion(context, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider, navigatorKey),
+          onDeleteFilteredData: (context) => markFilteredDataForDeletion(context, filteredData, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider, navigatorKey),
         ),
         body: _buildBody(),
         floatingActionButton: FloatingActionButton(
@@ -196,7 +194,7 @@ class ExpensesPageState extends State<ExpensesPage> {
     });
   }
 
-    void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption? orderBy, bool? isAscending) {
+  void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption? orderBy, bool? isAscending) {
     if (csvData.isNotEmpty) {
       setState(() {
         filteredData = csvData.where((element) {
@@ -205,7 +203,6 @@ class ExpensesPageState extends State<ExpensesPage> {
           bool matchesShopFilter = true;
           bool matchesCategoryFilter = true;
 
-          
           if (startDate != null && endDate != null) {
             withinDateRange = (element.data.isAfter(startDate) || element.data.isAtSameMomentAs(startDate))
                            && (element.data.isBefore(endDate) || element.data.isAtSameMomentAs(endDate));

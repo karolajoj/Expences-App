@@ -169,9 +169,9 @@ class FirestoreService {
     List<ExpensesListElementModel> localExpenses = box.values.toList();
 
     for (var expense in localExpenses) {
-      bool toBeSent = expense.toBeSent ?? false;
-      bool toBeUpdated = expense.toBeUpdated ?? false;
-      bool toBeDeleted = expense.toBeDeleted ?? false;
+      bool toBeSent = expense.toBeSent;
+      bool toBeUpdated = expense.toBeUpdated;
+      bool toBeDeleted = expense.toBeDeleted;
 
       if (toBeSent) {
         await manageExpense(
