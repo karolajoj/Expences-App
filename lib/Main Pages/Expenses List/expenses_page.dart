@@ -96,7 +96,7 @@ class ExpensesPageState extends State<ExpensesPage> {
      Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => AddExpensePage(expense: null, loadOrRefreshLocalData: loadOrRefreshLocalData),
+        builder: (context) => AddExpensePage(expense: null, loadOrRefreshLocalData: loadOrRefreshLocalData, navigatorKey: navigatorKey),
       ),
     );
   }
@@ -226,19 +226,53 @@ class ExpensesPageState extends State<ExpensesPage> {
           return withinDateRange && matchesProductFilter && matchesShopFilter && matchesCategoryFilter;
         }).toList();
 
+        // Ustalenie kolejności sortowania
+        List<SortOption> sortOrder;
         switch (orderBy) {
           case SortOption.date:
-            filteredData.sort((a, b) => a.data.compareTo(b.data));
+            sortOrder = [SortOption.date, SortOption.shop, SortOption.category, SortOption.product];
             break;
           case SortOption.product:
-            filteredData.sort((a, b) => a.produkt.compareTo(b.produkt));
+            sortOrder = [SortOption.product, SortOption.shop, SortOption.category, SortOption.date];
             break;
           case SortOption.cost:
-            filteredData.sort((a, b) => a.totalCost.compareTo(b.totalCost));
+            sortOrder = [SortOption.cost, SortOption.date, SortOption.shop, SortOption.category, SortOption.product];
             break;
           default:
+            sortOrder = [SortOption.date, SortOption.shop, SortOption.category, SortOption.product];
             break;
         }
+
+        // Sortowanie po wielu polach
+        filteredData.sort((a, b) {
+          for (var option in sortOrder) {
+            int comparison;
+            switch (option) {
+              case SortOption.date:
+                comparison = a.data.compareTo(b.data);
+                break;
+              case SortOption.shop:
+                comparison = a.sklep.compareTo(b.sklep);
+                break;
+              case SortOption.category:
+                comparison = a.kategoria.compareTo(b.kategoria);
+                break;
+              case SortOption.product:
+                comparison = a.produkt.compareTo(b.produkt);
+                break;
+              case SortOption.cost:
+                comparison = a.totalCost.compareTo(b.totalCost);
+                break;
+              default:
+                comparison = 0;
+                break;
+            }
+            if (comparison != 0) {
+              return comparison;
+            }
+          }
+          return 0;
+        });
 
         if (isAscending != null && !isAscending) {
           filteredData = filteredData.reversed.toList();

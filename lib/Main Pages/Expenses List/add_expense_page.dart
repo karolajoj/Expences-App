@@ -10,8 +10,9 @@ import '../../utils.dart';
 class AddExpensePage extends StatefulWidget {
   final ExpensesListElementModel? expense;
   final Function loadOrRefreshLocalData;
+  final GlobalKey<NavigatorState> navigatorKey;
 
-  const AddExpensePage({super.key, this.expense, required this.loadOrRefreshLocalData});
+  const AddExpensePage({super.key, this.expense, required this.loadOrRefreshLocalData, required this.navigatorKey});
 
   @override
   AddExpensePageState createState() => AddExpensePageState();
@@ -64,6 +65,9 @@ class AddExpensePageState extends State<AddExpensePage> {
       _zwrot = widget.expense!.zwrot;
       _link = widget.expense!.link;
       _komentarz = widget.expense!.komentarz;
+      shopNotifier = ValueNotifier(_sklep);
+      categoryNotifier = ValueNotifier(_kategoria);
+      productNotifier = ValueNotifier(_produkt);
     } else {
       _resetFields();
     }
@@ -98,6 +102,10 @@ class AddExpensePageState extends State<AddExpensePage> {
     if (_formKey.currentState?.validate() ?? false) {
       _formKey.currentState?.save();
 
+      _sklep = shopNotifier.value.isEmpty ? _sklep : shopNotifier.value;
+      _kategoria = categoryNotifier.value.isEmpty ? _kategoria : categoryNotifier.value;
+      _produkt = productNotifier.value.isEmpty ? _produkt : productNotifier.value;
+
       final newExpense = ExpensesListElementModel(
         localId: widget.expense?.localId,
         firebaseId: widget.expense?.firebaseId,
@@ -114,18 +122,18 @@ class AddExpensePageState extends State<AddExpensePage> {
         zwrot: _zwrot,
         link: _link,
         komentarz: _komentarz,
+        toBeSent: true,
       );
 
       await _saveExpenseLocally(newExpense);
 
       await widget.loadOrRefreshLocalData();
 
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')));
-        Navigator.pop(context, true);
-      }
+      widget.navigatorKey.currentState?.pop();
+      ScaffoldMessenger.of(widget.navigatorKey.currentContext!).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')),
+      );
     }
-  }
+}
 
   Future<void> _saveExpenseLocally(ExpensesListElementModel expense) async {
     var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
@@ -161,7 +169,6 @@ class AddExpensePageState extends State<AddExpensePage> {
     super.dispose();
   }
 
-  // TODO : Ustawić tak żeby nie można było ustawić daty w przyszłości ??
   Widget _buildDateField() {
     return TextFormField(
       controller: _dataController,
@@ -173,6 +180,7 @@ class AddExpensePageState extends State<AddExpensePage> {
           config: CalendarDatePicker2WithActionButtonsConfig(
             calendarType: CalendarDatePicker2Type.single,
             firstDayOfWeek: 1,
+            selectableDayPredicate: (day) => day.isBefore(DateTime.now()), // Blokuje daty w przyszłości
           ),
           dialogSize: const Size(325, 400),
         );
@@ -202,20 +210,6 @@ class AddExpensePageState extends State<AddExpensePage> {
         });
       },
       onSaved: (value) => _miaraUnit = value,
-    );
-  }
-
-  Widget _buildNullableTextFormField({
-    required String? initialValue,
-    required String labelText,
-    required Function(String?) onSaved,
-    TextInputType keyboardType = TextInputType.text,
-  }) {
-    return TextFormField(
-      initialValue: initialValue ?? '',
-      decoration: InputDecoration(labelText: labelText),
-      keyboardType: keyboardType,
-      onSaved: (value) => onSaved(value?.isEmpty == true ? null : value),
     );
   }
 
@@ -303,35 +297,82 @@ class AddExpensePageState extends State<AddExpensePage> {
                 initialValue: _ilosc.toString(),
                 labelText: 'Ilość',
                 keyboardType: TextInputType.number,
-                onSaved: (value) => _ilosc = int.parse(value ?? '1'),
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                ],
+                onSaved: (value) {
+                  int? parsedValue = int.tryParse(value ?? '1');
+                  if (parsedValue == null || parsedValue <= 0) {
+                    _ilosc = 1;
+                  } else {
+                    _ilosc = parsedValue;
+                  }
+                },
               ),
               _buildTextFormField(
                 initialValue: _cena.toString(),
                 labelText: 'Cena',
-                keyboardType: TextInputType.text,
+                keyboardType: TextInputType.number,
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(RegExp(r'[\d\.,/*]')),
                 ],
-                onSaved: (value) => _cena = double.parse(_calculatePrice(value ?? '0.0')),
-              ),
-              _buildNullableTextFormField(
-                initialValue: _miara?.toString(),
-                labelText: 'Miara',
-                keyboardType: TextInputType.number,
-                onSaved: (value) => _miara = value != null ? int.parse(value) : null,
+                onSaved: (value) {
+                  double parsedValue = double.parse(_calculatePrice(value ?? '0.0'));
+                  if (parsedValue < 0) {
+                    _cena = 0.0;
+                  } else {
+                    _cena = parsedValue;
+                  }
+                },
               ),
               _buildDropdownButtonFormField(),
-              _buildNullableTextFormField(
-                initialValue: _iloscWOpakowaniu?.toString(),
+              _buildTextFormField(
+                initialValue: _miara == null ? "" :_miara.toString(),
+                labelText: 'Miara',
+                keyboardType: TextInputType.number,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                ],
+                onSaved: (value) {
+                  int? parsedValue = value != null ? int.tryParse(value) : null;
+                  if (parsedValue == null || parsedValue <= 0.0) {
+                    _miara = null;
+                  } else {
+                    _miara = parsedValue;
+                  }
+                },
+              ),
+              _buildTextFormField(
+                initialValue: _iloscWOpakowaniu == null ? "" :_iloscWOpakowaniu.toString(),
                 labelText: 'Ilość w opakowaniu',
                 keyboardType: TextInputType.number,
-                onSaved: (value) => _iloscWOpakowaniu = value != null ? int.parse(value) : null,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                ],
+                onSaved: (value) {
+                  int? parsedValue = value != null ? int.tryParse(value) : null;
+                  if (parsedValue == null || parsedValue <= 0.0) {
+                    _iloscWOpakowaniu = null;
+                  } else {
+                    _iloscWOpakowaniu = parsedValue;
+                  }
+                },
               ),
-              _buildNullableTextFormField(
-                initialValue: _kosztDostawy?.toString(),
+              _buildTextFormField(
+                initialValue: _kosztDostawy == null ? "" : _kosztDostawy.toString(),
                 labelText: 'Koszt dostawy',
                 keyboardType: TextInputType.number,
-                onSaved: (value) => _kosztDostawy = value != null ? double.parse(value) : null,
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'[\d\.,]')),
+                ],
+                onSaved: (value) {
+                  double? parsedValue = value != null ? double.tryParse(value) : null;
+                  if (parsedValue == null || parsedValue <= 0.0) {
+                    _kosztDostawy = null;
+                  } else {
+                    _kosztDostawy = parsedValue;
+                  }
+                },
               ),
               Row(
                 children: [
@@ -363,6 +404,7 @@ class AddExpensePageState extends State<AddExpensePage> {
               ElevatedButton(
                 onPressed: () {
                   Navigator.pop(context);
+                  ScaffoldMessenger.of(widget.navigatorKey.currentContext!).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Anulowano dodawanie wydatku' : 'Anulowano edycję wydatku')));
                 },
                 child: const Text('Anuluj'),
               ),

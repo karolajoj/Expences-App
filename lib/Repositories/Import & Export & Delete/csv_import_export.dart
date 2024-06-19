@@ -253,7 +253,6 @@ Future<void> deleteAllData(BuildContext context, GlobalKey<ScaffoldMessengerStat
   );
 }
 
-// TODO : Dodać przycisk usuwania do każdego wydatku
 // TODO : Dodać możliwość zaznaczenia kilku wydatków do usunięcia "usuń zaznaczone"
 Future<void> deleteFilteredData(BuildContext context, List<ExpensesListElementModel> filteredData, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider, GlobalKey<NavigatorState> navigatorKey) async {
   int count = filteredData.length;

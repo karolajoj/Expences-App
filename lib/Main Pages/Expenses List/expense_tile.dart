@@ -1,8 +1,12 @@
+import 'package:expenses_app_project/main.dart';
+
 import '../../Repositories/Local Data/expenses_list_element.dart';
-import 'package:expenses_app_project/Main%20Pages/Expenses%20List/add_expense_page.dart';
+import '../../Repositories/Local Data/expenses_provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:hive/hive.dart';
+import 'add_expense_page.dart';
 
 class ExpenseTile extends StatelessWidget {
   final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey;
@@ -12,8 +16,9 @@ class ExpenseTile extends StatelessWidget {
   final ExpensesListElementModel row;
   final Set<int> expandedTiles;
   final int index;
+  final ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>('expenses_local'));
 
-  const ExpenseTile({super.key, 
+  ExpenseTile({super.key, 
     required this.row,
     required this.index,
     required this.loadOrRefreshLocalData,
@@ -82,22 +87,31 @@ class ExpenseTile extends StatelessWidget {
           contentPadding: const EdgeInsets.symmetric(horizontal: 20),
         ),
       const SizedBox(height: 15),
-      Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          GestureDetector(
-            onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => AddExpensePage(expense: row, loadOrRefreshLocalData: loadOrRefreshLocalData),
-                ),
-              );
-            },
-            child: const Icon(Icons.edit, color: Colors.blue),
-          ),
-          const SizedBox(width: 15),
-        ],
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GestureDetector(
+              onTap: () async {
+                await expensesProvider.deleteExpense(row.localId);
+                await loadOrRefreshLocalData();
+              },
+              child: const Icon(Icons.delete, color: Colors.red),
+            ),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => AddExpensePage(expense: row, loadOrRefreshLocalData: loadOrRefreshLocalData, navigatorKey: navigatorKey),
+                  ),
+                );
+              },
+              child: const Icon(Icons.edit, color: Colors.black54),
+            ),
+          ],
+        ),
       ),
       const SizedBox(height: 15),
     ];

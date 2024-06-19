@@ -4,8 +4,7 @@ import 'filter_options_list.dart';
 import 'choice_chip_row.dart';
 import '../utils.dart';
 
-enum SortOption { date, product, cost }
-
+enum SortOption { date, shop, category, product, cost }
 
 // TODO : Traktować elementy z flagą toBeDeleted jako nieistniejące i ich nie pokazywać w aplikacji
 class FilterDataPage extends StatefulWidget {
