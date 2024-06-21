@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'filter_sort_options_row.dart';
-import '../autocomplete_field.dart';
+import 'filter_sort_options.dart';
+import '../Utils/autocomplete_field.dart';
 import '../Utils/utils.dart';
 import 'filter_utils.dart';
 
@@ -85,7 +85,7 @@ class FiltersPageState extends State<FiltersPage> {
         child: ListView(
           children: [
             const Text('Sortuj'),
-            ChoiceChipRow(
+            FilterSortOptions(
               sortOption: sortOption,
               isAscending: isAscending,
               onSortOptionChanged: (option) => onSortOptionChanged(setState, option, (value) => sortOption = value),

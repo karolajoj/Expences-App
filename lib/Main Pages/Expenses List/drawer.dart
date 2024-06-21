@@ -1,5 +1,6 @@
 import 'package:expenses_app_project/Authentication/auth_page.dart';
 import 'package:expenses_app_project/Authentication/auth_service.dart';
+import 'package:expenses_app_project/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -11,6 +12,8 @@ class AppDrawer extends StatefulWidget {
   final Function(BuildContext) onDeleteAllData;
   final Function(BuildContext) onDeleteFilteredData;
 
+  final GlobalKey<NavigatorState> navigatorKey;
+
   const AppDrawer({
     super.key,
     required this.onLoadCSV,
@@ -19,6 +22,7 @@ class AppDrawer extends StatefulWidget {
     required this.onExportFilteredData,
     required this.onDeleteAllData,
     required this.onDeleteFilteredData,
+    required this.navigatorKey,
   });
 
   @override
@@ -55,12 +59,12 @@ class AppDrawerState extends State<AppDrawer> {
             onTap: () async {
               Navigator.pop(context);
               if (user != null) {
-                await AuthService().signout(context: context);
+                await AuthService().signout(navigatorKey: navigatorKey);
               } else {
                 Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (BuildContext context) => const AuthPage(mode: AuthMode.login),
+                    builder: (BuildContext context) => AuthPage(mode: AuthMode.login, navigatorKey: navigatorKey),
                   ),
                 );
               }

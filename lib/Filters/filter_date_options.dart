@@ -2,12 +2,12 @@ import 'package:calendar_date_picker2/calendar_date_picker2.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class FilterOptionsList extends StatelessWidget {
+class FilterDateOptions extends StatelessWidget {
   final Function(DateTime?, DateTime?, String) onSelectDateRange;
   final DateTime now;
   final List<DateTime?> selectedDates;
 
-  FilterOptionsList({
+  FilterDateOptions({
     super.key,
     required this.onSelectDateRange,
     required DateTime now,

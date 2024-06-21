@@ -1,5 +1,5 @@
-import 'package:expenses_app_project/Authentication/auth_service.dart';
 import 'package:expenses_app_project/Main%20Pages/Expenses%20List/expenses_page.dart';
+import 'package:expenses_app_project/Authentication/auth_service.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +8,9 @@ enum AuthMode { login, signup }
 
 class AuthPage extends StatefulWidget {
   final AuthMode mode;
+  final GlobalKey<NavigatorState> navigatorKey;
 
-  const AuthPage({super.key, required this.mode});
+  const AuthPage({super.key, required this.mode, required this.navigatorKey});
 
   @override
   AuthPageState createState() => AuthPageState();
@@ -46,7 +47,7 @@ class AuthPageState extends State<AuthPage> {
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: true,
-      bottomNavigationBar: _footer(context),
+      bottomNavigationBar: _footer(),
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -54,8 +55,7 @@ class AuthPageState extends State<AuthPage> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () {
-            Navigator.push(
-              context,
+            widget.navigatorKey.currentState?.pushReplacement(
               MaterialPageRoute(builder: (context) => const ExpensesPage()),
             );
           },
@@ -78,12 +78,12 @@ class AuthPageState extends State<AuthPage> {
                   ),
                 ),
               ),
-              const SizedBox(height: 80,),
+              const SizedBox(height: 80),
               _buildTextField('Adres Email', _emailController, false),
-              const SizedBox(height: 20,),
+              const SizedBox(height: 20),
               _buildTextField('Hasło', _passwordController, true),
-              const SizedBox(height: 50,),
-              _mainButton(context),
+              const SizedBox(height: 50),
+              _mainButton(),
             ],
           ),
         ),
@@ -93,7 +93,6 @@ class AuthPageState extends State<AuthPage> {
 
   Widget _buildTextField(String label, TextEditingController controller, bool isPassword) {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -106,7 +105,7 @@ class AuthPageState extends State<AuthPage> {
             ),
           ),
         ),
-        const SizedBox(height: 16,),
+        const SizedBox(height: 16),
         TextField(
           controller: controller,
           obscureText: isPassword,
@@ -128,7 +127,7 @@ class AuthPageState extends State<AuthPage> {
     );
   }
 
-  Widget _mainButton(BuildContext context) {
+  Widget _mainButton() {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: const Color(0xff0D6EFD),
@@ -145,13 +144,13 @@ class AuthPageState extends State<AuthPage> {
                 await AuthService().signin(
                   email: _emailController.text,
                   password: _passwordController.text,
-                  context: context,
+                  navigatorKey: widget.navigatorKey,
                 );
               } else {
                 await AuthService().signup(
                   email: _emailController.text,
                   password: _passwordController.text,
-                  context: context,
+                  navigatorKey: widget.navigatorKey,
                 );
               }
             }
@@ -160,7 +159,7 @@ class AuthPageState extends State<AuthPage> {
     );
   }
 
-  Widget _footer(BuildContext context) {
+  Widget _footer() {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: RichText(
@@ -184,11 +183,11 @@ class AuthPageState extends State<AuthPage> {
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
-                  Navigator.push(
-                    context,
+                  widget.navigatorKey.currentState?.pushReplacement(
                     MaterialPageRoute(
                       builder: (context) => AuthPage(
                         mode: widget.mode == AuthMode.login ? AuthMode.signup : AuthMode.login,
+                        navigatorKey: widget.navigatorKey,
                       ),
                     ),
                   );

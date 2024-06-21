@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'Main Pages/Shopping List/shopping_list_page.dart';
-import 'Main Pages/Expenses List/expenses_page.dart';
-import 'Main Pages/Summary/summary_page.dart';
-import 'Main Pages/Debts/debts_page.dart';
+import 'Shopping List/shopping_list_page.dart';
+import 'Expenses List/expenses_page.dart';
+import 'Summary/summary_page.dart';
+import 'Debts/debts_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

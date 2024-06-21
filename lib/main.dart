@@ -1,6 +1,6 @@
 import 'package:expenses_app_project/Repositories/Local%20Data/expenses_list_element.dart';
 import 'package:expenses_app_project/firebase_options.dart';
-import 'package:expenses_app_project/main_page.dart';
+import 'package:expenses_app_project/Main%20Pages/main_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:flutter/material.dart';

@@ -2,13 +2,13 @@ import 'package:expenses_app_project/Main%20Pages/Expenses%20List/expenses_page.
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
-import '../main_page.dart';
+import '../Main Pages/main_page.dart';
 
 class AuthService {
   Future<void> signup({
     required String email,
     required String password,
-    required BuildContext context,
+    required GlobalKey<NavigatorState> navigatorKey,
   }) async {
     try {
       final UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -19,33 +19,20 @@ class AuthService {
       final String? userEmail = userCredential.user?.email;
       final String? userName = userEmail?.split('@').first;
 
-      // Aktualizacja nazwy użytkownika w Firebase Auth
       await userCredential.user?.updateDisplayName(userName);
 
-      if (context.mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (BuildContext context) => const ExpensesPage()),
-        );
-      }
+      _navigateToExpensesPage(navigatorKey);
     } on FirebaseAuthException catch (e) {
       _handleAuthError(e);
     } catch (e) {
-      Fluttertoast.showToast(
-        msg: 'Wystąpił błąd podczas rejestracji użytkownika: $e',
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.SNACKBAR,
-        backgroundColor: Colors.black54,
-        textColor: Colors.white,
-        fontSize: 14.0,
-      );
+      _showErrorToast('Wystąpił błąd podczas rejestracji użytkownika: $e');
     }
   }
 
   Future<void> signin({
     required String email,
     required String password,
-    required BuildContext context,
+    required GlobalKey<NavigatorState> navigatorKey,
   }) async {
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -53,35 +40,18 @@ class AuthService {
         password: password,
       );
 
-      if (context.mounted) {
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (BuildContext context) => const MainPage()),
-        );
-      }
+      _navigateToMainPage(navigatorKey);
     } on FirebaseAuthException catch (e) {
       _handleAuthError(e);
     } catch (e) {
-      Fluttertoast.showToast(
-        msg: 'Wystąpił błąd podczas logowania użytkownika: $e',
-        toastLength: Toast.LENGTH_LONG,
-        gravity: ToastGravity.SNACKBAR,
-        backgroundColor: Colors.black54,
-        textColor: Colors.white,
-        fontSize: 14.0,
-      );
+      _showErrorToast('Wystąpił błąd podczas logowania użytkownika: $e');
     }
   }
 
-  Future<void> signout({required BuildContext context}) async {
+  Future<void> signout({required GlobalKey<NavigatorState> navigatorKey}) async {
     await FirebaseAuth.instance.signOut();
 
-    if (context.mounted) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (BuildContext context) => const MainPage()),
-      );
-    }
+    _navigateToMainPage(navigatorKey);
   }
 
   void _handleAuthError(FirebaseAuthException e) {
@@ -100,6 +70,10 @@ class AuthService {
       message = 'Błąd: $e';
     }
 
+    _showErrorToast(message);
+  }
+
+  void _showErrorToast(String message) {
     Fluttertoast.showToast(
       msg: message,
       toastLength: Toast.LENGTH_LONG,
@@ -107,6 +81,18 @@ class AuthService {
       backgroundColor: Colors.black54,
       textColor: Colors.white,
       fontSize: 14.0,
+    );
+  }
+
+  void _navigateToExpensesPage(GlobalKey<NavigatorState> navigatorKey) {
+    navigatorKey.currentState?.pushReplacement(
+      MaterialPageRoute(builder: (context) => const ExpensesPage()),
+    );
+  }
+
+  void _navigateToMainPage(GlobalKey<NavigatorState> navigatorKey) {
+    navigatorKey.currentState?.pushReplacement(
+      MaterialPageRoute(builder: (context) => const MainPage()),
     );
   }
 }

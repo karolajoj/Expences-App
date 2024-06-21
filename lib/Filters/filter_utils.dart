@@ -1,5 +1,5 @@
 import '../../Repositories/Local Data/expenses_list_element.dart';
-import 'filter_date_options_list.dart';
+import 'filter_date_options.dart';
 import 'filters_page.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -230,7 +230,7 @@ void showFilterOptions(
     isScrollControlled: true,
     context: context,
     builder: (BuildContext context) {
-      return FilterOptionsList(
+      return FilterDateOptions(
         onSelectDateRange: onSelectDateRange,
         now: now,
         selectedDates: selectedDates,

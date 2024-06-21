@@ -2,7 +2,7 @@ import '../../Repositories/Import & Export & Delete/csv_import_export.dart';
 import '../../Repositories/Local Data/expenses_list_element.dart';
 import '../../Repositories/Local Data/expenses_provider.dart';
 import '../../Repositories/Online Data/firestore.dart';
-import 'package:expenses_app_project/drawer.dart';
+import 'package:expenses_app_project/Main%20Pages/Expenses%20List/drawer.dart';
 import 'package:expenses_app_project/main.dart';
 import '../../Repositories/data_loader.dart';
 import 'package:flutter/material.dart';
@@ -68,6 +68,7 @@ class ExpensesPageState extends State<ExpensesPage> {
           onDeleteFilteredData: (context) => markFilteredDataForDeletion(context, filteredData, _scaffoldMessengerKey,
               () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey),
               expensesProvider, navigatorKey),
+          navigatorKey: navigatorKey,
         ),
         body: _buildBody(),
         floatingActionButton: FloatingActionButton(

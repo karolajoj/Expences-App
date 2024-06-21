@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'filter_utils.dart';
 
-class ChoiceChipRow extends StatelessWidget {
+class FilterSortOptions extends StatelessWidget {
   final SortOption sortOption;
   final bool isAscending;
   final Function(SortOption) onSortOptionChanged;
   final Function(bool) onOrderChanged;
 
-  const ChoiceChipRow({
+  const FilterSortOptions({
     super.key,
     required this.sortOption,
     required this.isAscending,
