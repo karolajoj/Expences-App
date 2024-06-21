@@ -92,13 +92,15 @@ Future<void> _handleCSVData(
     csvData.addAll(csvDataList);
     filteredData.addAll(csvDataList);
 
-    updateDateColorMap(csvData, dateColorMap);
-
     applyDefaultFilters();
+    updateDateColorMap(filteredData, dateColorMap);
   });
 
   var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
-  await box.addAll(csvDataList);
+
+  for (var expense in csvDataList) {
+    await box.put(expense.localId, expense);
+  }
 
   await FirestoreService().addExpenses(
     scaffoldMessengerKey: scaffoldMessengerKey,
@@ -106,9 +108,7 @@ Future<void> _handleCSVData(
     navigatorKey: navigatorKey
   );
 
-  scaffoldMessengerKey.currentState?.showSnackBar(
-    const SnackBar(content: Text('Dane zostały zaimportowane')),
-  );
+  scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Dane zostały zaimportowane')));
 }
 
 Future<void> exportCSV(
@@ -190,6 +190,7 @@ Future<bool?> _showConfirmationDialog(String title, String content, GlobalKey<Na
           ),
           TextButton(
             onPressed: () => Navigator.of(context).pop(true),
+            // style: TextButton.styleFrom(foregroundColor: Colors.red),
             child: const Text('Tak'),
           ),
         ],
@@ -198,6 +199,7 @@ Future<bool?> _showConfirmationDialog(String title, String content, GlobalKey<Na
   );
 }
 
+// TODO: Przenieść do utils.dart
 void _showLoadingDialog(GlobalKey<NavigatorState> navigatorKey) {
   showDialog(
     context: navigatorKey.currentContext!,

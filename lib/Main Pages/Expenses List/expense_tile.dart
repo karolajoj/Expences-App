@@ -31,7 +31,7 @@ class ExpenseTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String currentDay = DateFormat('dd.MM.yyyy').format(row.data);
-    Color rowColor = index.isEven ? dateColorMap[currentDay]! : dateColorMap[currentDay]!.withOpacity(0.6);
+    Color? rowColor = index.isEven ? dateColorMap[currentDay] : dateColorMap[currentDay]?.withOpacity(0.6);
 
     return Container(
       color: rowColor,
@@ -93,17 +93,27 @@ class ExpenseTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             GestureDetector(
-              onTap: () async {
-                await expensesProvider.setForDeletion(row.localId);
-                ScaffoldMessenger.of(navigatorKey.currentContext!).showSnackBar(const SnackBar(content: Text('Usunięto wydatek')));
-                await loadOrRefreshLocalData();
+              onTap: () {
+                showDialog(
+                  context: navigatorKey.currentContext!,
+                  builder: (BuildContext context) {
+                    return _deleteConfirmationDialog(
+                      row.produkt,
+                      () async {
+                        await expensesProvider.setForDeletion(row.localId);
+                        ScaffoldMessenger.of(navigatorKey.currentContext!).showSnackBar(const SnackBar(content: Text('Usunięto wydatek')));
+                        await loadOrRefreshLocalData();
+                      },
+                    );
+                  },
+                );
               },
               child: const Icon(Icons.delete, color: Colors.red),
             ),
             GestureDetector(
               onTap: () {
                 Navigator.push(
-                  context,
+                  navigatorKey.currentContext!,
                   MaterialPageRoute(
                     builder: (context) => AddExpensePage(expense: row, loadOrRefreshLocalData: loadOrRefreshLocalData, navigatorKey: navigatorKey),
                   ),
@@ -202,6 +212,29 @@ class ExpenseTile extends StatelessWidget {
           scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Nie udało się otworzyć linku:    $url')));
         }
       },
+    );
+  }
+
+  Widget _deleteConfirmationDialog(String expenseName, VoidCallback onConfirm) {
+    return AlertDialog(
+      title: const Text('Potwierdź usunięcie'),
+      content: const Text('Czy na pewno chcesz usunąć ten wydatek?'),
+      actions: [
+        TextButton(
+          onPressed: () {
+            Navigator.of(navigatorKey.currentContext!).pop();
+          },
+          child: const Text('Anuluj'),
+        ),
+        TextButton(
+          onPressed: () {
+            onConfirm();
+            Navigator.of(navigatorKey.currentContext!).pop();
+          },
+          style: TextButton.styleFrom(foregroundColor: Colors.red),
+          child: const Text('Usuń'),
+        ),
+      ],
     );
   }
 }

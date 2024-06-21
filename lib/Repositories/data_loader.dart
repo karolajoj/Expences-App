@@ -27,8 +27,8 @@ Future<void> loadOrRefreshLocalData(
     filteredData.clear();
     dateColorMap.clear();
 
-    updateDateColorMap(csvData, dateColorMap);
     applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending, csvData, filteredData);
+    updateDateColorMap(filteredData, dateColorMap);
   });
 
   // TODO: Zmienić żeby nie zawsze sie to pokazywało

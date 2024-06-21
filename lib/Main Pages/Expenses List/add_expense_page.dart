@@ -135,11 +135,15 @@ class AddExpensePageState extends State<AddExpensePage> {
       widget.navigatorKey.currentState?.pop();
       ScaffoldMessenger.of(widget.navigatorKey.currentContext!).showSnackBar(SnackBar(content: Text(widget.expense == null ? 'Wydatek dodany pomyślnie' : 'Wydatek zaktualizowany pomyślnie')));
     }
-}
+  }
 
   Future<void> _saveExpenseLocally(ExpensesListElementModel expense) async {
     var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
-    await box.put(expense.localId, expense);
+    if (box.containsKey(expense.localId)) {
+      await box.put(expense.localId, expense);
+    } else {
+      await box.add(expense);
+    }
   }
 
   String _calculatePrice(String input) {

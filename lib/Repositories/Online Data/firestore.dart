@@ -106,12 +106,9 @@ class FirestoreService {
         navigatorKey.currentState?.pop();
       }
 
-      scaffoldMessengerKey.currentState?.showSnackBar(
-          const SnackBar(content: Text('Wydatki dodane pomyślnie')));
+      scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Wydatki dodane pomyślnie')));
     } catch (e) {
-      scaffoldMessengerKey.currentState?.showSnackBar(
-        SnackBar(content: Text('Wystąpił błąd podczas dodawania wydatków: $e')),
-      );
+      scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Wystąpił błąd podczas dodawania wydatków: $e')));
     }
   }
 
@@ -155,8 +152,7 @@ class FirestoreService {
       }
       // TODO : Również zaktualizować lokalne dane w zależności od modyfikacji na serwerze
     } catch (e) {
-      scaffoldMessengerKey.currentState
-          ?.showSnackBar(SnackBar(content: Text('Wystąpił błąd: $e')));
+      scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Wystąpił błąd: $e')));
     }
   }
 

@@ -49,6 +49,8 @@ class AppDrawerState extends State<AppDrawer> {
           ),
           ListTile(
             leading: const Icon(Icons.account_circle),
+            // TODO : Przy zmianie użytkownika usuwać dane lokalne. Pobierać przy zalogowaniu
+            // TODO : Przechowywać lokalnie dane każdego użytkownika !!!
             title: Text(user != null ? 'Wyloguj' : 'Zaloguj'),
             onTap: () async {
               Navigator.pop(context);

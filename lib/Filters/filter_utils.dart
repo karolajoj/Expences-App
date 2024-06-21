@@ -15,19 +15,21 @@ bool isSameRange(DateTime start1, DateTime end1, DateTime start2, DateTime end2)
   return isSameDay(start1, start2) && isSameDay(end1, end2);
 }
 
-void applyFilters(
-  DateTime? startDate,
-  DateTime? endDate,
-  String? productFilter,
-  String? shopFilter,
-  String? categoryFilter,
-  SortOption? orderBy,
-  bool? isAscending,
-  List<ExpensesListElementModel> csvData,
-  List<ExpensesListElementModel> filteredData,
-) {
+String removeDiacritics(String text) {
+  const diacriticMap = {
+    'ą': 'a', 'ć': 'c', 'ę': 'e', 'ł': 'l', 'ń': 'n', 'ó': 'o', 'ś': 's', 'ź': 'z', 'ż': 'z',
+    'Ą': 'A', 'Ć': 'C', 'Ę': 'E', 'Ł': 'L', 'Ń': 'N', 'Ó': 'O', 'Ś': 'S', 'Ź': 'Z', 'Ż': 'Z'
+  };
+  return text.split('').map((char) => diacriticMap[char] ?? char).join();
+}
+
+void applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption? orderBy, bool? isAscending, List<ExpensesListElementModel> csvData, List<ExpensesListElementModel> filteredData) {
   filteredData.clear();
-  
+
+  String? normalizedProductFilter = productFilter != null ? removeDiacritics(productFilter.toLowerCase()) : null;
+  String? normalizedShopFilter = shopFilter != null ? removeDiacritics(shopFilter.toLowerCase()) : null;
+  String? normalizedCategoryFilter = categoryFilter != null ? removeDiacritics(categoryFilter.toLowerCase()) : null;
+
   if (csvData.isNotEmpty) {
     filteredData.addAll(csvData.where((element) {
       bool withinDateRange = true;
@@ -40,16 +42,20 @@ void applyFilters(
                        && (element.data.isBefore(endDate) || element.data.isAtSameMomentAs(endDate));
       }
 
-      if (productFilter != null) {
-        matchesProductFilter = element.produkt.toLowerCase().contains(productFilter.toLowerCase());
+      String normalizedProduct = removeDiacritics(element.produkt.toLowerCase());
+      String normalizedShop = removeDiacritics(element.sklep.toLowerCase());
+      String normalizedCategory = removeDiacritics(element.kategoria.toLowerCase());
+
+      if (normalizedProductFilter != null) {
+        matchesProductFilter = normalizedProduct.contains(normalizedProductFilter);
       }
 
-      if (shopFilter != null) {
-        matchesShopFilter = element.sklep.toLowerCase().contains(shopFilter.toLowerCase());
+      if (normalizedShopFilter != null) {
+        matchesShopFilter = normalizedShop.contains(normalizedShopFilter);
       }
 
-      if (categoryFilter != null) {
-        matchesCategoryFilter = element.kategoria.toLowerCase().contains(categoryFilter.toLowerCase());
+      if (normalizedCategoryFilter != null) {
+        matchesCategoryFilter = normalizedCategory.contains(normalizedCategoryFilter);
       }
 
       return withinDateRange && matchesProductFilter && matchesShopFilter && matchesCategoryFilter;
@@ -120,19 +126,20 @@ void applyDefaultFilters(
 
 void openFilterDialog(
   BuildContext context,
-  Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool) onFiltersApplied,
+  Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool, GlobalKey<ScaffoldMessengerState>) onFiltersApplied,
   DateTime? currentStartDate,
   DateTime? currentEndDate,
   String? currentProductFilter,
   String? currentShopFilter,
   String? currentCategoryFilter,
   SortOption currentSortOption,
-  bool isAscending
+  bool isAscending,
+  GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey
 ) {
   showDialog(
     context: context,
     builder: (BuildContext context) {
-      return FilterDataPage(
+      return FiltersPage(
         onFiltersApplied: onFiltersApplied,
         currentStartDate: currentStartDate,
         currentEndDate: currentEndDate,
@@ -141,6 +148,7 @@ void openFilterDialog(
         currentCategoryFilter: currentCategoryFilter,
         currentSortOption: currentSortOption,
         isAscending: isAscending,
+        navigatorKey: scaffoldMessengerKey,  // Dodanie scaffoldMessengerKey jako navigatorKey
       );
     },
   );
@@ -277,7 +285,8 @@ void applyFiltersAndClose(
   ValueNotifier<String> categoryNotifier,
   SortOption sortOption,
   bool isAscending,
-  Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool) onFiltersApplied,
+  Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool, GlobalKey<ScaffoldMessengerState>) onFiltersApplied,
+  GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
 ) {
   onFiltersApplied(
     startDate,
@@ -287,6 +296,7 @@ void applyFiltersAndClose(
     categoryNotifier.value.isNotEmpty ? categoryNotifier.value : null,
     sortOption,
     isAscending,
+    scaffoldMessengerKey,
   );
   Navigator.of(context).pop();
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'Filters/filter_utils.dart';
 
 class AutocompleteField extends StatefulWidget {
   final List<String> options;
@@ -47,6 +48,8 @@ class AutocompleteFieldState extends State<AutocompleteField> {
     super.dispose();
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<String>(
@@ -57,8 +60,10 @@ class AutocompleteFieldState extends State<AutocompleteField> {
         }
         return Autocomplete<String>(
           optionsBuilder: (TextEditingValue textEditingValue) {
+            String normalizedInput = removeDiacritics(textEditingValue.text.toLowerCase());
             return widget.options.where((String option) {
-              return option.toLowerCase().contains(textEditingValue.text.toLowerCase());
+              String normalizedOption = removeDiacritics(option.toLowerCase());
+              return normalizedOption.contains(normalizedInput);
             });
           },
           onSelected: (String selection) {

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'filter_utils.dart';
-import '../autocomplete_field.dart';
 import 'filter_sort_options_row.dart';
+import '../autocomplete_field.dart';
 import '../Utils/utils.dart';
+import 'filter_utils.dart';
 
-class FilterDataPage extends StatefulWidget {
-  final Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool) onFiltersApplied;
+
+class FiltersPage extends StatefulWidget {
+  final Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool, GlobalKey<ScaffoldMessengerState>) onFiltersApplied;
   final DateTime? currentStartDate;
   final DateTime? currentEndDate;
   final String? currentProductFilter;
@@ -13,8 +14,8 @@ class FilterDataPage extends StatefulWidget {
   final String? currentCategoryFilter;
   final SortOption currentSortOption;
   final bool isAscending;
-
-  const FilterDataPage({
+  final GlobalKey<ScaffoldMessengerState> navigatorKey;
+  const FiltersPage({
     super.key,
     required this.onFiltersApplied,
     this.currentStartDate,
@@ -24,13 +25,14 @@ class FilterDataPage extends StatefulWidget {
     this.currentCategoryFilter,
     this.currentSortOption = SortOption.date,
     this.isAscending = true,
+    required this.navigatorKey,
   });
 
   @override
-  FilterDataPageState createState() => FilterDataPageState();
+  FiltersPageState createState() => FiltersPageState();
 }
 
-class FilterDataPageState extends State<FilterDataPage> {
+class FiltersPageState extends State<FiltersPage> {
   late DateTime? startDate;
   late DateTime? endDate;
   late String? productFilter;
@@ -40,7 +42,7 @@ class FilterDataPageState extends State<FilterDataPage> {
   late SortOption sortOption;
   late bool isAscending;
 
-  // Potrzebne do popranego czyszczenie pól tekstowych
+  // Potrzebne do poprawnego czyszczenia pól tekstowych
   late ValueNotifier<String> productNotifier;
   late ValueNotifier<String> shopNotifier;
   late ValueNotifier<String> categoryNotifier;
@@ -165,7 +167,7 @@ class FilterDataPageState extends State<FilterDataPage> {
                 ),
                 const SizedBox(width: 16),
                 ElevatedButton(
-                  onPressed: () => applyFiltersAndClose(context, startDate, endDate, productNotifier, shopNotifier, categoryNotifier, sortOption, isAscending, widget.onFiltersApplied),
+                  onPressed: () => applyFiltersAndClose(context, startDate, endDate, productNotifier, shopNotifier, categoryNotifier, sortOption, isAscending, widget.onFiltersApplied, widget.navigatorKey),
                   child: const Text('Filtruj'),
                 ),
               ],

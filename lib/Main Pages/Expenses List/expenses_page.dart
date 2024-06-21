@@ -93,7 +93,7 @@ class ExpensesPageState extends State<ExpensesPage> {
         IconButton(
           onPressed: () => openFilterDialog(
             context,
-            (startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending) {
+            (startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending, scaffoldMessengerKey) {
               applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending, csvData, filteredData);
               updateFilterValues(setState, startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending,
                   (value) => _currentStartDate = value,
@@ -103,6 +103,7 @@ class ExpensesPageState extends State<ExpensesPage> {
                   (value) => _currentCategoryFilter = value,
                   (value) => _currentSortOption = value,
                   (value) => _isAscending = value);
+              loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending, scaffoldMessengerKey);
               setState(() {});
             },
             _currentStartDate,
@@ -112,6 +113,7 @@ class ExpensesPageState extends State<ExpensesPage> {
             _currentCategoryFilter,
             _currentSortOption,
             _isAscending,
+            _scaffoldMessengerKey,
           ),
           icon: const Icon(Icons.tune),
         ),
