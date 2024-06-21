@@ -1,9 +1,9 @@
 import '../../Repositories/Local Data/expenses_list_element.dart';
-import 'filter_date_options.dart';
-import 'filters_page.dart';
 import 'package:flutter/material.dart';
+import 'filter_date_options.dart';
 import 'package:intl/intl.dart';
-import '../Utils/utils.dart';
+import 'package:hive/hive.dart';
+import 'filters_page.dart';
 
 enum SortOption { date, shop, category, product, cost }
 
@@ -21,6 +21,27 @@ String removeDiacritics(String text) {
     'Ą': 'A', 'Ć': 'C', 'Ę': 'E', 'Ł': 'L', 'Ń': 'N', 'Ó': 'O', 'Ś': 'S', 'Ź': 'Z', 'Ż': 'Z'
   };
   return text.split('').map((char) => diacriticMap[char] ?? char).join();
+}
+
+String getFilterOptionByDateRange(DateTime start, DateTime end, DateTime now) {
+  if (isSameDay(start, now) && isSameDay(end, now)) {
+    return 'Dzisiaj';
+  } else if (isSameRange(start, end, now.subtract(Duration(days: now.weekday - 1)), now.subtract(Duration(days: now.weekday - 1)).add(const Duration(days: 6)))) {
+    return 'Obecny tydzień';
+  } else if (isSameRange(start, end, DateTime(now.year, now.month, 1), DateTime(now.year, now.month + 1, 0))) {
+    return 'Obecny miesiąc';
+  } else if (isSameRange(start, end, now.subtract(const Duration(days: 7)), now)) {
+    return '7 dni wstecz';
+  } else if (isSameRange(start, end, now.subtract(const Duration(days: 30)), now)) {
+    return '30 dni wstecz';
+  } else if (isSameRange(start, end, DateTime(now.year, 1, 1), DateTime(now.year + 1, 1, 0))) {
+    return 'Obecny rok';
+  } else if (isSameRange(start, end, now.subtract(const Duration(days: 365)), now)) {
+    return 'Rok wstecz';
+  } else {
+    DateFormat dateFormat = DateFormat('dd.MM.yyyy');
+    return '${dateFormat.format(start)} - ${dateFormat.format(end)}';
+  }
 }
 
 void applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption? orderBy, bool? isAscending, List<ExpensesListElementModel> csvData, List<ExpensesListElementModel> filteredData) {
@@ -124,36 +145,6 @@ void applyDefaultFilters(
   setState(() {});
 }
 
-void openFilterDialog(
-  BuildContext context,
-  Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool, GlobalKey<ScaffoldMessengerState>) onFiltersApplied,
-  DateTime? currentStartDate,
-  DateTime? currentEndDate,
-  String? currentProductFilter,
-  String? currentShopFilter,
-  String? currentCategoryFilter,
-  SortOption currentSortOption,
-  bool isAscending,
-  GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey
-) {
-  showDialog(
-    context: context,
-    builder: (BuildContext context) {
-      return FiltersPage(
-        onFiltersApplied: onFiltersApplied,
-        currentStartDate: currentStartDate,
-        currentEndDate: currentEndDate,
-        currentProductFilter: currentProductFilter,
-        currentShopFilter: currentShopFilter,
-        currentCategoryFilter: currentCategoryFilter,
-        currentSortOption: currentSortOption,
-        isAscending: isAscending,
-        navigatorKey: scaffoldMessengerKey,  // Dodanie scaffoldMessengerKey jako navigatorKey
-      );
-    },
-  );
-}
-
 void updateFilterValues(
   Function setState,
   DateTime? startDate,
@@ -179,44 +170,6 @@ void updateFilterValues(
     setCurrentCategoryFilter(categoryFilter);
     setCurrentSortOption(sortOption);
     setCurrentIsAscending(isAscending);
-  });
-}
-
-String getFilterOptionByDateRange(DateTime start, DateTime end, DateTime now) {
-  if (isSameDay(start, now) && isSameDay(end, now)) {
-    return 'Dzisiaj';
-  } else if (isSameRange(start, end, now.subtract(Duration(days: now.weekday - 1)), now.subtract(Duration(days: now.weekday - 1)).add(const Duration(days: 6)))) {
-    return 'Obecny tydzień';
-  } else if (isSameRange(start, end, DateTime(now.year, now.month, 1), DateTime(now.year, now.month + 1, 0))) {
-    return 'Obecny miesiąc';
-  } else if (isSameRange(start, end, now.subtract(const Duration(days: 7)), now)) {
-    return '7 dni wstecz';
-  } else if (isSameRange(start, end, now.subtract(const Duration(days: 30)), now)) {
-    return '30 dni wstecz';
-  } else if (isSameRange(start, end, DateTime(now.year, 1, 1), DateTime(now.year + 1, 1, 0))) {
-    return 'Obecny rok';
-  } else if (isSameRange(start, end, now.subtract(const Duration(days: 365)), now)) {
-    return 'Rok wstecz';
-  } else {
-    DateFormat dateFormat = DateFormat('dd.MM.yyyy');
-    return '${dateFormat.format(start)} - ${dateFormat.format(end)}';
-  }
-}
-
-Future<void> loadSuggestions(Function setState) async {
-  await loadAllSuggestions();
-  setState(() {});
-}
-
-void onSortOptionChanged(Function setState, SortOption option, void Function(SortOption) updateSortOption) {
-  setState(() {
-    updateSortOption(option);
-  });
-}
-
-void onOrderChanged(Function setState, bool ascending, void Function(bool) updateOrder) {
-  setState(() {
-    updateOrder(ascending);
   });
 }
 
@@ -300,3 +253,63 @@ void applyFiltersAndClose(
   );
   Navigator.of(context).pop();
 }
+
+void openFilterDialog(
+  BuildContext context,
+  Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool, GlobalKey<ScaffoldMessengerState>) onFiltersApplied,
+  DateTime? currentStartDate,
+  DateTime? currentEndDate,
+  String? currentProductFilter,
+  String? currentShopFilter,
+  String? currentCategoryFilter,
+  SortOption currentSortOption,
+  bool isAscending,
+  GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey
+) {
+  showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return FiltersPage(
+        onFiltersApplied: onFiltersApplied,
+        currentStartDate: currentStartDate,
+        currentEndDate: currentEndDate,
+        currentProductFilter: currentProductFilter,
+        currentShopFilter: currentShopFilter,
+        currentCategoryFilter: currentCategoryFilter,
+        currentSortOption: currentSortOption,
+        isAscending: isAscending,
+        navigatorKey: scaffoldMessengerKey,
+      );
+    },
+  );
+}
+
+void onSortOptionChanged(Function setState, SortOption option, void Function(SortOption) updateSortOption) {
+  setState(() {
+    updateSortOption(option);
+  });
+}
+
+void onOrderChanged(Function setState, bool ascending, void Function(bool) updateOrder) {
+  setState(() {
+    updateOrder(ascending);
+  });
+}
+
+List<String> _allSklepy = [];
+List<String> _allKategorie = [];
+List<String> _allProdukty = [];
+
+Future<void> loadAllSuggestions(Function setState) async {
+  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+  var allExpenses = box.values.toList();
+  _allSklepy = allExpenses.map((expense) => expense.sklep.trim()).where((sklep) => sklep.isNotEmpty).toSet().toList()..sort();
+  _allKategorie = allExpenses.map((expense) => expense.kategoria.trim()).where((kategoria) => kategoria.isNotEmpty).toSet().toList()..sort();
+  _allProdukty = allExpenses.map((expense) => expense.produkt.trim()).where((produkt) => produkt.isNotEmpty).toSet().toList()..sort();
+
+  setState(() {});
+}
+
+List<String> getAllSklepy() => _allSklepy;
+List<String> getAllKategorie() => _allKategorie;
+List<String> getAllProdukty() => _allProdukty;

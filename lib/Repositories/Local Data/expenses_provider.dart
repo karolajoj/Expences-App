@@ -1,5 +1,5 @@
-import 'package:hive/hive.dart';
 import 'expenses_list_element.dart';
+import 'package:hive/hive.dart';
 
 class ExpensesProvider {
   final Box<ExpensesListElementModel> _expensesBox;
@@ -49,19 +49,19 @@ class ExpensesProvider {
   }
 
   Future<void> setForDeletion(String id) async {
-  final key = _expensesBox.keys.firstWhere((element) {
-    final expense = _expensesBox.get(element);
-    return expense?.localId == id;
-  }, orElse: () => null);
+    final key = _expensesBox.keys.firstWhere((element) {
+      final expense = _expensesBox.get(element);
+      return expense?.localId == id;
+    }, orElse: () => null);
 
-  if (key != null) {
-    final expense = _expensesBox.get(key);
-    if (expense != null) {
-      expense.toBeDeleted = true;
-      await _expensesBox.put(key, expense);
+    if (key != null) {
+      final expense = _expensesBox.get(key);
+      if (expense != null) {
+        final updatedExpense = expense.copyWith(toBeDeleted: true);
+        await _expensesBox.put(key, updatedExpense);
+      }
     }
   }
-}
 
   // DeleteAll
   Future<void> deleteAllExpense() async {

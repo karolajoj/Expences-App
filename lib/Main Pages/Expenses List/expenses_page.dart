@@ -1,16 +1,18 @@
-import '../../Repositories/Import & Export & Delete/csv_import_export.dart';
+import 'package:expenses_app_project/Main%20Pages/Expenses%20List/expense_menu.dart';
+import '../../Repositories/Import & Export & Delete/data_delete.dart';
+import '../../Repositories/Import & Export & Delete/data_export.dart';
+import '../../Repositories/Import & Export & Delete/data_import.dart';
 import '../../Repositories/Local Data/expenses_list_element.dart';
 import '../../Repositories/Local Data/expenses_provider.dart';
 import '../../Repositories/Online Data/firestore.dart';
-import 'package:expenses_app_project/Main%20Pages/Expenses%20List/drawer.dart';
 import 'package:expenses_app_project/main.dart';
 import '../../Repositories/data_loader.dart';
 import 'package:flutter/material.dart';
 import '../../Filters/filter_utils.dart';
 import 'package:hive/hive.dart';
-import '../../Utils/utils.dart';
 import 'add_expense_page.dart';
 import 'expense_tile.dart';
+import 'expense_utils.dart';
 
 class ExpensesPage extends StatefulWidget {
   const ExpensesPage({super.key});
@@ -41,14 +43,8 @@ class ExpensesPageState extends State<ExpensesPage> {
   @override
   void initState() {
     super.initState();
-    _initExpansionTileKeys();
-    loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter,
-                _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey);
-
-  }
-
-  void _initExpansionTileKeys() {
-    updateExpansionTileKeys(expansionTileKeys, filteredData);
+    initExpansionTileKeys(setState, expansionTileKeys, filteredData);
+    loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey);
   }
 
   @override
@@ -57,17 +53,13 @@ class ExpensesPageState extends State<ExpensesPage> {
       key: _scaffoldMessengerKey,
       child: Scaffold(
         appBar: _buildAppBar(context),
-        drawer: AppDrawer(
+        drawer: ExpenseMenu(
           onLoadCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, () => applyDefaultFilters(setState, csvData, filteredData), _scaffoldMessengerKey, true),
           onReplaceCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, () => applyDefaultFilters(setState, csvData, filteredData), _scaffoldMessengerKey, false),
           onExportAllData: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
           onExportFilteredData: (context) => exportCSV(context, _scaffoldMessengerKey, filteredData),
-          onDeleteAllData: (context) => markAllDataForDeletion(context, _scaffoldMessengerKey,
-              () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey),
-              expensesProvider, navigatorKey),
-          onDeleteFilteredData: (context) => markFilteredDataForDeletion(context, filteredData, _scaffoldMessengerKey,
-              () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey),
-              expensesProvider, navigatorKey),
+          onDeleteAllData: (context) => markAllDataForDeletion(context, _scaffoldMessengerKey, () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey), expensesProvider, navigatorKey),
+          onDeleteFilteredData: (context) => markFilteredDataForDeletion(context, filteredData, _scaffoldMessengerKey, () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey), expensesProvider, navigatorKey),
           navigatorKey: navigatorKey,
         ),
         body: _buildBody(),

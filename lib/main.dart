@@ -13,7 +13,7 @@ Future<void> main() async {
 
   await Hive.initFlutter();
   Hive.registerAdapter(ExpensesListElementModelAdapter());
-  await Hive.openBox<ExpensesListElementModel>('expenses_local');
+  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
 
   runApp(const ExpensesApp());
 }

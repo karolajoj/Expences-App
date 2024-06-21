@@ -4,7 +4,7 @@ import 'package:expenses_app_project/main.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class AppDrawer extends StatefulWidget {
+class ExpenseMenu extends StatefulWidget {
   final Function(BuildContext) onLoadCSV;
   final Function(BuildContext) onReplaceCSV;
   final Function(BuildContext) onExportAllData;
@@ -14,7 +14,7 @@ class AppDrawer extends StatefulWidget {
 
   final GlobalKey<NavigatorState> navigatorKey;
 
-  const AppDrawer({
+  const ExpenseMenu({
     super.key,
     required this.onLoadCSV,
     required this.onReplaceCSV,
@@ -26,10 +26,10 @@ class AppDrawer extends StatefulWidget {
   });
 
   @override
-  AppDrawerState createState() => AppDrawerState();
+  ExpenseMenuState createState() => ExpenseMenuState();
 }
 
-class AppDrawerState extends State<AppDrawer> {
+class ExpenseMenuState extends State<ExpenseMenu> {
   bool _isExportExpanded = false;
   bool _isImportExpanded = false;
   bool _isDeleteExpanded = false;

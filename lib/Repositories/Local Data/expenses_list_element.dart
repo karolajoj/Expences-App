@@ -60,13 +60,13 @@ class ExpensesListElementModel {
   final String komentarz;
 
   @HiveField(18)
-  late bool toBeSent; // Meaning added localy but not yet on server
+  bool toBeSent; // Meaning added localy but not yet on server
 
-  @HiveField(18)
-  late bool toBeUpdated; // Meaning modified localy but not yet on server
+  @HiveField(19)
+  bool toBeUpdated; // Meaning modified localy but not yet on server
 
   @HiveField(20)
-  late bool toBeDeleted; // Meaning deleted localy but not yet on server
+  bool toBeDeleted; // Meaning deleted localy but not yet on server
 
   ExpensesListElementModel({
     String? localId,

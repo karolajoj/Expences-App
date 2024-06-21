@@ -1,9 +1,7 @@
+import '../Utils/autocomplete_field.dart';
 import 'package:flutter/material.dart';
 import 'filter_sort_options.dart';
-import '../Utils/autocomplete_field.dart';
-import '../Utils/utils.dart';
 import 'filter_utils.dart';
-
 
 class FiltersPage extends StatefulWidget {
   final Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool, GlobalKey<ScaffoldMessengerState>) onFiltersApplied;
@@ -42,7 +40,6 @@ class FiltersPageState extends State<FiltersPage> {
   late SortOption sortOption;
   late bool isAscending;
 
-  // Potrzebne do poprawnego czyszczenia pól tekstowych
   late ValueNotifier<String> productNotifier;
   late ValueNotifier<String> shopNotifier;
   late ValueNotifier<String> categoryNotifier;
@@ -54,7 +51,7 @@ class FiltersPageState extends State<FiltersPage> {
   @override
   void initState() {
     super.initState();
-    loadSuggestions(setState);
+    loadAllSuggestions(setState);
     startDate = widget.currentStartDate;
     endDate = widget.currentEndDate;
     productFilter = widget.currentProductFilter;

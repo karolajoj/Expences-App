@@ -32,5 +32,5 @@ Future<void> loadOrRefreshLocalData(
   });
 
   // TODO: Zmienić żeby nie zawsze sie to pokazywało
-  scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Załadowano ${csvData.length} wydatków'), duration: const Duration(milliseconds: 400)));
+  scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Załadowano ${filteredData.length} wydatków'), duration: const Duration(milliseconds: 400)));
 }
