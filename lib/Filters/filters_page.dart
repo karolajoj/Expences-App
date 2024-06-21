@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
+import 'filter_utils.dart';
 import '../autocomplete_field.dart';
-import 'filter_options_list.dart';
-import 'choice_chip_row.dart';
-import '../utils.dart';
+import 'filter_sort_options_row.dart';
+import '../Utils/utils.dart';
 
-enum SortOption { date, shop, category, product, cost }
-
-// TODO : Traktować elementy z flagą toBeDeleted jako nieistniejące i ich nie pokazywać w aplikacji
 class FilterDataPage extends StatefulWidget {
   final Function(DateTime?, DateTime?, String?, String?, String?, SortOption, bool) onFiltersApplied;
   final DateTime? currentStartDate;
@@ -55,7 +52,7 @@ class FilterDataPageState extends State<FilterDataPage> {
   @override
   void initState() {
     super.initState();
-    _loadSuggestions();
+    loadSuggestions(setState);
     startDate = widget.currentStartDate;
     endDate = widget.currentEndDate;
     productFilter = widget.currentProductFilter;
@@ -75,74 +72,6 @@ class FilterDataPageState extends State<FilterDataPage> {
     }
   }
 
-  Future<void> _loadSuggestions() async {
-    await loadAllSuggestions();
-    setState(() {});
-  }
-
-  void _setDateRange(DateTime? start, DateTime? end, String filterName) {
-    setState(() {
-      startDate = start;
-      endDate = end;
-      selectedFilterOption = filterName;
-    });
-  }
-
-  void _clearFilters() {
-    setState(() {
-      startDate = null;
-      endDate = null;
-      productFilter = null;
-      shopFilter = null;
-      categoryFilter = null;
-      sortOption = SortOption.date;
-      isAscending = true;
-      selectedFilterOption = 'Całość';
-      productNotifier.value = '';
-      shopNotifier.value = '';
-      categoryNotifier.value = '';
-    });
-  }
-
-  void _applyFiltersAndClose() {
-    widget.onFiltersApplied(
-      startDate,
-      endDate,
-      productNotifier.value.isNotEmpty ? productNotifier.value : null,
-      shopNotifier.value.isNotEmpty ? shopNotifier.value : null,
-      categoryNotifier.value.isNotEmpty ? categoryNotifier.value : null,
-      sortOption,
-      isAscending,
-    );
-    Navigator.of(context).pop();
-  }
-
-  void _showFilterOptions(BuildContext context) {
-    showModalBottomSheet(
-      isScrollControlled: true,
-      context: context,
-      builder: (BuildContext context) {
-        return FilterOptionsList(
-          onSelectDateRange: _setDateRange,
-          now: now,
-          selectedDates: _selectedDates,
-        );
-      },
-    );
-  }
-
-  void _onSortOptionChanged(SortOption option) {
-    setState(() {
-      sortOption = option;
-    });
-  }
-
-  void _onOrderChanged(bool ascending) {
-    setState(() {
-      isAscending = ascending;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -157,8 +86,8 @@ class FilterDataPageState extends State<FilterDataPage> {
             ChoiceChipRow(
               sortOption: sortOption,
               isAscending: isAscending,
-              onSortOptionChanged: _onSortOptionChanged,
-              onOrderChanged: _onOrderChanged,
+              onSortOptionChanged: (option) => onSortOptionChanged(setState, option, (value) => sortOption = value),
+              onOrderChanged: (ascending) => onOrderChanged(setState, ascending, (value) => isAscending = value),
             ),
             const SizedBox(height: 16),
             const Text('Opcje filtrowania'),
@@ -172,7 +101,7 @@ class FilterDataPageState extends State<FilterDataPage> {
               ),
               trailing: const Icon(Icons.expand_more),
               onTap: () {
-                _showFilterOptions(context);
+                showFilterOptions(context, (start, end, filterName) => setDateRange(setState, start, end, filterName, (value) => startDate = value, (value) => endDate = value, (value) => selectedFilterOption = value), now, _selectedDates);
               },
             ),
             AutocompleteField(
@@ -231,12 +160,12 @@ class FilterDataPageState extends State<FilterDataPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 ElevatedButton(
-                  onPressed: _clearFilters,
+                  onPressed: () => clearFilters(setState, productNotifier, shopNotifier, categoryNotifier, (value) => startDate = value, (value) => endDate = value, (value) => productFilter = value, (value) => shopFilter = value, (value) => categoryFilter = value, (value) => sortOption = value, (value) => isAscending = value, (value) => selectedFilterOption = value),
                   child: const Text('Czyść filtry'),
                 ),
                 const SizedBox(width: 16),
                 ElevatedButton(
-                  onPressed: _applyFiltersAndClose,
+                  onPressed: () => applyFiltersAndClose(context, startDate, endDate, productNotifier, shopNotifier, categoryNotifier, sortOption, isAscending, widget.onFiltersApplied),
                   child: const Text('Filtruj'),
                 ),
               ],

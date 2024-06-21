@@ -1,16 +1,16 @@
-import 'package:expenses_app_project/main.dart';
-
 import '../../Repositories/Import & Export & Delete/csv_import_export.dart';
-import 'package:expenses_app_project/Main%20Pages/Expenses%20List/add_expense_page.dart';
 import '../../Repositories/Local Data/expenses_list_element.dart';
 import '../../Repositories/Local Data/expenses_provider.dart';
-import 'package:expenses_app_project/drawer.dart';
 import '../../Repositories/Online Data/firestore.dart';
+import 'package:expenses_app_project/drawer.dart';
+import 'package:expenses_app_project/main.dart';
+import '../../Repositories/data_loader.dart';
 import 'package:flutter/material.dart';
+import '../../Filters/filter_utils.dart';
 import 'package:hive/hive.dart';
-import '../../Filters/filter_data_page.dart';
+import '../../Utils/utils.dart';
+import 'add_expense_page.dart';
 import 'expense_tile.dart';
-import '../../utils.dart';
 
 class ExpensesPage extends StatefulWidget {
   const ExpensesPage({super.key});
@@ -30,7 +30,6 @@ class ExpensesPageState extends State<ExpensesPage> {
   FirestoreService firestore = FirestoreService();
   ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>('expenses_local'));
 
-  // Pola do przechowywania aktualnych filtrów
   DateTime? _currentStartDate = DateTime.now().subtract(const Duration(days: 30));
   DateTime? _currentEndDate = DateTime.now();
   String? _currentProductFilter;
@@ -43,26 +42,13 @@ class ExpensesPageState extends State<ExpensesPage> {
   void initState() {
     super.initState();
     _initExpansionTileKeys();
-    loadOrRefreshLocalData();
+    loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter,
+                _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey);
+
   }
 
-  Future<void> loadOrRefreshLocalData() async {
-    var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
-    List<ExpensesListElementModel> localData = box.values.toList();
-
-    setState(() {
-      csvData.clear();
-      csvData.addAll(localData.where((expense) => !expense.toBeDeleted).toList()); // Filtrowanie wydatków z flagą toDelete
-      filteredData.clear();
-      filteredData.addAll(csvData);
-      dateColorMap.clear();
-
-      updateDateColorMap(csvData, dateColorMap);
-      _applyFilters(_currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending);
-    });
-
-    // TODO: Zmienić żeby nie zawsze sie to pokazywało
-    _scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Załadowano ${csvData.length} wydatków'), duration: const Duration(milliseconds: 400)));
+  void _initExpansionTileKeys() {
+    updateExpansionTileKeys(expansionTileKeys, filteredData);
   }
 
   @override
@@ -72,29 +58,30 @@ class ExpensesPageState extends State<ExpensesPage> {
       child: Scaffold(
         appBar: _buildAppBar(context),
         drawer: AppDrawer(
-          onLoadCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey, true),
-          onReplaceCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, _applyDefaultFilters, _scaffoldMessengerKey, false),
+          onLoadCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, () => applyDefaultFilters(setState, csvData, filteredData), _scaffoldMessengerKey, true),
+          onReplaceCSV: (context) => loadCSV(setState, csvData, filteredData, dateColorMap, () => applyDefaultFilters(setState, csvData, filteredData), _scaffoldMessengerKey, false),
           onExportAllData: (context) => exportCSV(context, _scaffoldMessengerKey, csvData),
           onExportFilteredData: (context) => exportCSV(context, _scaffoldMessengerKey, filteredData),
-          onDeleteAllData: (context) => markAllDataForDeletion(context, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider, navigatorKey),
-          onDeleteFilteredData: (context) => markFilteredDataForDeletion(context, filteredData, _scaffoldMessengerKey, loadOrRefreshLocalData, expensesProvider, navigatorKey),
+          onDeleteAllData: (context) => markAllDataForDeletion(context, _scaffoldMessengerKey,
+              () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey),
+              expensesProvider, navigatorKey),
+          onDeleteFilteredData: (context) => markFilteredDataForDeletion(context, filteredData, _scaffoldMessengerKey,
+              () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey),
+              expensesProvider, navigatorKey),
         ),
         body: _buildBody(),
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
-            await _addNewExpense(context);
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => AddExpensePage(
+                    expense: null,
+                    loadOrRefreshLocalData: () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey),
+                    navigatorKey: navigatorKey)));
           },
           child: const Icon(Icons.add),
         ),
-      ),
-    );
-  }
-
-  Future<void> _addNewExpense(BuildContext context) async {
-     Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => AddExpensePage(expense: null, loadOrRefreshLocalData: loadOrRefreshLocalData, navigatorKey: navigatorKey),
       ),
     );
   }
@@ -104,7 +91,28 @@ class ExpensesPageState extends State<ExpensesPage> {
       title: const Text('Lista wydatków'),
       actions: [
         IconButton(
-          onPressed: () => _openFilterDialog(context),
+          onPressed: () => openFilterDialog(
+            context,
+            (startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending) {
+              applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending, csvData, filteredData);
+              updateFilterValues(setState, startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending,
+                  (value) => _currentStartDate = value,
+                  (value) => _currentEndDate = value,
+                  (value) => _currentProductFilter = value,
+                  (value) => _currentShopFilter = value,
+                  (value) => _currentCategoryFilter = value,
+                  (value) => _currentSortOption = value,
+                  (value) => _isAscending = value);
+              setState(() {});
+            },
+            _currentStartDate,
+            _currentEndDate,
+            _currentProductFilter,
+            _currentShopFilter,
+            _currentCategoryFilter,
+            _currentSortOption,
+            _isAscending,
+          ),
           icon: const Icon(Icons.tune),
         ),
       ],
@@ -116,7 +124,7 @@ class ExpensesPageState extends State<ExpensesPage> {
       child: csvData.isEmpty 
         ? const Text('Brak danych CSV') 
         : RefreshIndicator(
-            onRefresh: loadOrRefreshLocalData,
+            onRefresh: () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey),
             child: _buildListView(),
           ),
     );
@@ -133,7 +141,7 @@ class ExpensesPageState extends State<ExpensesPage> {
               return ExpenseTile(
                 row: row,
                 index: index,
-                loadOrRefreshLocalData: loadOrRefreshLocalData,
+                loadOrRefreshLocalData: () => loadOrRefreshLocalData(setState, csvData, filteredData, dateColorMap, _currentStartDate, _currentEndDate, _currentProductFilter, _currentShopFilter, _currentCategoryFilter, _currentSortOption, _isAscending, _scaffoldMessengerKey),
                 dateColorMap: dateColorMap,
                 expandedTiles: expandedTiles,
                 scaffoldMessengerKey: _scaffoldMessengerKey,
@@ -152,144 +160,5 @@ class ExpensesPageState extends State<ExpensesPage> {
         ),
       ],
     );
-  }
-
-  void _applyDefaultFilters() {
-    DateTime startDate = DateTime.now().subtract(const Duration(days: 30));
-    DateTime endDate = DateTime.now();
-    _applyFilters(startDate, endDate, null, null, null, SortOption.date, true);
-  }
-
-  void _openFilterDialog(BuildContext context) {
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        return FilterDataPage(
-          onFiltersApplied: (startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending) {
-            _applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending);
-            _updateFilterValues(startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending);
-          },
-          currentStartDate: _currentStartDate,
-          currentEndDate: _currentEndDate,
-          currentProductFilter: _currentProductFilter,
-          currentShopFilter: _currentShopFilter,
-          currentCategoryFilter: _currentCategoryFilter,
-          currentSortOption: _currentSortOption,
-          isAscending: _isAscending,
-        );
-      },
-    );
-  }
-
-  void _updateFilterValues(
-    DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption sortOption, bool isAscending) {
-    setState(() {
-      _currentStartDate = startDate;
-      _currentEndDate = endDate;
-      _currentProductFilter = productFilter;
-      _currentShopFilter = shopFilter;
-      _currentCategoryFilter = categoryFilter;
-      _currentSortOption = sortOption;
-      _isAscending = isAscending;
-    });
-  }
-
-  void _applyFilters(DateTime? startDate, DateTime? endDate, String? productFilter, String? shopFilter, String? categoryFilter, SortOption? orderBy, bool? isAscending) {
-    if (csvData.isNotEmpty) {
-      setState(() {
-        filteredData = csvData.where((element) {
-          bool withinDateRange = true;
-          bool matchesProductFilter = true;
-          bool matchesShopFilter = true;
-          bool matchesCategoryFilter = true;
-
-          if (startDate != null && endDate != null) {
-            withinDateRange = (element.data.isAfter(startDate) || element.data.isAtSameMomentAs(startDate))
-                           && (element.data.isBefore(endDate) || element.data.isAtSameMomentAs(endDate));
-          }
-
-          if (productFilter != null) {
-            matchesProductFilter = element.produkt.toLowerCase().contains(productFilter.toLowerCase());
-          }
-
-          if (shopFilter != null) {
-            matchesShopFilter = element.sklep.toLowerCase().contains(shopFilter.toLowerCase());
-          }
-
-          if (categoryFilter != null) {
-            matchesCategoryFilter = element.kategoria.toLowerCase().contains(categoryFilter.toLowerCase());
-          }
-
-          return withinDateRange && matchesProductFilter && matchesShopFilter && matchesCategoryFilter;
-        }).toList();
-
-        // Ustalenie kolejności sortowania
-        List<SortOption> sortOrder;
-        switch (orderBy) {
-          case SortOption.date:
-            sortOrder = [SortOption.date, SortOption.shop, SortOption.category, SortOption.product];
-            break;
-          case SortOption.product:
-            sortOrder = [SortOption.product, SortOption.shop, SortOption.category, SortOption.date];
-            break;
-          case SortOption.cost:
-            sortOrder = [SortOption.cost, SortOption.date, SortOption.shop, SortOption.category, SortOption.product];
-            break;
-          default:
-            sortOrder = [SortOption.date, SortOption.shop, SortOption.category, SortOption.product];
-            break;
-        }
-
-        // Sortowanie po wielu polach
-        filteredData.sort((a, b) {
-          for (var option in sortOrder) {
-            int comparison;
-            switch (option) {
-              case SortOption.date:
-                comparison = a.data.compareTo(b.data);
-                break;
-              case SortOption.shop:
-                comparison = a.sklep.compareTo(b.sklep);
-                break;
-              case SortOption.category:
-                comparison = a.kategoria.compareTo(b.kategoria);
-                break;
-              case SortOption.product:
-                comparison = a.produkt.compareTo(b.produkt);
-                break;
-              case SortOption.cost:
-                comparison = a.totalCost.compareTo(b.totalCost);
-                break;
-              default:
-                comparison = 0;
-                break;
-            }
-            if (comparison != 0) {
-              return comparison;
-            }
-          }
-          return 0;
-        });
-
-        if (isAscending != null && !isAscending) {
-          filteredData = filteredData.reversed.toList();
-        }
-
-        _updateExpansionTileKeys();
-      });
-    }
-  }
-
-  void _initExpansionTileKeys() {
-    expansionTileKeys.clear();
-    for (int i = 0; i < filteredData.length; i++) {
-      expansionTileKeys.add(GlobalKey());
-    }
-  }
-
-  void _updateExpansionTileKeys() {
-    setState(() {
-      _initExpansionTileKeys();
-    });
   }
 }

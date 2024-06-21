@@ -1,7 +1,6 @@
-import 'package:expenses_app_project/main.dart';
-
 import '../../Repositories/Local Data/expenses_list_element.dart';
 import '../../Repositories/Local Data/expenses_provider.dart';
+import 'package:expenses_app_project/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -18,7 +17,8 @@ class ExpenseTile extends StatelessWidget {
   final int index;
   final ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>('expenses_local'));
 
-  ExpenseTile({super.key, 
+  ExpenseTile({
+    super.key,
     required this.row,
     required this.index,
     required this.loadOrRefreshLocalData,

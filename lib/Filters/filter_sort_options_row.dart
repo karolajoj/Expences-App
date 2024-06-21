@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'filter_data_page.dart';
+import 'filter_utils.dart';
 
 class ChoiceChipRow extends StatelessWidget {
   final SortOption sortOption;
