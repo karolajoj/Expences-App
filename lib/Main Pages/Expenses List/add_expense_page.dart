@@ -130,6 +130,22 @@ class AddExpensePageState extends State<AddExpensePage> {
     );
   }
 
+  Widget _buildNumericTextFormField({
+    required String initialValue,
+    required String labelText,
+    required Function(String?) onSaved,
+  }) {
+    return TextFormField(
+      initialValue: initialValue,
+      decoration: InputDecoration(labelText: labelText),
+      keyboardType: TextInputType.number,
+      inputFormatters: <TextInputFormatter>[
+        FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+      ],
+      onSaved: onSaved,
+    );
+  }
+
   Widget _buildTextFormField({
     required String initialValue,
     required String labelText,
@@ -210,13 +226,9 @@ class AddExpensePageState extends State<AddExpensePage> {
                   });
                 },
               ),
-              _buildTextFormField(
+              _buildNumericTextFormField(
                 initialValue: ilosc.toString(),
                 labelText: 'Ilość',
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                ],
                 onSaved: (value) {
                   int? parsedValue = int.tryParse(value ?? '1');
                   if (parsedValue == null || parsedValue <= 0) {
@@ -226,13 +238,9 @@ class AddExpensePageState extends State<AddExpensePage> {
                   }
                 },
               ),
-              _buildTextFormField(
+              _buildNumericTextFormField(
                 initialValue: cena.toString(),
                 labelText: 'Cena',
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d\.,/*]')),
-                ],
                 onSaved: (value) {
                   double parsedValue = double.parse(calculatePrice(value ?? '0.0'));
                   if (parsedValue < 0) {
@@ -243,13 +251,9 @@ class AddExpensePageState extends State<AddExpensePage> {
                 },
               ),
               _buildDropdownButtonFormField(),
-              _buildTextFormField(
-                initialValue: miara == null ? "" :miara.toString(),
+              _buildNumericTextFormField(
+                initialValue: miara == null ? "" : miara.toString(),
                 labelText: 'Miara',
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                ],
                 onSaved: (value) {
                   int? parsedValue = value != null ? int.tryParse(value) : null;
                   if (parsedValue == null || parsedValue <= 0.0) {
@@ -259,13 +263,9 @@ class AddExpensePageState extends State<AddExpensePage> {
                   }
                 },
               ),
-              _buildTextFormField(
-                initialValue: iloscWOpakowaniu == null ? "" :iloscWOpakowaniu.toString(),
+              _buildNumericTextFormField(
+                initialValue: iloscWOpakowaniu == null ? "" : iloscWOpakowaniu.toString(),
                 labelText: 'Ilość w opakowaniu',
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                ],
                 onSaved: (value) {
                   int? parsedValue = value != null ? int.tryParse(value) : null;
                   if (parsedValue == null || parsedValue <= 0.0) {
@@ -275,13 +275,9 @@ class AddExpensePageState extends State<AddExpensePage> {
                   }
                 },
               ),
-              _buildTextFormField(
+              _buildNumericTextFormField(
                 initialValue: kosztDostawy == null ? "" : kosztDostawy.toString(),
                 labelText: 'Koszt dostawy',
-                keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[\d\.,]')),
-                ],
                 onSaved: (value) {
                   double? parsedValue = value != null ? double.tryParse(value) : null;
                   if (parsedValue == null || parsedValue <= 0.0) {
@@ -315,7 +311,7 @@ class AddExpensePageState extends State<AddExpensePage> {
                 onSaved: (value) => komentarz = value ?? '',
               ),
               ElevatedButton(
-                onPressed: () => saveExpense(this, _formKey, widget.expense, widget.loadOrRefreshLocalData, widget.navigatorKey, shopNotifier, categoryNotifier, productNotifier), // Użycie przeniesionej metody
+                onPressed: () => saveExpense(this, _formKey, widget.expense, widget.loadOrRefreshLocalData, widget.navigatorKey, shopNotifier, categoryNotifier, productNotifier),
                 child: const Text('Zapisz'),
               ),
               ElevatedButton(

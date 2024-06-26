@@ -6,8 +6,7 @@ part of 'expenses_list_element.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ExpensesListElementModelAdapter
-    extends TypeAdapter<ExpensesListElementModel> {
+class ExpensesListElementModelAdapter extends TypeAdapter<ExpensesListElementModel> {
   @override
   final int typeId = 0;
 
@@ -33,13 +32,16 @@ class ExpensesListElementModelAdapter
       zwrot: fields[14] as bool,
       link: fields[16] as String,
       komentarz: fields[17] as String,
+      toBeSent: fields[18] as bool? ?? false,
+      toBeUpdated: fields[19] as bool? ?? false,
+      toBeDeleted: fields[20] as bool? ?? false,
     );
   }
 
   @override
   void write(BinaryWriter writer, ExpensesListElementModel obj) {
     writer
-      ..writeByte(18)
+      ..writeByte(21)
       ..writeByte(0)
       ..write(obj.localId)
       ..writeByte(1)
@@ -75,7 +77,13 @@ class ExpensesListElementModelAdapter
       ..writeByte(16)
       ..write(obj.link)
       ..writeByte(17)
-      ..write(obj.komentarz);
+      ..write(obj.komentarz)
+      ..writeByte(18)
+      ..write(obj.toBeSent)
+      ..writeByte(19)
+      ..write(obj.toBeUpdated)
+      ..writeByte(20)
+      ..write(obj.toBeDeleted);
   }
 
   @override

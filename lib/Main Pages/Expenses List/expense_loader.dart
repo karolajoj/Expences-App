@@ -1,8 +1,8 @@
-import '../../Repositories/Local Data/expenses_list_element.dart';
+import '../../../Repositories/Local Data/expenses_list_element.dart';
 import 'package:flutter/material.dart';
-import '../Filters/filter_utils.dart';
+import '../../Filters/filter_utils.dart';
 import 'package:hive/hive.dart';
-import '../Utils/utils.dart';
+import '../../Utils/utils.dart';
 
 Future<void> loadOrRefreshLocalData(
   Function setState,

@@ -83,7 +83,6 @@ import 'data_utils.dart';
 //   );
 // }
 
-// TODO : nie działą (po uruchomieniu aplikacji dane są nadal w bazie)
 Future<void> markAllDataForDeletion(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider, GlobalKey<NavigatorState> navigatorKey) async {
   var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
   int count = box.length;
@@ -99,10 +98,18 @@ Future<void> markAllDataForDeletion(BuildContext context, GlobalKey<ScaffoldMess
 
   showLoadingDialog(navigatorKey);
 
-  for (var key in box.keys) {
-    var expense = box.get(key);
-    if (expense != null) {
-      await expensesProvider.setForDeletion(expense.localId);
+  bool allMarkedForDeletion = false;
+
+  while (!allMarkedForDeletion) {
+    for (var key in box.keys) {
+      var expense = box.get(key);
+      if (expense != null && !expense.toBeDeleted) {
+        await expensesProvider.setForDeletion(expense.localId);
+      }
+    }
+    allMarkedForDeletion = box.values.every((expense) => expense.toBeDeleted);
+    if (!allMarkedForDeletion) {
+      await Future.delayed(const Duration(milliseconds: 100));
     }
   }
 
@@ -129,8 +136,18 @@ Future<void> markFilteredDataForDeletion(BuildContext context, List<ExpensesList
 
   showLoadingDialog(navigatorKey);
 
-  for (var expense in filteredData) {
-    await expensesProvider.setForDeletion(expense.localId);
+  bool allMarkedForDeletion = false;
+
+  while (!allMarkedForDeletion) {
+    for (var expense in filteredData) {
+      if (expense.toBeDeleted == false) {
+        await expensesProvider.setForDeletion(expense.localId);
+      }
+    }
+    allMarkedForDeletion = filteredData.every((expense) => expensesProvider.getExpenseById(expense.localId)?.toBeDeleted ?? false);
+    if (!allMarkedForDeletion) {
+      await Future.delayed(const Duration(milliseconds: 100));
+    }
   }
 
   navigatorKey.currentState?.pop();

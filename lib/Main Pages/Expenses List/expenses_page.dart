@@ -6,7 +6,7 @@ import '../../Repositories/Local Data/expenses_list_element.dart';
 import '../../Repositories/Local Data/expenses_provider.dart';
 import '../../Repositories/Online Data/firestore.dart';
 import 'package:expenses_app_project/main.dart';
-import '../../Repositories/data_loader.dart';
+import 'expense_loader.dart';
 import 'package:flutter/material.dart';
 import '../../Filters/filter_utils.dart';
 import 'package:hive/hive.dart';
