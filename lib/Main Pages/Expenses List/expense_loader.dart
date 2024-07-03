@@ -1,6 +1,7 @@
 import '../../../Repositories/Local Data/expenses_list_element.dart';
-import 'package:flutter/material.dart';
+import '../../Repositories/Online Data/sync_service.dart';
 import '../../Filters/filter_utils.dart';
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import '../../Utils/utils.dart';
 
@@ -30,6 +31,8 @@ Future<void> loadOrRefreshLocalData(
     applyFilters(startDate, endDate, productFilter, shopFilter, categoryFilter, sortOption, isAscending, csvData, filteredData);
     updateDateColorMap(filteredData, dateColorMap);
   });
+
+  syncWithFirebase();
 
   // TODO: Zmienić żeby nie zawsze sie to pokazywało
   scaffoldMessengerKey.currentState?.showSnackBar(SnackBar(content: Text('Załadowano ${filteredData.length} wydatków'), duration: const Duration(milliseconds: 400)));

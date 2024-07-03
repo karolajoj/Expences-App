@@ -2,14 +2,17 @@ import 'package:expenses_app_project/Utils/utils.dart';
 import '../Local Data/expenses_list_element.dart';
 import 'package:expenses_app_project/main.dart';
 import 'package:file_picker/file_picker.dart';
+import '../Local Data/expenses_provider.dart';
+import '../Online Data/sync_service.dart';
 import 'package:flutter/material.dart';
-import '../Online Data/firestore.dart';
 import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 import 'package:csv/csv.dart';
 import 'data_utils.dart';
 import 'dart:convert';
 import 'dart:io';
+
+ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>('expenses_local'));
 
 Future<void> loadCSV(
   Function(void Function()) setState,
@@ -25,11 +28,7 @@ Future<void> loadCSV(
   if (result != null) {
     List<ExpensesListElementModel> csvDataList = await _parseCSV(result.files.single.path!);
 
-    bool? confirm = await showConfirmationDialog(
-      'Potwierdzenie importu',
-      'Czy na pewno chcesz zaimportować te dane?\n${keepCurrentData ? '' : 'Obecne dane zostaną zastąpione nowymi\n'}Łącznie : ${csvDataList.length} wydatków',
-      navigatorKey,
-    );
+    bool? confirm = await showConfirmationDialog('Potwierdzenie importu', 'Czy na pewno chcesz zaimportować te dane?\n${keepCurrentData ? '' : 'Obecne dane zostaną zastąpione nowymi\n'}Łącznie : ${csvDataList.length} wydatków', navigatorKey);
 
     if (confirm == true) {
       await _handleCSVData(csvDataList, setState, csvData, filteredData, dateColorMap, applyDefaultFilters, scaffoldMessengerKey, keepCurrentData);
@@ -37,8 +36,8 @@ Future<void> loadCSV(
       scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Import anulowany')));
     }
   } else {
-      scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Import anulowany')));
-    }
+    scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Import anulowany')));
+  }
 }
 
 Future<List<ExpensesListElementModel>> _parseCSV(String filePath) async {
@@ -64,6 +63,7 @@ Future<List<ExpensesListElementModel>> _parseCSV(String filePath) async {
       kosztDostawy: row[9] == "" ? null : double.tryParse(row[9].replaceAll(' zł', '').replaceAll(',', '.').replaceAll(' ', '')) ?? 0.0,
       link: row[10].trim(),
       komentarz: row[11].trim(),
+      toBeSent: true,
     );
   }).toList();
 }
@@ -79,8 +79,7 @@ Future<void> _handleCSVData(
   bool keepCurrentData) async {
 
   if (!keepCurrentData) {
-    var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
-    await box.clear();
+    expensesProvider.setAllForDeletion();
   }
   
   setState(() {
@@ -102,11 +101,7 @@ Future<void> _handleCSVData(
     await box.put(expense.localId, expense);
   }
 
-  await FirestoreService().addExpenses(
-    scaffoldMessengerKey: scaffoldMessengerKey,
-    newExpenses: csvDataList,
-    navigatorKey: navigatorKey
-  );
+  syncWithFirebase();
 
   scaffoldMessengerKey.currentState?.showSnackBar(const SnackBar(content: Text('Dane zostały zaimportowane')));
 }

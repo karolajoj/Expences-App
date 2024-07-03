@@ -63,6 +63,18 @@ class ExpensesProvider {
     }
   }
 
+  Future<void> setAllForDeletion() async {
+    final allKeys = _expensesBox.keys.toList();
+
+    for (var key in allKeys) {
+      final expense = _expensesBox.get(key);
+      if (expense != null) {
+        final updatedExpense = expense.copyWith(toBeDeleted: true);
+        await _expensesBox.put(key, updatedExpense);
+      }
+    }
+  }
+
   // DeleteAll
   Future<void> deleteAllExpense() async {
     await _expensesBox.clear();

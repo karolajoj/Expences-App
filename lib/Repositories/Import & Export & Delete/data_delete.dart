@@ -113,8 +113,6 @@ Future<void> markAllDataForDeletion(BuildContext context, GlobalKey<ScaffoldMess
     }
   }
 
-  box.close();
-  
   navigatorKey.currentState?.pop();
 
   await loadOrRefreshLocalData();
