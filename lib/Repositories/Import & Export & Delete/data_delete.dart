@@ -1,4 +1,5 @@
 import '../Local Data/expenses_list_element.dart';
+import '../../Authentication/auth_service.dart';
 import '../Local Data/expenses_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -84,7 +85,8 @@ import 'data_utils.dart';
 // }
 
 Future<void> markAllDataForDeletion(BuildContext context, GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey, Function loadOrRefreshLocalData, ExpensesProvider expensesProvider, GlobalKey<NavigatorState> navigatorKey) async {
-  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+  var box = await Hive.openBox<ExpensesListElementModel>(AuthService().getBoxName());
+
   int count = box.length;
 
   if (count == 0) {

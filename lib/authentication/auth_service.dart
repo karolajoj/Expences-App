@@ -2,9 +2,20 @@ import 'package:expenses_app_project/Main%20Pages/Expenses%20List/expenses_page.
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
 import '../Main Pages/main_page.dart';
+import '../Repositories/Local Data/expenses_list_element.dart';
 
+
+// TODO : Pytać użytkownika o migrację danych po zalogowaniu i jeśli tak to przenieść dane do zalogowanego użytkownika i usunąć z gościa.
 class AuthService {
+  User? get currentUser => FirebaseAuth.instance.currentUser;
+
+  String getBoxName() {
+    var user = currentUser;
+    return user != null ? 'expenses_local_${user.uid}' : 'expenses_local_guest';
+  }
+
   Future<void> signup({
     required String email,
     required String password,
@@ -21,6 +32,7 @@ class AuthService {
 
       await userCredential.user?.updateDisplayName(userName);
 
+      await _openUserBox();
       _navigateToExpensesPage(navigatorKey);
     } on FirebaseAuthException catch (e) {
       _handleAuthError(e);
@@ -40,6 +52,7 @@ class AuthService {
         password: password,
       );
 
+      await _openUserBox();
       _navigateToMainPage(navigatorKey);
     } on FirebaseAuthException catch (e) {
       _handleAuthError(e);
@@ -49,9 +62,22 @@ class AuthService {
   }
 
   Future<void> signout({required GlobalKey<NavigatorState> navigatorKey}) async {
+    await _closeCurrentBox();
     await FirebaseAuth.instance.signOut();
 
+    await _openUserBox();
     _navigateToMainPage(navigatorKey);
+  }
+
+  Future<void> _openUserBox() async {
+    String boxName = getBoxName();
+    await Hive.openBox<ExpensesListElementModel>(boxName);
+  }
+
+  Future<void> _closeCurrentBox() async {
+    String boxName = getBoxName();
+    var box = await Hive.openBox<ExpensesListElementModel>(boxName);
+    await box.close();
   }
 
   void _handleAuthError(FirebaseAuthException e) {

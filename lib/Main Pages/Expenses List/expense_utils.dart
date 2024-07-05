@@ -1,4 +1,5 @@
 import '../../Repositories/Local Data/expenses_list_element.dart';
+import '../../Authentication/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:uuid/uuid.dart';
@@ -71,7 +72,7 @@ Future<void> saveExpense(AddExpensePageState state, GlobalKey<FormState> formKey
       toBeUpdated: isUpdating,
     );
 
-    var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+    var box = await Hive.openBox<ExpensesListElementModel>(AuthService().getBoxName());
     await box.put(newExpense.localId, newExpense);
 
     await loadOrRefreshLocalData();

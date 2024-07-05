@@ -1,5 +1,6 @@
 import '../../Repositories/Local Data/expenses_list_element.dart';
 import '../../Repositories/Local Data/expenses_provider.dart';
+import '../../Authentication/auth_service.dart';
 import 'package:expenses_app_project/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
@@ -15,7 +16,7 @@ class ExpenseTile extends StatelessWidget {
   final ExpensesListElementModel row;
   final Set<int> expandedTiles;
   final int index;
-  final ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>('expenses_local'));
+  final ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>(AuthService().getBoxName()));
 
   ExpenseTile({
     super.key,

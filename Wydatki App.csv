@@ -1,6 +1,6 @@
 ﻿Data;Sklep;Kategoria;Produkt;Ilość; Cena za szt ;Ilość ml|g | cm;Ilość w opakowaniu; Zwrot ; Dostawa ;Link; Komentarz 
-23.04.2022;Fryzjer;Fryzjer; ;1;45,00 zł;;;;;;   
-26.04.2022;Galeria Orkana - Rossmann;Higiena;Szampon Nivea Men - Active Clean 500ml;2;8,34 zł;500;;;;; Przypadkiem kupiłem droższe o 4zł /szt | w Rossmannie w Kauflandzie były po 8.49 (Rabat zniwelował straty) 
+23.04.2022;Fryzjer;Fryzjer;Fryzjer;1;45,00 zł;;;;;;
+26.04.2022;Galeria Orkana - Rossmann;Higiena;Szampon Nivea Men - Active Clean 500ml;2;8,34 zł;500;;;;;
 26.04.2022;Galeria Orkana - Rossmann;Higiena;Szampon Nivea Men - Silver Protection 500ml;3;8,49 zł;500;;;;; Przypadkiem kupiłem droższe o 4zł /szt | w Rossmannie w Kauflandzie były po 8.49 (Rabat zniwelował straty) 
 26.04.2022;Kaufland;Higiena;Garnier - Czysta skóra Oczyszczający żel 200ml;1;10,99 zł;200;;;;;   
 26.04.2022;Kaufland;Higiena;Gąbka do ciała;1;2,99 zł;;;;;;   
@@ -107,7 +107,7 @@
 03.10.2022;Apteka Wrzosowa;Leki;Zestaw plastrów;1;6,95 zł;;;;;;   
 03.10.2022;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,75 zł;550;;;;;   
 03.10.2022;Biedronka;Żywność;Makaron Lubella Świderki | 400g;1;4,99 zł;400;;;;;   
-04.10.2022;Żabka;Alkohol;Desperados;1;6,20 zł;;;;;;   
+04.10.2022;Żabka;Alkohol;Piwo Desperados;1;6,20 zł;;;;;;   
 05.10.2022;ZTM Poznań;Usługi;Bilet semestralny 150 dni;1;202,00 zł;;150;;;; równoważne 1.35 dziennie (40zł miesięcznie) 
 06.10.2022;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,75 zł;550;;;;;   
 06.10.2022;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;1;11,99 zł;;10;;;;   
@@ -177,7 +177,7 @@
 26.10.2022;Wydział;Żywność;Naleśniki z polewą czekoladową;1;9,50 zł;;;;;;   
 26.10.2022;Wydział;Żywność;Twix;1;4,00 zł;;;;;;   
 27.10.2022;Biedronka;Zakupy;Żel intymny Strawberry | Durex | 50ml;1;19,99 zł;50;;;;;   
-29.10.2022;LSS Społem ;Alkohol;Desperados;2;5,39 zł;;;;;;   
+29.10.2022;LSS Społem ;Alkohol;Piwo Desperados;2;5,39 zł;;;;;;   
 29.10.2022;McDonald's ;Żywność;Nuggets;1;15,20 zł;;;;;;   
 30.10.2022;McDonald's ;Żywność;Zestaw powiekszony ;1;25,90 zł;;;;;;   
 31.10.2022;BILKOM;Pociąg;Bilet na pociąg Lublin - Poznań;1;32,90 zł;;;;;;   
@@ -400,7 +400,7 @@
 13.01.2023;Żabka;Żywność;Bułka grahamka;2;0,99 zł;75;;;;;
 14.01.2023;Biletomat;Pociąg;Bilet na pociąg Katowice - Tychy;1;4,19 zł;;;;;; Chyba nie pobrało mi kasy a wydało bilet, albo zapomniałem kupić biletu do Katowic (update - po kilku dniach dopiero pojawiła się płatność) 
 14.01.2023;BILKOM;Pociąg;Bilet na pociąg Tychy - Katowice;1;4,19 zł;;;;;;
-14.01.2023;Żabka;Alkohol;Desperados;2;6,80 zł;400;;;;;
+14.01.2023;Żabka;Alkohol;Piwo Desperados;2;6,80 zł;400;;;;;
 15.01.2023;BILKOM;Pociąg;Bilet na pociąg Tychy - Katowice;1;4,19 zł;;;;;;
 16.01.2023;Biedronka;Żywność;Nudle pomidorowe łagodne 65g | Knor;3;1,99 zł;65;;;;;
 16.01.2023;Biedronka;Żywność;Rukola 100g;1;3,99 zł;100;;;;;
@@ -523,7 +523,7 @@
 15.02.2023;Biedronka;Żywność;Sos Sojowy Tao Tao 150ml;1;6,99 zł;150;;;;;
 15.02.2023;Biedronka;Żywność;Sushi Toshii 400g;2;11,49 zł;400;;;;;
 17.02.2023;Apteka Dr.Max;Leki;Ibuprom Sprint 10 tabletek;1;17,99 zł;;10;;;; Dla Adama 
-17.02.2023;Kaufland;Alkohol;Desperados 4-pak 4x0.5L;1;15,96 zł;2000;4;;;; Po połowie z Adamem 
+17.02.2023;Kaufland;Alkohol;Piwo Desperados 4-pak 4x0.5L;1;15,96 zł;2000;4;;;; Po połowie z Adamem 
 17.02.2023;Kaufland;Alkohol;Soplica Cytryna Malina 200ml;1;14,99 zł;200;;;;; Po połowie z Adamem 
 17.02.2023;Kaufland;Alkohol;Soplica Cytryna Pigwa 200ml;1;11,49 zł;200;;;;; Po połowie z Adamem 
 17.02.2023;Kaufland;Higiena;Gąbka Aile;1;1,29 zł;;;;;;
@@ -581,7 +581,7 @@
 01.03.2023;PEKA;Usługi;Bilet semestralny 150 dni;1;202,00 zł;;150;;;;
 02.03.2023;Cyber Machina;Alkohol;Drink słodko kwaśny z wódką (nie z menu);1;25,00 zł;;;;;;
 03.03.2023;Akademik;Czynsz;Czynsz marzec;1;540,00 zł;;;;;;
-03.03.2023;Kaufland;Alkohol;Desperados 4-pak 4x0.5L;2;16,99 zł;2000;4;;;; 3 puszki zostawiłem u Roberta 
+03.03.2023;Kaufland;Alkohol;Piwo Desperados 4-pak 4x0.5L;2;16,99 zł;2000;4;;;; 3 puszki zostawiłem u Roberta 
 04.03.2023;Biedronka;Żywność;Chleb Kawiorek 350g;1;3,79 zł;350;;;;;
 04.03.2023;Biedronka;Żywność;Masło klarowane | Mleczna Dolina 500g;1;23,99 zł;500;;;;;
 04.03.2023;Biedronka;Żywność;Parówki z szynki Kraina Wędlin 250g;1;5,99 zł;250;6;;;;
@@ -766,8 +766,8 @@
 28.04.2023;Biedronka;Żywność;Mięta w doniczce;1;6,99 zł;;;;;;
 28.04.2023;Biedronka;Żywność;Skittles 38g;1;1,99 zł;38;;;;;
 28.04.2023;Fryzjer;Fryzjer;Strzyżenie r.13 | Amanda Jędrzejewska;1;35,00 zł;;;;;;
-29.04.2023;Kaufland;Alkohol;Desperados 4-pak 4x0.5L;1;19,96 zł;2000;;;;;
 29.04.2023;Kaufland;Alkohol;Lubelska Mango 100ml;2;7,85 zł;100;;;;;
+29.04.2023;Kaufland;Alkohol;Piwo Desperados 4-pak 4x0.5L;1;19,96 zł;2000;;;;;
 29.04.2023;Kaufland;Zakupy;Grill jednorazowy;1;6,44 zł;;;;;; 3.55 zapłacone punktami Payback 
 29.04.2023;Kaufland;Żywność;Chicken Nuggets | Tender 500g;1;15,99 zł;500;;;;;
 29.04.2023;Kaufland;Żywność;Cola 2L;1;3,99 zł;2000;;;;;
@@ -890,13 +890,13 @@
 15.05.2023;Biedronka;Żywność;Tuńczyk w sosie własnym kawałki Marinero | 185/130g;1;5,59 zł;130;;;;;   
 15.05.2023;Charytatywne;Charytatywne; ;1;20,00 zł;;;;;;   
 15.05.2023;Eneba;Gry;Gra 7 Days to Die Steam Key GLOBAL;1;19,00 zł;;;;;;   
-16.05.2023;Biedronka;Alkohol;Desperados - butelka;1;5,49 zł;400;;;;;   
+16.05.2023;Biedronka;Alkohol;Piwo Desperados - butelka;1;5,49 zł;400;;;;;   
 16.05.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;30;;;;   
 16.05.2023;Biedronka;Żywność;Jogurt Naturlny Kremowy Fruvita 400g;1;1,69 zł;400;;;;;   
 16.05.2023;Biedronka;Żywność;Masło polskie Mlekovita 200g;1;6,49 zł;200;;;;;   
 16.05.2023;Biedronka;Żywność;Miód Słonecznikowy z europejskich pasiek 470g;1;13,99 zł;470;;;;;   
 16.05.2023;Biedronka;Żywność;Twaróg Półtłusty Klinek | 250g;1;3,49 zł;250;;;;;   
-18.05.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;11,94 zł;9000;6;;;;   
+18.05.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;1,99 zł;1500;;;;;   
 18.05.2023;Cinema City;Kino;Bilet na Strażników Galaktyki 3 dla Kuby;1;23,90 zł;;;;;;   
 18.05.2023;Cinema City;Żywność;Pepsi Średnie 0.5L;1;8,10 zł;500;;;;;   
 18.05.2023;Cinema City;Żywność;Popcorn Średni 4.2L;1;20,61 zł;4200;;;;;   
@@ -924,7 +924,7 @@
 25.05.2023;Rossmann;Higiena;Nivea Men - Sensitive pianka do golenia 200ml;1;13,99 zł;200;;;;;   
 26.05.2023;Biedronka;Żywność;Chleb tostowy 500g;1;3,29 zł;500;;;;;   
 26.05.2023;Biedronka;Żywność;Tuńczyk w sosie własnym kawałki Marinero | 185/130g;3;3,73 zł;130;;;;;2+1gratis
-26.05.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;11,94 zł;9000;6;;;;   
+26.05.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;1,99 zł;1500;;;;;   
 26.05.2023;Fryzjer;Fryzjer;Strzyżenie r.10 | Amanda Jędrzejewska;1;35,00 zł;;;;;;   
 27.05.2023;Biedronka;Alkohol;Soplica Cytryna Pigwa 500ml;1;26,99 zł;500;;;;;   
 27.05.2023;Biedronka;Żywność;Coca Cola 1L;1;6,49 zł;1000;;;;;   
@@ -948,7 +948,7 @@
 02.06.2023;Biedronka;Żywność;Ser feta Elios Queijo feta 150g;1;7,49 zł;150;;;;;   
 02.06.2023;Biedronka;Żywność;Tuńczyk w oleju słonecznikowym kawałki Marinero | 185/130g;2;5,59 zł;130;;;;;   
 02.06.2023;Biedronka;Żywność;Twaróg Półtłusty Klinek | 250g;1;3,49 zł;250;;;;;   
-02.06.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+02.06.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 03.06.2023;Akademik;Czynsz;Czynsz czerwiec;1;540,00 zł;;;;;;   
 03.06.2023;Biedronka;Żywność;Hummus orientalny 160g;1;4,47 zł;160;;;;;   
 03.06.2023;Biedronka;Żywność;Masło polskie Mlekovita 200g;2;6,49 zł;200;;;;;   
@@ -972,7 +972,7 @@
 10.06.2023;Biedronka;Żywność;Masło polskie Mlekovita 200g;2;6,49 zł;200;;;;;   
 10.06.2023;Biedronka;Żywność;Ser feta typu Greckiego sałatkowy półtłusty | Delikatne | 270g;1;4,94 zł;270;;;;;   
 10.06.2023;Biedronka;Żywność;Tuńczyk w oleju roślinnym kawałki Graal | 140/98g;1;16,99 zł;294;3;;;;   
-10.06.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;11,94 zł;9000;6;;;;   
+10.06.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;1,99 zł;1500;;;;;   
 12.06.2023;Allegro;Higiena;Sól fizjologiczna NaCl 0.9% B.Braun - 1000ml (1L);6;10,70 zł;1000;;; -   zł ;;   
 13.06.2023;Kaufland;Żywność;Balsam do mycia naczyń Kextra 750ml;2;5,29 zł;750;;;;;   
 13.06.2023;Kaufland;Żywność;Erytrytol | Sante | 250g;2;10,99 zł;250;;;;;   
@@ -993,7 +993,7 @@
 15.06.2023;Biedronka;Żywność;Tuńczyk w oleju słonecznikowym kawałki Marinero | 185/130g;3;5,59 zł;130;;;;;   
 16.06.2023;Biedronka;Energetyki;Energetyk Be Power Camouflage 500ml;3;3,19 zł;500;;;;;   
 19.06.2023;Biedronka;Żywność;Chleb pszenno-żytni 550g;1;2,75 zł;550;;;;;   
-19.06.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;13,14 zł;9000;6;;;;   
+19.06.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;2,19 zł;1500;;;;;   
 19.06.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 0.5L;2;0,75 zł;500;;;;;   
 20.06.2023;Biedronka;Żywność;Cebula żółta luz;1;2,16 zł;360;2;;;;   
 20.06.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;;;;;   
@@ -1007,7 +1007,7 @@
 25.06.2023;Biedronka;Żywność;Chleb rodzinny 410g;1;3,99 zł;410;;;;;   
 25.06.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;7,61 zł;160;18;;;;   
 25.06.2023;Biedronka;Żywność;Ser Gouda | Światowid | 1000g;1;26,94 zł;1000;;;;;   
-25.06.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;13,14 zł;9000;6;;;;   
+25.06.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;2,19 zł;1500;;;;;   
 26.06.2023;Credit Agricole;Usługi;Powiadomienia SMS;1;6,00 zł;;;;;;   
 27.06.2023;BILKOM;Pociąg;Bilet na pociąg Katowice - Poznań;1;36,26 zł;;;;;;   
 27.06.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Katowice;1;36,26 zł;;;;;;   
@@ -1031,7 +1031,7 @@
 03.07.2023;Biedronka;Żywność;Nudle pomidorowe łagodne 65g | Knor;1;2,56 zł;65;;;;;   
 03.07.2023;Biedronka;Żywność;Nudle pomidorowe pikantne 63g | Knor;1;2,56 zł;63;;;;;   
 03.07.2023;Biedronka;Żywność;Sushi Toshii 400g;2;11,99 zł;400;;;;;   
-03.07.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;13,14 zł;9000;6;;;;   
+03.07.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;2,19 zł;1500;;;;;   
 03.07.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;38,00 zł;;;;;;Oddane 38 zł
 05.07.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;;;;;   
 05.07.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka M;1;9,99 zł;;10;;;;   
@@ -1039,7 +1039,7 @@
 05.07.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;7,61 zł;160;18;;;;   
 05.07.2023;Biedronka;Żywność;Ser Gouda | Światowid | 1000g;1;26,94 zł;1000;;;;;   
 06.07.2023;Cinema City;Kino;Bilet na SPIDER-MAN: POPRZEZ MULTIWERSUM;1;20,90 zł;;;;;;Dla Kuby
-07.07.2023;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+07.07.2023;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
 07.07.2023;Lidl;Żywność;Cebula żółta luz;1;2,04 zł;314;;;;;   
 07.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked ;1;8,99 zł;200;;;;;   
 07.07.2023;Lidl;Żywność;Chipsy Lay's Oven Baked Jogurtowe;2;7,99 zł;200;;;;;   
@@ -1073,7 +1073,7 @@
 10.07.2023;Lidl;Żywność;Musztarda Kania;1;1,49 zł;;;;;;   
 10.07.2023;Lidl;Żywność;Sos pieczeniowy;1;1,19 zł;;;;;;   
 10.07.2023;Lidl;Żywność;Sos pieczeniowy;1;1,19 zł;;;;;;   
-10.07.2023;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+10.07.2023;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
 10.07.2023;Lidl;Żywność;Ziemniaki młode polskie;1;6,01 zł;1506;;;;;   
 11.07.2023;BILKOM;Usługi;Opłata za bilet 1e9.0f01c58;1;0,49 zł;;;;;;   
 11.07.2023;BILKOM;Pociąg;Bilet na pociąg Kraków Główny - Tychy;1;12,23 zł;;;;;;Dla mnie
@@ -1119,7 +1119,7 @@
 18.07.2023;Biedronka;Żywność;Panierowane nuggestsy z piersi z kurczaka | 300g+2x25g;2;9,99 zł;300;;;;;   
 18.07.2023;Biedronka;Żywność;Sos Boloński Culineo 520g;1;5,59 zł;520;;;;;   
 18.07.2023;Biedronka;Żywność;Sos pieczeniowy;2;2,29 zł;28;;;;;   
-18.07.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;14,34 zł;9000;6;;;;   
+18.07.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;2,39 zł;1500;;;;;   
 19.07.2023;Apteka Dr.Max;Leki;Chlorchinaldin 40szt;1;25,99 zł;;40;;;;   
 19.07.2023;Biedronka;Żywność;Cebula żółta luz;1;1,29 zł;215;;;;;   
 19.07.2023;Biedronka;Żywność;Jogurt Naturlny 400g;2;1,69 zł;400;;;;;   
@@ -1173,7 +1173,7 @@
 24.07.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;7,61 zł;160;18;;;;   
 24.07.2023;Biedronka;Żywność;Ser Gouda | Światowid | 1000g;1;25,70 zł;1000;;;;;   
 24.07.2023;Biedronka;Żywność;Sos Barbecue Classic Smokey & Rich | Heinz | 400 ml;1;10,39 zł;400;;;;;   
-24.07.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;14,34 zł;9000;6;;;;   
+24.07.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;2,39 zł;1500;;;;;   
 24.07.2023;Biedronka;Energetyki;Energetyk Be Power Race 500ml;2;3,19 zł;500;;;;;   
 24.07.2023;Biedronka;Żywność;Erytrytol | Sante | 250g;1;10,99 zł;250;;;;;   
 25.07.2023;Biedronka;Żywność;Cebula żółta luz;1;2,49 zł;415;;;;;   
@@ -1195,7 +1195,7 @@
 03.08.2023;Cinema City;Subskrypcje;Cinema City karta Unlimited;1;43,00 zł;;;;;;Zmienili cholera abonament i żeby mieć w Poznaniu kino to 43 a nie 38 (chyba oddali 38)
 05.08.2023;Allegro;Żywność;KFD PREMIUM WPI 90 - BIAŁKO IZOLAT - Biała czekolada 700g;1;92,99 zł;700;;;9,99 zł;https://allegro.pl/oferta/kfd-premium-wpi-90-bialko-izolat-100-iso-whey-7147593555;   
 07.08.2023;Biedronka;Żywność;Cebula żółta luz;1;2,58 zł;430;;;;;   
-07.08.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;11,34 zł;9000;6;;;;   
+07.08.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;1,89 zł;1500;;;;;   
 16.08.2023;www.iobit.com;Subskrypcje;IObit Uninstaller 13 PRO Licencja 1 rok;1;59,90 zł;;12;;;;   
 19.08.2023;BILKOM;Pociąg;Bilet na pociąg Lublin-Kraków + pies;1;40,24 zł;;;;;;   
 20.08.2023;Auchan;Żywność;Ice Tea Arizona;1;11,88 zł;1500;;;;;   
@@ -1217,7 +1217,7 @@
 01.09.2023;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;0,19 zł;;;;;;   
 04.09.2023;Biedronka;Higiena;Gąbki pod prysznic Oceania 3szt;1;3,87 zł;;3;;;;   
 04.09.2023;Biedronka;Żywność;Guma Orbit Spearmint 58g;1;5,99 zł;58;;;;;   
-04.09.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;11,94 zł;9000;6;;;;   
+04.09.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;1,99 zł;1500;;;;;   
 04.09.2023;Rossmann;Higiena;Anty perspirant Garnier Men Invisible Protection 72h 50ml;1;17,99 zł;50;;;;;   
 04.09.2023;Rossmann;Higiena;Szampon Green Farmacy 350ml;1;9,99 zł;350;;;;;   
 05.09.2023;Steam;Gry;Gra Sons of The Forest;1;138,99 zł;;;;;;   
@@ -1229,7 +1229,7 @@
 16.09.2023;Biedronka;Alkohol;Wódka Soplica Cytrynowa 200ml;1;14,89 zł;200;;;;;   
 16.09.2023;Biedronka;Żywność;Bułka Kajzerka 55g;5;0,33 zł;55;;;;;   
 16.09.2023;Biedronka;Żywność;Chleb Słowiański 380g;1;3,99 zł;380;;;;;   
-16.09.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;9,56 zł;9000;6;;;;   
+16.09.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;1,59 zł;1500;;;;;   
 18.09.2023;x-kom;Komputer;RAM Patriot 32GB (2x16GB) 3600MHz CL18 Viper Steel;1;319,00 zł;;2;;;;   
 23.09.2023;Biedronka;Alkohol;Piwo Somersby Jabłko 0.4L;4;5,49 zł;400;;;;;   
 23.09.2023;Empik;Prezent;Kartka urodzinowa;1;11,99 zł;;;;;;Dla Aśki
@@ -1262,7 +1262,7 @@
 02.10.2023;aptelia.pl;Leki;Mollers Gold Tran Norweski, płyn o smaku cytrynowym, 250 ml;3;27,89 zł;750;;;;https://www.aptelia.pl/apteka/p131207-Mollers_Gold_Tran_Norweski_plyn_o_smaku_cytrynowym_250_ml;   
 02.10.2023;Biedronka;Środki czystości;Worki na śmieci 10x60L|Jan Niezbędny;1;6,99 zł;;10;;;;   
 02.10.2023;Biedronka;Żywność;Makaron Lubella Świderki | 400g;1;4,99 zł;400;;;;;   
-02.10.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+02.10.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 02.10.2023;KFD;Żywność;KFD PREMIUM WPI 90 - BIAŁKO IZOLAT - Kokosowy 700g;1;72,00 zł;700;;;;;   
 02.10.2023;Rossmann;Higiena;Pasta do zębów Colgate Advanced White Charcoal 75ml;1;9,99 zł;75;;;;;   
 04.10.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;;;;;   
@@ -1282,7 +1282,7 @@
 09.10.2023;Biedronka;Żywność;Smalec wyborowy |Nasze Smaki | 200g;2;2,28 zł;200;;;;;   
 09.10.2023;bigstarshoes.pl;Ubrania;TRAPERY MĘSKIE BIG STAR MM174156 906;1;299,90 zł;;;;;https://bigstarshoes.pl/pl/p/Trapery-meskie-BIG-STAR-MM174156-906/5644;   
 10.10.2023;Biedronka;Energetyki;Energetyk Be Power Japan 500ml;2;3,19 zł;500;;;;;   
-10.10.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+10.10.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 13.10.2023;Biedronka;Żywność;Cebula żółta luz;1;3,24 zł;650;4;;;;   
 13.10.2023;Biedronka;Żywność;Chleb pszenno-żytni z piekarni regionalnej 900g;1;6,49 zł;900;;;;;   
 13.10.2023;Biedronka;Żywność;Czosnek 250g;1;6,99 zł;250;6;;;;   
@@ -1308,7 +1308,7 @@
 16.10.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;1;10,46 zł;;10;;;;   
 16.10.2023;Biedronka;Żywność;Kasza bulgur z pszenicy twardej | Plony natury 4x100g;1;3,80 zł;400;;;;;   
 16.10.2023;Biedronka;Żywność;Sushi Toshii 400g;2;11,99 zł;400;;;;;   
-16.10.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+16.10.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 16.10.2023;Żabka;Żywność;Bułka pszenna 65g;1;0,95 zł;65;;;;;   
 16.10.2023;Żabka;Żywność;Jagodzianka 100g;2;2,80 zł;100;;;;;   
 17.10.2023;Biedronka;Żywność;Cytryna luz;1;1,87 zł;220;;;;;   
@@ -1339,14 +1339,14 @@
 23.10.2023;Biedronka;Żywność;Ser Gouda | Światowid | 1000g;1;25,70 zł;1000;;;;;   
 24.10.2023;Biedronka;Energetyki;Energetyk Be Power Lulo 500ml;1;3,19 zł;500;;;;;   
 24.10.2023;Biedronka;Żywność;Nudle pomidorowe pikantne 63g | Knor;2;2,56 zł;63;;;;;   
-24.10.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+24.10.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 24.10.2023;Kaufland;Zakupy;Wyciskacz do czosnku | Spice & Soul;1;27,99 zł;;;;;;3 lata gwarancji i gwarancja zadowolenia
 24.10.2023;Kaufland;Zakupy;Zakreślacze Talentus;1;3,49 zł;;4;;;;   
 24.10.2023;Kaufland;Zakupy;Zeszyt A4 80 kartek Talentus ;1;4,99 zł;;80;;;;   
 24.10.2023;Kaufland;Żywność;Masło Kerrygold 200g;4;6,99 zł;200;;;;;   
 24.10.2023;Kaufland;Żywność;Płatki kukurydziane Nestle 600g;1;11,99 zł;600;;;;;   
 25.10.2023;BILKOM;Pociąg;Bilet na pociąg Poznań - Lublin;1;32,90 zł;;;;;;   
-25.10.2023;Wolt;Usługi;Kaucja za plecak Wolt;1;150,00 zł;;;;;;   
+25.10.2023;Wolt;Usługi;Kaucja za plecak Wolt;1;150,00 zł;;;;;; Dostałem z powrotem 120 (pewnie prowizja Evelstar) 
 27.10.2023;Żabka;Żywność;Coca Cola 1.5 L;1;9,99 zł;1500;;;;;   
 27.10.2023;Żabka;Żywność;Majonez Dekoracyjny 400ml;1;12,99 zł;400;;;;;   
 28.10.2023;Biedronka;Żywność;Rzodkiewki - pęk;1;1,99 zł;;;;;;   
@@ -1401,7 +1401,7 @@
 10.11.2023;Biedronka;Żywność;Majonez Dekoracyjny Winiary 500ml;1;10,98 zł;500;;;;;   
 10.11.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;2;2,99 zł;1000;;;;;   
 10.11.2023;Biedronka;Żywność;Suchary Bieszczadzkie San 90g;2;1,89 zł;90;;;;;   
-10.11.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+10.11.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 10.11.2023;Dealz;Rower;Poduszka nakładka na siodełko ;1;12,00 zł;;;;;;   
 14.11.2023;Biedronka;Żywność;Baton Twix 5x2 250g;1;9,99 zł;250;10;;;;   
 14.11.2023;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;2;10,99 zł;;10;;;;   
@@ -1446,7 +1446,7 @@
 20.11.2023;Biedronka;Żywność;Ketchup Pikantny | Pudliszki 480g;1;6,99 zł;480;;;;;   
 20.11.2023;Biedronka;Żywność;Kiwi szt;2;1,49 zł;;;;;;   
 20.11.2023;Biedronka;Żywność;Przekąska kurczak curry 95g;2;3,99 zł;95;;;;;   
-20.11.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+20.11.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 21.11.2023;Biedronka;Zakupy;Papier do pieczenia | Zosia samosia | 20m;1;7,49 zł;;20;;;;   
 21.11.2023;Biedronka;Żywność;Filet z piersi z kurczaka | Kraina mięs;1;12,25 zł;670;;;;;   
 21.11.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;2;2,99 zł;1000;;;;;   
@@ -1488,7 +1488,7 @@
 28.11.2023;Biedronka;Żywność;Nudle pomidorowe pikantne 63g | Knor;6;2,56 zł;63;;;;;   
 28.11.2023;Biedronka;Żywność;Salami Klasyczne - Kraina Wędlin 160g;2;7,61 zł;160;;;;;   
 28.11.2023;Biedronka;Żywność;Ser feta typu Greckiego sałatkowy półtłusty | Delikatne | 270g;1;4,94 zł;270;;;;;   
-28.11.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L 6szt;1;9,56 zł;9000;6;;;;   
+28.11.2023;Biedronka;Żywność;Woda lekko gazowana Cisowianka naturalna woda mineralna 1.5L;6;1,59 zł;1500;;;;;   
 29.11.2023;Dealz;Żywność;Skittles 18x18g;1;15,00 zł;324;18;;;;   
 29.11.2023;KFD;Żywność;KFD PREMIUM WPI 90 - BIAŁKO IZOLAT - Kokosowy 700g;1;72,00 zł;700;;;;;   
 30.11.2023;Biedronka;Alkohol;Wódka Stock 40% 500ml;2;24,99 zł;500;;;;;   
@@ -1522,7 +1522,7 @@
 08.12.2023;Biedronka;Żywność;Jogurt Naturlny 400g;1;1,69 zł;400;;;;;   
 08.12.2023;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;1;2,29 zł;1000;;;;;   
 08.12.2023;Biedronka;Żywność;Nudle pomidorowe pikantne 63g | Knor;4;2,56 zł;63;;;;;   
-08.12.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+08.12.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 08.12.2023;Biedronka;Zakupy;Torba Biedronki;1;0,79 zł;;;;;;   
 09.12.2023;Biedronka;Żywność;Coca Cola 1,75L;1;5,49 zł;1750;;;;;   
 09.12.2023;HAH;Alkohol;Autorskie szoty 4 szt;1;52,00 zł;40;4;;;;   
@@ -1586,7 +1586,7 @@
 21.12.2023;Biedronka;Żywność;Przyprawa Pieprz czarny mielony | Culineo | 80g;1;3,59 zł;80;;;;;   
 21.12.2023;Biedronka;Żywność;Ser Gouda | Światowid | 300g;2;7,99 zł;300;;;;;   
 21.12.2023;Biedronka;Żywność;Sos Boloński Culineo 520g;1;5,59 zł;520;;;;;   
-21.12.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+21.12.2023;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 21.12.2023;Jula;Zakupy;Ścisk do klejenia 60mm | Meec Tools;2;9,99 zł;;;;;;   
 22.12.2023;lock.me;Prezent;Wejście do EscapeRoom | Zaginiony Oficer The Bunkier;1;110,00 zł;;2;;;https://lock.me/pl/poland/wielkopolskie/poznan/escape-room/the-bunkier-escape-rooms/655-zaginiony-oficer;   
 26.12.2023;Credit Agricole;Usługi;Prowadzenie rachunku;1;10,00 zł;;;;;;   
@@ -1619,7 +1619,7 @@
 02.01.2024;Biedronka;Żywność;Szynka zawędzana Kraina Wędlin 250g;2;5,99 zł;250;;;;;   
 02.01.2024;Biedronka;Żywność;Śmietana 12% Mleczna Dolina | 330g;1;2,89 zł;330;;;;;   
 02.01.2024;Biedronka;Żywność;Tuńczyk w sosie własnym kawałki Marinero | 185/130g;2;5,89 zł;;;;;;   
-02.01.2024;Biedronka;Żywność;Woda wysokomineralizowana Muszynianka magnez i wapń niskonasycona;1;17,94 zł;9000;6;;;;   
+02.01.2024;Biedronka;Żywność;Woda wysokomineralizowana Muszynianka magnez i wapń niskonasycona;6;2,99 zł;1500;;;;;   
 02.01.2024;Gostom Service;Zakupy;Blok techniczny DECO green Happy Color A4;1;13,10 zł;;20;;;;   
 02.01.2024;Gostom Service;Zakupy;Blok techniczny DECO rose Happy Color A4;1;13,10 zł;;20;;;;   
 02.01.2024;Gostom Service;Zakupy;Blok techniczny z czarnymi kartkami A4 | Kreska;1;6,40 zł;;10;;;;   
@@ -1656,7 +1656,7 @@
 09.01.2024;Biedronka;Żywność;Pierogi ruskie | Nasze Smaki |  400g;1;6,79 zł;400;;;;;   
 09.01.2024;Biedronka;Żywność;Sól Himalajska różowa drobnoziarnista | Culineo | 350g;1;2,79 zł;350;;;;;   
 09.01.2024;Biedronka;Żywność;Śmietana 12% Mleczna Dolina | 330g;1;2,89 zł;330;;;;;   
-09.01.2024;Biedronka;Żywność;Woda wysokomineralizowana Muszyna magnez i wapń | Skarb Życia;1;10,50 zł;9000;6;;;;   
+09.01.2024;Biedronka;Żywność;Woda wysokomineralizowana Muszyna magnez i wapń | Skarb Życia;6;1,75 zł;1500;;;;;   
 10.01.2024;Apteka Dr.Max;Leki;ORS Electrolytes 10 szt;1;18,99 zł;52;10;;;;   
 10.01.2024;Apteka Dr.Max;Leki;Smecta lek na biegunkę 10 szt x 3g;1;10,89 zł;30;10;;;;   
 10.01.2024;Apteka Dr.Max;Leki;Węgiel Aktywowany Carbo 20 szt;1;13,48 zł;;20;;;;   
@@ -1682,7 +1682,7 @@
 20.01.2024;Biedronka;Żywność;Mleko świeże Mleczna Dolina 2% 1L;2;1,79 zł;1000;;;;;   
 20.01.2024;Biedronka;Żywność;Ser Podlaski | Światowid | 300g;2;7,49 zł;300;;;;;   
 20.01.2024;Biedronka;Żywność;Smalec wyborowy |Nasze Smaki | 200g;2;2,09 zł;200;;;;;   
-20.01.2024;Biedronka;Żywność;Woda wysokomineralizowana Muszynianka magnez i wapń niskonasycona;1;17,94 zł;9000;;;;;   
+20.01.2024;Biedronka;Żywność;Woda wysokomineralizowana Muszynianka magnez i wapń niskonasycona;6;2,99 zł;1500;;;;;   
 22.01.2024;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;1;10,99 zł;;10;;;;   
 22.01.2024;Biedronka;Żywność;Sos Czosnkowy aromatyczny | Maderno | 410g;1;5,29 zł;410;;;;;   
 22.01.2024;Biedronka;Żywność;Śmietana 12% Mleczna Dolina | 330g;1;2,89 zł;330;;;;;   
@@ -1705,7 +1705,7 @@
 30.01.2024;Biedronka;Żywność;Paluszki solone Beskidzkie 240g;1;4,49 zł;240;;;;;   
 30.01.2024;Biedronka;Żywność;Płatki kukurydziane Nestle 500g;1;10,47 zł;500;;;;;   
 30.01.2024;Biedronka;Żywność;Skittles 174g;2;6,49 zł;174;;;;;   
-30.01.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+30.01.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 31.01.2024;Biedronka;Alkohol;Piwo Somersby Mango 0.4L;2;5,59 zł;400;;;;;   
 01.02.2024;Biedronka;Alkohol;Piwo Garage 0,4L;2;5,59 zł;400;;;;;   
 01.02.2024;Biedronka;Żywność;Filet z piersi z indyka na wagę;1;12,92 zł;718;;;;;   
@@ -1747,7 +1747,7 @@
 05.02.2024;Lidl;Żywność;Jajka regionalne z wolnego wybiegu | Złota Nioska;1;10,99 zł;;10;;;;   
 05.02.2024;Lidl;Żywność;Monte 150g;2;1,99 zł;150;;;;;   
 05.02.2024;Lidl;Żywność;Wafle w stylu Holenderskim Sondey 400g;1;8,94 zł;400;;;;;   
-05.02.2024;Lidl;Żywność;Woda Saguaro Muszyńskie magnez + wapń 1.5L x6;1;10,14 zł;9000;6;;;;   
+05.02.2024;Lidl;Żywność;Woda Saguaro Muszyńskie magnez + wapń 1.5L;6;1,69 zł;1500;;;;;   
 06.02.2024;Biedronka;Żywność;Gotowe danie Gyros | Hortex | 450g;2;11,99 zł;450;;;;;   
 06.02.2024;Biedronka;Żywność;Kabanosy exclusive Tarczyński;2;3,74 zł;105;;;;;   
 06.02.2024;Lidl;Alkohol;Piwo Somersby Blackberry 0,5L 0%;1;5,59 zł;500;;;;;   
@@ -1812,7 +1812,7 @@
 12.02.2024;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;1;10,49 zł;;10;;;;   
 12.02.2024;Biedronka;Żywność;Kebab z kurczaka z warzywami | Danie Ekspress | 600g;2;10,94 zł;600;;;;;   
 13.02.2024;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;2;10,49 zł;;10;;;;   
-13.02.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+13.02.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 13.02.2024;Steam;Gry;Gra Portal;1;3,44 zł;;;;;; W zestawie taniej (Już miałem Portal 2 dlatego zestaw miał tylko Portal 1) 
 13.02.2024;Steam;Prezent;Gra Portal;1;4,59 zł;;;;;; Dla Adama na Walentynki 
 14.02.2024;Biedronka;Alkohol;Piwo Somersby Pear 0.4L 0%;4;5,59 zł;400;;;;;   
@@ -1822,7 +1822,7 @@
 16.02.2024;Biedronka;Żywność;Jajka na wolnym wybiegu | Moja Kurka L;3;10,49 zł;;10;;;;   
 16.02.2024;Biedronka;Żywność;Kebab z kurczaka z warzywami | Danie Ekspress | 600g;2;10,94 zł;600;;;;;   
 16.02.2024;Biedronka;Żywność;Szynka konserwowa Kraina Wędlin 200g;2;4,49 zł;200;;;;;   
-16.02.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+16.02.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 17.02.2024;Biedronka;Energetyki;Energetyk Be Power Apple-Jackfruit  500ml;1;3,19 zł;500;;;;;   
 17.02.2024;Biedronka;Energetyki;Energetyk Be Power Lulo 500ml;1;3,19 zł;500;;;;;   
 17.02.2024;Biedronka;Żywność;Bakerolls pizza 150g;2;5,99 zł;150;;;;;   
@@ -1898,7 +1898,7 @@
 04.03.2024;Lidl;Żywność;Ketchup Pikantny | Kotlin 450g;1;6,59 zł;;;;;;   
 04.03.2024;Lidl;Żywność;Mleko UHT 3,2% Pilos 1L;6;1,71 zł;6000;;;;; 3+3 gratis 
 04.03.2024;Lidl;Żywność;Śmietana 12% Pilos | 400g;1;3,62 zł;400;;;;;   
-04.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+04.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
 04.03.2024;Wydział;Żywność;Drugie danie;1;22,00 zł;;;;;;   
 05.03.2024;Lidl;Energetyki;Energetyk Kong Strong Colosus Tropical 500ml;1;3,19 zł;500;;;;;   
 05.03.2024;Lidl;Energetyki;Energetyk Kong Strong Colosus Zero 500ml;1;3,19 zł;500;;;;;   
@@ -1919,7 +1919,7 @@
 08.03.2024;Biedronka;Alkohol;Piwo Łomża Miodowa 0,5L;2;4,79 zł;500;;;;;   
 08.03.2024;Biedronka;Żywność;Chicken Paella Danie z kurczakiem po hiszpańsku | Frosta | 450g;2;10,99 zł;450;;;;;   
 08.03.2024;Biedronka;Żywność;Przyprawa Suszone pomidory | Kamis 15g;2;1,99 zł;15;;;;;   
-08.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+08.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
 09.03.2024;Auchan;Żywność;Chipsy Lay's Oven Baked o smaku kurki w śmietanowym sosie 200g;2;8,68 zł;200;;;;;   
 09.03.2024;Biedronka;Żywność;Winogrona różowe luz;1;2,80 zł;280;;;;;   
 09.03.2024;IKEA;Żywność;De volaille z puree ziemniaczanym i brokułami + zupa pomidorowa;1;20,30 zł;;;;;; jakiś rabat w godzinach 20.00-20.30 ale nie wiem jaki (24 kotlet + 7 zupa normalnie) 
@@ -1945,7 +1945,7 @@
 12.03.2024;Glovo;Usługi;Wpłata salda gotówkowego;1;115,55 zł;;; - ;;;   
 12.03.2024;Lidl;Żywność;Bułki pszenne hot dog 3x Tastino 180g;2;3,70 zł;180;3;;;;   
 12.03.2024;Lidl;Żywność;Chipsy Monster Munch Original 100g;1;6,99 zł;100;;;;;   
-12.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+12.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
 12.03.2024;Lidl;Zakupy;Baterie Micro LR03 1,5V AAA 8x Tronic ;1;10,99 zł;;8;;;;   
 12.03.2024;Lidl;Żywność;Bułki mleczne 12 sztuk;1;5,39 zł;480;12;;;;   
 12.03.2024;Lidl;Żywność;Chleb Baltanowski;1;1,79 zł;;;;;;   
@@ -1975,7 +1975,7 @@
 18.03.2024;Biedronka;Żywność;Przyprawa Papryka wędzona Kamis 20g;3;1,49 zł;20;;;;;   
 18.03.2024;Biedronka;Żywność;Przyprawa Pieprz Cayenne | Kamis | 15g;1;1,49 zł;15;;;;;   
 18.03.2024;Biedronka;Żywność;Przyprawa Suszone pomidory | Kamis 15g;2;1,50 zł;15;;;;;   
-18.03.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+18.03.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 18.03.2024;Bolt;Usługi;Przejazd bolt Siłownia->Adam;1;13,93 zł;;;;;;   
 18.03.2024;Wydział;Żywność;Tiger Classic 250ml;1;4,50 zł;250;;;;;   
 19.03.2024;Allegro;Zakupy;Lampka biurkowa ARSA GO KLASYCZNA / LOFT czarny moc do 60 W;1;45,00 zł;;;; -   zł ;https://allegro.pl/oferta/lampka-biurkowa-szkolna-na-biurko-lampa-do-czytania-uchwyt-i-stojak-15182470477;   
@@ -2013,7 +2013,7 @@
 23.03.2024;Lidl;Alkohol;Wódka Stock 40% 500ml;2;26,24 zł;500;;;;;   
 23.03.2024;Lidl;Żywność;Cebula żółta luz;1;1,84 zł;368;;;;;   
 23.03.2024;Lidl;Żywność;Papryka czerwona;1;8,51 zł;568;;;;;   
-23.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+23.03.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
 24.03.2024;Biedronka;Żywność;Przyprawa do Gyrosa | Kamis | 30g;4;1,49 zł;30;;;;;   
 24.03.2024;Biedronka;Żywność;Przyprawa do kurczaka złocista | Kamis | 30g;4;1,49 zł;30;;;;;   
 24.03.2024;Biedronka;Żywność;Ser Gouda | Światowid | 500g;2;9,99 zł;500;;;;;   
@@ -2021,7 +2021,7 @@
 25.03.2024;Biedronka;Żywność;Lasagne bolognese Dania Express 450g;4;7,99 zł;450;;;;;   
 25.03.2024;Biedronka;Żywność;Tortilla Gyros | Dania Express | 250g;1;7,48 zł;250;;;;;   
 25.03.2024;Biedronka;Żywność;Tortilla Kurczak Curry | Dania Express | 250g;1;7,48 zł;250;;;;;   
-25.03.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+25.03.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 25.03.2024;Biedronka;Żywność;Worki na śmieci 15x35L|Zosia Samosia;2;3,00 zł;;15;;;;   
 26.03.2024;Allegro;Komputer;Karta graficzna Gigabyte GeForce RTX 2060 Super WindForce OC 2.0 8 GB;1;730,00 zł;;;; -   zł ;https://allegro.pl/oferta/karta-graficzna-gigabyte-geforce-rtx-2060-super-windforce-oc-2-0-8-gb-15334709672; Używana. Taka jaką ma Adam 
 26.03.2024;Biedronka;Żywność;Warzywa na patelnię 450g;2;5,99 zł;450;;;;;   
@@ -2048,7 +2048,7 @@
 05.04.2024;Lidl;Żywność;Filet z piersi indyka XXL | Rzeźnik;1;14,24 zł;1096;;;;;   
 05.04.2024;Lidl;Żywność;Filet z piersi indyka XXL | Rzeźnik;1;14,78 zł;1138;;;;;   
 05.04.2024;Lidl;Żywność;Mleko świeże Pilos 2% 1L;2;2,99 zł;1000;;;;;   
-05.04.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+05.04.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
 05.04.2024;Rossmann;Zakupy;Okulary Eyemedic ;1;14,99 zł;;;;;; Dla Adama bo mu zepsułem 
 06.04.2024;BeActive;Subskrypcje;Karnet BeActive OPEN 2+2;1;299,00 zł;;4;;;;   
 06.04.2024;Biedronka;Żywność;Tortilla Gyros | Dania Express | 250g;1;7,48 zł;250;;;;;   
@@ -2078,7 +2078,7 @@
 15.04.2024;Biedronka;Żywność;Kotlet de Volaille | Nasze Smaki | 400g;2;7,49 zł;400;;;;;   
 15.04.2024;Biedronka;Żywność;Przyprawa Papryka wędzona Kamis 20g;2;1,99 zł;20;;;;;   
 15.04.2024;Biedronka;Żywność;Przyprawa Suszone pomidory | Kamis 20g;5;1,99 zł;20;;;;;   
-15.04.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+15.04.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 15.04.2024;Lidl;Żywność;Parówki z filetem kurczaka Premium| PIKOK | 250g;2;5,99 zł;250;6;;;;   
 15.04.2024;Lidl;Żywność;Śmietana 12% Pilos | 400g;2;2,90 zł;400;;;;;   
 16.04.2024;Biedronka;Środki czystości;Domestos POWER FOAM 435ml;1;17,99 zł;435;;;;;   
@@ -2096,7 +2096,7 @@
 20.04.2024;Allegro;Zakupy;Prześcieradło z gumką Piruu frotte 120 x 200 cm;1;23,99 zł;;;;10,95 zł;;   
 20.04.2024;Biedronka;Żywność;Lasagne bolognese Dania Express 1000g;2;11,99 zł;1000;;;;;   
 20.04.2024;Biedronka;Żywność;Rzodkiewki - pęk;2;2,61 zł;;;;;https://allegro.pl/oferta/grube-przescieradlo-frotte-z-gumka-120x200-bawelna-kolory-sprawdzona-jakosc-5182487862;   
-22.04.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+22.04.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 22.04.2024;Lidl;Żywność;Mleko UHT 3,2% Mlekovita 1L;6;1,79 zł;1000;;;;;   
 22.04.2024;Lidl;Żywność;Pinsa Margherita 135g;2;4,99 zł;135;;;;;   
 23.04.2024;Biedronka;Żywność;Chleb rodzinny 410g;1;4,19 zł;410;;;;;   
@@ -2140,7 +2140,7 @@
 30.04.2024;Lidl;Żywność;Mleko świeże Pilos 2% 1L;3;2,99 zł;1000;;;;;   
 30.04.2024;Lidl;Żywność;Pieczarki na Grilla 400g;1;4,89 zł;400;;;;;   
 30.04.2024;Lidl;Żywność;Ser Gouda | 150g;1;4,45 zł;150;;;;;   
-30.04.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+30.04.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
 30.04.2024;Lokum;Alkohol;Piwo Kozel z sokiem malinowym 500ml;2;17,00 zł;500;;;;;   
 30.04.2024;Żabka;Zakupy;Grill jednorazowy | dancoal;1;12,99 zł;;;;;;   
 02.05.2024;Akademik;Czynsz;Czynsz maj;1;640,00 zł;;;;;;   
@@ -2178,7 +2178,7 @@
 04.05.2024;Lidl;Żywność;Skyr owocowy 150g;2;1,69 zł;150;;;;;   
 06.05.2024;Biedronka;Żywność;Chicken Paella Danie z kurczakiem po hiszpańsku | Frosta | 450g;2;7,99 zł;450;;;;;   
 06.05.2024;Biedronka;Żywność;Mleko UHT 3,2% Mlekovita 1L;6;1,75 zł;1000;;;;;   
-06.05.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+06.05.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 06.05.2024;Kaufland;Higiena;Listerine Total Care 1000ml;1;27,99 zł;1000;;;;;   
 06.05.2024;Lidl;Żywność;Chleb wieloziarnisty;1;4,39 zł;;;;;;   
 06.05.2024;Lidl;Żywność;Kapusta pekińska;1;7,26 zł;1038;;;;;   
@@ -2186,7 +2186,7 @@
 06.05.2024;Lidl;Żywność;Parówki z szynki wieprzowej PREMIUM | PIKOK | 250g;1;2,99 zł;250;;;;;   
 06.05.2024;Lidl;Żywność;Sól Himalajska jodowana drobnoziarnista | Kuchnia Lidla | 500g;1;3,99 zł;500;;;;;   
 06.05.2024;Lidl;Żywność;Wafle w stylu Holenderskim Sondey 400g;1;8,94 zł;400;;;;;   
-06.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;   
+06.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;   
 06.05.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;2;1,89 zł;70;;;;;   
 06.05.2024;Rossmann;Higiena;Pumeks kosmetyczny KillyS;1;7,99 zł;;;;;;   
 06.05.2024;Rossmann;Higiena;Szczotka do włosów Beauty;1;12,49 zł;;;;;;   
@@ -2234,7 +2234,7 @@
 13.05.2024;Biedronka;Żywność;Nudle grzybowa z borowikami i maślakami 57g | Amino;2;2,39 zł;57;;;;;   
 13.05.2024;Biedronka;Żywność;Nudle pomidorowe pikantne 63g | Knor;6;2,69 zł;63;;;;;   
 13.05.2024;Biedronka;Żywność;Ser Gouda | Światowid | 500g;1;12,99 zł;500;;;;;   
-13.05.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;7,14 zł;9000;6;;;;   
+13.05.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;   
 13.05.2024;Kaufland;Higiena;Listerine Total Care 1000ml;1;27,99 zł;1000;;;;;   
 13.05.2024;Rossmann;Higiena;Aktywator skrętu w kremie OnlyBio 200ml;1;25,49 zł;200;;;;;   
 13.05.2024;Rossmann;Higiena;Maszynka do golenia BIC x12;1;31,99 zł;;12;;;;   
@@ -2262,7 +2262,7 @@
 15.05.2024;Fryzjer;Fryzjer;Trwała/styling ondulacja włosy krotki - loki bez amoniaku | Luiza Wieczorek;1;120,00 zł;;;;;;   
 16.05.2024;Kaufland;Żywność;Oliwa z oliwek najwyższej jakości z pierwszego tłoczenia K-classic 750ml;2;32,99 zł;750;;;;;
 16.05.2024;Lidl;Żywność;Cebula żółta luz;1;3,07 zł;592;;;;;
-16.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;
+16.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;
 16.05.2024;Lidl;Żywność;Ziemniaki do gotowania | Ryneczek Lidla | 2.5kg;1;10,99 zł;2500;;;;;
 17.05.2024;Biedronka;Żywność;Mleko wypasione 3,2% Mlekovita 1L;3;2,45 zł;1000;;;;;
 17.05.2024;Biedronka;Żywność;Pomidor gałązka luz;1;4,55 zł;455;;;;;
@@ -2297,7 +2297,7 @@
 20.05.2024;Lidl;Żywność;Koperek świeży 30g;1;1,99 zł;30;;;;;
 20.05.2024;Lidl;Żywność;Śmietanka kremowa 30% Pilos 330ml;1;3,29 zł;330;;;;;
 21.05.2024;Biedronka;Żywność;Borówka Amerykańska | Warzywniak owocowy | 300g;1;8,99 zł;300;;;;;
-21.05.2024;Biedronka;Żywność;Burger Master bułka do burgerów | Pano | 320g;1;5,76 zł;320;;;;;
+21.05.2024;Biedronka;Żywność;Bułka do burgerów Burger Master  | Pano | 320g;1;5,76 zł;320;4;;;;
 21.05.2024;Biedronka;Żywność;Burger wołowy | Czas na Grill | 200g;2;5,49 zł;200;;;;;
 21.05.2024;Biedronka;Żywność;Cebula żółta luz;1;1,47 zł;490;;;;;
 21.05.2024;Biedronka;Żywność;Granola wysokobiałkowa z orzeszkami ziemnymi i karmelem | GoActive | 200g;1;9,99 zł;200;;;;;
@@ -2310,7 +2310,7 @@
 22.05.2024;Biedronka;Żywność;Jogurt kremowy z brzoskwiniami i granolą | Fruvita | 230g;1;4,19 zł;230;;;;;
 22.05.2024;Biedronka;Żywność;Jogurt kremowy z truskawkami i granolą | Fruvita | 230g;1;4,19 zł;230;;;;;
 22.05.2024;Lidl;Alkohol;Piwo Somersby Mango & Lime 0.4L 4.5%;1;5,59 zł;400;;;;;
-22.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;
+22.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;
 22.05.2024;Stodola Kebap 'N Grill;Żywność;Bułka Klasyk;1;28,49 zł;;;;;; Zniżka UberEats -30zł 
 22.05.2024;Stodola Kebap 'N Grill;Żywność;Rollo Greckie;1;28,50 zł;;;;;; Zniżka UberEats -30zł 
 22.05.2024;Stodola Kebap 'N Grill;Żywność;Rollo Plus;1;30,95 zł;;;;;; Zniżka UberEats -30zł 
@@ -2321,7 +2321,7 @@
 23.05.2024;Rossmann;Higiena;Pasta do zębów Elmex carie 75ml;1;12,49 zł;75;;;;;
 23.05.2024;Rossmann;Higiena;Żel intymny Originals | Durex | 50ml;1;17,99 zł;50;;;;;
 24.05.2024;Apteka Dr.Max;Leki;Krem na grzybicę skóry Hascofungin 30g 1g/100g;1;20,89 zł;30;;;;;
-24.05.2024;Biedronka;Alkohol;Desperados mojito 400ml;2;3,99 zł;400;;;;;
+24.05.2024;Biedronka;Alkohol;Piwo Desperados mojito 400ml;2;3,99 zł;400;;;;;
 24.05.2024;Karczma u Grzegorza;Żywność;Drobiowy z ziemniakami;2;24,00 zł;;;;;;
 24.05.2024;Lidl;Higiena;Papier Toaletowy Komfort | Floralys | 10 rolek 3 warstwy ;1;17,99 zł;;10;;;;
 24.05.2024;Lidl;Żywność;Baton protein 33% salted caramel 50g;1;3,49 zł;50;;;;;
@@ -2331,10 +2331,10 @@
 24.05.2024;Lidl;Żywność;Nudle grzybowa z borowikami i maślakami 57g | Amino;4;2,39 zł;57;;;;;
 24.05.2024;Lidl;Żywność;Nudle pomidorowe pikantne 63g | Knor;2;2,69 zł;63;;;;;
 24.05.2024;Lidl;Żywność;Przyprawa kurczak złocisty bez dodatku soli | Kania | 18g;4;1,49 zł;18;;;;;
-24.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;1;5,94 zł;9000;6;;;;
+24.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;
 24.05.2024;Steam;Gry;The Talos Principle;1;20,84 zł;;;;;;
 25.05.2024;Biedronka;Alkohol;Wódka Żubrówka Bison Grass 500ml;1;29,99 zł;500;;;;;
-25.05.2024;Biedronka;Żywność;Burger Master bułka do burgerów | Pano | 320g;1;5,76 zł;320;4;;;;
+25.05.2024;Biedronka;Żywność;Bułka do burgerów Burger Master  | Pano | 320g;1;5,76 zł;320;4;;;;
 25.05.2024;Biedronka;Żywność;Majonez delikatesowy Maderno 400ml;3;4,19 zł;400;;;;;
 25.05.2024;Biedronka;Żywność;Napój gazowany Sprite ;1;8,69 zł;1750;;;;;
 25.05.2024;Biedronka;Żywność;Przekąska kurczak curry 95g;2;3,14 zł;95;;;;;
@@ -2345,13 +2345,13 @@
 25.05.2024;Lidl;Zakupy;Drewniane patyczki do szaszłyków | My Street Food | 20cm 125szt;1;3,99 zł;;125;;;;
 25.05.2024;Lidl;Żywność;Baton coconut | Go On Soft | 30g;1;2,99 zł;30;;;;;
 25.05.2024;Lidl;Żywność;Baton salted caramel | Go On Soft | 30g;1;2,99 zł;30;;;;;
-25.05.2024;Lidl;Żywność;Burger Roślinny ze słonecznikiem | Vemondo | 170g ;2;7,64 zł;170;2;;;;
+25.05.2024;Lidl;Żywność;Burger Roślinny ze słonecznikiem | Vemondo | 170g ;2;7,64 zł;170;2;;;; Bardzo drogie 
 25.05.2024;Lidl;Żywność;Kapusta pekińska;1;8,60 zł;1230;;;;;
 25.05.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;1;3,79 zł;285;;;;;
 25.05.2024;Lidl;Żywność;Natka pietruszki | Ryneczek Lidla | 80g;1;4,99 zł;80;;;;;
 25.05.2024;Lidl;Żywność;Papryka czerwona;1;3,39 zł;226;;;;;
 25.05.2024;Lidl;Żywność;Pomidor gałązka luz;1;1,92 zł;240;2;;;;
-25.05.2024;Lidl;Żywność;Porcja rosołowa z indyka | |;1;7,14 zł;745;;;;;
+25.05.2024;Lidl;Żywność;Porcja rosołowa z indyka | Rzeźnik |;1;7,14 zł;745;;;;;
 25.05.2024;Lidl;Żywność;Sałata rzymska mini | Ryneczek Lidla | 2szt;1;3,99 zł;;2;;;;
 25.05.2024;Lidl;Żywność;Ser Carski Pilos 130g;3;2,72 zł;130;;;;;
 25.05.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;2;1,98 zł;70;;;;;
@@ -2374,7 +2374,7 @@
 28.05.2024;Lidl;Żywność;Chleb słonecznikowy;1;4,16 zł;;;;;;
 28.05.2024;Lidl;Żywność;Czekolada Milka | 270g;1;16,99 zł;270;;;;;
 28.05.2024;Lidl;Żywność;Hummus z pomidorami i czosnkiem | Chef Select | 220g;1;5,95 zł;220;;;;;
-29.05.2024;Biedronka;Alkohol;Piwo Garage Orange Spritz 0,4L;2;4,79 zł;400;;;;;
+29.05.2024;Biedronka;Alkohol;Piwo Garage Orange Spritz 4.5% 0,4L;2;4,79 zł;400;;;;;
 29.05.2024;Biedronka;Żywność;Banan luz;1;5,77 zł;825;;;;;
 29.05.2024;Biedronka;Żywność;Baton wysokobiałkowy z Kokos | Go On | 35g;2;3,09 zł;35;;;;;
 29.05.2024;Biedronka;Żywność;Baton wysokobiałkowy z pistacjami | Go On | 35g;2;3,09 zł;35;;;;;
@@ -2415,8 +2415,8 @@
 31.05.2024;Lidl;Żywność;Hummus paprykowy Vamondo 160g;1;3,99 zł;;;;;;
 31.05.2024;Lidl;Żywność;Kiełbasa śląska PIKOK 550g;2;4,29 zł;550;;;;;
 31.05.2024;Lidl;Żywność;Mleko świeże 2% 1L;1;2,99 zł;1000;;;;;
-31.05.2024;Lidl;Żywność;Tacki aluminiowe do Grilla Duże | Grilll & Fun | 4szt;1;4,99 zł;;4;;;;
-31.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;1;0,99 zł;1500;1;;;;
+31.05.2024;Lidl;Żywność;Tacki aluminiowe do Grilla Duże | Grill & Fun | 4szt;1;4,99 zł;;4;;;;
+31.05.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;1;0,99 zł;1500;;;;;
 01.06.2024;Akademik;Czynsz;Czynsz czerwiec;1;640,00 zł;;;;;;
 01.06.2024;Biedronka;Alkohol;Piwo Somersby Blackberry 0,5L 0%;3;3,73 zł;400;;;;;
 01.06.2024;Biedronka;Żywność;Bulion warzywny Knor 120g;1;4,69 zł;120;12;;;;
@@ -2429,7 +2429,7 @@
 03.06.2024;Apteka Dr.Max;Leki;Acatar Allergy 10ml;1;41,99 zł;10;;;;; 1 Dawka to 0,14 ml (2x 2 dawki dziennie czyli powinien starczyć na 17 dni) | Na stronie za 31 zł 
 03.06.2024;Biedronka;Żywność;Kapusta pekińska;1;5,87 zł;980;;;;;
 03.06.2024;Biedronka;Żywność;Mleko UHT 3,2% Mleczna Dolina 1L;6;1,65 zł;1000;;;;;
-03.06.2024;Biedronka;Żywność;Warzywa na patelnię po letnie | Mroźna Kraina | 700g;2;6,99 zł;700;;;;;
+03.06.2024;Biedronka;Żywność;Warzywa na patelnię letnie | Mroźna Kraina | 700g;2;6,99 zł;700;;;;;
 03.06.2024;Kaufland;Higiena;Prezerwatywy R3 PURE 12st;1;8,99 zł;;12;;;;
 03.06.2024;Kaufland;Żywność;Kinder Bueno White 39g;1;3,29 zł;39;;;;;
 03.06.2024;Kaufland;Żywność;Pączek wieloowocowy 65g;2;1,15 zł;65;;;;;
@@ -2441,7 +2441,7 @@
 03.06.2024;Lidl;Żywność;Przyprawa kebab gyros bez dodatku soli | Kania | 18g;2;1,49 zł;18;;;;;
 03.06.2024;Lidl;Żywność;Przyprawa kurczak złocisty bez dodatku soli | Kania | 18g;2;1,49 zł;18;;;;;
 03.06.2024;Lidl;Żywność;Tortilla wraps Classic 6szt 25cm | Snack Day | 370g;1;3,80 zł;370;6;;;;
-03.06.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L x6;2;5,94 zł;9000;6;;;;
+03.06.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;12;0,99 zł;1500;;;;;
 03.06.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;2;1,89 zł;70;;;;;
 03.06.2024;Rossmann;Higiena;Pumeks kosmetyczny KillyS;1;7,99 zł;;;;;;
 03.06.2024;Rossmann;Zakupy;Parasolka;1;17,99 zł;;;;;;
@@ -2468,7 +2468,7 @@
 06.06.2024;Lidl;Żywność;Kapusta pekińska;1;8,32 zł;1190;;;;; Ta konkretna z Lidla miała bardzo wyrazisty zapach i smak 
 06.06.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;1;3,99 zł;285;;;;;
 06.06.2024;Lidl;Żywność;Papryka czerwona;1;4,93 zł;548;;;;;
-06.06.2024;Lidl;Żywność;Porcja rosołowa z indyka | |;1;13,70 zł;1088;;;;;
+06.06.2024;Lidl;Żywność;Porcja rosołowa z indyka | Rzeźnik |;1;13,70 zł;1088;;;;;
 06.06.2024;Lidl;Żywność;Protein bar 35% Chocolate & Peanut 80g;1;5,99 zł;80;;;;;
 06.06.2024;Lidl;Żywność;Protein bar 35% Coconut & Salty Caramel 80g;1;5,99 zł;80;;;;;
 06.06.2024;Lidl;Żywność;Słonecznik łuskany | Alesto | 500g;1;7,65 zł;500;;;;;
@@ -2502,13 +2502,208 @@
 10.06.2024;Biedronka;Żywność;Kiełbasa kanapkowa z szynki | Kraina Wędlion | 400g;1;13,59 zł;400;;;;;
 10.06.2024;Biedronka;Żywność;Majonez delikatesowy Maderno 400ml;1;6,29 zł;400;;;;;
 10.06.2024;Biedronka;Żywność;Sos Barbecue Classic Smokey & Rich | Heinz | 400 ml;1;10,99 zł;400;;;;;
-10.06.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L 6szt;1;5,95 zł;9000;6;;;;
+10.06.2024;Biedronka;Żywność;Woda lekko gazowana Polaris naturalna woda mineralna 1.5L;6;0,99 zł;1500;;;;;
 10.06.2024;Biedronka;Żywność;Worki na śmieci 10x60L|Zosia Samosia;1;5,99 zł;;10;;;;
 11.06.2024;Biedronka;Higiena;Szampon Head & Shoulders Deep Hydration | Coconut | 400ml;2;19,99 zł;400;;;;; Drugi 46% taniej (Normalnie 25,99) 
 11.06.2024;Biedronka;Higiena;Szampon Nivea Men - Active Clean 500ml;2;12,74 zł;500;;;;; Drugi 50% taniej (Normalnie 16,99) 
-11.06.2024;OpenAI;Subskrypcje;Chat GPT 4;1;99,99 zł;;;;;; 20,00$ + 4,60$ VAT - Zapłacone przez Google Play na telefonie (Przez ING po przeliczeniu byłoby 102,34) 
-11.06.2024;Biedronka;Żywność;Mleko wypasione 2% Mlekovita 1L;12;1,99 zł;12000;;;;;
 11.06.2024;Biedronka;Żywność;Chleb wieloziarnisty | Pano | 400g;1;3,59 zł;400;;;;;
-11.06.2024;Biedronka;Żywność;Śmietana 12% Mleczna Dolina | 330g;1;3,15 zł;330;;;;;
+11.06.2024;Biedronka;Żywność;Guma Orbit White 29g;1;4,69 zł;29;21;;;;
+11.06.2024;Biedronka;Żywność;Kotlet drobiowy | Nasze Smaki | 400g;2;10,49 zł;400;;;;;
+11.06.2024;Biedronka;Żywność;Mleko wypasione 2% Mlekovita 1L;12;1,99 zł;1200;;;;;
 11.06.2024;Biedronka;Żywność;Pasta z czerwoną papryką | Wawrzyniec | 180g;1;7,29 zł;180;;;;;
 11.06.2024;Biedronka;Żywność;Ser Morski | Światowid | 500g;2;8,99 zł;500;;;;;
+11.06.2024;Biedronka;Żywność;Skyr z owocami - mango marakuje | Go Active | 140g;1;3,35 zł;140;;;;;
+11.06.2024;Biedronka;Żywność;Skyr z owocami - truskawka | Go Active | 140g;1;3,35 zł;140;;;;;
+11.06.2024;Biedronka;Żywność;Śmietana 12% Mleczna Dolina | 330g;1;3,15 zł;330;;;;;
+11.06.2024;OpenAI;Subskrypcje;Chat GPT 4;1;99,99 zł;;;;;; 20,00$ + 4,60$ VAT - Zapłacone przez Google Play na telefonie (Przez ING po przeliczeniu byłoby 102,34) 
+12.06.2024;Biedronka;Żywność;Bonitki Setters Wafelek Mleczno-Orzechowy 4x25g;2;2,24 zł;100;;;;; Taka podróbka Knoppersów ale bardzo podobna w smaku 
+13.06.2024;Allegro;Żywność;Dżem kiwi-truskawka | AllNutrition | 500g;1;11,99 zł;500;;;;https://allegro.pl/oferta/allnutrition-frulove-in-jelly-kiwii-strawberry-500g-dzem-bez-cukru-fit-12786329843; Adam kupował 
+13.06.2024;Allegro;Żywność;FitKing delicious pasta sauce | AllNutrition | 500g;2;17,49 zł;500;;;;https://allegro.pl/oferta/allnutrition-fitking-delicious-pasta-sauce-tomato-with-herbs-500g-fit-sos-15694083995; Adam kupował (z kuponem -10zł) 
+13.06.2024;Biedronka;Zakupy;Papier do pieczenia | Zosia samosia | 20m;1;7,49 zł;;;;;;
+13.06.2024;Biedronka;Żywność;Filet z piersi z kurczaka Mega Paka| Kraina mięs;1;18,33 zł;1534;;;;; Promocja 1+1 gratis (dlatego różne ceny za kg) 
+13.06.2024;Biedronka;Żywność;Filet z piersi z kurczaka Mega Paka| Kraina mięs;1;18,24 zł;1526;;;;; Promocja 1+1 gratis (dlatego różne ceny za kg) 
+13.06.2024;Biedronka;Żywność;Filet z piersi z kurczaka Mega Paka| Kraina mięs;1;18,52 zł;1458;;;;; Promocja 1+1 gratis (dlatego różne ceny za kg) 
+13.06.2024;Biedronka;Żywność;Filet z piersi z kurczaka Mega Paka| Kraina mięs;1;21,01 zł;1654;;;;; Promocja 1+1 gratis (dlatego różne ceny za kg) 
+13.06.2024;Biedronka;Żywność;Gotowe danie Gyros | Hortex | 450g;2;11,99 zł;450;;;;;
+13.06.2024;Biedronka;Żywność;Kotlet de Volaille | Nasze Smaki | 400g;2;7,99 zł;400;;;;;
+13.06.2024;Biedronka;Żywność;Mieszanka Wiosenna | Mroźna Kraina | 750g;2;5,49 zł;750;;;;;
+13.06.2024;Lidl;Żywność;Baton coconut | Go On Soft | 30g;1;2,99 zł;30;;;;;
+13.06.2024;Lidl;Żywność;Baton salted caramel | Go On Soft | 30g;1;2,99 zł;30;;;;;
+13.06.2024;Lidl;Żywność;Cebula żółta luz;1;2,42 zł;466;;;;;
+13.06.2024;Lidl;Żywność;Chleb wieloziarnisty;1;2,35 zł;;;;;;
+13.06.2024;Lidl;Żywność;Kapusta pekińska;1;9,42 zł;1348;;;;;
+13.06.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;1;3,99 zł;285;;;;;
+13.06.2024;Lidl;Żywność;Papryka żółta luz;1;4,43 zł;522;2;;;;
+13.06.2024;Lidl;Żywność;Porcja rosołowa z indyka | Rzeźnik |;1;5,69 zł;904;;;;;
+13.06.2024;Lidl;Żywność;Porcja rosołowa z indyka | Rzeźnik |;1;4,81 zł;764;;;;;
+13.06.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;
+13.06.2024;Lidl;Żywność;Ziemniaki do gotowania | Ryneczek Lidla | 2.5kg;1;3,99 zł;2500;;;;; Ktoś przez pomyłkę dał naklejkę z przeceną nie na te ziemniaki (na naklejce było że za 1.5kg) 
+15.06.2024;Biedronka;Alkohol;Piwo Somersby Blackcurrant & Lime  0,4L 0%;2;5,59 zł;400;;;;;
+15.06.2024;Biedronka;Alkohol;Piwo Somersby Mango 0.4L  4.5%;2;5,59 zł;400;;;;;
+15.06.2024;Biedronka;Żywność;Chleb Kresowy | Piekarnia Cukiernia Gursz | 400g;1;4,71 zł;400;;;;;
+15.06.2024;Biedronka;Żywność;Kebab z kurczaka z warzywami | Danie Ekspress | 600g;2;12,59 zł;600;;;;;
+15.06.2024;Biedronka;Żywność;Łosoś wędzony na gorąco łagodny | Marinero | 125g;1;9,74 zł;125;;;;;
+15.06.2024;Biedronka;Żywność;Łosoś wędzony na gorąco z koperkiem | Marinero | 125g;1;9,74 zł;125;;;;;
+15.06.2024;Lidl;Zakupy;Zakupy;1;9,68 zł;;;;;; Adam 
+15.06.2024;Lidl;Żywność;Erytrytol | Kuchnia Lidla | 250g;1;9,99 zł;250;;;;;
+15.06.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;1;3,99 zł;285;;;;;
+15.06.2024;Lidl;Żywność;Przyprawa kebab gyros bez dodatku soli | Kania | 18g;3;1,49 zł;18;;;;;
+15.06.2024;Lidl;Żywność;Przyprawa kurczak złocisty bez dodatku soli | Kania | 18g;3;1,49 zł;18;;;;;
+15.06.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;2;1,89 zł;70;;;;;
+17.06.2024;Biedronka;Środki czystości;Kapsułki do prania Persil power caps color MEGA 60szt;2;52,49 zł;;60;;;;
+17.06.2024;Biedronka;Zakupy;Zakupy;1;3,15 zł;;;;;; Adam 
+17.06.2024;Biedronka;Zakupy;Zakupy;1;5,69 zł;;;;;; Adam 
+17.06.2024;Biedronka;Żywność;Bulion warzywny Culineo 120g;2;2,59 zł;120;12;;;;
+17.06.2024;Biedronka;Żywność;Ciastka minis choco | Leibniz | 100g;2;4,19 zł;100;;;;;
+17.06.2024;Biedronka;Żywność;Kapusta pekińska;1;8,85 zł;1266;;;;;
+17.06.2024;Lidl;Żywność;Baton protein 33% salted caramel 50g;2;4,99 zł;50;;;;;
+17.06.2024;Lidl;Żywność;Baton proteinowy kokos & karmel 27% | Mister Choc | 48g;1;3,79 zł;48;;;;;
+17.06.2024;Lidl;Żywność;Baton proteinowy kokos & karmel 27% | Mister Choc | 48g;1;3,79 zł;48;;;;;
+17.06.2024;Lidl;Żywność;Deserek twarogowy protein jabłko z cynamonem | Pilos | 133g;2;2,85 zł;133;;;;;
+17.06.2024;Lidl;Żywność;Herbatniki maślane | Leibniz | 100g;1;3,29 zł;100;;;;;
+17.06.2024;Lidl;Żywność;Koperek świeży 30g;1;2,49 zł;30;;;;;
+18.06.2024;Biedronka;Żywność;Gotowe danie Gyros | Hortex | 450g;2;7,80 zł;450;;;;;
+18.06.2024;Biedronka;Żywność;Warzywa na patelnię letnie | Mroźna Kraina | 700g;2;9,39 zł;700;;;;;
+18.06.2024;Lidl;Żywność;Baton proteinowy kokos & karmel 27% | Mister Choc | 48g;3;3,79 zł;48;;;;;
+18.06.2024;Lidl;Żywność;Ciastka FitKing Delicious cookie peanut butter & raspberry jelly | AllNutrition | 128g;1;5,99 zł;128;;;;;
+18.06.2024;Lidl;Żywność;Ciastka FitKing Delicious cookie white choco cream | AllNutrition | 128g;1;5,99 zł;128;;;;;
+19.06.2024;Biedronka;Żywność;Banan luz;1;7,82 zł;1125;;;;;
+19.06.2024;Biedronka;Żywność;Placki ziemniaczane po węgiersku | Nasze Smaki | 400g;2;10,49 zł;400;;;;;
+19.06.2024;Lidl;Żywność;Bułka burger z nasionami sezamu | Piekarnia w sercu Lidla | 4szt 328g;1;6,29 zł;328;4;;;; W biedronce taniej 
+19.06.2024;Lidl;Żywność;Burger wołowy | Grill & Fun | 220g;2;7,98 zł;220;2;;;; W biedronce taniej 
+19.06.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;1;3,99 zł;285;;;;;
+19.06.2024;Lidl;Żywność;Pomidor gałązka luz;1;2,04 zł;512;5;;;;
+19.06.2024;Lidl;Żywność;Sałata lodowa | Ryneczek Lidla |;1;3,49 zł;;;;;;
+19.06.2024;Lidl;Żywność;Tortilla wraps Wholemeal 6szt 25cm | Snack Day | 370g;1;5,99 zł;370;6;;;;
+19.06.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;
+19.06.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;4;1,89 zł;70;;;;;
+20.06.2024;Biedronka;Żywność;Mleko UHT 3,2% Łowicz 1L;6;1,99 zł;6000;;;;;
+20.06.2024;Biedronka;Żywność;Bułka do burgerów Burger Master  | Pano | 320g;1;5,76 zł;320;4;;;;
+20.06.2024;Biedronka;Żywność;Burger wołowy | Czas na Grill | 200g;1;6,25 zł;200;;;;;
+20.06.2024;Biedronka;Żywność;Karkówka rolowana | Czas na Grill | 310g;1;7,49 zł;310;6;;;;
+20.06.2024;Biedronka;Żywność;Kiełbasa śląska grillowana | Kraina Wędlin | ;1;10,95 zł;1230;;;;;
+20.06.2024;Biedronka;Żywność;Szaszłyk drobiowy z cukinią i morelą | Czas na Grill | 400g;1;15,99 zł;400;;;;;
+21.06.2024;Biedronka;Alkohol;Piwo Desperados 0.5L;4;3,99 zł;500;4;;;;
+21.06.2024;Biedronka;Alkohol;Piwo Somersby Blackcurrant & Lime  0,4L 0%;2;5,59 zł;400;;;;;
+21.06.2024;Biedronka;Alkohol;Piwo Somersby Jabłko 0.4L;4;3,99 zł;400;;;;;
+21.06.2024;Fryzjer;Fryzjer;Strzyżenie boków r.6 | Amanda Jędrzejewska;1;25,00 zł;;;;;; Same boki maszynką r6. (Bez mycia bo tylko boki) 
+21.06.2024;Lidl;Żywność;Deserek twarogowy protein jabłko z cynamonem | Pilos | 133g;1;3,19 zł;133;;;;;
+21.06.2024;Lidl;Żywność;Deserek twarogowy protein jabłko z cynamonem | Pilos | 133g;1;3,19 zł;133;;;;;
+21.06.2024;Lidl;Żywność;Papryka czerwona;1;3,33 zł;222;;;;;
+21.06.2024;Lidl;Żywność;Pomidor gałązka luz;1;4,22 zł;528;;;;;
+21.06.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;
+21.06.2024;Stoisko;Żywność;Bób 500g;1;10,00 zł;500;;;;;
+22.06.2024;Apteka Dr.Max;Leki;Krem na grzybicę skóry Hascofungin 30g 1g/100g;1;20,99 zł;30;;;;;
+22.06.2024;Lidl;Żywność;Cebula żółta luz;1;3,01 zł;580;;;;;
+22.06.2024;Lidl;Żywność;Czosnek granulowany | Kuchnia Lidla | 30g;1;1,19 zł;30;;;;;
+22.06.2024;Lidl;Żywność;Kabanosy z nadzieniem barbecue | Tarczyński | 95g;1;5,99 zł;95;;;;;
+22.06.2024;Lidl;Żywność;Kabanosy z nadzieniem suszone pomidory | Tarczyński | 95g;1;5,99 zł;95;;;;;
+22.06.2024;Lidl;Żywność;Kapusta pekińska;1;9,61 zł;1604;;;;;
+22.06.2024;Lidl;Żywność;Kapusta pekińska;1;4,07 zł;680;;;;;
+22.06.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;2;3,99 zł;285;;;;;
+22.06.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;1;3,99 zł;285;;;;;
+22.06.2024;Lidl;Żywność;Łosoś wędzony na gorąco łagodny | Marinero | 125g;2;9,74 zł;125;;;;;
+22.06.2024;Lidl;Żywność;Majonez lekki | Winiary | 300ml;1;6,99 zł;300;;;;;
+22.06.2024;Lidl;Żywność;Papryka czerwona;1;8,51 zł;568;;;;;
+22.06.2024;Lidl;Żywność;Papryka czerwona;1;12,02 zł;802;;;;;
+22.06.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;2;1,89 zł;70;;;;;
+23.06.2024;Allegro;Żywność;Dżem malina | AllNutrition | 500g;1;29,99 zł;500;;;;https://allegro.pl/oferta/allnutrition-frulove-in-jelly-500g-raspberry-fruzelina-bez-cukru-dzem-owoce-14275179546?fromVariant=12786329843;   
+23.06.2024;Allegro;Żywność;Dżem mango-truskawka | AllNutrition | 500g;1;16,99 zł;500;;;;https://allegro.pl/oferta/allnutrition-frulove-in-jelly-mango-strawberry-500g-dzem-bez-cukru-fit-12786529953?fromVariant=12786329843;   
+23.06.2024;Allegro;Żywność;Dżem owoce leśne | AllNutrition | 500g;1;26,99 zł;500;;;;https://allegro.pl/oferta/allnutrition-frulove-in-jelly-forest-fruits-500g-fruzelina-bez-cukru-owoce-13713669300?fromVariant=12786329843;   
+24.06.2024;Biedronka;Żywność;Kawa rozpouszczalna Nescafe Crema 200g;1;29,99 zł;200;;;;;
+24.06.2024;Biedronka;Żywność;Przyprawa Papryka wędzona Kamis 20g;3;1,99 zł;20;;;;;
+24.06.2024;Biedronka;Żywność;Sos Barbecue Classic Smokey & Rich | Heinz | 400 ml;1;11,99 zł;400;;;;;
+24.06.2024;Biedronka;Żywność;Warzywa na patelnię po polsku | Mroźna Kraina | 450g;2;7,19 zł;450;;;;;
+24.06.2024;Lidl;Żywność;Banan luz;1;3,93 zł;1126;;;;;
+24.06.2024;Lidl;Żywność;Chleb włoski;1;4,19 zł;532;;;;;
+24.06.2024;Lidl;Żywność;Ciastka minis choco | Leibniz | 100g;1;4,19 zł;100;;;;;
+24.06.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;1;3,99 zł;285;;;;;
+24.06.2024;Lidl;Żywność;Masło irlandzkie | Pilos | 250g;1;9,44 zł;250;;;;;
+24.06.2024;Lidl;Żywność;Papryka czerwona;1;4,89 zł;326;;;;;
+24.06.2024;Lidl;Żywność;Parówki wieprzowe XXL | Pikok | 700g;2;7,49 zł;700;14;;;;
+24.06.2024;Lidl;Żywność;Ser Gouda XXL | Pilos | 500g;1;13,75 zł;500;;;;;
+24.06.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;2;1,89 zł;70;;;;;
+25.06.2024;Biedronka;Żywność;Ciastka minis choco | Leibniz | 100g;1;4,19 zł;100;;;;;
+25.06.2024;Biedronka;Żywność;Ciastko duet truskawkowy z budyniem 94 g;2;1,85 zł;94;;;;;
+25.06.2024;Biedronka;Żywność;Skittles 174g;1;7,48 zł;174;;;;;
+25.06.2024;Reserved;Ubrania;Bluza z kapturem niebieska S;1;79,99 zł;;;;;https://www.reserved.com/pl/pl/gladka-bluza-z-kapturem-4642c-55x; 4642C-55X-S 
+25.06.2024;Uber;Usługi;Przejazd Uber  Posnania -> Avenida;1;16,48 zł;;;;;;
+25.06.2024;Uber;Usługi;Przejazd Uber Akademik -> Posnania;1;13,46 zł;;;;;;
+26.06.2024;Apteka Witaminka;Leki;Theraflu ExtraGrip ;1;44,00 zł;;;;;; Bardzo drogie, 2x taniej przez internet 
+26.06.2024;Biedronka;Żywność;Piwo Somersby Blackberry 0,5L 0%;1;5,59 zł;400;;;;;
+26.06.2024;Biedronka;Żywność;Pomidor gałązka luz;1;2,17 zł;545;;;;;
+26.06.2024;Biedronka;Żywność;Woda gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;
+26.06.2024;Kaufland;Charytatywne;Charytatywne;1;4,00 zł;;;;;;
+26.06.2024;Kaufland;Higiena;Listerine Total Care 1000ml;2;27,99 zł;1000;;;;;
+26.06.2024;Kaufland;Leki;Ibuprom 10 tabletek;1;7,99 zł;;10;;;;
+26.06.2024;Kaufland;Zakupy;Taca prostokątna;1;14,99 zł;;;;;;
+26.06.2024;Kaufland;Zakupy;Wkładki do butów Leather Carbon TREND ;1;14,99 zł;;;;;;
+26.06.2024;Lidl;Żywność;Chleb wieloziarnisty;1;4,71 zł;;;;;;
+26.06.2024;Lidl;Żywność;Ciasto z porzeczkami 400g;1;4,49 zł;400;;;;;
+26.06.2024;Lidl;Żywność;Deserek twarogowy protein jabłko z cynamonem | Pilos | 133g;1;2,79 zł;133;;;;;
+26.06.2024;Lidl;Żywność;Deserek twarogowy protein truskawka | Pilos | 133g;1;2,79 zł;133;;;;;
+26.06.2024;Lidl;Żywność;Hummus z pomidorami i czosnkiem | Chef Select | 220g;1;5,90 zł;220;;;;;
+26.06.2024;Poczta polska;Usługi;List polecony ;1;11,10 zł;;;;;; List Adama do właściciela mieszkania z rezygnacją 
+26.06.2024;Rossmann;Higiena;UNDOFEN spray do stóp i obuwia ALL IN ONE 150ml;2;26,99 zł;150;;;;;
+27.06.2024;Biedronka;Żywność;Piwo Somersby Blackcurrant & Lime  0,4L 0%;1;5,59 zł;400;;;;;
+27.06.2024;Lidl;Żywność;Kapusta pekińska;1;7,28 zł;1216;;;;;
+27.06.2024;Lidl;Żywność;Kapusta pekińska;1;5,94 zł;992;;;;;
+27.06.2024;Lidl;Żywność;Kukurydza konserwowa Freshona 285g;2;3,99 zł;285;;;;;
+27.06.2024;Lidl;Żywność;Papryka czerwona;1;4,08 zł;272;;;;;
+27.06.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;
+27.06.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;4;1,99 zł;70;;;;;
+28.06.2024;Biedronka;Alkohol;Piwo Garage Orange Spritz 4.5% 0,4L;1;4,79 zł;400;;;;;
+28.06.2024;Biedronka;Żywność;Baton Kit Kat Mix 40g/42g;2;2,79 zł;40;;;;;
+28.06.2024;Biedronka;Żywność;Cebula żółta luz;1;2,50 zł;500;;;;;
+28.06.2024;Biedronka;Żywność;Ciastka minis choco | Leibniz | 100g;1;4,19 zł;100;;;;;
+28.06.2024;Biedronka;Żywność;Filet z piersi z kurczaka Mega Paka| Kraina mięs;1;21,67 zł;1837;;;;;
+28.06.2024;Biedronka;Żywność;Filet z piersi z kurczaka Mega Paka| Kraina mięs;1;22,23 zł;1884;;;;;
+28.06.2024;Biedronka;Żywność;Filet z piersi z kurczaka Mega Paka| Kraina mięs;1;24,74 zł;2098;;;;;
+28.06.2024;Biedronka;Żywność;Filet z piersi z kurczaka Mega Paka| Kraina mięs;1;24,09 zł;2043;;;;;
+28.06.2024;Biedronka;Żywność;Kukurydza konserwowa | Nasza Spiżarnia | 285g;2;2,99 zł;285;;;;;
+28.06.2024;Biedronka;Żywność;Lody koktajlowe | Koral | 400ml;2;7,85 zł;400;;;;;
+28.06.2024;Biedronka;Żywność;Mleko UHT 3,2% Mlekovita 1L;6;1,99 zł;1000;;;;;
+28.06.2024;Biedronka;Żywność;Piwo Garage Mango & Guarana 0% 0,4L;1;4,79 zł;400;;;;;
+28.06.2024;Biedronka;Żywność;Zupa Jarzynowa | Mroźna Kraina | 750g;1;5,24 zł;750;;;;;
+28.06.2024;Biedronka;Żywność;Zupa Jarzynowa | Mroźna Kraina | 750g;1;5,24 zł;750;;;;;
+28.06.2024;Lidl;Żywność;Masło irlandzkie | Pilos | 250g;1;9,44 zł;250;;;;;
+29.06.2024;Biedronka;Alkohol;Piwo Hardmade exotic kumkwat 4.5% 0,4L;2;3,49 zł;400;;;;;
+29.06.2024;Biedronka;Żywność;Kinder Bueno White 39g;2;2,39 zł;39;;;;;
+29.06.2024;Biedronka;Żywność;Pepsi zero 2L;2;5,99 zł;2000;;;;;
+29.06.2024;Biedronka;Żywność;Piwo Lech Free 0% 0,5L;2;3,99 zł;500;;;;;
+29.06.2024;Lidl;Żywność;Parówki z filetem z kurczaka | Kraina Wędlin | 250g;1;4,49 zł;250;;;;;
+29.06.2024;Lidl;Żywność;Parówki z filetem z kurczaka | Kraina Wędlin | 250g;1;4,49 zł;250;;;;;
+30.06.2024;Biedronka;Żywność;Bułka do burgerów Burger Master  | Pano | 320g;1;5,76 zł;320;;;;;
+30.06.2024;Biedronka;Żywność;Burger wołowy | Czas na Grill | 200g;3;6,25 zł;200;;;;;
+30.06.2024;Biedronka;Żywność;Marchewka z groszkiem | Nasza Spiżarnia | 420g;1;5,19 zł;420;;;;; MieszMarzGroNS420g 
+30.06.2024;Biedronka;Żywność;Parówki jalapeno | Berlinki | 250g;1;3,73 zł;250;;;;;
+30.06.2024;Biedronka;Żywność;Parówki z kurczaka | Berlinki | 250g;1;3,72 zł;250;;;;;
+30.06.2024;Biedronka;Żywność;Pasta z czerwoną papryką | Wawrzyniec | 180g;1;6,95 zł;180;;;;;
+30.06.2024;Biedronka;Żywność;Pomidor gałązka luz;1;3,41 zł;570;;;;;
+30.06.2024;Biedronka;Żywność;Śmietana 12% Mleczna Dolina | 330g;1;2,99 zł;330;;;;;
+01.07.2024;Biedronka;Żywność;Bonitki owsiane z sezamem 230g;1;4,19 zł;230;;;;;
+01.07.2024;ING;Usługi;Podatek od odsetek z Konta Oszczędnościowego ING;1;2,58 zł;;;;;;
+02.07.2024;Biedronka;Żywność;Bonitki owsiane z sezamem 230g;1;4,19 zł;230;;;;;
+02.07.2024;Biedronka;Żywność;Frankfuterki wieprzowe | Łuków | ;1;10,87 zł;404;;;;;
+02.07.2024;Biedronka;Żywność;Musztarda kremska słodko-ostra | Maderno | 210g;1;2,15 zł;210;;;;;
+02.07.2024;Biedronka;Żywność;Ser Morski | Światowid | 500g;2;8,99 zł;500;;;;;
+02.07.2024;Biedronka;Żywność;Warzywa na patelnię po meksykańsku | Mroźna Kraina | 450g;2;6,29 zł;450;;;;;
+02.07.2024;Lidl;Żywność;Chleb wieloziarnisty;1;2,35 zł;;;;;;-50%
+02.07.2024;PEKA;Usługi;Doładowanie;1;0,10 zł;;;;;; Adamowi brakowało 
+03.07.2024;Biedronka;Alkohol;Piwo Somersby Pink Grapefruit 0,4L 4%;1;5,59 zł;400;;;;;
+03.07.2024;Biedronka;Żywność;Bonitki owsiane z sezamem 230g;2;4,19 zł;230;;;;;
+03.07.2024;Biedronka;Żywność;Bonitki Setters Wafelek Mleczno-Orzechowy 4x25g;2;2,95 zł;100;4;;;;
+03.07.2024;Biedronka;Żywność;Cebula żółta luz;1;2,10 zł;405;;;;;
+03.07.2024;Biedronka;Żywność;Ciastka minis choco | Leibniz | 100g;2;4,19 zł;100;;;;;
+03.07.2024;Biedronka;Żywność;Kinder Bueno White 39g;2;3,45 zł;39;;;;;
+03.07.2024;Biedronka;Żywność;Musztarda kremska słodko-ostra | Maderno | 210g;1;2,15 zł;210;;;;;
+03.07.2024;Biedronka;Żywność;Piwo Somersby Blackcurrant & Lime  0,4L 0%;1;5,59 zł;400;;;;;
+03.07.2024;Biedronka;Żywność;Przyprawa Papryka wędzona Kamis 20g;3;1,99 zł;20;;;;;
+03.07.2024;Biedronka;Żywność;Przyprawa Suszone pomidory | Kamis 12g;3;1,99 zł;12;;;;;
+03.07.2024;Biedronka;Żywność;Słonecznik łuskany | BakaD'Or | 300g;1;4,39 zł;300;;;;;
+03.07.2024;Biedronka;Żywność;Woda gazowana Polaris naturalna woda mineralna 1.5L;6;1,19 zł;1500;;;;;
+03.07.2024;Lidl;Żywność;Papryka czerwona;1;6,84 zł;456;;;;;
+03.07.2024;Lidl;Żywność;Przyprawa kebab gyros bez dodatku soli | Kania | 18g;2;1,49 zł;18;;;;;
+03.07.2024;Lidl;Żywność;Przyprawa kurczak złocisty bez dodatku soli | Kania | 18g;3;1,49 zł;18;;;;;
+03.07.2024;Lidl;Żywność;Woda źródlana średnio gazowana Saguaro 1,5L;6;0,99 zł;1500;;;;;
+03.07.2024;Lidl;Żywność;Zupa błyskawiczna o smaku kurczaka ZŁOTY | VIFON | 70g;2;1,99 zł;70;;;;;

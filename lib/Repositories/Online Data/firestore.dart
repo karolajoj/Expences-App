@@ -15,7 +15,8 @@ class FirestoreService {
     try {
       final User? user = FirebaseAuth.instance.currentUser;
       if (user == null) {
-        throw Exception('Nie zalogowano użytkownika');
+        // throw Exception('Nie zalogowano użytkownika');
+        return expense;
       }
 
       final CollectionReference userExpenses = FirebaseFirestore.instance
@@ -58,7 +59,8 @@ class FirestoreService {
     try {
       User? user = FirebaseAuth.instance.currentUser;
       if (user == null) {
-        throw Exception('Nie zalogowano użytkownika');
+        // throw Exception('Nie zalogowano użytkownika');
+        return [];
       }
       final QuerySnapshot<Map<String, dynamic>> querySnapshot =
           await FirebaseFirestore.instance

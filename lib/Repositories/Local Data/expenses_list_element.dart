@@ -1,3 +1,4 @@
+// TODO : Revrite Hive to ObjectBox
 import 'package:hive/hive.dart';
 import 'package:uuid/uuid.dart';
 
@@ -77,10 +78,10 @@ class ExpensesListElementModel {
     required this.produkt,
     required this.ilosc,
     required this.cena,
-    required this.miara,
+    this.miara,
     this.miaraUnit,
-    required this.iloscWOpakowaniu,
-    required this.kosztDostawy,
+    this.iloscWOpakowaniu,
+    this.kosztDostawy,
     required this.zwrot,
     required this.link,
     required this.komentarz,
@@ -159,7 +160,7 @@ class ExpensesListElementModel {
       toBeDeleted: map['toBeDeleted'] ?? false,
     );
   }
-  
+
   ExpensesListElementModel copyWith({
     String? localId,
     String? firebaseId,
@@ -200,5 +201,29 @@ class ExpensesListElementModel {
       toBeUpdated: toBeUpdated ?? this.toBeUpdated,
       toBeDeleted: toBeDeleted ?? this.toBeDeleted,
     );
+  }
+
+  bool equalsIgnoringHashCode(ExpensesListElementModel other) {
+    return localId == other.localId &&
+           firebaseId == other.firebaseId &&
+           data == other.data &&
+           sklep == other.sklep &&
+           kategoria == other.kategoria &&
+           produkt == other.produkt &&
+           ilosc == other.ilosc &&
+           cena == other.cena &&
+           miara == other.miara &&
+           miaraUnit == other.miaraUnit &&
+           iloscWOpakowaniu == other.iloscWOpakowaniu &&
+           pricePerPiece == other.pricePerPiece &&
+           pricePerKg == other.pricePerKg &&
+           kosztDostawy == other.kosztDostawy &&
+           zwrot == other.zwrot &&
+           totalCost == other.totalCost &&
+           link == other.link &&
+           komentarz == other.komentarz &&
+           toBeSent == other.toBeSent &&
+           toBeUpdated == other.toBeUpdated &&
+           toBeDeleted == other.toBeDeleted;
   }
 }

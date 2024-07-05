@@ -6,13 +6,14 @@ import '../../Repositories/Local Data/expenses_list_element.dart';
 import '../../Repositories/Local Data/expenses_provider.dart';
 import '../../Repositories/Online Data/firestore.dart';
 import 'package:expenses_app_project/main.dart';
-import 'expense_loader.dart';
-import 'package:flutter/material.dart';
+import '../../Authentication/auth_service.dart';
 import '../../Filters/filter_utils.dart';
+import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'add_expense_page.dart';
-import 'expense_tile.dart';
+import 'expense_loader.dart';
 import 'expense_utils.dart';
+import 'expense_tile.dart';
 
 class ExpensesPage extends StatefulWidget {
   const ExpensesPage({super.key});
@@ -30,7 +31,7 @@ class ExpensesPageState extends State<ExpensesPage> {
   Set<int> expandedTiles = {};
 
   FirestoreService firestore = FirestoreService();
-  ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>('expenses_local'));
+  ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>(AuthService().getBoxName()));
 
   DateTime? _currentStartDate = DateTime.now().subtract(const Duration(days: 30));
   DateTime? _currentEndDate = DateTime.now();

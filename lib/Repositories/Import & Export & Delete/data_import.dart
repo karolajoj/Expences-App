@@ -1,5 +1,6 @@
 import 'package:expenses_app_project/Utils/utils.dart';
 import '../Local Data/expenses_list_element.dart';
+import '../../Authentication/auth_service.dart';
 import 'package:expenses_app_project/main.dart';
 import 'package:file_picker/file_picker.dart';
 import '../Local Data/expenses_provider.dart';
@@ -12,7 +13,7 @@ import 'data_utils.dart';
 import 'dart:convert';
 import 'dart:io';
 
-ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>('expenses_local'));
+ExpensesProvider expensesProvider = ExpensesProvider(Hive.box<ExpensesListElementModel>(AuthService().getBoxName()));
 
 Future<void> loadCSV(
   Function(void Function()) setState,
@@ -95,7 +96,7 @@ Future<void> _handleCSVData(
     updateDateColorMap(filteredData, dateColorMap);
   });
 
-  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+  var box = await Hive.openBox<ExpensesListElementModel>(AuthService().getBoxName());
 
   for (var expense in csvDataList) {
     await box.put(expense.localId, expense);

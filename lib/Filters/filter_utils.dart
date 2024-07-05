@@ -1,4 +1,5 @@
 import '../../Repositories/Local Data/expenses_list_element.dart';
+import '../Authentication/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'filter_date_options.dart';
 import 'package:intl/intl.dart';
@@ -301,7 +302,7 @@ List<String> _allKategorie = [];
 List<String> _allProdukty = [];
 
 Future<void> loadAllSuggestions(Function setState) async {
-  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+  var box = await Hive.openBox<ExpensesListElementModel>(AuthService().getBoxName());
   var allExpenses = box.values.toList();
   _allSklepy = allExpenses.map((expense) => expense.sklep.trim()).where((sklep) => sklep.isNotEmpty).toSet().toList()..sort();
   _allKategorie = allExpenses.map((expense) => expense.kategoria.trim()).where((kategoria) => kategoria.isNotEmpty).toSet().toList()..sort();

@@ -1,5 +1,6 @@
 import '../../../Repositories/Local Data/expenses_list_element.dart';
 import '../../Repositories/Online Data/sync_service.dart';
+import '../../Authentication/auth_service.dart';
 import '../../Filters/filter_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
@@ -19,7 +20,7 @@ Future<void> loadOrRefreshLocalData(
   bool isAscending,
   GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey,
 ) async {
-  var box = await Hive.openBox<ExpensesListElementModel>('expenses_local');
+  var box = await Hive.openBox<ExpensesListElementModel>(AuthService().getBoxName());
   List<ExpensesListElementModel> localData = box.values.toList();
 
   setState(() {

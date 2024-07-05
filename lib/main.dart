@@ -7,6 +7,7 @@ import 'Repositories/Online Data/sync_service.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:workmanager/workmanager.dart';
+import 'Authentication/auth_service.dart';
 import 'package:flutter/material.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
@@ -20,7 +21,7 @@ Future<void> main() async {
 
   await Hive.initFlutter();
   Hive.registerAdapter(ExpensesListElementModelAdapter());
-  await Hive.openBox<ExpensesListElementModel>('expenses_local');
+  await Hive.openBox<ExpensesListElementModel>(AuthService().getBoxName());
 
   var initializationSettingsAndroid = const AndroidInitializationSettings('@mipmap/ic_launcher');
   var initializationSettings = InitializationSettings(android: initializationSettingsAndroid);
